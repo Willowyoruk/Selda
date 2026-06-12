@@ -1,109 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selda Mediterranean | Authentic Turkish Restaurant</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Precise Brand Styling Sync */
-        body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: #222222; }
-        header { background-color: #111111; border-bottom: 2px solid #dfb15b; } 
-        .logo { font-family: 'Cinzel', serif; color: #dfb15b; font-weight: 600; } 
-        nav ul li a { font-weight: 500; letter-spacing: 1.5px; }
-        nav ul li a:hover { color: #dfb15b; }
-        
-        /* Hero Styling */
-        .hero { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200') center/cover; height: 45vh; }
-        .hero-content h1 { font-family: 'Cinzel', serif; font-size: 38px; color: #ffffff; letter-spacing: 2px; }
-        .hero-content p { font-weight: 300; color: #f4f4f4; letter-spacing: 1px; }
-        .btn { background-color: #dfb15b; color: #111111; font-weight: 600; border-radius: 0px; letter-spacing: 1px; } 
-        .btn:hover { background-color: #c99e4b; }
-        
-        /* Layout Grid & Cards */
-        .locations-section h2 { font-family: 'Cinzel', serif; color: #111111; font-weight: 700; letter-spacing: 2px; }
-        .section-subtitle { font-weight: 400; color: #666666; font-size: 15px; }
-        .card { max-width: 380px; background: #ffffff; border: 1px solid #e5e5e5; border-radius: 0px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .card-info h3 { font-family: 'Cinzel', serif; color: #111111; font-weight: 600; letter-spacing: 1px; }
-        .address-text { font-size: 13px; color: #444444; margin: 12px 0; font-weight: 500; display: block; line-height: 1.4; }
-        .map-container { width: 100%; height: 210px; border-bottom: 1px solid #e5e5e5; }
-        .map-container iframe { width: 100%; height: 100%; border: 0; }
-        .location-btn { border: 1px solid #111111; color: #111111; font-weight: 600; border-radius: 0px; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; transition: all 0.3s ease; }
-        .location-btn:hover { background-color: #111111; color: #dfb15b; border-color: #111111; }
-        footer { background-color: #111111; color: #888888; border-top: 3px solid #dfb15b; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selda Restaurant</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <header>
-        <div class="logo">SELDA</div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#locations">Locations</a></li>
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">About Us</a></li>
-            </ul>
-        </nav>
-    </header>
+<!-- HERO -->
+<header class="hero">
+  <div class="overlay"></div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Savor the Mediterranean</h1>
-            <p>A celebration of authentic Turkish flavors and warm hospitality across Texas.</p>
-            <a href="#locations" class="btn">Explore Our Locations</a>
-        </div>
-    </section>
+  <div class="hero-content">
+    <h1>SELDA</h1>
+    <p>Elevated Turkish & Mediterranean Cuisine</p>
 
-    <section id="locations" class="locations-section">
-        <h2>Our Locations</h2>
-        <p class="section-subtitle">Visit a destination near you for an unforgettable dining experience</p>
-        
-        <div class="location-cards">
-            
-            <div class="card">
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3471.554030614051!2d-98.5606622!3d29.5293671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c5e37f26792db%3A0xe72688825cba3390!2s9955%20I-10%20West%2C%20San%20Antonio%2C%20TX%2078230!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <div class="card-info">
-                    <h3>San Antonio</h3>
-                    <span class="address-text">📍 9955 I-10 W<br>San Antonio, TX 78230</span>
-                    <p>Experience our signature dishes and warm hospitality in the heart of San Antonio. Perfect for family gatherings.</p>
-                    <a href="sanantonio/index.html" class="location-btn">View San Antonio Details</a>
-                </div>
-            </div>
+    <div class="buttons">
+      <a href="#locations" class="btn">Locations</a>
+      <a href="https://www.opentable.com/" target="_blank" class="btn-outline">Reserve</a>
+    </div>
+  </div>
+</header>
 
-            <div class="card">
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3348.167382436829!2d-96.8041075!3d32.9928509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c219cb816eb0b%3A0xc6cb556fb966f97f!2s6006%20Belt%20Line%20Rd%2C%20Dallas%2C%20TX%2075254!5e0!3m2!1sen!2sus!4v1710000000001!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <div class="card-info">
-                    <h3>Dallas</h3>
-                    <span class="address-text">📍 6006 Belt Line Rd<br>Dallas, TX 75254</span>
-                    <p>Our flagship Dallas location brings the authentic energy, spices, and tradition of the Mediterranean to the metroplex.</p>
-                    <a href="https://seldadallas.com" target="_blank" rel="noopener noreferrer" class="location-btn">View Dallas Details</a>
-                </div>
-            </div>
+<!-- ABOUT -->
+<section class="section">
+  <h2>About Selda</h2>
+  <p>
+    Selda is an elevated Turkish & Mediterranean dining experience rooted in hospitality,
+    bold flavors, and modern presentation. From charcoal-grilled kebabs to fresh meze,
+    every dish is crafted with intention.
+  </p>
+</section>
 
-            <div class="card">
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3341.365313543209!2d-96.8407883!3d33.1128362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c3ca8cb521c7d%3A0x6b6378e9b67104b2!2s9250%20Dallas%20Pkwy%20Ste%20130%2C%20Frisco%2C%20TX%2075033!5e0!3m2!1sen!2sus!4v1710000000002!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <div class="card-info">
-                    <h3>Frisco</h3>
-                    <span class="address-text">📍 9250 Dallas Parkway, Ste 130<br>Frisco, TX 75033</span>
-                    <p>Join us at our vibrant Frisco destination featuring modern twists on traditional Turkish and Mediterranean favorites.</p>
-                    <a href="frisco/index.html" class="location-btn">View Frisco Details</a>
-                </div>
-            </div>
+<!-- FEATURED DISHES -->
+<section class="section dark">
+  <h2>Featured Dishes</h2>
 
-        </div>
-    </section>
+  <div class="grid">
+    <img src="assets/bronzino.jpg" alt="Branzino">
+    <img src="assets/lamb-shish.jpg" alt="Lamb Shish">
+    <img src="assets/shishito.jpg" alt="Shishito Peppers">
+  </div>
+</section>
 
-    <footer>
-        <p>© 2026 Selda Restaurant. All rights reserved.</p>
-    </footer>
+<!-- LOCATIONS -->
+<section id="locations" class="section">
+  <h2>Locations</h2>
+
+  <div class="locations">
+
+    <div class="card featured">
+      <h3>San Antonio</h3>
+      <p>9955 I-10 W, San Antonio, TX 78230</p>
+      <p>210-236-5230</p>
+
+      <div class="card-buttons">
+        <a class="btn" href="https://www.google.com/maps?q=9955+I-10+W+San+Antonio+TX+78230" target="_blank">Directions</a>
+        <a class="btn-outline" href="https://www.opentable.com/" target="_blank">Reserve</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Dallas</h3>
+      <p>6006 Belt Line Rd, Dallas, TX</p>
+
+      <div class="card-buttons">
+        <a class="btn-outline" href="https://seldadallas.com" target="_blank">Visit Dallas</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Frisco</h3>
+      <p>9250 Dallas Pkwy Ste 130, Frisco, TX 75033</p>
+
+      <div class="card-buttons">
+        <a class="btn-outline" href="https://seldadallas.com" target="_blank">Visit Frisco</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ORDER ONLINE -->
+<section class="section dark">
+  <h2>Order Online</h2>
+
+  <div class="grid small">
+    <a href="#" class="order">Uber Eats</a>
+    <a href="#" class="order">DoorDash</a>
+    <a href="#" class="order">Grubhub</a>
+    <a href="#" class="order">ZingMyOrder</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© Selda Restaurant</p>
+
+  <div class="socials">
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+    <a href="#">TikTok</a>
+    <a href="#">YouTube</a>
+    <a href="#">Google Reviews</a>
+  </div>
+</footer>
 
 </body>
 </html>
