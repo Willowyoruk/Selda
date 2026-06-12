@@ -3,290 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Selda Mediterranean Kitchen & Bar | Authentic Turkish Mediterranean Cuisine</title>
+  <title>Selda Mediterranean Kitchen & Bar | Fine Turkish Cuisine</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  <style>
-    /* --- Premium Brand Style Guide --- */
-    :root {
-      --bg-light: #ffffff;
-      --bg-alt: #fcfbfa;
-      --charcoal: #111111;
-      --text-muted: #666666;
-      --gold: #dfb15b;
-      --gold-hover: #c99e4b;
-      --border-color: #e5e5e5;
-    }
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
+  <header>
+    <div class="logo">SELDA</div>
+    <div class="cta">
+      <a class="btn primary" href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank">
+        Reserve A Table
+      </a>
+      <a class="btn secondary" href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">
+        Order Online
+      </a>
+    </div>
+  </header>
 
-    body {
-      background-color: var(--bg-light);
-      color: var(--charcoal);
-      line-height: 1.6;
-    }
+  <section id="story" class="section story-section">
+    <div class="section-container">
+      <span class="section-subtitle">Discover</span>
+      <h2>Our Story</h2>
+      <div class="accent-line"></div>
+      <p class="lead-text">
+        Selda Mediterranean Kitchen & Bar is a modern expression of Turkish and Mediterranean cuisine,
+        centered on fire-grilled meats, seasonal mezze, and elevated hospitality.
+      </p>
+    </div>
+  </section>
 
-    /* --- Universal Helper Classes --- */
-    .section {
-      padding: 100px 5% 80px 5%;
-      text-align: center;
-    }
-    
-    .section.alt {
-      background-color: var(--bg-alt);
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
-    }
+  <section id="featured" class="section alt">
+    <div class="section-container">
+      <span class="section-subtitle">Curated Culinary</span>
+      <h2>Featured Dishes</h2>
+      <div class="accent-line"></div>
+      
+      <div class="grid">
+        <div class="img-wrapper">
+          <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=600" alt="Branzino">
+          <div class="img-caption">Fresh Branzino</div>
+        </div>
+        <div class="img-wrapper">
+          <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?q=80&w=600" alt="Lamb Shish">
+          <div class="img-caption">Signature Lamb Shish</div>
+        </div>
+        <div class="img-wrapper">
+          <img src="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?q=80&w=600" alt="Shishito Peppers">
+          <div class="img-caption">Blistered Shishito Peppers</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    .section-container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+  <section id="locations" class="section">
+    <div class="section-container">
+      <span class="section-subtitle">Join Us</span>
+      <h2>Our Locations</h2>
+      <div class="accent-line"></div>
 
-    .section-subtitle {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
+      <div class="locations-grid">
+        <div class="card highlight">
+          <span class="card-badge">Current Location</span>
+          <h3>San Antonio</h3>
+          <p class="address">9955 I-10 W<br>San Antonio, TX 78230</p>
+          <p class="phone">210-236-5230</p>
 
-    h2 {
-      font-family: 'Cinzel', serif;
-      font-size: 36px;
-      font-weight: 400;
-      letter-spacing: 2px;
-      color: var(--charcoal);
-    }
+          <div class="card-links">
+            <a href="https://maps.google.com/?q=9955+I-10+W,+San+Antonio,+TX+78230" target="_blank" class="card-btn">Get Directions</a>
+            <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank" class="card-btn primary-card-btn">Book OpenTable</a>
+          </div>
+        </div>
 
-    .accent-line {
-      width: 50px;
-      height: 2px;
-      background-color: var(--gold);
-      margin: 20px auto 40px auto;
-    }
+        <div class="card">
+          <h3>Dallas</h3>
+          <p class="address">6006 Belt Line Rd<br>Dallas, TX 75254</p>
+          <p class="phone">972-662-8847</p>
+          <div class="card-links">
+            <a href="https://seldadallas.com" target="_blank" class="card-btn">Visit Website</a>
+          </div>
+        </div>
 
-    /* --- Premium Header & Buttons --- */
-    header {
-      background-color: var(--charcoal);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 25px 5%;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 2px solid var(--gold);
-    }
+        <div class="card">
+          <h3>Frisco</h3>
+          <p class="address">9250 Dallas Pkwy<br>Suite 130, Frisco, TX 75033</p>
+          <p class="phone">&nbsp;</p>
+          <div class="card-links">
+            <a href="https://seldadallas.com" target="_blank" class="card-btn">Visit Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    .logo {
-      font-family: 'Cinzel', serif;
-      font-size: 26px;
-      font-weight: 600;
-      letter-spacing: 4px;
-      color: var(--gold);
-    }
+  <section id="order" class="section alt">
+    <div class="section-container">
+      <span class="section-subtitle">Savor At Home</span>
+      <h2>Order Online</h2>
+      <div class="accent-line"></div>
 
-    .cta {
-      display: flex;
-      gap: 15px;
-    }
+      <div class="order-grid">
+        <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">
+          <strong>Direct Order</strong>
+          <span>Best Price Guaranteed</span>
+        </a>
+        <a href="https://www.ubereats.com/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank">Uber Eats</a>
+        <a href="https://www.doordash.com/store/selda-mediterranean-kitchen-san-antonio-30359031/39770147/" target="_blank">DoorDash</a>
+        <a href="https://www.grubhub.com/restaurant/selda-mediterranean-kitchen-9955-frontage-road-san-antonio/10315360" target="_blank">Grubhub</a>
+      </div>
+    </div>
+  </section>
 
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      font-size: 12px;
-      text-transform: uppercase;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border-radius: 0px;
-    }
+  <footer>
+    <div class="footer-container">
+      <p class="footer-brand">SELDA</p>
+      <p class="footer-copy">© 2026 Selda Mediterranean Kitchen & Bar. All Rights Reserved.</p>
 
-    .btn.primary {
-      background-color: var(--gold);
-      color: var(--charcoal);
-    }
+      <div class="socials">
+        <a href="https://instagram.com/seldasanantonio" target="_blank">Instagram</a>
+        <a href="https://facebook.com/seldasanantonio" target="_blank">Facebook</a>
+        <a href="https://www.tiktok.com/@seldamediterranean" target="_blank">TikTok</a>
+        <a href="https://www.youtube.com/@seldatexas" target="_blank">YouTube</a>
+      </div>
+    </div>
+  </footer>
 
-    .btn.primary:hover {
-      background-color: var(--gold-hover);
-    }
-
-    .btn.secondary {
-      border: 1px solid #ffffff;
-      color: #ffffff;
-    }
-
-    .btn.secondary:hover {
-      background-color: #ffffff;
-      color: var(--charcoal);
-    }
-
-    /* --- Our Story Section --- */
-    .lead-text {
-      max-width: 750px;
-      margin: 0 auto;
-      font-size: 18px;
-      font-weight: 300;
-      color: #444444;
-      line-height: 1.8;
-      letter-spacing: 0.5px;
-    }
-
-    /* --- Featured Dishes Section --- */
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .img-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 340px;
-      height: 380px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-
-    .img-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-
-    .img-wrapper:hover img {
-      transform: scale(1.06);
-    }
-
-    .img-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: linear-gradient(transparent, rgba(0,0,0,0.8));
-      color: #ffffff;
-      padding: 30px 20px 20px 20px;
-      font-family: 'Cinzel', serif;
-      font-size: 18px;
-      letter-spacing: 1px;
-      text-align: left;
-    }
-
-    /* --- Luxury Locations Cards --- */
-    .locations-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-    }
-
-    .card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      width: 100%;
-      max-width: 340px;
-      padding: 40px 30px;
-      text-align: left;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.02);
-    }
-
-    .card.highlight {
-      border: 1px solid var(--gold);
-    }
-
-    .card-badge {
-      position: absolute;
-      top: -12px;
-      left: 30px;
-      background-color: var(--gold);
-      color: var(--charcoal);
-      font-size: 10px;
-      text-transform: uppercase;
-      font-weight: 600;
-      letter-spacing: 2px;
-      padding: 4px 12px;
-    }
-
-    .card h3 {
-      font-family: 'Cinzel', serif;
-      font-size: 24px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin-bottom: 20px;
-      color: var(--charcoal);
-    }
-
-    .address, .phone {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 15px;
-      font-weight: 400;
-    }
-
-    .phone {
-      margin-bottom: 35px;
-      font-weight: 500;
-      color: var(--charcoal);
-    }
-
-    .card-links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .card-btn {
-      display: block;
-      text-align: center;
-      padding: 12px;
-      font-size: 11px;
-      text-transform: uppercase;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-decoration: none;
-      border: 1px solid var(--charcoal);
-      color: var(--charcoal);
-      transition: all 0.3s ease;
-    }
-
-    .card-btn:hover {
-      background-color: var(--charcoal);
-      color: #ffffff;
-    }
-
-    .card-btn.primary-card-btn {
-      background-color: var(--gold);
-      border-color: var(--gold);
-      color: var(--charcoal);
-    }
-
-    .card-btn.primary-card-btn:hover {
-      background-color: var(--charcoal);
-      color: var(--gold);
-      border-color: var(--charcoal);
-    }
-
-    /* --- Minimal Online Ordering Blocks --- */
-    .order-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 20px;
-    }
+</body>
+</html>
