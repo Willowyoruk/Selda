@@ -4,7 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selda Restaurant | Fine Mediterranean & Turkish Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Mediterranean Color Theme Overrides */
+        body { font-family: 'Montserrat', sans-serif; background-color: #fbf9f4; }
+        header { background-color: #0b2545; } /* Deep Aegean Navy */
+        .logo { font-family: 'Cinzel', serif; color: #dfb15b; } /* Turkish Gold */
+        nav ul li a:hover { color: #dfb15b; }
+        .hero { background: linear-gradient(rgba(11, 37, 69, 0.7), rgba(212, 114, 56, 0.4)), url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200') center/cover; height: 50vh; }
+        .hero-content h1 { font-family: 'Cinzel', serif; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .btn { background-color: #d47238; color: white; } /* Terracotta Orange Accent */
+        .btn:hover { background-color: #b85c27; }
+        
+        /* Maps and Layout Upgrades */
+        .locations-section h2 { font-family: 'Cinzel', serif; color: #0b2545; }
+        .card { max-width: 380px; background: #fff; border: 1px solid #eadecc; }
+        .card-info h3 { font-family: 'Cinzel', serif; color: #0b2545; font-weight: 700; }
+        .address-text { font-size: 14px; color: #666; margin: 10px 0; font-weight: 600; display: block; }
+        .map-container { width: 100%; height: 200px; background: #eee; border-top: 1px solid #eadecc; overflow: hidden; }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
+        .location-btn { border: 2px solid #d47238; color: #d47238; }
+        .location-btn:hover { background-color: #d47238; color: white; }
+        footer { background-color: #0b2545; color: #a3b1c6; }
+    </style>
 </head>
 <body>
 
@@ -21,10 +44,9 @@
     </header>
 
     <section class="hero">
-        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Experience Authentic Mediterranean</h1>
-            <p>A culinary journey of rich flavors, fresh ingredients, and traditional Turkish hospitality.</p>
+            <p>A culinary journey of rich Turkish flavors, fresh ingredients, and traditional hospitality.</p>
             <a href="#locations" class="btn">Explore Our Locations</a>
         </div>
     </section>
@@ -34,32 +56,43 @@
         <p class="section-subtitle">Visit us in Texas for an unforgettable dining experience</p>
         
         <div class="location-cards">
+            
             <div class="card">
-                <div class="card-image sa-bg"></div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3469.757017684033!2d-98.56306502361664!3d29.537968542316496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c5e3170e7a2b9%3A0xb65529f552f4be8c!2s9955%20I-10%20W%2C%20San%20Antonio%2C%20TX%2078230!5e0!3m2!1sen!2sus!4v1718220000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
                 <div class="card-info">
                     <h3>San Antonio</h3>
+                    <span class="address-text">📍 9955 I-10 W, San Antonio, TX 78230</span>
                     <p>Experience our signature dishes and warm hospitality in the heart of San Antonio. Perfect for family gatherings.</p>
                     <a href="sanantonio/index.html" class="location-btn">View San Antonio Details</a>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-image dallas-bg"></div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.118671318042!2d-96.80556112348574!3d32.954511074558550!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c217db5555555%3A0x7ccb9f71c48dc297!2s6006%20Belt%20Line%20Rd%2C%20Dallas%2C%20TX%2075254!5e0!3m2!1sen!2sus!4v1718220000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
                 <div class="card-info">
                     <h3>Dallas</h3>
+                    <span class="address-text">📍 6006 Belt Line Rd, Dallas, TX 75254</span>
                     <p>Our flagship Dallas location brings the authentic energy, spices, and tradition of the Mediterranean to the metroplex.</p>
                     <a href="https://seldadallas.com" target="_blank" rel="noopener noreferrer" class="location-btn">View Dallas Details</a>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-image frisco-bg"></div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3341.258525049929!2d-96.84074212347847!3d33.11522066645391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c3ca655555555%3A0x4a1ff93fb25a1728!2s9250%20Dallas%20Pkwy%20%23130%2C%20Frisco%2C%20TX%2075033!5e0!3m2!1sen!2sus!4v1718220000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
                 <div class="card-info">
                     <h3>Frisco</h3>
+                    <span class="address-text">📍 9250 Dallas Pkwy Ste 130, Frisco, TX 75033</span>
                     <p>Join us at our vibrant Frisco destination featuring modern twists on traditional Turkish and Mediterranean favorites.</p>
                     <a href="frisco/index.html" class="location-btn">View Frisco Details</a>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -69,4 +102,3 @@
 
 </body>
 </html>
-
