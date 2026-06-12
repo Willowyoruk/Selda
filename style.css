@@ -1,35 +1,57 @@
- .footer {
-  padding: 50px 20px;
-  text-align: center;
-  background: #1f1f1f;
-  color: white;
-}
-
-.footer p {
-  margin-bottom: 20px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-}
-
-.socials {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 15px;
-}
-
-.socials a {
-  color: white;
+a {
   text-decoration: none;
-  font-size: 14px;
-  padding: 8px 12px;
-  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* PRIMARY BUTTON (RESERVE / ORDER) */
+.btn-primary {
+  display: inline-block;
+  padding: 14px 22px;
   border-radius: 6px;
+  background: #c6a15b;
+  color: #0f0f0f;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-align: center;
   transition: 0.2s ease;
 }
 
-.socials a:hover {
-  background: #b89a5c;
-  border-color: #b89a5c;
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: #d4b46a;
+}
+
+/* SECONDARY BUTTON */
+.btn-outline {
+  display: inline-block;
+  padding: 14px 22px;
+  border-radius: 6px;
+  border: 1px solid #c6a15b;
+  color: #c6a15b;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-align: center;
+  transition: 0.2s ease;
+}
+
+.btn-outline:hover {
+  background: #c6a15b;
+  color: #0f0f0f;
+}
+
+/* SMALL PILL BUTTONS (SOCIAL / DELIVERY LINKS) */
+.pill {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  color: #f5f1e8;
+  font-size: 12px;
+  transition: 0.2s ease;
+}
+
+.pill:hover {
+  border-color: #c6a15b;
+  color: #c6a15b;
 }
