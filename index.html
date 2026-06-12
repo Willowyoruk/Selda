@@ -3,115 +3,150 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Selda Mediterranean Kitchen & Bar San Antonio</title>
+  <title>Selda Mediterranean Kitchen & Bar | San Antonio</title>
 
   <link rel="stylesheet" href="style.css">
 
-  <!-- Luxury typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="overlay"></div>
-
-  <div class="hero-inner">
-    <h1>SELDA</h1>
-    <p>Mediteranean Kitchen & Bar · San Antonio</p>
-
-    <div class="cta">
-      <a class="btn primary" href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank">
-        Reserve
-      </a>
-
-      <a class="btn secondary" href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">
-        Order Online
-      </a>
-    </div>
-  </div>
-</header>
-
-<!-- ABOUT -->
-<section class="section">
-  <h2>Our Story</h2>
-  <p>
-    Selda Mediterranean Kitchen & Bar is a modern expression of Turkish and Mediterranean cuisine,
-    centered on fire-grilled meats, seasonal mezze, and elevated hospitality.
-  </p>
-</section>
-
-<!-- FEATURED -->
-<section class="section alt">
-  <h2>Featured</h2>
-
-  <div class="grid">
-    <img src="assets/bronzino.jpg" alt="Branzino">
-    <img src="assets/lamb-shish.jpg" alt="Lamb Shish">
-    <img src="assets/shishito.jpg" alt="Shishito Peppers">
-  </div>
-</section>
-
-<!-- LOCATIONS -->
-<section class="section">
-  <h2>Locations</h2>
-
-  <div class="locations">
-
-    <div class="card highlight">
-      <h3>San Antonio</h3>
-      <p>9955 I-10 W, San Antonio, TX 78230</p>
-      <p>210-236-5230</p>
-
-      <div class="links">
-        <a href="https://www.google.com/maps?q=9955+I-10+W+San+Antonio+TX+78230" target="_blank">Directions</a>
-        <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank">OpenTable</a>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">SELDA</a>
+      <div class="nav-links">
+        <a href="#story">Our Story</a>
+        <a href="#featured">Featured</a>
+        <a href="#locations">Locations</a>
+        <a href="#order">Order Online</a>
       </div>
     </div>
+  </nav>
 
-    <div class="card">
-      <h3>Dallas</h3>
-      <p>6006 Belt Line Rd</p>
-      <a href="https://seldadallas.com" target="_blank">Visit</a>
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-inner">
+      <span class="hero-sub">Welcome to</span>
+      <h1>SELDA</h1>
+      <p class="hero-tagline">Mediterranean Kitchen & Bar · San Antonio</p>
+
+      <div class="cta">
+        <a class="btn primary" href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank">
+          Reserve A Table
+        </a>
+        <a class="btn secondary" href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">
+          Order Online
+        </a>
+      </div>
     </div>
+  </header>
 
-    <div class="card">
-      <h3>Frisco</h3>
-      <p>9250 Dallas Pkwy Ste 130</p>
-      <a href="https://seldadallas.com" target="_blank">Visit</a>
+  <section id="story" class="section story-section">
+    <div class="section-container">
+      <span class="section-subtitle">Discover</span>
+      <h2>Our Story</h2>
+      <div class="accent-line"></div>
+      <p class="lead-text">
+        Selda Mediterranean Kitchen & Bar is a modern expression of Turkish and Mediterranean cuisine,
+        centered on fire-grilled meats, seasonal mezze, and elevated hospitality.
+      </p>
     </div>
+  </section>
 
-  </div>
-</section>
+  <section id="featured" class="section alt">
+    <div class="section-container">
+      <span class="section-subtitle">Curated Culinary</span>
+      <h2>Featured Dishes</h2>
+      <div class="accent-line"></div>
+      
+      <div class="grid">
+        <div class="img-wrapper">
+          <img src="assets/bronzino.jpg" alt="Branzino">
+          <div class="img-caption">Fresh Branzino</div>
+        </div>
+        <div class="img-wrapper">
+          <img src="assets/lamb-shish.jpg" alt="Lamb Shish">
+          <div class="img-caption">Signature Lamb Shish</div>
+        </div>
+        <div class="img-wrapper">
+          <img src="assets/shishito.jpg" alt="Shishito Peppers">
+          <div class="img-caption">Blistered Shishito Peppers</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- ORDERING -->
-<section class="section alt">
-  <h2>Order Online</h2>
+  <section id="locations" class="section">
+    <div class="section-container">
+      <span class="section-subtitle">Join Us</span>
+      <h2>Our Locations</h2>
+      <div class="accent-line"></div>
 
-  <div class="order-grid">
+      <div class="locations-grid">
+        <div class="card highlight">
+          <span class="card-badge">Current Location</span>
+          <h3>San Antonio</h3>
+          <p class="address">9955 I-10 W<br>San Antonio, TX 78230</p>
+          <p class="phone">210-236-5230</p>
 
-    <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">Direct Order</a>
-    <a href="https://www.ubereats.com/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank">Uber Eats</a>
-    <a href="https://www.doordash.com/store/selda-mediterranean-kitchen-san-antonio-30359031/39770147/" target="_blank">DoorDash</a>
-    <a href="https://www.grubhub.com/restaurant/selda-mediterranean-kitchen-9955-frontage-road-san-antonio/10315360" target="_blank">Grubhub</a>
+          <div class="card-links">
+            <a href="https://www.google.com/maps?q=9955+I-10+W+San+Antonio+TX+78230" target="_blank" class="card-btn">Get Directions</a>
+            <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank" class="card-btn primary-card-btn">Book OpenTable</a>
+          </div>
+        </div>
 
-  </div>
-</section>
+        <div class="card">
+          <h3>Dallas</h3>
+          <p class="address">6006 Belt Line Rd<br>Dallas, TX</p>
+          <div class="card-links">
+            <a href="https://seldadallas.com" target="_blank" class="card-btn">Visit Website</a>
+          </div>
+        </div>
 
-<!-- FOOTER -->
-<footer>
-  <p>Selda Mediterranean Kitchen & Bar San Antonio</p>
+        <div class="card">
+          <h3>Frisco</h3>
+          <p class="address">9250 Dallas Pkwy<br>Suite 130</p>
+          <div class="card-links">
+            <a href="https://seldadallas.com" target="_blank" class="card-btn">Visit Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="socials">
-    <a href="https://instagram.com/seldasanantonio">Instagram</a>
-    <a href="https://facebook.com/seldasanantonio">Facebook</a>
-    <a href="https://www.tiktok.com/@seldamediterranean">TikTok</a>
-    <a href="https://www.youtube.com/@seldatexas">YouTube</a>
-  </div>
-</footer>
+  <section id="order" class="section alt">
+    <div class="section-container">
+      <span class="section-subtitle">Savor At Home</span>
+      <h2>Order Online</h2>
+      <div class="accent-line"></div>
+
+      <div class="order-grid">
+        <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">
+          <strong>Direct Order</strong>
+          <span>Best Price Guaranteed</span>
+        </a>
+        <a href="https://www.ubereats.com/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank">Uber Eats</a>
+        <a href="https://www.doordash.com/store/selda-mediterranean-kitchen-san-antonio-30359031/39770147/" target="_blank">DoorDash</a>
+        <a href="https://www.grubhub.com/restaurant/selda-mediterranean-kitchen-9955-frontage-road-san-antonio/10315360" target="_blank">Grubhub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <p class="footer-brand">SELDA</p>
+      <p class="footer-copy">&copy; 2026 Selda Mediterranean Kitchen & Bar. All Rights Reserved.</p>
+
+      <div class="socials">
+        <a href="https://instagram.com/seldasanantonio" target="_blank">Instagram</a>
+        <a href="https://facebook.com/seldasanantonio" target="_blank">Facebook</a>
+        <a href="https://www.tiktok.com/@seldamediterranean" target="_blank">TikTok</a>
+        <a href="https://www.youtube.com/@seldatexas" target="_blank">YouTube</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
