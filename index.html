@@ -10,18 +10,46 @@
 <body>
 
   <header>
-    <div class="logo">SELDA</div>
-    <div class="cta">
-      <a class="btn primary" href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank">
-        Reserve A Table
-      </a>
-      <a class="btn secondary" href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">
-        Order Online
-      </a>
+    <div class="header-container">
+      <div class="logo">SELDA</div>
+      
+      <div class="header-right">
+        <div class="header-socials">
+          <a href="https://facebook.com/seldasanantonio" target="_blank">FB</a>
+          <a href="https://instagram.com/seldasanantonio" target="_blank">IG</a>
+          <a href="https://www.tiktok.com/@seldamediterranean" target="_blank">TK</a>
+          <a href="https://www.youtube.com/@seldatexas" target="_blank">YT</a>
+        </div>
+        
+        <div class="header-ctas">
+          <a class="btn outline" href="assets/selda-menu.pdf" target="_blank">📄 View PDF Menu</a>
+          <a class="btn primary" href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank">Reservations</a>
+          <a class="btn secondary" href="tel:2102365230">📞 Call For Pickup</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <section id="story" class="section story-section">
+  <div class="sticky-mobile-bar">
+    <a href="tel:2102365230" class="sticky-tab">
+      <span class="icon">📞</span>
+      <span>Call Us</span>
+    </a>
+    <a href="http://googleusercontent.com/maps.google.com/8" target="_blank" class="sticky-tab">
+      <span class="icon">📍</span>
+      <span>Address</span>
+    </a>
+    <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank" class="sticky-tab">
+      <span class="icon">🍷</span>
+      <span>Reserve</span>
+    </a>
+    <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" class="sticky-tab">
+      <span class="icon">🛍️</span>
+      <span>Google/Order</span>
+    </a>
+  </div>
+
+  <section id="story" class="section">
     <div class="section-container">
       <span class="section-subtitle">Discover</span>
       <h2>Our Story</h2>
@@ -33,24 +61,59 @@
     </div>
   </section>
 
-  <section id="featured" class="section alt">
+  <section id="menu-digital" class="section alt">
     <div class="section-container">
-      <span class="section-subtitle">Curated Culinary</span>
-      <h2>Featured Dishes</h2>
+      <span class="section-subtitle">San Antonio Culinary</span>
+      <h2>Dinner Menu</h2>
       <div class="accent-line"></div>
-      
-      <div class="grid">
-        <div class="img-wrapper">
-          <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=600" alt="Branzino">
-          <div class="img-caption">Fresh Branzino</div>
+
+      <div class="menu-category-title">Small Bites & Mezze</div>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img class="menu-img-thumb" src="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?q=80&w=150" alt="Shishito Peppers">
+          <div class="menu-item-details">
+            <div class="menu-item-header">
+              <h4>Blistered Shishito Peppers</h4>
+              <span class="menu-price">$11</span>
+            </div>
+            <p class="menu-desc">Tossed with sea salt, fresh lemon juice, and an olive oil drizzle.</p>
+          </div>
         </div>
-        <div class="img-wrapper">
-          <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?q=80&w=600" alt="Lamb Shish">
-          <div class="img-caption">Signature Lamb Shish</div>
+
+        <div class="menu-item">
+          <img class="menu-img-thumb" src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=150" alt="Hummus">
+          <div class="menu-item-details">
+            <div class="menu-item-header">
+              <h4>Traditional Hummus</h4>
+              <span class="menu-price">$9</span>
+            </div>
+            <p class="menu-desc">Creamy garbanzo beans, tahini, garlic, fresh lemon, and warm pita.</p>
+          </div>
         </div>
-        <div class="img-wrapper">
-          <img src="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?q=80&w=600" alt="Shishito Peppers">
-          <div class="img-caption">Blistered Shishito Peppers</div>
+      </div>
+
+      <div class="menu-category-title">A Little More</div>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img class="menu-img-thumb" src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?q=80&w=150" alt="Lamb Shish">
+          <div class="menu-item-details">
+            <div class="menu-item-header">
+              <h4>Signature Lamb Shish</h4>
+              <span class="menu-price">$28</span>
+            </div>
+            <p class="menu-desc">Tender fire-grilled marinated lamb cubes served with seasoned rice and grilled vegetables.</p>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img class="menu-img-thumb" src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=150" alt="Branzino">
+          <div class="menu-item-details">
+            <div class="menu-item-header">
+              <h4>Fresh Branzino</h4>
+              <span class="menu-price">$34</span>
+            </div>
+            <p class="menu-desc">Whole Mediterranean wild sea bass grilled over charcoal, finished with herbs and lemon garlic butter.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -68,9 +131,7 @@
           <h3>San Antonio</h3>
           <p class="address">9955 I-10 W<br>San Antonio, TX 78230</p>
           <p class="phone">210-236-5230</p>
-
           <div class="card-links">
-            <a href="https://maps.google.com/?q=9955+I-10+W,+San+Antonio,+TX+78230" target="_blank" class="card-btn">Get Directions</a>
             <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank" class="card-btn primary-card-btn">Book OpenTable</a>
           </div>
         </div>
@@ -87,11 +148,15 @@
         <div class="card">
           <h3>Frisco</h3>
           <p class="address">9250 Dallas Pkwy<br>Suite 130, Frisco, TX 75033</p>
-          <p class="phone">&nbsp;</p>
+          <p class="phone"> </p>
           <div class="card-links">
             <a href="https://seldadallas.com" target="_blank" class="card-btn">Visit Website</a>
           </div>
         </div>
+      </div>
+
+      <div class="map-section-container">
+        <iframe src="http://googleusercontent.com/maps.google.com/9" allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>
   </section>
@@ -101,7 +166,6 @@
       <span class="section-subtitle">Savor At Home</span>
       <h2>Order Online</h2>
       <div class="accent-line"></div>
-
       <div class="order-grid">
         <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">
           <strong>Direct Order</strong>
@@ -115,17 +179,8 @@
   </section>
 
   <footer>
-    <div class="footer-container">
-      <p class="footer-brand">SELDA</p>
-      <p class="footer-copy">© 2026 Selda Mediterranean Kitchen & Bar. All Rights Reserved.</p>
-
-      <div class="socials">
-        <a href="https://instagram.com/seldasanantonio" target="_blank">Instagram</a>
-        <a href="https://facebook.com/seldasanantonio" target="_blank">Facebook</a>
-        <a href="https://www.tiktok.com/@seldamediterranean" target="_blank">TikTok</a>
-        <a href="https://www.youtube.com/@seldatexas" target="_blank">YouTube</a>
-      </div>
-    </div>
+    <p class="footer-brand">SELDA</p>
+    <p class="footer-copy">© 2026 Selda Mediterranean Kitchen & Bar. All Rights Reserved.</p>
   </footer>
 
 </body>
