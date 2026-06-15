@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selda Mediterranean Kitchen - Upscale Turkish Dining</title>
+    <title>Selda Mediterranean Kitchen - Upscale Turkish Dining in Texas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,34 +15,34 @@
         }
 
         :root {
-            --primary-gold: #D4AF37;
-            --dark-blue: #1a3a52;
-            --terracotta: #C85A3A;
-            --cream: #F5F1E8;
-            --dark-text: #2c2c2c;
-            --light-text: #666;
+            --primary-gold: #C9A961;
+            --dark-blue: #0F1B2E;
+            --cream: #F9F7F4;
+            --light-cream: #FAF8F5;
+            --dark-text: #1a1a1a;
+            --light-text: #5a5a5a;
+            --accent-gold: #B8956A;
         }
 
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
+            font-family: 'Lato', sans-serif;
+            line-height: 1.7;
             color: var(--dark-text);
             background-color: var(--cream);
         }
 
         /* Header & Navigation */
         header {
-            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--terracotta) 100%);
-            color: white;
-            padding: 1rem 0;
+            background-color: var(--dark-blue);
+            padding: 1.5rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .header-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
@@ -48,19 +51,25 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
+            font-size: 2rem;
+            font-weight: 700;
             color: var(--primary-gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 3rem;
         }
 
         nav a {
-            color: white;
+            color: var(--cream);
             text-decoration: none;
-            margin-left: 2rem;
             font-size: 0.95rem;
-            transition: color 0.3s;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
         }
 
         nav a:hover {
@@ -69,14 +78,11 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(26, 58, 82, 0.7), rgba(200, 90, 58, 0.7)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="30" fill="none" stroke="%23D4AF37" stroke-width="2" opacity="0.1"/></pattern></defs><rect width="1200" height="600" fill="%231a3a52"/><rect width="1200" height="600" fill="url(%23pattern)"/></svg>');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, #0F1B2E 0%, #1a2f3f 100%);
             color: white;
             text-align: center;
-            padding: 120px 2rem;
-            min-height: 600px;
+            padding: 150px 2rem;
+            min-height: 650px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -84,23 +90,26 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
+            font-family: 'Playfair Display', serif;
             margin-bottom: 1rem;
             color: var(--primary-gold);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 700;
             letter-spacing: 1px;
         }
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 2rem;
-            max-width: 600px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            max-width: 700px;
+            color: var(--light-cream);
+            font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
             margin-top: 2rem;
@@ -108,13 +117,13 @@
 
         .btn {
             padding: 1rem 2.5rem;
-            font-size: 1rem;
+            font-size: 0.95rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 0;
             cursor: pointer;
             text-decoration: none;
-            transition: all 0.3s;
-            font-weight: bold;
+            transition: all 0.3s ease;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
             display: inline-block;
@@ -126,242 +135,365 @@
         }
 
         .btn-primary:hover {
-            background-color: #E5C158;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            background-color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.3);
         }
 
         .btn-secondary {
-            background-color: var(--terracotta);
-            color: white;
+            background-color: transparent;
+            color: var(--primary-gold);
+            border: 2px solid var(--primary-gold);
         }
 
         .btn-secondary:hover {
-            background-color: #B84829;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(200, 90, 58, 0.3);
+            background-color: var(--primary-gold);
+            color: var(--dark-blue);
+            transform: translateY(-2px);
         }
 
         /* Main Content */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
         section {
-            padding: 5rem 0;
-            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
-        }
-
-        section:last-child {
-            border-bottom: none;
+            padding: 6rem 0;
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
             color: var(--dark-blue);
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             text-align: center;
-            position: relative;
-            padding-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
         h2::after {
             content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
+            display: block;
+            width: 80px;
+            height: 2px;
             background: var(--primary-gold);
+            margin: 1.5rem auto 0;
         }
 
         /* About Section */
+        #about {
+            background-color: var(--light-cream);
+        }
+
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
-        }
-
-        .about-text h3 {
-            color: var(--terracotta);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
         }
 
         .about-text p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--light-text);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             line-height: 1.8;
+            letter-spacing: 0.3px;
+        }
+
+        .about-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
         }
 
         .about-image {
-            background: linear-gradient(135deg, var(--dark-blue), var(--terracotta));
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            color: white;
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
+            border-radius: 2px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            aspect-ratio: 1;
         }
 
-        .about-image p {
-            font-size: 1.3rem;
-            font-style: italic;
-            color: var(--primary-gold);
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-image.full {
+            grid-column: 1 / -1;
+            aspect-ratio: 2 / 1;
         }
 
         /* Locations Section */
+        #locations {
+            background-color: var(--cream);
+        }
+
         .locations-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 3rem;
         }
 
         .location-card {
             background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            border-left: 5px solid var(--terracotta);
+            border-radius: 0;
+            padding: 3rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
         }
 
         .location-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
         }
 
-        .location-card h3 {
+        .location-info h3 {
             color: var(--dark-blue);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .location-info p {
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .location-card p {
-            margin-bottom: 0.8rem;
             color: var(--light-text);
+            font-size: 1rem;
         }
 
-        .location-card .address {
-            font-weight: bold;
+        .address-text {
+            font-weight: 600;
             color: var(--dark-text);
+            margin-bottom: 0.5rem;
         }
 
-        .location-card .phone {
-            color: var(--terracotta);
-            font-weight: bold;
+        .phone-text {
+            color: var(--primary-gold);
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
-        .location-card a {
+        .location-links {
+            margin-top: 2rem;
+        }
+
+        .location-links a {
             display: inline-block;
-            margin-top: 1rem;
+            margin-right: 1rem;
+            margin-bottom: 0.5rem;
             color: var(--primary-gold);
             text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .location-card a:hover {
-            color: var(--terracotta);
+        .location-links a:hover {
+            color: var(--accent-gold);
         }
 
-        /* Ordering Platforms */
-        .platforms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+        .map-container {
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            min-height: 400px;
         }
 
-        .platform-btn {
-            background: white;
-            border: 2px solid var(--primary-gold);
-            padding: 2rem;
-            border-radius: 10px;
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Menu Section */
+        #menu {
+            background-color: var(--light-cream);
+        }
+
+        .menu-content {
             text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .platform-btn:hover {
-            background-color: var(--primary-gold);
-            transform: translateY(-5px);
-        }
-
-        .platform-btn:hover p {
-            color: var(--dark-blue);
-        }
-
-        .platform-btn p {
-            font-weight: bold;
-            color: var(--dark-blue);
+        .menu-description {
             font-size: 1.1rem;
-            transition: color 0.3s;
+            color: var(--light-text);
+            margin-bottom: 2rem;
+            line-height: 1.8;
         }
 
-        .platform-icon {
-            font-size: 2.5rem;
+        .menu-button {
+            padding: 1.2rem 3rem;
+            font-size: 1rem;
+            background-color: var(--primary-gold);
+            color: var(--dark-blue);
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+
+        .menu-button:hover {
+            background-color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.3);
+        }
+
+        /* Amenities Section */
+        #amenities {
+            background-color: var(--cream);
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .amenity-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .amenity-card:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .amenity-card h3 {
+            color: var(--dark-blue);
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .amenity-card p {
+            color: var(--light-text);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Catering Section */
+        #catering {
+            background-color: var(--dark-blue);
+            color: var(--cream);
+        }
+
+        #catering h2 {
+            color: var(--primary-gold);
+        }
+
+        .catering-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .catering-text {
+            font-size: 1.1rem;
+            color: var(--light-cream);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+        }
+
+        .catering-contact {
+            font-size: 1.2rem;
+            color: var(--primary-gold);
+            font-weight: 600;
+        }
+
+        .catering-contact a {
+            color: var(--primary-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .catering-contact a:hover {
+            color: var(--accent-gold);
         }
 
         /* Social Media Section */
+        #social {
+            background-color: var(--light-cream);
+        }
+
         .social-section {
             text-align: center;
+        }
+
+        .social-description {
+            font-size: 1.05rem;
+            color: var(--light-text);
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.3px;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 2.5rem;
             flex-wrap: wrap;
-            margin-top: 2rem;
         }
 
         .social-link {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--dark-blue), var(--terracotta));
+            width: 60px;
+            height: 60px;
+            border-radius: 0;
+            background: var(--dark-blue);
             color: white;
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            font-weight: 600;
         }
 
         .social-link:hover {
-            transform: scale(1.1) translateY(-5px);
-            background: linear-gradient(135deg, var(--terracotta), var(--dark-blue));
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+            background-color: var(--primary-gold);
+            color: var(--dark-blue);
+            transform: translateY(-4px);
         }
 
         /* Footer */
         footer {
             background: var(--dark-blue);
-            color: white;
+            color: var(--cream);
             text-align: center;
             padding: 2rem;
-            margin-top: 3rem;
         }
 
         footer p {
             margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
         }
 
         /* Responsive */
@@ -371,19 +503,22 @@
                 gap: 1rem;
             }
 
-            nav a {
-                margin-left: 1rem;
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .hero p {
                 font-size: 1rem;
             }
 
-            .about-content {
+            .about-content,
+            .location-card {
                 grid-template-columns: 1fr;
             }
 
@@ -394,6 +529,18 @@
             .btn {
                 width: 100%;
             }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .about-images {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image.full {
+                grid-column: auto;
+            }
         }
     </style>
 </head>
@@ -401,39 +548,48 @@
     <!-- Header -->
     <header>
         <div class="header-content">
-            <div class="logo">🏺 Selda</div>
+            <div class="logo">SELDA</div>
             <nav>
                 <a href="#about">About</a>
                 <a href="#locations">Locations</a>
-                <a href="#order">Order</a>
-                <a href="#social">Follow</a>
+                <a href="#menu">Menu</a>
+                <a href="#amenities">Amenities</a>
+                <a href="#catering">Catering</a>
+                <a href="#social">Connect</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Selda Mediterranean Kitchen</h1>
-        <p>Authentic Turkish Cuisine • Upscale Dining Experience</p>
+        <h1>SELDA MEDITERRANEAN KITCHEN</h1>
+        <p>Authentic Turkish & Mediterranean Cuisine Elevated</p>
         <div class="cta-buttons">
             <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" class="btn btn-primary" target="_blank">Reserve Now</a>
-            <a href="https://maps.app.goo.gl/zx7REySpSqi7S4b47?g_st=ic" class="btn btn-secondary" target="_blank">Find Us</a>
+            <a href="#locations" class="btn btn-secondary">Find Us</a>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
         <div class="container">
-            <h2>Welcome to Selda</h2>
+            <h2>About Selda</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Experience Mediterranean Excellence</h3>
-                    <p>Selda Mediterranean Kitchen brings the warmth and flavors of Turkish cuisine to Texas. Our carefully curated menu features authentic Mediterranean dishes prepared with the finest ingredients and traditional cooking methods.</p>
-                    <p>From succulent kebabs to fresh mezze platters, every dish is a journey through the rich culinary heritage of Turkey and the Mediterranean region. Our upscale ambiance combined with exceptional service creates an unforgettable dining experience.</p>
-                    <p>Whether you're celebrating a special occasion or enjoying a casual evening, Selda welcomes you to our table.</p>
+                    <p>Selda Mediterranean Kitchen brings the rich flavors of Turkish & Mediterranean cuisine to Texas with a modern, elevated dining experience. Always fresh ingredients, authentic recipes, & warm hospitality, Selda serves a wide variety of dishes including handcrafted kebabs, Turkish doner, lamb chops, grilled branzino, fresh seafood, house-made hummus, baba ganoush, falafel, & traditional pides baked fresh from the oven.</p>
+                    <p>Guests enjoy signature dishes like Chicken Adana, Urfa Kebab, Ali Nazik, Iskender Doner, and our popular Mixed Grill, alongside vibrant salads including Shepherd Salad, Beet Salad, & Arugula Quinoa Salad. Complete your experience with classic Turkish desserts such as Baklava, Kunefe, and flan.</p>
+                    <p>Cocktails, Beer & Hookah available.</p>
                 </div>
-                <div class="about-image">
-                    <p>🍽️<br><br>Authentic Mediterranean & Turkish Cuisine<br><br>🫒 🥘 🍢</p>
+                <div class="about-images">
+                    <div class="about-image">
+                        <img src="assets/bronzino.jpg" alt="Grilled Branzino">
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/lamb-shish.jpg" alt="Lamb Shish Kebab">
+                    </div>
+                    <div class="about-image full">
+                        <img src="assets/shishito3.jpg" alt="Shishito Peppers">
+                    </div>
                 </div>
             </div>
         </div>
@@ -446,55 +602,87 @@
             <div class="locations-grid">
                 <!-- San Antonio -->
                 <div class="location-card">
-                    <h3>📍 San Antonio</h3>
-                    <p class="address">9955 Interstate 10 Frontage Rd<br>San Antonio, TX 78230</p>
-                    <p class="phone">(210) 538-5111</p>
-                    <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank">Reserve on OpenTable</a>
-                    <a href="https://maps.app.goo.gl/zx7REySpSqi7S4b47?g_st=ic" target="_blank">Get Directions</a>
+                    <div class="location-info">
+                        <h3>San Antonio</h3>
+                        <p class="address-text">9955 Interstate 10 Frontage Rd<br>San Antonio, TX 78230</p>
+                        <p class="phone-text">(210) 538-5111</p>
+                        <div class="location-links">
+                            <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank">Reserve</a>
+                            <a href="https://maps.app.goo.gl/zx7REySpSqi7S4b47?g_st=ic" target="_blank">Directions</a>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3469.7347900898516!2d-98.5539561!3d29.5313936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c61187cf08459%3A0x5f5e5f5e5f5e5f5e!2s9955%20I-10%20Frontage%20Rd%2C%20San%20Antonio%2C%20TX%2078230!5e0!3m2!1sen!2sus!4v1234567890123" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
 
                 <!-- Dallas -->
                 <div class="location-card">
-                    <h3>📍 Dallas</h3>
-                    <p class="address">6006 Belt Line Rd<br>Dallas, TX 75254</p>
-                    <p class="phone">(972) 662-8847</p>
-                    <a href="https://seldadallas.com" target="_blank">Visit Dallas Location</a>
-                    <a href="https://maps.app.goo.gl/dallas" target="_blank">Get Directions</a>
+                    <div class="location-info">
+                        <h3>Dallas</h3>
+                        <p class="address-text">6006 Belt Line Rd<br>Dallas, TX 75254</p>
+                        <p class="phone-text">(972) 662-8847</p>
+                        <div class="location-links">
+                            <a href="https://seldadallas.com" target="_blank">Visit Location</a>
+                            <a href="https://maps.app.goo.gl/dallas" target="_blank">Directions</a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Frisco -->
                 <div class="location-card">
-                    <h3>📍 Frisco</h3>
-                    <p class="address">9250 Dallas Pkwy Ste 130<br>Frisco, TX 75033</p>
-                    <p class="phone">(469) 214-2994</p>
-                    <a href="https://maps.app.goo.gl/frisco" target="_blank">Get Directions</a>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--light-text);">Coming Soon - Reservations Available</p>
+                    <div class="location-info">
+                        <h3>Frisco</h3>
+                        <p class="address-text">9250 Dallas Pkwy Ste 130<br>Frisco, TX 75033</p>
+                        <p class="phone-text">(469) 214-2994</p>
+                        <div class="location-links">
+                            <a href="https://maps.app.goo.gl/frisco" target="_blank">Directions</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Ordering Section -->
-    <section id="order">
+    <!-- Menu Section -->
+    <section id="menu">
         <div class="container">
-            <h2>Order Online</h2>
-            <div class="platforms-grid">
-                <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" class="platform-btn">
-                    <span class="platform-icon">🛒</span>
-                    <p>Direct Ordering<br>ZingMyOrder</p>
-                </a>
-                <a href="https://www.doordash.com/store/selda-mediterranean-kitchen-san-antonio-30359031/" target="_blank" class="platform-btn">
-                    <span class="platform-icon">🚗</span>
-                    <p>DoorDash</p>
-                </a>
-                <a href="https://www.ubereats.com/store/selda-mediterranean-kitchen/" target="_blank" class="platform-btn">
-                    <span class="platform-icon">🍽️</span>
-                    <p>Uber Eats</p>
-                </a>
-                <a href="https://www.grubhub.com/restaurant/selda-mediterranean-kitchen-9955-frontage-road-san-antonio/10315360" target="_blank" class="platform-btn">
-                    <span class="platform-icon">🥘</span>
-                    <p>Grubhub</p>
-                </a>
+            <h2>Our Menu</h2>
+            <div class="menu-content">
+                <p class="menu-description">Explore our curated selection of authentic Turkish and Mediterranean dishes, expertly prepared with the finest ingredients. Download our complete menu to discover all our offerings.</p>
+                <a href="assets/menu.pdf" class="menu-button" download>Download Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section id="amenities">
+        <div class="container">
+            <h2>Our Amenities</h2>
+            <div class="amenities-grid">
+                <div class="amenity-card">
+                    <h3>Hookah Lounge</h3>
+                    <p>Relax on our patio with premium hookah. Choose from an array of authentic flavors and enjoy an elevated social experience in our upscale setting.</p>
+                </div>
+                <div class="amenity-card">
+                    <h3>Online Ordering</h3>
+                    <p>Convenient delivery and takeout options through DoorDash, Uber Eats, Grubhub, and our direct ordering platform. Enjoy Selda from home.</p>
+                </div>
+                <div class="amenity-card">
+                    <h3>Private Events</h3>
+                    <p>Host your celebration with us. Full bar, intimate ambiance, and authentic Mediterranean cuisine create the perfect setting for memorable events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catering Section -->
+    <section id="catering">
+        <div class="container">
+            <h2>Catering Services</h2>
+            <div class="catering-content">
+                <p class="catering-text">Host your next event with Selda. We provide comprehensive catering menus, custom pricing, and availability for corporate events, weddings, and private celebrations.</p>
+                <p class="catering-contact">For catering inquiries, please contact us at <a href="tel:2105385111">(210) 538-5111</a></p>
             </div>
         </div>
     </section>
@@ -502,14 +690,14 @@
     <!-- Social Media Section -->
     <section id="social">
         <div class="container">
+            <h2>Connect With Us</h2>
             <div class="social-section">
-                <h2>Follow Us</h2>
-                <p style="color: var(--light-text); font-size: 1.1rem; margin-bottom: 2rem;">Stay updated with our latest specials, photos, and behind-the-scenes content</p>
+                <p class="social-description">Follow us for the latest specials, stunning culinary creations, and behind-the-scenes moments.</p>
                 <div class="social-links">
-                    <a href="https://instagram.com/seldasanantonio" target="_blank" class="social-link" title="Instagram">📷</a>
-                    <a href="https://facebook.com/seldasanantonio" target="_blank" class="social-link" title="Facebook">f</a>
-                    <a href="https://tiktok.com/@seldamediterranean" target="_blank" class="social-link" title="TikTok">🎵</a>
-                    <a href="https://youtube.com/@seldatexas" target="_blank" class="social-link" title="YouTube">▶️</a>
+                    <a href="https://instagram.com/seldasanantonio" target="_blank" class="social-link">f</a>
+                    <a href="https://facebook.com/seldasanantonio" target="_blank" class="social-link">in</a>
+                    <a href="https://tiktok.com/@seldamediterranean" target="_blank" class="social-link">TT</a>
+                    <a href="https://youtube.com/@seldatexas" target="_blank" class="social-link">YT</a>
                 </div>
             </div>
         </div>
@@ -518,7 +706,7 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Selda Mediterranean Kitchen. All rights reserved.</p>
-        <p>Authentic Turkish Cuisine • Upscale Mediterranean Dining</p>
+        <p>Authentic Turkish & Mediterranean Cuisine | Upscale Dining Experience</p>
     </footer>
 </body>
 </html>
