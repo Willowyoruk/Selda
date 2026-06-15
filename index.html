@@ -1,103 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Selda Mediterranean | Texas Locations</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selda Mediterranean Kitchen - Upscale Turkish Dining</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #D4AF37;
+            --dark-blue: #1a3a52;
+            --terracotta: #C85A3A;
+            --cream: #F5F1E8;
+            --dark-text: #2c2c2c;
+            --light-text: #666;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--cream);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--terracotta) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 58, 82, 0.7), rgba(200, 90, 58, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="30" fill="none" stroke="%23D4AF37" stroke-width="2" opacity="0.1"/></pattern></defs><rect width="1200" height="600" fill="%231a3a52"/><rect width="1200" height="600" fill="url(%23pattern)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 2rem;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-gold);
+            color: var(--dark-blue);
+        }
+
+        .btn-primary:hover {
+            background-color: #E5C158;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--terracotta);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #B84829;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(200, 90, 58, 0.3);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--primary-gold);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--terracotta);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--dark-blue), var(--terracotta));
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image p {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--primary-gold);
+        }
+
+        /* Locations Section */
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .location-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-left: 5px solid var(--terracotta);
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .location-card h3 {
+            color: var(--dark-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .location-card p {
+            margin-bottom: 0.8rem;
+            color: var(--light-text);
+        }
+
+        .location-card .address {
+            font-weight: bold;
+            color: var(--dark-text);
+        }
+
+        .location-card .phone {
+            color: var(--terracotta);
+            font-weight: bold;
+        }
+
+        .location-card a {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .location-card a:hover {
+            color: var(--terracotta);
+        }
+
+        /* Ordering Platforms */
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .platform-btn {
+            background: white;
+            border: 2px solid var(--primary-gold);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .platform-btn:hover {
+            background-color: var(--primary-gold);
+            transform: translateY(-5px);
+        }
+
+        .platform-btn:hover p {
+            color: var(--dark-blue);
+        }
+
+        .platform-btn p {
+            font-weight: bold;
+            color: var(--dark-blue);
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .platform-icon {
+            font-size: 2.5rem;
+        }
+
+        /* Social Media Section */
+        .social-section {
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--dark-blue), var(--terracotta));
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .social-link:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: linear-gradient(135deg, var(--terracotta), var(--dark-blue));
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav a {
+                margin-left: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <header>
-    <a href="#" class="logo">SELDA</a>
-  </header>
-
-  <section class="hero-minimal">
-    <h1>Authentic Mediterranean</h1>
-    <p>A destination of exceptional Turkish culinary tradition, fire-grilled accents, and warm hospitality spanning across Texas.</p>
-  </section>
-
-  <section class="locations-section">
-    <div class="grid-wrapper">
-
-      <div class="location-card highlight">
-        <div>
-          <div class="map-panel">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3469.7347900898516!2d-98.5539561!3d29.5313936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c61187cf08459%3A0x1c77d58b3eb75c3f!2sSelda%20Mediterranean%20Kitchen%20%26%20Bar%20-%20San%20Antonio%2C%20TX!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-          <h3>San Antonio</h3>
-          <p class="address-block">
-            9955 I-10 West<br>
-            San Antonio, TX 78230
-          </p>
-          <p class="phone-block">210-236-5230</p>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">🏺 Selda</div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#locations">Locations</a>
+                <a href="#order">Order</a>
+                <a href="#social">Follow</a>
+            </nav>
         </div>
-        
-        <div class="card-actions">
-          <a class="minimal-btn accent" href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank">Book OpenTable</a>
-          <a class="minimal-btn" href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">Order Online</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Selda Mediterranean Kitchen</h1>
+        <p>Authentic Turkish Cuisine • Upscale Dining Experience</p>
+        <div class="cta-buttons">
+            <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" class="btn btn-primary" target="_blank">Reserve Now</a>
+            <a href="https://maps.app.goo.gl/zx7REySpSqi7S4b47?g_st=ic" class="btn btn-secondary" target="_blank">Find Us</a>
         </div>
-      </div>
+    </section>
 
-      <div class="location-card">
-        <div>
-          <div class="map-panel">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.122602710313!2d-96.8041535!3d32.9530466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c210e27f0dddd%3A0x3a3a237c9d45cc4d!2sSelda%20Mediterranean!5e0!3m2!1sen!2sus!4v1710000000001!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-          <h3>Dallas</h3>
-          <p class="address-block">
-            6006 Belt Line Road<br>
-            Dallas, TX 75254
-          </p>
-          <p class="phone-block">972-662-8847</p>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>Welcome to Selda</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Experience Mediterranean Excellence</h3>
+                    <p>Selda Mediterranean Kitchen brings the warmth and flavors of Turkish cuisine to Texas. Our carefully curated menu features authentic Mediterranean dishes prepared with the finest ingredients and traditional cooking methods.</p>
+                    <p>From succulent kebabs to fresh mezze platters, every dish is a journey through the rich culinary heritage of Turkey and the Mediterranean region. Our upscale ambiance combined with exceptional service creates an unforgettable dining experience.</p>
+                    <p>Whether you're celebrating a special occasion or enjoying a casual evening, Selda welcomes you to our table.</p>
+                </div>
+                <div class="about-image">
+                    <p>🍽️<br><br>Authentic Mediterranean & Turkish Cuisine<br><br>🫒 🥘 🍢</p>
+                </div>
+            </div>
         </div>
-        
-        <div class="card-actions">
-          <a class="minimal-btn" href="https://seldadallas.com" target="_blank">Visit Dallas Website</a>
+    </section>
+
+    <!-- Locations Section -->
+    <section id="locations">
+        <div class="container">
+            <h2>Our Locations</h2>
+            <div class="locations-grid">
+                <!-- San Antonio -->
+                <div class="location-card">
+                    <h3>📍 San Antonio</h3>
+                    <p class="address">9955 Interstate 10 Frontage Rd<br>San Antonio, TX 78230</p>
+                    <p class="phone">(210) 538-5111</p>
+                    <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank">Reserve on OpenTable</a>
+                    <a href="https://maps.app.goo.gl/zx7REySpSqi7S4b47?g_st=ic" target="_blank">Get Directions</a>
+                </div>
+
+                <!-- Dallas -->
+                <div class="location-card">
+                    <h3>📍 Dallas</h3>
+                    <p class="address">6006 Belt Line Rd<br>Dallas, TX 75254</p>
+                    <p class="phone">(972) 662-8847</p>
+                    <a href="https://seldadallas.com" target="_blank">Visit Dallas Location</a>
+                    <a href="https://maps.app.goo.gl/dallas" target="_blank">Get Directions</a>
+                </div>
+
+                <!-- Frisco -->
+                <div class="location-card">
+                    <h3>📍 Frisco</h3>
+                    <p class="address">9250 Dallas Pkwy Ste 130<br>Frisco, TX 75033</p>
+                    <p class="phone">(469) 214-2994</p>
+                    <a href="https://maps.app.goo.gl/frisco" target="_blank">Get Directions</a>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--light-text);">Coming Soon - Reservations Available</p>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="location-card">
-        <div>
-          <div class="map-panel">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3341.2223048924016!2d-96.842187!3d33.153921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c3b815f4e2e9d%3A0x44462f1863263f33!2sSelda%20Mediterranean%20Kitchen%20-%20Frisco%2C%20TX!5e0!3m2!1sen!2sus!4v1710000000002!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-          <h3>Frisco</h3>
-          <p class="address-block">
-            9250 Dallas Parkway<br>
-            Suite 130<br>
-            Frisco, TX 75033
-          </p>
-          <p class="phone-block">469-214-2994</p>
+    <!-- Ordering Section -->
+    <section id="order">
+        <div class="container">
+            <h2>Order Online</h2>
+            <div class="platforms-grid">
+                <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" class="platform-btn">
+                    <span class="platform-icon">🛒</span>
+                    <p>Direct Ordering<br>ZingMyOrder</p>
+                </a>
+                <a href="https://www.doordash.com/store/selda-mediterranean-kitchen-san-antonio-30359031/" target="_blank" class="platform-btn">
+                    <span class="platform-icon">🚗</span>
+                    <p>DoorDash</p>
+                </a>
+                <a href="https://www.ubereats.com/store/selda-mediterranean-kitchen/" target="_blank" class="platform-btn">
+                    <span class="platform-icon">🍽️</span>
+                    <p>Uber Eats</p>
+                </a>
+                <a href="https://www.grubhub.com/restaurant/selda-mediterranean-kitchen-9955-frontage-road-san-antonio/10315360" target="_blank" class="platform-btn">
+                    <span class="platform-icon">🥘</span>
+                    <p>Grubhub</p>
+                </a>
+            </div>
         </div>
-        
-        <div class="card-actions">
-          <a class="minimal-btn" href="https://seldadallas.com" target="_blank">Visit Frisco Website</a>
+    </section>
+
+    <!-- Social Media Section -->
+    <section id="social">
+        <div class="container">
+            <div class="social-section">
+                <h2>Follow Us</h2>
+                <p style="color: var(--light-text); font-size: 1.1rem; margin-bottom: 2rem;">Stay updated with our latest specials, photos, and behind-the-scenes content</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/seldasanantonio" target="_blank" class="social-link" title="Instagram">📷</a>
+                    <a href="https://facebook.com/seldasanantonio" target="_blank" class="social-link" title="Facebook">f</a>
+                    <a href="https://tiktok.com/@seldamediterranean" target="_blank" class="social-link" title="TikTok">🎵</a>
+                    <a href="https://youtube.com/@seldatexas" target="_blank" class="social-link" title="YouTube">▶️</a>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-    </div>
-  </section>
-
-  <div class="mobile-action-dock">
-    <a href="tel:2102365230" class="dock-tab">
-      <span>CALL US</span>
-    </a>
-    <a href="https://maps.app.goo.gl/3NfK9xT3k6M5m9yY6" target="_blank" class="dock-tab">
-      <span>DIRECTIONS</span>
-    </a>
-    <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank" class="dock-tab">
-      <span>RESERVE</span>
-    </a>
-    <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" class="dock-tab">
-      <span>ORDER NOW</span>
-    </a>
-  </div>
-
-  <footer>
-    <p>© 2026 Selda Mediterranean Kitchen & Bar. All Rights Reserved.</p>
-  </footer>
-
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Selda Mediterranean Kitchen. All rights reserved.</p>
+        <p>Authentic Turkish Cuisine • Upscale Mediterranean Dining</p>
+    </footer>
 </body>
 </html>
