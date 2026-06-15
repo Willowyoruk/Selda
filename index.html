@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -115,6 +116,7 @@
             padding: 2rem;
             gap: 1.5rem;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 99;
         }
 
         .mobile-menu.active {
@@ -368,6 +370,7 @@
             border-radius: 0;
             overflow: hidden;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            height: 100%;
             min-height: 400px;
         }
 
@@ -375,6 +378,7 @@
             width: 100%;
             height: 100%;
             border: none;
+            min-height: 400px;
         }
 
         /* Menu Section */
@@ -435,9 +439,115 @@
             color: var(--dark-blue);
         }
 
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 4px;
+            width: 90%;
+            max-width: 900px;
+            height: 90vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--dark-blue);
+            background: none;
+            border: none;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--primary-gold);
+        }
+
+        .modal-content iframe {
+            flex: 1;
+            border: none;
+            border-radius: 4px;
+        }
+
+        /* Online Ordering Section */
+        #ordering {
+            background-color: var(--cream);
+        }
+
+        .ordering-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .ordering-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ordering-card:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .ordering-card h3 {
+            color: var(--dark-blue);
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .ordering-card a {
+            padding: 0.8rem 2rem;
+            background-color: var(--primary-gold);
+            color: var(--dark-blue);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: auto;
+        }
+
+        .ordering-card a:hover {
+            background-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
         /* Amenities Section */
         #amenities {
-            background-color: var(--cream);
+            background-color: var(--light-cream);
         }
 
         .amenities-grid {
@@ -472,6 +582,29 @@
             color: var(--light-text);
             font-size: 1rem;
             line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .amenity-card a {
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        .amenity-card a:hover {
+            color: var(--accent-gold);
+        }
+
+        .amenity-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 1rem;
         }
 
         /* Catering Section */
@@ -547,9 +680,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             transition: all 0.3s ease;
-            font-weight: 600;
         }
 
         .social-link:hover {
@@ -639,6 +771,11 @@
             .map-container {
                 min-height: 300px;
             }
+
+            .modal-content {
+                width: 95%;
+                height: 80vh;
+            }
         }
     </style>
 </head>
@@ -656,6 +793,7 @@
                 <a href="#about">About</a>
                 <a href="#locations">Locations</a>
                 <a href="#menu">Menu</a>
+                <a href="#ordering">Order</a>
                 <a href="#amenities">Amenities</a>
                 <a href="#catering">Catering</a>
                 <a href="#social">Connect</a>
@@ -665,6 +803,7 @@
             <a href="#about">About</a>
             <a href="#locations">Locations</a>
             <a href="#menu">Menu</a>
+            <a href="#ordering">Order</a>
             <a href="#amenities">Amenities</a>
             <a href="#catering">Catering</a>
             <a href="#social">Connect</a>
@@ -722,7 +861,7 @@
                     <div class="location-info">
                         <h3>San Antonio</h3>
                         <p class="address-text">9955 Interstate 10 Frontage Rd<br>San Antonio, TX 78230</p>
-                        <p class="phone-text">(210) 538-5111</p>
+                        <p class="phone-text">(210) 236-5230</p>
                         <div class="location-links">
                             <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank">Reserve</a>
                             <a href="https://maps.app.goo.gl/zx7REySpSqi7S4b47?g_st=ic" target="_blank">Directions</a>
@@ -766,10 +905,47 @@
         <div class="container">
             <h2>Our Menus</h2>
             <div class="menu-content">
-                <p class="menu-description">Explore our curated selection of authentic Turkish and Mediterranean dishes, expertly prepared with the finest ingredients. Download our complete dinner menu with wine list, or browse our beverage offerings including cocktails, beer, and non-alcoholic drinks.</p>
+                <p class="menu-description">Explore our curated selection of authentic Turkish and Mediterranean dishes, expertly prepared with the finest ingredients. View our complete dinner menu with wine list, or browse our beverage offerings including cocktails, beer, and non-alcoholic drinks.</p>
                 <div class="menu-buttons">
-                    <a href="assets/menu.pdf" class="menu-button" download>Download Dinner Menu</a>
-                    <a href="assets/beverages.pdf" class="menu-button secondary" download>Download Beverages</a>
+                    <button class="menu-button" onclick="openMenuModal('dinner')">View Dinner Menu</button>
+                    <button class="menu-button secondary" onclick="openMenuModal('beverages')">View Beverages</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Modal -->
+    <div id="menuModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeMenuModal()">&times;</button>
+            <iframe id="menuFrame" src="" style="flex: 1; border: none;"></iframe>
+        </div>
+    </div>
+
+    <!-- Online Ordering Section -->
+    <section id="ordering">
+        <div class="container">
+            <h2>Order Online</h2>
+            <div class="ordering-grid">
+                <div class="ordering-card">
+                    <h3>Direct Ordering</h3>
+                    <p>Order directly from our platform</p>
+                    <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">Order Now</a>
+                </div>
+                <div class="ordering-card">
+                    <h3>DoorDash</h3>
+                    <p>Fast delivery to your door</p>
+                    <a href="https://www.doordash.com/store/selda-mediterranean-kitchen-san-antonio-30359031/" target="_blank">Order Now</a>
+                </div>
+                <div class="ordering-card">
+                    <h3>Uber Eats</h3>
+                    <p>Convenient delivery service</p>
+                    <a href="https://www.ubereats.com/store/selda-mediterranean-kitchen/" target="_blank">Order Now</a>
+                </div>
+                <div class="ordering-card">
+                    <h3>Grubhub</h3>
+                    <p>Easy online ordering</p>
+                    <a href="https://www.grubhub.com/restaurant/selda-mediterranean-kitchen-9955-frontage-road-san-antonio/10315360" target="_blank">Order Now</a>
                 </div>
             </div>
         </div>
@@ -781,12 +957,14 @@
             <h2>Our Amenities</h2>
             <div class="amenities-grid">
                 <div class="amenity-card">
-                    <h3>Hookah Lounge</h3>
-                    <p>Relax on our patio with premium hookah. Choose from an array of authentic flavors and enjoy an elevated social experience in our upscale setting.</p>
+                    <h3>Hookah on the Patio</h3>
+                    <p>Relax on our patio with premium hookah. Choose from an array of authentic flavors and enjoy an elevated social experience.</p>
                 </div>
                 <div class="amenity-card">
-                    <h3>Online Ordering</h3>
-                    <p>Convenient delivery and takeout options through DoorDash, Uber Eats, Grubhub, and our direct ordering platform. Enjoy Selda from home.</p>
+                    <img src="assets/fire.jpg" alt="Reservations" class="amenity-image">
+                    <h3>Reservations</h3>
+                    <p>Reserve your table with us via phone or OpenTable. Call <a href="tel:2102365230">(210) 236-5230</a> or book online.</p>
+                    <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-san-antonio" target="_blank">Book on OpenTable</a>
                 </div>
                 <div class="amenity-card">
                     <h3>Private Events</h3>
@@ -799,10 +977,10 @@
     <!-- Catering Section -->
     <section id="catering">
         <div class="container">
-            <h2>Catering Services</h2>
+            <h2>Catering Orders</h2>
             <div class="catering-content">
-                <p class="catering-text">Host your next event with Selda. We provide comprehensive catering menus, custom pricing, and availability for corporate events, weddings, and private celebrations.</p>
-                <p class="catering-contact">For catering inquiries, please contact us at <a href="tel:2105385111">(210) 538-5111</a></p>
+                <p class="catering-text">Host your next event with Selda. We offer customizable catering packages depending on your event size and requirements. Our authentic Turkish and Mediterranean dishes can be tailored to your needs for corporate events, weddings, and private celebrations.</p>
+                <p class="catering-contact">For catering inquiries and package pricing, please contact us at <a href="tel:2102365230">(210) 236-5230</a></p>
             </div>
         </div>
     </section>
@@ -814,10 +992,10 @@
             <div class="social-section">
                 <p class="social-description">Follow us for the latest specials, stunning culinary creations, and behind-the-scenes moments.</p>
                 <div class="social-links">
-                    <a href="https://instagram.com/seldasanantonio" target="_blank" class="social-link">f</a>
-                    <a href="https://facebook.com/seldasanantonio" target="_blank" class="social-link">in</a>
-                    <a href="https://tiktok.com/@seldamediterranean" target="_blank" class="social-link">TT</a>
-                    <a href="https://youtube.com/@seldatexas" target="_blank" class="social-link">YT</a>
+                    <a href="https://instagram.com/seldasanantonio" target="_blank" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com/seldasanantonio" target="_blank" class="social-link" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://tiktok.com/@seldamediterranean" target="_blank" class="social-link" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://youtube.com/@seldatexas" target="_blank" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
@@ -825,8 +1003,8 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Selda Mediterranean Kitchen. All rights reserved.</p>
-        <p>Authentic Turkish & Mediterranean Cuisine | Upscale Dining Experience</p>
+        <p>&copy; 2026 Selda Mediterranean Kitchen. All rights reserved.</p>
+        <p>Authentic Turkish & Mediterranean Cuisine | Elevated Dining Experience</p>
     </footer>
 
     <script>
@@ -853,6 +1031,32 @@
             if (!event.target.closest('header')) {
                 hamburger.classList.remove('active');
                 mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Menu Modal Functions
+        function openMenuModal(type) {
+            const modal = document.getElementById('menuModal');
+            const frame = document.getElementById('menuFrame');
+            
+            if (type === 'dinner') {
+                frame.src = 'assets/menu.pdf';
+            } else if (type === 'beverages') {
+                frame.src = 'assets/beverages.pdf';
+            }
+            
+            modal.classList.add('active');
+        }
+
+        function closeMenuModal() {
+            const modal = document.getElementById('menuModal');
+            modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('menuModal').addEventListener('click', (event) => {
+            if (event.target.id === 'menuModal') {
+                closeMenuModal();
             }
         });
     </script>
