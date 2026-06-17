@@ -46,6 +46,12 @@
     color: #C5A059 !important;
     font-weight: 700;
 }
+@media (max-width: 600px) {
+    footer div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+}
 
 
         .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
@@ -211,38 +217,30 @@
 </section>
 
 
-    <section id="locations" class="container">
-        <h2>Our Locations</h2>
-        <div class="locations-grid">
-            <div class="location-card">
-                <div class="location-info">
-                    <h3>San Antonio</h3>
-                    <p>9955 I-10 W, San Antonio, TX 78230</p>
-                    <p style="font-weight:700; margin: 1rem 0;"><a href="tel:2102365230" style="color:inherit; text-decoration:none;">(210) 236-5230</a></p>
-                    <div class="location-links">
-                        <a href="https://www.opentable.com/restref/client/?rid=1380571" target="_blank">Reserve</a>
-                        <a href="https://maps.google.com/?q=9955+I-10+W,+San+Antonio,+TX+78230" target="_blank">Directions</a>
-                    </div>
-                </div>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.771239108092!2d-98.5661036!3d29.5376742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c5e2d6b3bd6cb%3A0xc64ef7e0b57df384!2s9955%20I-10%2C%20San%20Antonio%2C%20TX%2078230!5e0!3m2!1sen!2sus!4v1700000000000"></iframe>
+<section id="locations" class="container">
+    <h2>Our Locations</h2>
+    <div class="locations-grid">
+        <div class="location-card">
+            <div class="location-info">
+                <h3>San Antonio</h3>
+                <p>9955 I-10 W, San Antonio, TX 78230</p>
+                <p style="font-weight:700; margin: 1rem 0;"><a href="tel:2102365230" style="color:var(--primary-gold); text-decoration:none;">(210) 236-5230</a></p>
+                <div class="location-links">
+                    <a href="https://www.opentable.com/restref/client/?rid=1380571" target="_blank">Reserve</a>
+                    <a href="https://maps.google.com/?q=9955+I-10+W,+San+Antonio,+TX+78230" target="_blank">Directions</a>
                 </div>
             </div>
-            <div class="location-card" style="grid-template-columns: 1fr;">
-                <div>
-                    <h3>Dallas</h3>
-                    <p>6006 Belt Line Rd, Dallas, TX 75254 | <a href="tel:9726628847" style="color:inherit;">(972) 662-8847</a></p>
-                    <div class="location-links" style="margin-top:1rem;"><a href="https://seldadallas.com" target="_blank">Website</a></div>
-                </div>
-            </div>
-            <div class="location-card" style="grid-template-columns: 1fr;">
-                <div>
-                    <h3>Frisco</h3>
-                    <p>9250 Dallas Pkwy Ste 130, Frisco, TX 75033 | <a href="tel:4692142994" style="color:inherit;">(469) 214-2994</a></p>
-                </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.771239108092!2d-98.5661036!3d29.5376742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c5e2d6b3bd6cb%3A0xc64ef7e0b57df384!2s9955%20I-10%2C%20San%20Antonio%2C%20TX%2078230!5e0!3m2!1sen!2sus!4v1700000000000"></iframe>
             </div>
         </div>
-    </section>
+    </div>
+    
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="#footer-destinations" style="color: var(--primary-gold); font-weight: 700; text-decoration: underline;">View all Selda Destinations</a>
+    </div>
+</section>
+
 
     <section id="menu" class="container">
         <h2>Menu</h2>
@@ -310,7 +308,7 @@
         </div>
     </section>
 
-     <footer style="background: #2F2F2F; color: #ffffff; padding: 4rem 1rem 2rem 1rem; margin-top: 4rem;">
+        <footer id="footer-destinations" style="background: #2F2F2F; color: #ffffff; padding: 4rem 1rem 2rem 1rem; margin-top: 4rem;">
         
         <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; text-align: left;">
             
@@ -318,7 +316,7 @@
                 <h4 style="color: #C5A059; margin-bottom: 1.5rem; font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 1px;">Selda Destinations</h4>
                 <ul style="list-style: none; padding: 0; line-height: 2;">
                     <li><a href="https://instagram.com/seldasanantonio" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda San Antonio</a></li>
-                    <li><a href="https://instagram.com/seldadallas" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Dallas</a></li>
+                    <li><a href="https://seldadallas.com" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Dallas</a></li>
                     <li><a href="https://instagram.com/seldafrisco" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Frisco</a></li>
                     <li><a href="https://instagram.com/Seldalascolinas" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Las Colinas</a></li>
                     <li><a href="https://instagram.com/themayorshouse_byselda" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">The Mayor's House by Selda</a></li>
@@ -340,6 +338,7 @@
             <p>© 2026 Selda. All rights reserved.</p>
         </div>
     </footer>
+
 
 
 
