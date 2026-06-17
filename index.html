@@ -705,6 +705,33 @@
             font-size: 0.95rem;
             letter-spacing: 0.3px;
         }
+        /* Scrolling Text Bar */
+        .scrolling-ticker {
+            background-color: #4A4A4A;
+            color: #FFFFFF;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 0.8rem 0;
+            width: 100%;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .ticker-content span {
+            margin-right: 4rem;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
 
         /* Responsive */
         @media (max-width: 768px) {
