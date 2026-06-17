@@ -748,14 +748,39 @@
                 gap: 0;
             }
 
+            /* --- FIXED HERO MOBILE VIEW --- */
+            .hero {
+                padding: 40px 1.5rem 20px 1.5rem !important;
+                min-height: auto !important;
+                background: #fdfbf7 !important; /* Forces cream background */
+                margin-top: 50px !important;
+            }
+
             .hero h1 {
-                font-size: 1.8rem;
-                text-transform: uppercase;
+                font-size: 2rem !important;
+                color: #4A4A4A !important; /* Forces dark slate text */
+                margin-bottom: 0.5rem !important;
+                text-transform: none !important; /* Matches Dallas regular title casing */
             }
 
             .hero p {
-                font-size: 1rem;
+                font-size: 1rem !important;
+                color: #666666 !important;
+                margin-bottom: 1.5rem !important;
             }
+
+            /* Rescues the invisible blue button */
+            .hero .cta-buttons a.btn {
+                background-color: transparent !important;
+                border: 2px solid #4A4A4A !important;
+                color: #4A4A4A !important;
+                display: inline-block !important;
+                width: auto !important;
+                padding: 0.6rem 2rem !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            /* ------------------------------ */
 
             .about-content,
             .location-card {
@@ -764,6 +789,7 @@
 
             .cta-buttons {
                 flex-direction: column;
+                align-items: center;
             }
 
             .btn {
@@ -807,7 +833,7 @@
                 height: 80vh;
             }
         }
-    </style>
+
 </head>
 <body>
     <!-- Header -->
