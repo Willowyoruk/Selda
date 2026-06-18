@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -154,6 +153,7 @@
 
         /* About Grid Layout Settings (Used if multi-column fallback activated) */
         .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .about-content-text { text-align: left; }
         .about-images { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
         .about-images img { width: 100%; height: 200px; object-fit: cover; border-radius: 2px; }
         .about-images img.full { grid-column: 1 / -1; height: 250px; }
@@ -183,7 +183,7 @@
         .social-links a { color: var(--dark-blue); }
 
         /* Infinite Horizontal Marquee Ticker Typography Scroller */
-        .scrolling-ticker { background: #4A4A4A; color: white; overflow: hidden; white-space: nowrap; padding: 0.7rem 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; }
+        .scrolling-ticker { background: #4A4A4A; color: white; overflow: hidden; white-space: nowrap; padding: 0.7rem 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; width: 100%; margin-top: 2rem; }
         .ticker-content { display: inline-block; animation: marquee 20s linear infinite; }
         .ticker-content span { margin-right: 3rem; }
         @keyframes marquee { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
@@ -362,7 +362,7 @@
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" style="padding-bottom: 2rem;">
         <h1>Selda Mediterranean Kitchen & Bar</h1>
         
         <p style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; color: #C5A059; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; text-align: center;">
@@ -373,24 +373,25 @@
             Discover elevated Mediterranean dining with signature coal-fired cuisine, an extensive wine collection, handcrafted cocktails, and warm Turkish hospitality.
         </p>
         
-   <!-- Main container centered horizontally using margin: 1rem auto 0; -->
-<div style="margin: 1rem auto 0; width: 100%; max-width: 400px; text-align: center;">
-    
-    <!-- Header Text -->
-    <p style="font-size: 0.85rem; font-weight: 700; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
-        <i class="fa-solid fa-calendar-days" style="color: #C5A059; margin-right: 5px;"></i> Book Your San Antonio Table:
-    </p>
-    
-    <!-- OpenTable Widget -->
-    <script type='text/javascript' src='//www.opentable.com/widget/reservation/loader?rid=1380571&type=standard&theme=standard&color=1&dark=false&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website&cfe=true'></script>
-    
-    <!-- Phone Number Text (Moved inside the centered container) -->
-    <p style="font-size: 0.9rem; margin-top: 1rem; color: #333;">
-        Parties of 9+ please call: <br>
-        <a href="tel:2102365230" style="color: #C5A059; font-weight: 700; text-decoration: none;">(210) 236-5230</a>
-    </p>
+        <!-- ISOLATED RESERVATION CONTAINER: Keeps widget center layout fully encapsulated -->
+        <div style="display: block; margin: 1rem auto 0 auto; width: 100%; max-width: 400px; text-align: center;">
+            
+            <!-- Header Text -->
+            <p style="font-size: 0.85rem; font-weight: 700; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; text-align: center;">
+                <i class="fa-solid fa-calendar-days" style="color: #C5A059; margin-right: 5px;"></i> Book Your San Antonio Table:
+            </p>
+            
+            <!-- OpenTable Widget -->
+            <script type='text/javascript' src='//www.opentable.com/widget/reservation/loader?rid=1380571&type=standard&theme=standard&color=1&dark=false&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website&cfe=true'></script>
+            
+            <!-- Phone Number Text (Snaps tightly below widget frame) -->
+            <p style="font-size: 0.9rem; margin-top: -15px; margin-bottom: 0; text-align: center; color: #333;">
+                Parties of 9+ please call: <br>
+                <a href="tel:2102365230" style="color: #C5A059; font-weight: 700; text-decoration: none;">(210) 236-5230</a>
+            </p>
 
-</div>
+        </div>
+    </section>
 
     <div class="scrolling-ticker">
         <div class="ticker-content">
@@ -399,7 +400,8 @@
         </div>
     </div>
 
-    <section id="about" class="container" style="padding: 4rem 2rem; max-width: 800px; margin: 0 auto;">
+    <!-- ABOUT SECTION: Spans naturally on page with fixed title proximity gap spacing metrics -->
+    <section id="about" class="container" style="padding: 5rem 2rem; max-width: 800px; margin: 0 auto; text-align: left;">
         
         <div class="carousel-container">
             <div class="carousel-track">
@@ -424,9 +426,9 @@
             </div>
         </div>
         
-        <h2 style="margin-top: 2.5rem; margin-bottom: 2rem;">About Selda</h2>
+        <h2 style="margin-top: 2.5rem; margin-bottom: 0.5rem; text-align: center;">About Selda</h2>
         
-        <p style="font-size: 1.1rem; line-height: 1.8; color: #4A4A4A; margin-bottom: 2rem;">
+        <p style="font-size: 1.1rem; line-height: 1.8; color: #4A4A4A; margin-top: 0; margin-bottom: 2rem;">
             At Selda Mediterranean Kitchen, we bring the rich, timeless flavors of Turkey and the Mediterranean to the heart of San Antonio. Our kitchen is founded on a simple promise: elevated dining through authentic, time-honored recipes and the freshest seasonal ingredients.
         </p>
         <p style="font-size: 1.1rem; line-height: 1.8; color: #4A4A4A; margin-bottom: 2rem;">
