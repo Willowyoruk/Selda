@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selda Mediterranean Kitchen</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@400;700&family=Cinzel:wght@600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -21,7 +21,7 @@
         }
         body { font-family: 'Lato', sans-serif; background-color: var(--cream); color: var(--dark-text); line-height: 1.7; }
         
-                header {
+        header {
             background-color: #FFFFFF; 
             padding: 1rem 0;
             position: sticky;
@@ -41,23 +41,22 @@
         nav a { color: #4A4A4A; text-decoration: none; font-size: 0.95rem; font-weight: 600; }
         nav a:hover { color: var(--primary-gold); }
 
-/* Gold for all buttons and phone links */
-.location-links a, a[href^="tel:"] {
-    color: #C5A059 !important;
-    font-weight: 700;
-}
-@media (max-width: 600px) {
-    footer div[style*="grid-template-columns"] {
-        grid-template-columns: 1fr !important;
-        gap: 2rem !important;
-    }
-}
-
+        /* Gold for all buttons and phone links */
+        .location-links a, a[href^="tel:"] {
+            color: #C5A059 !important;
+            font-weight: 700;
+        }
+        @media (max-width: 600px) {
+            footer div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+        }
 
         .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
         .hamburger span { width: 25px; height: 3px; background-color: #4A4A4A; }
 
-               .mobile-menu {
+        .mobile-menu {
             display: none;
             position: absolute;
             top: 100%;
@@ -71,7 +70,7 @@
         }
         .mobile-menu.active { display: flex; }
         
-                /* Changes mobile dropdown links to dark grey */
+        /* Changes mobile dropdown links to dark grey */
         .mobile-menu a { color: #4A4A4A; text-decoration: none; font-weight: 600; }
 
         .hero {
@@ -94,11 +93,10 @@
         }
 
         .hero p { font-size: 1.1rem; max-width: 700px; color: #666666; margin-bottom: 2rem; }
-
         
         .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
         section { padding: 5rem 0; }
-               h2 { 
+        h2 { 
             font-family: 'Cormorant Garamond', serif; 
             font-size: 3rem; 
             font-weight: 600;
@@ -107,7 +105,6 @@
             color: var(--dark-blue); 
             letter-spacing: 1px;
         }
-
 
         .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
         .about-images { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -144,17 +141,108 @@
         .ticker-content span { margin-right: 3rem; }
         @keyframes marquee { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
 
+        /* ==========================================================================
+           PHOTO CAROUSEL INTERFACE LAYOUT RULES
+           ========================================================================== */
+        .carousel-container {
+          position: relative !important;
+          width: 100% !important;
+          max-width: 600px !important; 
+          height: 400px !important;    
+          margin: 0 auto 2rem auto !important;
+          overflow: hidden !important; /* Locks down images inside the viewport */
+          border-radius: 8px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .carousel-track {
+          display: flex !important;    /* Shifts images side-by-side horizontally */
+          flex-direction: row !important;
+          width: 100% !important;
+          height: 100% !important;
+          transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .carousel-slide {
+          min-width: 100% !important;  
+          width: 100% !important;
+          height: 100% !important;
+          flex-shrink: 0 !important;   
+        }
+
+        .carousel-slide img {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important; /* Crops images cleanly without squishing food items */
+          display: block !important;
+        }
+
+        .carousel-btn {
+          position: absolute !important;
+          top: 50% !important;
+          transform: translateY(-50%) !important;
+          background-color: rgba(255, 255, 255, 0.9) !important;
+          color: #111111 !important;
+          border: none !important;
+          width: 40px !important;
+          height: 40px !important;
+          cursor: pointer !important;
+          font-size: 16px !important;
+          border-radius: 50% !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          z-index: 10 !important;
+          transition: all 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+          background-color: #111111 !important;
+          color: #ffffff !important;
+        }
+
+        .prev-btn { left: 15px !important; }
+        .next-btn { right: 15px !important; }
+
+        .carousel-dots {
+          position: absolute !important;
+          bottom: 15px !important;
+          left: 50% !important;
+          transform: translateX(-50%) !important;
+          display: flex !important;
+          gap: 8px !important;
+          z-index: 10 !important;
+        }
+
+        .dot {
+          width: 8px !important;
+          height: 8px !important;
+          background-color: rgba(255, 255, 255, 0.5) !important;
+          border-radius: 50% !important;
+          cursor: pointer !important;
+          transition: all 0.3s ease;
+        }
+
+        .dot.active {
+          background-color: #C5A059 !important; /* Matches gold style configuration colors */
+          transform: scale(1.2) !important;
+        }
+
         @media (max-width: 768px) {
-            .hamburger { display: flex; }
-            nav { display: none; }
-            .about-content, .location-card { grid-template-columns: 1fr; }
-            .hero { padding: 40px 1.5rem; }
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
-            .map-container iframe { height: 250px; }
+          .carousel-container {
+            height: 300px !important; /* Responsively scales viewport for devices */
+          }
+          .hamburger { display: flex; }
+          nav { display: none; }
+          .about-content, .location-card { grid-template-columns: 1fr; }
+          .hero { padding: 40px 1.5rem; }
+          .hero h1 { font-size: 2rem; }
+          .hero p { font-size: 1rem; }
+          .map-container iframe { height: 250px; }
         }
     </style>
 </head>
+
 <body>
 
     <header>
