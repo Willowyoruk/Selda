@@ -160,7 +160,8 @@
           flex-direction: row !important;
           width: 100% !important;
           height: 100% !important;
-          transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+          transform: translateX(0%);  /* Crucial baseline setting for JavaScript to alter */
+          transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
         }
 
         .carousel-slide {
@@ -273,15 +274,14 @@
     </header>
 
     <section class="hero">
-    <h1>Savor the Mediterranean</h1>
-    <p style="font-size: 1.2rem; font-weight: 400; line-height: 1.6; color: #4A4A4A;">
-        Elevated Mediterranean cuisine & exquisite drink pairings in San Antonio, Texas. Thoughtfully prepared, perfectly served.
-    </p>
-    <div style="margin-top: 2rem; width: 100%; max-width: 400px;">
-        <script type='text/javascript' src='//www.opentable.com/widget/reservation/loader?rid=1380571&type=standard&theme=standard&color=1&dark=false&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website&cfe=true'></script>
-    </div>
-</section>
-
+        <h1>Savor the Mediterranean</h1>
+        <p style="font-size: 1.2rem; font-weight: 400; line-height: 1.6; color: #4A4A4A;">
+            Elevated Mediterranean cuisine & exquisite drink pairings in San Antonio, Texas. Thoughtfully prepared, perfectly served.
+        </p>
+        <div style="margin-top: 2rem; width: 100%; max-width: 400px;">
+            <script type='text/javascript' src='//www.opentable.com/widget/reservation/loader?rid=1380571&type=standard&theme=standard&color=1&dark=false&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website&cfe=true'></script>
+        </div>
+    </section>
 
     <div class="scrolling-ticker">
         <div class="ticker-content">
@@ -290,81 +290,73 @@
         </div>
     </div>
 
-<section id="about" class="container" style="padding: 4rem 2rem; max-width: 800px; margin: 0 auto;">
-    <h2 style="margin-bottom: 2rem;">About Selda</h2>
-    
-    <!-- Image Carousel Container -->
-    <div class="carousel-container">
-        <div class="carousel-track">
-            <div class="carousel-slide"><img src="assets/fire.jpg" alt="Selda Mediterranean Kitchen"></div>
-            <div class="carousel-slide"><img src="assets/lambchops.jpg" alt="Sizzling Lambchops"></div>
-            <div class="carousel-slide"><img src="assets/bronzino.jpg" alt="Grilled Branzino"></div>
-            <div class="carousel-slide"><img src="assets/adana.jpg" alt="Authentic Adana Kebab"></div>
-            <div class="carousel-slide"><img src="assets/lamb-shish.jpg" alt="Marinated Lamb Shish Kebab"></div>
-            <div class="carousel-slide"><img src="assets/lahmacun.jpg" alt="Fresh Baked Lahmacun"></div>
-        </div>
+    <section id="about" class="container" style="padding: 4rem 2rem; max-width: 800px; margin: 0 auto;">
+        <h2 style="margin-bottom: 2rem;">About Selda</h2>
         
-        <!-- Navigation Arrows -->
-        <button class="carousel-btn prev-btn" aria-label="Previous Slide">&#10094;</button>
-        <button class="carousel-btn next-btn" aria-label="Next Slide">&#10095;</button>
-        
-        <!-- Indicator Dots (6 dots for your 6 images) -->
-        <div class="carousel-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </div>
-
-    <!-- Your Original Text Maintained Below -->
-    <p style="font-size: 1.1rem; line-height: 1.8; color: #4A4A4A; margin-top: 2.5rem; margin-bottom: 2rem;">
-        At Selda Mediterranean Kitchen, we bring the rich, timeless flavors of Turkey and the Mediterranean to the heart of San Antonio. Our kitchen is founded on a simple promise: elevated dining through authentic, time-honored recipes and the freshest seasonal ingredients.
-    </p>
-
-    <p style="font-size: 1.1rem; line-height: 1.8; color: #4A4A4A; margin-bottom: 2rem;">
-        From the heat of our traditional oven—where our signature pides are baked fresh to order—to our hand-marinated kebabs and grilled branzino, every dish is an invitation to celebrate. Whether you are joining us for our famous Mixed Grill, a vibrant Shepherd Salad, or a sweet finish of house-made Kunefe, you will find our table set with genuine, warm hospitality.
-    </p>
-</section>
-
-
-
-<section id="location-hours" class="container" style="padding: 1.5rem 1rem; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-    <div style="max-width: 500px; margin: 0 auto; background: #fff; padding: 3rem 1.5rem; border: 1px solid #eaeaea; border-radius: 4px;">
-        
-        <h2 style="font-family: 'Playfair Display', 'Didot', 'Georgia', serif; font-size: 2.6rem; font-weight: 700; color: #1c2b39; margin-bottom: 2rem; letter-spacing: 0.5px;">Selda<br> San Antonio</h2>
-        
-        <div class="info-block" style="margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.8; color: #333; letter-spacing: 0.3px;">
-            <p style="margin: 0.6rem 0;">9955 I-10 W, San Antonio, TX 78230</p>
-            <p style="margin: 0.6rem 0;"><strong>Hours:</strong> 11:00 AM - 11:00 PM Daily</p>
-            <p style="margin: 0.6rem 0;"><strong>Phone:</strong> <a href="tel:2102365230" style="color: #c4a468; text-decoration: none; font-weight: 600;">(210) 236-5230</a></p>
-        </div>
-
-        <div class="action-buttons" style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2.5rem;">
-            <a href="https://www.opentable.com/booking/restref/availability?rid=1380571&correlationId=af0f3c63-45cb-4ba9-abbe-98288dbeda5b" target="_blank" rel="noopener noreferrer" style="background-color: #2c2c2c; color: #fff; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.95rem; font-weight: 500; letter-spacing: 1px; border-radius: 2px; min-width: 140px; display: inline-block;">Reserve</a>
+        <!-- Image Carousel Container -->
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-slide"><img src="assets/fire.jpg" alt="Selda Mediterranean Kitchen"></div>
+                <div class="carousel-slide"><img src="assets/lambchops.jpg" alt="Sizzling Lambchops"></div>
+                <div class="carousel-slide"><img src="assets/bronzino.jpg" alt="Grilled Branzino"></div>
+                <div class="carousel-slide"><img src="assets/adana.jpg" alt="Authentic Adana Kebab"></div>
+                <div class="carousel-slide"><img src="assets/lamb-shish.jpg" alt="Marinated Lamb Shish Kebab"></div>
+                <div class="carousel-slide"><img src="assets/lahmacun.jpg" alt="Fresh Baked Lahmacun"></div>
+            </div>
             
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Selda+Mediterranean+Kitchen+%26+Bar+San+Antonio" target="_blank" rel="noopener noreferrer" style="border: 1px solid #2c2c2c; color: #2c2c2c; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.95rem; font-weight: 500; letter-spacing: 1px; border-radius: 2px; min-width: 140px; display: inline-block;">Directions</a>
+            <!-- Navigation Arrows -->
+            <button class="carousel-btn prev-btn" aria-label="Previous Slide">&#10094;</button>
+            <button class="carousel-btn next-btn" aria-label="Next Slide">&#10095;</button>
+            
+            <!-- Indicator Dots -->
+            <div class="carousel-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
         </div>
 
-        <div class="map-container" style="width: 100%; border-radius: 4px; overflow: hidden; line-height: 0;">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.627732296058!2d-98.56790112356598!3d29.535786942152865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c61187cf88459%3A0x1c77d58b3eb75c3f!2sSelda%20Mediterranean%20Kitchen%20%26%20Bar!5e0!3m2!1sen!2sus!4v1718670000000!5m2!1sen!2sus" 
-                width="100%" 
-                height="230" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+        <!-- Your Text -->
+        <p style="font-size: 1.1rem; line-height: 1.8; color: #4A4A4A; margin-top: 2.5rem; margin-bottom: 2rem;">
+            At Selda Mediterranean Kitchen, we bring the rich, timeless flavors of Turkey and the Mediterranean to the heart of San Antonio. Our kitchen is founded on a simple promise: elevated dining through authentic, time-honored recipes and the freshest seasonal ingredients.
+        </p>
+
+        <p style="font-size: 1.1rem; line-height: 1.8; color: #4A4A4A; margin-bottom: 2rem;">
+            From the heat of our traditional oven—where our signature pides are baked fresh to order—to our hand-marinated kebabs and grilled branzino, every dish is an invitation to celebrate. Whether you are joining us for our famous Mixed Grill, a vibrant Shepherd Salad, or a sweet finish of house-made Kunefe, you will find our table set with genuine, warm hospitality.
+        </p>
+    </section>
+
+    <section id="location-hours" class="container" style="padding: 1.5rem 1rem; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        <div style="max-width: 500px; margin: 0 auto; background: #fff; padding: 3rem 1.5rem; border: 1px solid #eaeaea; border-radius: 4px;">
+            <h2 style="font-family: 'Playfair Display', 'Didot', 'Georgia', serif; font-size: 2.6rem; font-weight: 700; color: #1c2b39; margin-bottom: 2rem; letter-spacing: 0.5px;">Selda<br> San Antonio</h2>
+            
+            <div class="info-block" style="margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.8; color: #333; letter-spacing: 0.3px;">
+                <p style="margin: 0.6rem 0;">9955 I-10 W, San Antonio, TX 78230</p>
+                <p style="margin: 0.6rem 0;"><strong>Hours:</strong> 11:00 AM - 11:00 PM Daily</p>
+                <p style="margin: 0.6rem 0;"><strong>Phone:</strong> <a href="tel:2102365230" style="color: #c4a468; text-decoration: none; font-weight: 600;">(210) 236-5230</a></p>
+            </div>
+
+            <div class="action-buttons" style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2.5rem;">
+                <a href="https://www.opentable.com/booking/restref/availability?rid=1380571&correlationId=af0f3c63-45cb-4ba9-abbe-98288dbeda5b" target="_blank" rel="noopener noreferrer" style="background-color: #2c2c2c; color: #fff; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.95rem; font-weight: 500; letter-spacing: 1px; border-radius: 2px; min-width: 140px; display: inline-block;">Reserve</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Selda+Mediterranean+Kitchen+%26+Bar+San+Antonio" target="_blank" rel="noopener noreferrer" style="border: 1px solid #2c2c2c; color: #2c2c2c; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.95rem; font-weight: 500; letter-spacing: 1px; border-radius: 2px; min-width: 140px; display: inline-block;">Directions</a>
+            </div>
+
+            <div class="map-container" style="width: 100%; border-radius: 4px; overflow: hidden; line-height: 0;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.627732296058!2d-98.56790112356598!3d29.535786942152865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c61187cf88459%3A0x1c77d58b3eb75c3f!2sSelda%20Mediterranean%20Kitchen%20%26%20Bar!5e0!3m2!1sen!2sus!4v1718670000000!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="230" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </div>
-
-    </div>
-</section>
-
-
-
+    </section>
 
     <section id="menu" class="container">
         <h2>Menu</h2>
@@ -375,32 +367,31 @@
             </div>
         </div>
     </section>
-<br>
-   <section id="ordering" class="container">
-    <h2 style="margin-bottom: 0.5rem;">Order Online</h2>
-    <div class="ordering-grid">
-        <div class="ordering-card">
-            <h3>ZingMyOrder</h3>
-            <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" rel="noopener noreferrer">Order Now</a>
+    <br>
+    
+    <section id="ordering" class="container">
+        <h2 style="margin-bottom: 0.5rem;">Order Online</h2>
+        <div class="ordering-grid">
+            <div class="ordering-card">
+                <h3>ZingMyOrder</h3>
+                <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" rel="noopener noreferrer">Order Now</a>
+            </div>
+            <div class="ordering-card">
+                <h3>DoorDash</h3>
+                <a href="https://www.doordash.com/store/selda-mediterranean-kitchen-san-antonio-30359031/" target="_blank" rel="noopener noreferrer">Order Now</a>
+            </div>
+            <div class="ordering-card">
+                <h3>Uber Eats</h3>
+                <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" rel="noopener noreferrer">Order Now</a>
+            </div>
+            <div class="ordering-card">
+                <h3>Grubhub</h3>
+                <a href="https://seldasanantonio.dine.online" target="_blank" rel="noopener noreferrer" onclick="window.open('https://seldasanantonio.dine.online', '_blank'); return false;">Order Now</a>
+            </div>
         </div>
-        <div class="ordering-card">
-            <h3>DoorDash</h3>
-            <a href="https://www.doordash.com/store/selda-mediterranean-kitchen-san-antonio-30359031/" target="_blank" rel="noopener noreferrer">Order Now</a>
-        </div>
-        <div class="ordering-card">
-            <h3>Uber Eats</h3>
-            <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" rel="noopener noreferrer">Order Now</a>
-        </div>
-        <div class="ordering-card">
-            <h3>Grubhub</h3>
-            <a href="https://seldasanantonio.dine.online" target="_blank" rel="noopener noreferrer" onclick="window.open('https://seldasanantonio.dine.online', '_blank'); return false;">Order Now</a>
-        </div>
-    </div>
-</section>
+    </section>
 
-
-
-       <section id="amenities" class="container">
+    <section id="amenities" class="container">
         <h2>a little more...</h2>
         <div class="amenities-grid">
             <div class="amenity-card"><h3>Hookah on the Patio</h3><p>Relax on our patio with premium hookah.</p></div>
@@ -416,27 +407,17 @@
                    <a href="tel:2102365230" style="color: #C5A059; font-weight: 700; text-decoration: none;">(210) 236-5230</a>
                 </p>
             </div>
-            <div class="amenity-card"><h3>Group Events</h3><p>Gather at Selda. We specialize in accommodating large groups of 20+ in our vibrant dining room. With a full bar and authentic Mediterranean flavors, we make it easy to celebrate life’s special moments together.
-</p></div>
+            <div class="amenity-card"><h3>Group Events</h3><p>Gather at Selda. We specialize in accommodating large groups of 20+ in our vibrant dining room. With a full bar and authentic Mediterranean flavors, we make it easy to celebrate life’s special moments together.</p></div>
         </div>
     </section>
 
-
-              <section id="catering" class="container" style="padding: 2rem 0;">
+    <section id="catering" class="container" style="padding: 2rem 0;">
         <div class="amenity-card" style="background: white; padding: 2rem; box-shadow: 0 4px 16px rgba(0,0,0,0.05); margin: 0 1rem; border-radius: 8px; text-align: center;">
             <h3 style="color: var(--dark-blue); font-family: 'Playfair Display', serif; margin-bottom: 1rem;">Catering Orders</h3>
-            
-            <p style="color: #4A4A4A; margin-bottom: 1.5rem; line-height: 1.6;">
-                Customizable catering packages for corporate events, weddings, and celebrations.
-            </p>
-            
-            <p style="color: #4A4A4A; font-weight: 700;">
-                Contact us at: <br>
-                <a href="tel:2102365230" style="color: #C5A059; text-decoration: none;">(210) 236-5230</a>
-            </p>
+            <p style="color: #4A4A4A; margin-bottom: 1.5rem; line-height: 1.6;">Customizable catering packages for corporate events, weddings, and celebrations.</p>
+            <p style="color: #4A4A4A; font-weight: 700;">Contact us at: <br><a href="tel:2102365230" style="color: #C5A059; text-decoration: none;">(210) 236-5230</a></p>
         </div>
     </section>
-
 
     <section id="social" class="container" style="padding: 1rem 0; text-align: center;">
         <div class="social-links" style="display: flex; justify-content: center; gap: 30px; font-size: 2rem;">
@@ -447,9 +428,7 @@
     </section>
 
     <footer id="footer-destinations" style="background: #2F2F2F; color: #ffffff; padding: 2rem 1rem 1rem 1rem; margin-top: 1rem;">
-        
         <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; text-align: left;">
-            
             <div>
                 <h4 style="color: #C5A059; margin-bottom: 1rem; font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 1px;">Selda Destinations</h4>
                 <ul style="list-style: none; padding: 0; line-height: 1.8;">
@@ -460,7 +439,6 @@
                     <li><a href="https://instagram.com/themayorshouse_byselda" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">The Mayor's House by Selda</a></li>
                 </ul>
             </div>
-
             <div>
                 <h4 style="color: #C5A059; margin-bottom: 1rem; font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 1px;">Sister Concepts</h4>
                 <ul style="list-style: none; padding: 0; line-height: 1.8;">
@@ -471,17 +449,12 @@
                 </ul>
             </div>
         </div>
-
         <div style="max-width: 900px; margin: 1rem auto 0 auto; border-top: 1px solid #444; padding-top: 1rem; text-align: center; font-size: 0.8rem; color: #999;">
             <p>© 2026 Selda. All rights reserved.</p>
         </div>
     </footer>
 
-
-
-
-
-        <script>
+    <script>
         // --- Mobile Hamburger Menu Logic ---
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -574,8 +547,5 @@
             startAutoplay();
         }
     </script>
-</body>
-</html>
-
 </body>
 </html>
