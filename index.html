@@ -61,7 +61,7 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background-color: #FFFFFF; /* Turns the mobile dropdown panel white */
+            background-color: #FFFFFF; 
             width: 100%;
             flex-direction: column;
             padding: 2rem;
@@ -69,9 +69,47 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         .mobile-menu.active { display: flex; }
-        
-        /* Changes mobile dropdown links to dark grey */
         .mobile-menu a { color: #4A4A4A; text-decoration: none; font-weight: 600; }
+
+        /* Mobile Nested Locations UI Layout Options */
+        .mobile-dropdown-btn {
+            background: none;
+            border: none;
+            color: #4A4A4A;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: left;
+            padding: 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            font-family: 'Lato', sans-serif;
+        }
+        .mobile-dropdown-btn i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        .mobile-dropdown-btn.active i {
+            transform: rotate(180deg);
+        }
+        .mobile-dropdown-content {
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+            border-left: 2px solid var(--primary-gold);
+        }
+        .mobile-dropdown-content.open {
+            display: flex;
+        }
+        .mobile-dropdown-content a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #666666;
+        }
 
         .hero {
             text-align: center;
@@ -81,8 +119,6 @@
             align-items: center;
             justify-content: center;
         }
-
-        /* Updated Hero H1 to match Dallas font */
         .hero h1 { 
             font-family: 'Cormorant Garamond', serif; 
             font-size: 3.8rem; 
@@ -91,7 +127,6 @@
             letter-spacing: 1px; 
             margin-bottom: 1rem; 
         }
-
         .hero p { font-size: 1.1rem; max-width: 700px; color: #666666; margin-bottom: 2rem; }
         
         .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
@@ -150,17 +185,17 @@
           max-width: 600px !important; 
           height: 400px !important;    
           margin: 0 auto 2rem auto !important;
-          overflow: hidden !important; /* Locks down images inside the viewport */
+          overflow: hidden !important; 
           border-radius: 8px;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
         .carousel-track {
-          display: flex !important;    /* Shifts images side-by-side horizontally */
+          display: flex !important;    
           flex-direction: row !important;
           width: 100% !important;
           height: 100% !important;
-          transform: translateX(0%);  /* Crucial baseline setting for JavaScript to alter */
+          transform: translateX(0%);  
           transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
         }
 
@@ -174,7 +209,7 @@
         .carousel-slide img {
           width: 100% !important;
           height: 100% !important;
-          object-fit: cover !important; /* Crops images cleanly without squishing food items */
+          object-fit: cover !important; 
           display: block !important;
         }
 
@@ -225,13 +260,13 @@
         }
 
         .dot.active {
-          background-color: #C5A059 !important; /* Matches gold style configuration colors */
+          background-color: #C5A059 !important; 
           transform: scale(1.2) !important;
         }
 
         @media (max-width: 768px) {
           .carousel-container {
-            height: 300px !important; /* Responsively scales viewport for devices */
+            height: 300px !important; 
           }
           .hamburger { display: flex; }
           nav { display: none; }
@@ -254,7 +289,7 @@
             <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
             <nav>
                 <a href="#about">About</a>
-                <a href="#locations">Locations</a>
+                <a href="#footer-destinations">Locations</a>
                 <a href="#menu">Menu</a>
                 <a href="#ordering">Order</a>
                 <a href="#amenities">Hookah</a>
@@ -262,9 +297,23 @@
                 <a href="#social">Connect</a>
             </nav>
         </div>
+        
         <div class="mobile-menu" id="mobile-menu">
             <a href="#about">About</a>
-            <a href="#locations">Locations</a>
+            
+            <div class="mobile-dropdown-wrapper">
+                <button class="mobile-dropdown-btn" id="locations-toggle">
+                    Locations <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="mobile-dropdown-content" id="locations-dropdown">
+                    <a href="#location-hours">Selda San Antonio</a>
+                    <a href="https://seldadallas.com" target="_blank">Selda Dallas</a>
+                    <a href="https://instagram.com/seldafrisco" target="_blank">Selda Frisco</a>
+                    <a href="https://instagram.com/Seldalascolinas" target="_blank">Selda Las Colinas</a>
+                    <a href="https://instagram.com/themayorshouse_byselda" target="_blank">The Mayor's House by Selda</a>
+                </div>
+            </div>
+
             <a href="#menu">Menu</a>
             <a href="#ordering">Order</a>
             <a href="#amenities">Hookah</a>
@@ -293,7 +342,6 @@
     <section id="about" class="container" style="padding: 4rem 2rem; max-width: 800px; margin: 0 auto;">
         <h2 style="margin-bottom: 2rem;">About Selda</h2>
         
-        <!-- Image Carousel Container -->
         <div class="carousel-container">
             <div class="carousel-track">
                 <div class="carousel-slide"><img src="assets/fire.jpg" alt="Selda Mediterranean Kitchen"></div>
@@ -304,11 +352,9 @@
                 <div class="carousel-slide"><img src="assets/lahmacun.jpg" alt="Fresh Baked Lahmacun"></div>
             </div>
             
-            <!-- Navigation Arrows -->
-            <button class="carousel-btn prev-btn" aria-label="Previous Slide">&#10094;</button>
-            <button class="carousel-btn next-btn" aria-label="Next Slide">&#10095;</button>
+            <button class="carousel-btn prev-btn" aria-label="Previous Slide">❮</button>
+            <button class="carousel-btn next-btn" aria-label="Next Slide">❯</button>
             
-            <!-- Indicator Dots -->
             <div class="carousel-dots">
                 <span class="dot active"></span>
                 <span class="dot"></span>
@@ -319,7 +365,6 @@
             </div>
         </div>
 
-        <!-- Your Text -->
         <p style="font-size: 1.1rem; line-height: 1.8; color: #4A4A4A; margin-top: 2.5rem; margin-bottom: 2rem;">
             At Selda Mediterranean Kitchen, we bring the rich, timeless flavors of Turkey and the Mediterranean to the heart of San Antonio. Our kitchen is founded on a simple promise: elevated dining through authentic, time-honored recipes and the freshest seasonal ingredients.
         </p>
@@ -432,20 +477,20 @@
             <div>
                 <h4 style="color: #C5A059; margin-bottom: 1rem; font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 1px;">Selda Destinations</h4>
                 <ul style="list-style: none; padding: 0; line-height: 1.8;">
-                    <li><a href="https://instagram.com/seldasanantonio" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda San Antonio</a></li>
-                    <li><a href="https://seldadallas.com" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Dallas</a></li>
-                    <li><a href="https://instagram.com/seldafrisco" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Frisco</a></li>
-                    <li><a href="https://instagram.com/Seldalascolinas" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Las Colinas</a></li>
-                    <li><a href="https://instagram.com/themayorshouse_byselda" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">The Mayor's House by Selda</a></li>
+                    <li><a href="#location-hours" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda San Antonio</a></li>
+                    <li><a href="https://seldadallas.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Dallas</a></li>
+                    <li><a href="https://instagram.com/seldafrisco" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Frisco</a></li>
+                    <li><a href="https://instagram.com/Seldalascolinas" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Las Colinas</a></li>
+                    <li><a href="https://instagram.com/themayorshouse_byselda" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">The Mayor's House by Selda</a></li>
                 </ul>
             </div>
             <div>
                 <h4 style="color: #C5A059; margin-bottom: 1rem; font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 1px;">Sister Concepts</h4>
                 <ul style="list-style: none; padding: 0; line-height: 1.8;">
-                    <li><a href="https://instagram.com/seldabakery" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Bakery</a></li>
-                    <li><a href="https://instagram.com/seldagyrodoner" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Döner</a></li>
-                    <li><a href="https://instagram.com/Nice.coffee.cocktail" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Nice Coffee Cocktail Bar</a></li>
-                    <li><a href="https://instagram.com/Eliagreektaverndallas" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Elia Greek Tavern</a></li>
+                    <li><a href="https://instagram.com/seldabakery" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Bakery</a></li>
+                    <li><a href="https://instagram.com/seldagyrodoner" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Döner</a></li>
+                    <li><a href="https://instagram.com/Nice.coffee.cocktail" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Nice Coffee Cocktail Bar</a></li>
+                    <li><a href="https://instagram.com/Eliagreektaverndallas" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Elia Greek Tavern</a></li>
                 </ul>
             </div>
         </div>
@@ -455,16 +500,37 @@
     </footer>
 
     <script>
-        // --- Mobile Hamburger Menu Logic ---
+        // --- Mobile Hamburger & Nested Locations Dropdown Logic ---
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobile-menu');
+        const locationsToggle = document.getElementById('locations-toggle');
+        const locationsDropdown = document.getElementById('locations-dropdown');
         
         if (hamburger && mobileMenu) {
             hamburger.addEventListener('click', () => {
                 mobileMenu.classList.toggle('active');
             });
+            
+            // Evaluates link anchor navigation actions to clean up dashboard presentation views
             mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => mobileMenu.classList.remove('active'));
+                link.addEventListener('click', () => {
+                    if (!link.closest('#locations-dropdown')) {
+                        mobileMenu.classList.remove('active');
+                    } else {
+                        if (link.getAttribute('href').startsWith('#')) {
+                            mobileMenu.classList.remove('active');
+                        }
+                    }
+                });
+            });
+        }
+
+        // Toggles visibility attributes for the hidden mobile destination choices
+        if (locationsToggle && locationsDropdown) {
+            locationsToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                locationsToggle.classList.toggle('active');
+                locationsDropdown.classList.toggle('open');
             });
         }
 
