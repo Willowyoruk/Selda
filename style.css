@@ -222,3 +222,98 @@ footer {
   .hero-minimal h1 { font-size: 26px; }
   .grid-wrapper { grid-template-columns: 1fr; gap: 30px; }
 }
+
+ /* --- Elegant Image Carousel --- */
+.carousel-container {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 600px !important; /* Forces the box to stay a reasonable size */
+  height: 400px !important;    /* Caps the vertical height */
+  margin: 0 auto 2rem auto !important;
+  overflow: hidden !important; /* Crucial: This hides the images that aren't active */
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.carousel-track {
+  display: flex !important;    /* Crucial: Forces images to sit side-by-side in a single line */
+  flex-direction: row !important;
+  width: 100% !important;
+  height: 100% !important;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.carousel-slide {
+  min-width: 100% !important;  /* Each slide takes up exactly 1 container width */
+  width: 100% !important;
+  height: 100% !important;
+  flex-shrink: 0 !important;   /* Prevents the browser from squishing them */
+}
+
+.carousel-slide img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; /* Crops the images cleanly without distortion */
+  display: block !important;
+}
+
+/* Control Buttons */
+.carousel-btn {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #111111 !important;
+  border: none !important;
+  width: 40px !important;
+  height: 40px !important;
+  cursor: pointer !important;
+  font-size: 16px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 10 !important;
+  transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background-color: #111111 !important;
+  color: #ffffff !important;
+}
+
+.prev-btn { left: 15px !important; }
+.next-btn { right: 15px !important; }
+
+/* Dynamic Dots Navigation */
+.carousel-dots {
+  position: absolute !important;
+  bottom: 15px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  gap: 8px !important;
+  z-index: 10 !important;
+}
+
+.dot {
+  width: 8px !important;
+  height: 8px !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: #dfb15b !important; /* Matches your --gold variable */
+  transform: scale(1.2) !important;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .carousel-container {
+    height: 300px !important; /* Shrinks container height gracefully on phone viewports */
+  }
+}
+
