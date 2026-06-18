@@ -1,16 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selda Mediterranean Kitchen</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@400;700&family=Cinzel:wght@600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* Global Structural CSS Overrides */
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* Centralized Brand Style Identity Tokens Variable Parameters */
         :root {
             --primary-gold: #C9A961;
             --dark-blue: #0F1B2E;
@@ -19,14 +25,22 @@
             --dark-text: #1a1a1a;
             --light-text: #5a5a5a;
         }
-        body { font-family: 'Lato', sans-serif; background-color: var(--cream); color: var(--dark-text); line-height: 1.7; }
         
+        /* Global Body Environment Settings */
+        body { 
+            font-family: 'Lato', sans-serif; 
+            background-color: var(--cream); 
+            color: var(--dark-text); 
+            line-height: 1.7; 
+        }
+        
+        /* Header & Navigation Top Dock Controls */
         header {
             background-color: #FFFFFF; 
             padding: 1rem 0;
-            position: sticky;
+            position: sticky; /* Keeps the navbar pinned to the top of the browser screen while reading */
             top: 0;
-            z-index: 100;
+            z-index: 100; /* High stack weight prevents content from bleeding on top of the navbar menu */
             box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
         }
         .header-content {
@@ -41,21 +55,17 @@
         nav a { color: #4A4A4A; text-decoration: none; font-size: 0.95rem; font-weight: 600; }
         nav a:hover { color: var(--primary-gold); }
 
-        /* Gold for all buttons and phone links */
+        /* Typography Color Anchors for Call Actions */
         .location-links a, a[href^="tel:"] {
             color: #C5A059 !important;
             font-weight: 700;
         }
-        @media (max-width: 600px) {
-            footer div[style*="grid-template-columns"] {
-                grid-template-columns: 1fr !important;
-                gap: 2rem !important;
-            }
-        }
 
+        /* Mobile Hamburger Drawer Component Layouts */
         .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
         .hamburger span { width: 25px; height: 3px; background-color: #4A4A4A; }
 
+        /* Mobile Absolute Dropdown Navigation Layout Structure */
         .mobile-menu {
             display: none;
             position: absolute;
@@ -68,10 +78,10 @@
             gap: 1.5rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        .mobile-menu.active { display: flex; }
+        .mobile-menu.active { display: flex; } /* Toggled by JavaScript when user clicks hamburger */
         .mobile-menu a { color: #4A4A4A; text-decoration: none; font-weight: 600; }
 
-        /* Mobile Nested Locations UI Layout Options */
+        /* Mobile Nested Interlinking Dropdown Controls */
         .mobile-dropdown-btn {
             background: none;
             border: none;
@@ -92,7 +102,7 @@
             transition: transform 0.3s ease;
         }
         .mobile-dropdown-btn.active i {
-            transform: rotate(180deg);
+            transform: rotate(180deg); /* Rotates the little arrow down when open */
         }
         .mobile-dropdown-content {
             display: none;
@@ -111,6 +121,7 @@
             color: #666666;
         }
 
+        /* Hero Splash Showcase Panel Rules */
         .hero {
             text-align: center;
             padding: 80px 2rem;
@@ -125,10 +136,10 @@
             font-weight: 600; 
             color: #2F2F2F; 
             letter-spacing: 1px; 
-            margin-bottom: 1rem; 
+            margin-bottom: 0.5rem; 
         }
-        .hero p { font-size: 1.1rem; max-width: 700px; color: #666666; margin-bottom: 2rem; }
         
+        /* Unified Global Grid Containers Layout Specifications */
         .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
         section { padding: 5rem 0; }
         h2 { 
@@ -141,36 +152,37 @@
             letter-spacing: 1px;
         }
 
+        /* About Grid Layout Settings (Used if multi-column fallback activated) */
         .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
         .about-images { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
         .about-images img { width: 100%; height: 200px; object-fit: cover; border-radius: 2px; }
         .about-images img.full { grid-column: 1 / -1; height: 250px; }
 
+        /* Legacy Locations Grid Infrastructure */
         .locations-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
         .location-card { background: white; padding: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
         .location-links a { color: var(--primary-gold); text-decoration: none; font-weight: 600; margin-right: 1.5rem; text-transform: uppercase; }
         .map-container iframe { width: 100%; height: 350px; border: 0; }
 
+        /* Menu Documents Presentation Call-To-Action Layout buttons */
         .menu-content { text-align: center; max-width: 800px; margin: 0 auto; }
         .menu-buttons { display: flex; gap: 1.5rem; justify-content: center; margin-top: 2rem; }
         .btn-menu { padding: 1rem 2rem; background: var(--primary-gold); color: var(--dark-blue); text-decoration: none; font-weight: 700; text-transform: uppercase; }
         .btn-menu.secondary { background: transparent; color: var(--primary-gold); border: 2px solid var(--primary-gold); }
 
-        .ordering-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-        .ordering-card { background: white; padding: 2rem; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .ordering-card a { display: inline-block; margin-top: 1rem; padding: 0.7rem 1.5rem; background: var(--primary-gold); color: var(--dark-blue); text-decoration: none; font-weight: 600; }
-
+        /* Guest Experience Extras Matrix Blocks (Hookah, Group Dining, etc) */
         .amenities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .amenity-card { background: white; padding: 2rem; text-align: center; }
 
+        /* Catering Content Banner Contexts */
         #catering { background: var(--dark-blue); color: var(--cream); text-align: center; }
         #catering h2, #catering a { color: var(--primary-gold); }
 
+        /* Social Network Direct Interlinks */
         .social-links { display: flex; justify-content: center; gap: 2rem; font-size: 2rem; }
         .social-links a { color: var(--dark-blue); }
 
-        footer { background: var(--dark-blue); color: var(--cream); text-align: center; padding: 2rem; font-size: 0.9rem; }
-
+        /* Infinite Horizontal Marquee Ticker Typography Scroller */
         .scrolling-ticker { background: #4A4A4A; color: white; overflow: hidden; white-space: nowrap; padding: 0.7rem 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; }
         .ticker-content { display: inline-block; animation: marquee 20s linear infinite; }
         .ticker-content span { margin-right: 3rem; }
@@ -185,7 +197,7 @@
           max-width: 600px !important; 
           height: 400px !important;    
           margin: 0 auto 2rem auto !important;
-          overflow: hidden !important; 
+          overflow: hidden !important; /* Crops the sliding image track so only one frame displays at a time */
           border-radius: 8px;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
@@ -196,7 +208,7 @@
           width: 100% !important;
           height: 100% !important;
           transform: translateX(0%);  
-          transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+          transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important; /* Premium elastic transition slide effect */
         }
 
         .carousel-slide {
@@ -209,7 +221,7 @@
         .carousel-slide img {
           width: 100% !important;
           height: 100% !important;
-          object-fit: cover !important; 
+          object-fit: cover !important; /* Stretches the assets cleanly without distortion layouts */
           display: block !important;
         }
 
@@ -264,17 +276,43 @@
           transform: scale(1.2) !important;
         }
 
+        /* ==========================================================================
+           PREMIUM DROPDOWN HOVER ANIMATIONS INTERACTION STYLES
+           ========================================================================== */
+        .order-option-item {
+            display: block !important;
+            padding: 1rem 1.5rem !important;
+            color: #4A4A4A !important;
+            text-decoration: none !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            border-bottom: 1px solid #FAF8F5; /* Separator track spacing lines */
+            transition: all 0.2s ease !important;
+        }
+        .order-option-item:last-child {
+            border-bottom: none; /* Removes double border lines from the last option element */
+        }
+        .order-option-item:hover {
+            background-color: #FAF8F5 !important;
+            color: #C5A059 !important;
+            padding-left: 1.8rem !important; /* Smoothly slides text slightly rightwards on mouse pointer hover */
+        }
+
+        /* Responsive Breakpoints Viewport Rules */
         @media (max-width: 768px) {
-          .carousel-container {
-            height: 300px !important; 
-          }
+          .carousel-container { height: 300px !important; }
           .hamburger { display: flex; }
           nav { display: none; }
           .about-content, .location-card { grid-template-columns: 1fr; }
           .hero { padding: 40px 1.5rem; }
-          .hero h1 { font-size: 2rem; }
-          .hero p { font-size: 1rem; }
+          .hero h1 { font-size: 2.2rem; }
           .map-container iframe { height: 250px; }
+        }
+        @media (max-width: 600px) {
+            footer div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
         }
     </style>
 </head>
@@ -286,7 +324,9 @@
             <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
               <img src="assets/seldawhite.png" alt="Selda Logo" style="height: 50px; width: auto; object-fit: contain;">
             </a>
+            
             <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            
             <nav>
                 <a href="#about">About</a>
                 <a href="#footer-destinations">Locations</a>
@@ -323,11 +363,20 @@
     </header>
 
     <section class="hero">
-        <h1>San Antonio <br>Savor the Mediterranean</h1>
-        <p style="font-size: 1.2rem; font-weight: 400; line-height: 1.6; color: #4A4A4A;">
-            Elevated Mediterranean cuisine & exquisite drink pairings in San Antonio, Texas. Thoughtfully prepared, perfectly served.
+        <h1>Savor the Mediterranean</h1>
+        
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; color: #C5A059; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; text-align: center;">
+            San Antonio, Texas
         </p>
-        <div style="margin-top: 2rem; width: 100%; max-width: 400px;">
+        
+        <p style="font-size: 1.2rem; font-weight: 400; line-height: 1.6; color: #4A4A4A; max-width: 650px; margin-bottom: 2rem;">
+            Welcome to our San Antonio table. Experience elevated Mediterranean cuisine, traditional Turkish grills, and exquisite drink pairings thoughtfully prepared for you.
+        </p>
+        
+        <div style="margin-top: 1rem; width: 100%; max-width: 400px;">
+            <p style="font-size: 0.85rem; font-weight: 700; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; text-align: center;">
+                <i class="fa-solid fa-calendar-days" style="color: #C5A059; margin-right: 5px;"></i> Book Your San Antonio Table:
+            </p>
             <script type='text/javascript' src='//www.opentable.com/widget/reservation/loader?rid=1380571&type=standard&theme=standard&color=1&dark=false&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website&cfe=true'></script>
         </div>
     </section>
@@ -340,7 +389,6 @@
     </div>
 
     <section id="about" class="container" style="padding: 4rem 2rem; max-width: 800px; margin: 0 auto;">
-        
         
         <div class="carousel-container">
             <div class="carousel-track">
@@ -364,11 +412,12 @@
                 <span class="dot"></span>
             </div>
         </div>
-<h2 style="margin-bottom: 2rem;">About Selda</h2>
-        <p style="font-size: 1.1rem; line-height: 1.8; color: #4A4A4A; margin-top: 2.5rem; margin-bottom: 2rem;">
+        
+        <h2 style="margin-top: 2.5rem; margin-bottom: 2rem;">About Selda</h2>
+        
+        <p style="font-size: 1.1rem; line-height: 1.8; color: #4A4A4A; margin-bottom: 2rem;">
             At Selda Mediterranean Kitchen, we bring the rich, timeless flavors of Turkey and the Mediterranean to the heart of San Antonio. Our kitchen is founded on a simple promise: elevated dining through authentic, time-honored recipes and the freshest seasonal ingredients.
         </p>
-
         <p style="font-size: 1.1rem; line-height: 1.8; color: #4A4A4A; margin-bottom: 2rem;">
             From the heat of our traditional oven—where our signature pides are baked fresh to order—to our hand-marinated kebabs and grilled branzino, every dish is an invitation to celebrate. Whether you are joining us for our famous Mixed Grill, a vibrant Shepherd Salad, or a sweet finish of house-made Kunefe, you will find our table set with genuine, warm hospitality.
         </p>
@@ -414,24 +463,24 @@
     </section>
     <br>
     
-    <section id="ordering" class="container">
-        <h2 style="margin-bottom: 0.5rem;">Order Online</h2>
-        <div class="ordering-grid">
-            <div class="ordering-card">
-                <h3>ZingMyOrder</h3>
-                <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" rel="noopener noreferrer">Order Now</a>
-            </div>
-            <div class="ordering-card">
-                <h3>DoorDash</h3>
-                <a href="https://www.doordash.com/store/selda-mediterranean-kitchen-san-antonio-30359031/" target="_blank" rel="noopener noreferrer">Order Now</a>
-            </div>
-            <div class="ordering-card">
-                <h3>Uber Eats</h3>
-                <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" rel="noopener noreferrer">Order Now</a>
-            </div>
-            <div class="ordering-card">
-                <h3>Grubhub</h3>
-                <a href="https://seldasanantonio.dine.online" target="_blank" rel="noopener noreferrer" onclick="window.open('https://seldasanantonio.dine.online', '_blank'); return false;">Order Now</a>
+    <section id="ordering" class="container" style="padding: 4rem 2rem; text-align: center; position: relative; z-index: 999; overflow: visible !important;">
+        <h2 style="margin-bottom: 1rem;">Order Online</h2>
+        <p style="font-size: 1.1rem; color: #5a5a5a; max-width: 600px; margin: 0 auto 2.5rem auto; line-height: 1.6;">
+            Enjoy the flavors of Selda from the comfort of your home. Select your preferred delivery or pickup service below.
+        </p>
+
+        <div class="order-dropdown-container" style="position: relative; max-width: 320px; margin: 0 auto; text-align: left; overflow: visible !important; z-index: 1000;">
+            
+            <button id="order-menu-btn" style="width: 100%; padding: 1.1rem 1.5rem; background: #FFFFFF; border: 2px solid #C5A059; color: #1a1a1a; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; border-radius: 2px; transition: all 0.3s ease; font-family: 'Lato', sans-serif;">
+                <span>Choose Delivery Service</span>
+                <i class="fas fa-chevron-down" style="color: #C5A059; font-size: 0.8rem; transition: transform 0.3s ease;" id="order-chevron"></i>
+            </button>
+
+            <div id="order-options-list" style="display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #FFFFFF; border: 1px solid #eaeaea; border-top: none; box-shadow: 0 8px 24px rgba(0,0,0,0.15); z-index: 9999 !important; border-radius: 0 0 4px 4px; overflow: hidden; margin-top: 2px;">
+                <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" rel="noopener noreferrer" class="order-option-item">ZingMyOrder</a>
+                <a href="https://www.doordash.com/store/selda-mediterranean-kitchen-san-antonio-30359031/" target="_blank" rel="noopener noreferrer" class="order-option-item">DoorDash</a>
+                <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" rel="noopener noreferrer" class="order-option-item">Uber Eats</a>
+                <a href="https://seldasanantonio.dine.online" target="_blank" rel="noopener noreferrer" class="order-option-item">Grubhub</a>
             </div>
         </div>
     </section>
@@ -500,18 +549,19 @@
     </footer>
 
     <script>
-        // --- Mobile Hamburger & Nested Locations Dropdown Logic ---
+        // --- Mobile Hamburger Navigation Trigger Framework Logic ---
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobile-menu');
         const locationsToggle = document.getElementById('locations-toggle');
         const locationsDropdown = document.getElementById('locations-dropdown');
         
         if (hamburger && mobileMenu) {
+            // Toggles navigation drawer panel expansion classes upon click actions
             hamburger.addEventListener('click', () => {
                 mobileMenu.classList.toggle('active');
             });
             
-            // Evaluates link anchor navigation actions to clean up dashboard presentation views
+            // Automatically close navigation drawer menus if a visitor triggers anchor links navigation
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     if (!link.closest('#locations-dropdown')) {
@@ -525,7 +575,7 @@
             });
         }
 
-        // Toggles visibility attributes for the hidden mobile destination choices
+        // Toggles responsive visual nested links layer groups inside mobile panels
         if (locationsToggle && locationsDropdown) {
             locationsToggle.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -534,7 +584,34 @@
             });
         }
 
-        // --- Photo Carousel Dynamic Logic ---
+        // --- Order Online Premium Dropdown Trigger Logic ---
+        const orderBtn = document.getElementById('order-menu-btn');
+        const orderOptions = document.getElementById('order-options-list');
+        const orderChevron = document.getElementById('order-chevron');
+
+        if (orderBtn && orderOptions) {
+            // Controls manual clicking toggles on the primary button field
+            orderBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); /* Prevents document event handlers from instantly shutting the menu panel down */
+                const isOpen = orderOptions.style.display === 'block';
+                
+                // Toggle display parameters
+                orderOptions.style.display = isOpen ? 'none' : 'block';
+                
+                // Rotates indicator arrows to signify state tracking transitions
+                if (orderChevron) {
+                    orderChevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                }
+            });
+
+            // Global Window Click Safety Catch: Closes order drop panel gracefully if user hits general layouts outside the field boundaries
+            document.addEventListener('click', () => {
+                orderOptions.style.display = 'none';
+                if (orderChevron) orderChevron.style.transform = 'rotate(0deg)';
+            });
+        }
+
+        // --- Photo Carousel Gallery Dynamic Animation Logic ---
         const track = document.querySelector('.carousel-track');
         const slides = document.querySelectorAll('.carousel-slide');
         const nextBtn = document.querySelector('.next-btn');
@@ -545,19 +622,22 @@
         const totalSlides = slides.length;
         let autoplayTimer;
 
+        // Moves slider lanes right or left by calculated dimensional layout transformations
         function updateCarousel(index) {
             if (!track || slides.length === 0) return;
             
             if (index >= totalSlides) {
-                currentIndex = 0;
+                currentIndex = 0; // Loops back to start
             } else if (index < 0) {
-                currentIndex = totalSlides - 1;
+                currentIndex = totalSlides - 1; // Loops backward to final frame slide
             } else {
                 currentIndex = index;
             }
             
+            // Physical CSS transformation translation execution step
             track.style.transform = `translateX(-${currentIndex * 100}%)`;
             
+            // Updates tracker status dot classes matching selected position arrays
             if (dots.length > 0) {
                 dots.forEach(dot => dot.classList.remove('active'));
                 if (dots[currentIndex]) {
@@ -574,6 +654,7 @@
             updateCarousel(currentIndex - 1);
         }
 
+        // Click Event hooks on Carousel buttons
         if (nextBtn) {
             nextBtn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -590,6 +671,7 @@
             });
         }
 
+        // Maps indicator dot dots click paths right directly into target element slide indices
         if (dots.length > 0) {
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', (e) => {
@@ -600,6 +682,7 @@
             });
         }
 
+        // Background automatic timer interval execution blocks (5-second tracking slide intervals)
         function startAutoplay() {
             autoplayTimer = setInterval(nextSlide, 5000);
         }
@@ -609,6 +692,7 @@
             startAutoplay();
         }
 
+        // Deploys auto slider looping loops if gallery slides verified active on page initialization paths
         if (track && slides.length > 0) {
             startAutoplay();
         }
