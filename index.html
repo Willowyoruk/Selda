@@ -196,10 +196,12 @@
           width: 100% !important;
           max-width: 600px !important; 
           height: 400px !important;    
-          margin: 0 auto 2rem auto !important;
+          margin: 0 auto 0.75rem auto !important; /* Reduced bottom margin to put text closer */
           overflow: hidden !important; /* Crops the sliding image track so only one frame displays at a time */
           border-radius: 8px;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+          touch-action: pan-y; /* Permits normal vertical scroll but intercept horizontal swipes */
+          user-select: none;
         }
 
         .carousel-track {
@@ -274,6 +276,20 @@
         .dot.active {
           background-color: #C5A059 !important; 
           transform: scale(1.2) !important;
+        }
+
+        /* Dynamic Item Caption Name Bar */
+        .carousel-caption-bar {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #C5A059;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 0 auto 2.5rem auto;
+            min-height: 1.5rem;
+            transition: opacity 0.3s ease;
         }
 
         /* ==========================================================================
@@ -403,14 +419,15 @@
     <!-- ABOUT SECTION: Spans naturally on page with fixed title proximity gap spacing metrics -->
     <section id="about" class="container" style="padding: 5rem 2rem; max-width: 800px; margin: 0 auto; text-align: left;">
         
-        <div class="carousel-container">
+        <!-- Interactive Swipe/Click Photo Carousel Container -->
+        <div class="carousel-container" id="about-carousel">
             <div class="carousel-track">
-                <div class="carousel-slide"><img src="assets/fire.jpg" alt="Selda Mediterranean Kitchen"></div>
-                <div class="carousel-slide"><img src="assets/lambchops.jpg" alt="Sizzling Lambchops"></div>
-                <div class="carousel-slide"><img src="assets/bronzino.jpg" alt="Grilled Branzino"></div>
-                <div class="carousel-slide"><img src="assets/adana.jpg" alt="Authentic Adana Kebab"></div>
-                <div class="carousel-slide"><img src="assets/lamb-shish.jpg" alt="Marinated Lamb Shish Kebab"></div>
-                <div class="carousel-slide"><img src="assets/lahmacun.jpg" alt="Fresh Baked Lahmacun"></div>
+                <div class="carousel-slide" data-name="Selda Mediterranean Kitchen"><img src="assets/fire.jpg" alt="Selda Mediterranean Kitchen"></div>
+                <div class="carousel-slide" data-name="Sizzling Lambchops"><img src="assets/lambchops.jpg" alt="Sizzling Lambchops"></div>
+                <div class="carousel-slide" data-name="Grilled Branzino"><img src="assets/bronzino.jpg" alt="Grilled Branzino"></div>
+                <div class="carousel-slide" data-name="Authentic Adana Kebab"><img src="assets/adana.jpg" alt="Authentic Adana Kebab"></div>
+                <div class="carousel-slide" data-name="Marinated Lamb Shish Kebab"><img src="assets/lamb-shish.jpg" alt="Marinated Lamb Shish Kebab"></div>
+                <div class="carousel-slide" data-name="Fresh Baked Lahmacun"><img src="assets/lahmacun.jpg" alt="Fresh Baked Lahmacun"></div>
             </div>
             
             <button class="carousel-btn prev-btn" aria-label="Previous Slide">❮</button>
@@ -425,6 +442,9 @@
                 <span class="dot"></span>
             </div>
         </div>
+
+        <!-- Dynamic Menu Item Name Caption Display -->
+        <div class="carousel-caption-bar" id="carousel-caption">Selda Mediterranean Kitchen</div>
         
         <h2 style="margin-top: 2.5rem; margin-bottom: 0.5rem; text-align: center;">About Selda</h2>
         
@@ -624,18 +644,25 @@
             });
         }
 
-        // --- Photo Carousel Gallery Dynamic Animation Logic ---
+        // --- Photo Carousel Gallery Dynamic Animation & Touch Control Logic ---
+        const carouselContainer = document.getElementById('about-carousel');
         const track = document.querySelector('.carousel-track');
         const slides = document.querySelectorAll('.carousel-slide');
         const nextBtn = document.querySelector('.next-btn');
         const prevBtn = document.querySelector('.prev-btn');
         const dots = document.querySelectorAll('.dot');
+        const captionBar = document.getElementById('carousel-caption');
 
         let currentIndex = 0;
         const totalSlides = slides.length;
         let autoplayTimer;
 
-        // Moves slider lanes right or left by calculated dimensional layout transformations
+        // Touch Tracking Coordinates
+        let startX = 0;
+        let currentX = 0;
+        let isSwiping = false;
+
+        // Updates slide positions, indicators, and labels synchronously
         function updateCarousel(index) {
             if (!track || slides.length === 0) return;
             
@@ -650,6 +677,17 @@
             // Physical CSS transformation translation execution step
             track.style.transform = `translateX(-${currentIndex * 100}%)`;
             
+            // Sync dynamic text description names matching selected element indices
+            if (captionBar && slides[currentIndex]) {
+                const itemName = slides[currentIndex].getAttribute('data-name');
+                
+                captionBar.style.opacity = 0; // Quick cross-fade effect
+                setTimeout(() => {
+                    captionBar.textContent = itemName;
+                    captionBar.style.opacity = 1;
+                }, 150);
+            }
+
             // Updates tracker status dot classes matching selected position arrays
             if (dots.length > 0) {
                 dots.forEach(dot => dot.classList.remove('active'));
@@ -667,7 +705,7 @@
             updateCarousel(currentIndex - 1);
         }
 
-        // Click Event hooks on Carousel buttons
+        // Click Event hooks on Carousel navigation buttons
         if (nextBtn) {
             nextBtn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -692,6 +730,38 @@
                     updateCarousel(index);
                     resetAutoplay();
                 });
+            });
+        }
+
+        // --- Touch Gesture Swiping Listeners ---
+        if (carouselContainer) {
+            carouselContainer.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isSwiping = true;
+                clearInterval(autoplayTimer); // Pause autoplay during active gesture
+            }, { passive: true });
+
+            carouselContainer.addEventListener('touchmove', (e) => {
+                if (!isSwiping) return;
+                currentX = e.touches[0].clientX;
+            }, { passive: true });
+
+            carouselContainer.addEventListener('touchend', () => {
+                if (!isSwiping) return;
+                isSwiping = false;
+                
+                const diffX = startX - currentX;
+                const swipeThreshold = 50; // Minimum drag length in pixels to toggle swipe execution
+                
+                if (Math.abs(diffX) > swipeThreshold && currentX !== 0) {
+                    if (diffX > 0) {
+                        nextSlide(); // Swiped left -> load next image
+                    } else {
+                        prevSlide(); // Swiped right -> load previous image
+                    }
+                }
+                currentX = 0; // Reset delta parameters
+                resetAutoplay(); // Resume system idle monitoring countdown loop
             });
         }
 
