@@ -432,10 +432,14 @@
 
     </section>
 
+          INFINITE TICKER SCROLLER: Duplicated layout sets inside tracking line to avoid stuttering/skips
+       ========================================================================== -->
     <div class="scrolling-ticker">
         <div class="ticker-content">
-            <span>Coal-Fired</span><span>Curated Wines</span><span>Shared Plates</span><span>Fresh Ingredients</span>
-            <span>Craft Cocktails</span><span>Small Bites</span><span>Turkish Lager</span><span>Turkish Hospitality</span>
+            <!-- Set 1 -->
+            <span>Small Bites</span><span>Coal-Fired Cuisine</span><span>Curated Wines</span><span>Shared Plates</span><span>Fresh Ingredients</span><span>Craft Cocktails</span><span>Turkish Lager</span><span>Turkish Hospitality</span><span>Hand-crafted Desserts</span>
+            <!-- Set 2: Exact mirror duplicate so the transition reset point is completely seamless -->
+            <span>Small Bites</span><span>Coal-Fired Cuisine</span><span>Curated Wines</span><span>Shared Plates</span><span>Fresh Ingredients</span><span>Craft Cocktails</span><span>Turkish Lager</span><span>Turkish Hospitality</span><span>Hand-crafted Desserts</span>
         </div>
     </div>
 
