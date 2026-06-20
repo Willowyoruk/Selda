@@ -104,7 +104,7 @@
         .mobile-dropdown-content a { font-size: 0.95rem; font-weight: 600; color: #555555; }
 
         /* ==========================================================================
-           HERO CANVAS SECTION (Shortened Photo Height & Tightened Bottom Alignment)
+           HERO CANVAS SECTION
            ========================================================================== */
         .hero-canvas-section {
             position: relative;
@@ -230,24 +230,26 @@
             line-height: 1.1;
         }
 
+        /* Gold-Themed Action Buttons */
         .btn-editorial {
             display: inline-block;
             padding: 1.2rem 3rem;
-            background-color: #111B29; 
-            color: var(--pure-white);
+            background-color: var(--subtle-gold); 
+            color: var(--primary-dark);
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
             font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid var(--subtle-gold);
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         .btn-editorial:hover {
-            background-color: var(--pure-white);
-            color: var(--primary-dark);
+            background-color: transparent;
+            color: var(--pure-white);
+            border-color: rgba(255, 255, 255, 0.4);
         }
 
         .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
@@ -362,7 +364,7 @@
             letter-spacing: 2px;
         }
         .sticky-action-btn:first-child {
-            border-right: 1px solid rgba(255,255,255,0.1);
+            border-right: 1px solid var(--subtle-gold); /* Gold Separator Line */
         }
 
         @media (max-width: 768px) {
@@ -378,6 +380,16 @@
               padding: 2.5rem 1rem 0.5rem 1rem !important; 
               height: auto !important;
               max-height: 640px !important;
+          }
+
+          /* Moves the paragraph content significantly upwards below location block */
+          .brand-location-tag {
+              margin-bottom: 0.8rem !important;
+          }
+          .brand-description-paragraph {
+              margin-bottom: 1rem !important;
+              line-height: 1.4 !important;
+              font-size: 0.95rem !important;
           }
           
           /* Pulls text flush right below OpenTable widget */
