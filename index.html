@@ -7,40 +7,39 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@400;700&family=Cinzel:wght@600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Global Structural CSS Overrides */
+        /* Global Structural Overrides */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* Centralized Brand Style Identity Tokens Variable Parameters */
         :root {
-            --primary-gold: #C9A961;
-            --dark-blue: #0F1B2E;
-            --cream: #F9F7F4;
-            --light-cream: #FAF8F5;
-            --dark-text: #1a1a1a;
-            --light-text: #5a5a5a;
+            --primary-gold: #C5A059;       
+            --accent-gold: #E5C158;        
+            --velvet-blue: #0A111C;        
+            --velvet-blue-surface: #111B29;
+            --pure-white: #FFFFFF;
+            --muted-white: #BAC4D1;        
         }
         
-        /* Global Body Environment Settings */
         body { 
             font-family: 'Lato', sans-serif; 
-            background-color: var(--cream); 
-            color: var(--dark-text); 
+            background-color: var(--velvet-blue); 
+            color: var(--muted-white); 
             line-height: 1.7; 
+            padding-bottom: 60px; /* Offset for the sticky mobile footer */
         }
         
-        /* Header & Navigation Top Dock Controls */
+        /* Header & Navigation controls mimicking screenshots */
         header {
-            background-color: #FFFFFF; 
-            padding: 1rem 0;
-            position: sticky; /* Keeps the navbar pinned to the top of the browser screen while reading */
+            background-color: var(--velvet-blue); 
+            padding: 1.2rem 0;
+            position: sticky; 
             top: 0;
-            z-index: 100; /* High stack weight prevents content from bleeding on top of the navbar menu */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+            z-index: 100; 
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
         }
         .header-content {
             max-width: 1400px;
@@ -51,18 +50,11 @@
             align-items: center;
         }
         nav { display: flex; gap: 2rem; }
-        nav a { color: #4A4A4A; text-decoration: none; font-size: 0.95rem; font-weight: 600; }
+        nav a { color: var(--pure-white); text-decoration: none; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: color 0.3s ease; }
         nav a:hover { color: var(--primary-gold); }
 
-        /* Typography Color Anchors for Call Actions */
-        .location-links a, a[href^="tel:"] {
-            color: #C5A059 !important;
-            font-weight: 700;
-        }
-
-        /* Mobile Hamburger Drawer Component Layouts */
         .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
-        .hamburger span { width: 25px; height: 3px; background-color: #4A4A4A; }
+        .hamburger span { width: 25px; height: 2px; background-color: var(--primary-gold); }
 
         /* Mobile Absolute Dropdown Navigation Layout Structure */
         .mobile-menu {
@@ -70,21 +62,22 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background-color: #FFFFFF; 
+            background-color: var(--velvet-blue-surface); 
             width: 100%;
             flex-direction: column;
             padding: 2rem;
             gap: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            z-index: 1000;
         }
-        .mobile-menu.active { display: flex; } /* Toggled by JavaScript when user clicks hamburger */
-        .mobile-menu a { color: #4A4A4A; text-decoration: none; font-weight: 600; }
+        .mobile-menu.active { display: flex; } 
+        .mobile-menu a { color: var(--pure-white); text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
         /* Mobile Nested Interlinking Dropdown Controls */
         .mobile-dropdown-btn {
             background: none;
             border: none;
-            color: #4A4A4A;
+            color: var(--pure-white);
             font-weight: 600;
             font-size: 1rem;
             text-align: left;
@@ -95,14 +88,11 @@
             align-items: center;
             width: 100%;
             font-family: 'Lato', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .mobile-dropdown-btn i {
-            font-size: 0.8rem;
-            transition: transform 0.3s ease;
-        }
-        .mobile-dropdown-btn.active i {
-            transform: rotate(180deg); /* Rotates the little arrow down when open */
-        }
+        .mobile-dropdown-btn i { transition: transform 0.3s ease; }
+        .mobile-dropdown-btn.active i { transform: rotate(180deg); }
         .mobile-dropdown-content {
             display: none;
             flex-direction: column;
@@ -111,224 +101,194 @@
             margin-top: 0.5rem;
             border-left: 2px solid var(--primary-gold);
         }
-        .mobile-dropdown-content.open {
-            display: flex;
-        }
-        .mobile-dropdown-content a {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: #666666;
-        }
+        .mobile-dropdown-content.open { display: flex; }
+        .mobile-dropdown-content a { font-size: 0.95rem; font-weight: 500; color: var(--muted-white); }
 
-        /* Hero Splash Showcase Panel Rules */
-        .hero {
-            text-align: center;
-            padding: 80px 2rem;
+        /* New Full-Bleed Editorial Sections (Zou Zou's Inspired) */
+        .editorial-section {
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
-        .hero h1 { 
-            font-family: 'Cormorant Garamond', serif; 
-            font-size: 3.8rem; 
-            font-weight: 600; 
-            color: #2F2F2F; 
-            letter-spacing: 1px; 
-            margin-bottom: 0.5rem; 
+        /* Dark overlay matrix tinting the background graphic cleanly */
+        .editorial-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(10,17,28,0.4) 0%, rgba(10,17,28,0.7) 100%);
+            z-index: 1;
         }
-        
-        /* Unified Global Grid Containers Layout Specifications */
+        .editorial-container {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+        .editorial-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 400;
+            color: var(--pure-white);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        /* Re-styled Editorial Action Buttons targeting the layout structure in image_2.png */
+        .btn-editorial {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background-color: #B94426; /* Luxury terracotta rust shade matching Zou Zou's interface buttons */
+            color: var(--pure-white);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn-editorial:hover {
+            background-color: #96331B;
+        }
+
+        /* Unified Container Blocks for standard app controls */
         .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-        section { padding: 5rem 0; }
-        h2 { 
+        section.standard-padding { padding: 6rem 0; }
+        
+        .section-title { 
             font-family: 'Cormorant Garamond', serif; 
-            font-size: 3rem; 
-            font-weight: 600;
+            font-size: 3.5rem; 
+            font-weight: 400;
             text-align: center; 
-            margin-bottom: 2rem; 
-            color: var(--dark-blue); 
-            letter-spacing: 1px;
+            margin-bottom: 2.5rem; 
+            color: var(--pure-white); 
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        /* About Grid Layout Settings (Used if multi-column fallback activated) */
-        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-        .about-content-text { text-align: left; }
-        .about-images { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .about-images img { width: 100%; height: 200px; object-fit: cover; border-radius: 2px; }
-        .about-images img.full { grid-column: 1 / -1; height: 250px; }
-
-        /* Legacy Locations Grid Infrastructure */
-        .locations-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
-        .location-card { background: white; padding: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .location-links a { color: var(--primary-gold); text-decoration: none; font-weight: 600; margin-right: 1.5rem; text-transform: uppercase; }
-        .map-container iframe { width: 100%; height: 350px; border: 0; }
-
-        /* Menu Documents Presentation Call-To-Action Layout buttons */
-        .menu-content { text-align: center; max-width: 800px; margin: 0 auto; }
-        .menu-buttons { display: flex; gap: 1.5rem; justify-content: center; margin-top: 2rem; }
-        .btn-menu { padding: 1rem 2rem; background: var(--primary-gold); color: var(--dark-blue); text-decoration: none; font-weight: 700; text-transform: uppercase; }
-        .btn-menu.secondary { background: transparent; color: var(--primary-gold); border: 2px solid var(--primary-gold); }
-
-        /* Guest Experience Extras Matrix Blocks (Hookah, Group Dining, etc) */
+        /* Amenities Grid Blocks styling */
         .amenities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .amenity-card { background: white; padding: 2rem; text-align: center; }
+        .amenity-card { 
+            background: var(--velvet-blue-surface); 
+            padding: 3.5rem 2rem; 
+            text-align: center; 
+            border: 1px solid rgba(197, 160, 89, 0.1);
+        }
+        .amenity-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--pure-white);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-        /* Catering Content Banner Contexts */
-        #catering { background: var(--dark-blue); color: var(--cream); text-align: center; }
-        #catering h2, #catering a { color: var(--primary-gold); }
-
-        /* Social Network Direct Interlinks */
-        .social-links { display: flex; justify-content: center; gap: 2rem; font-size: 2rem; }
-        .social-links a { color: var(--dark-blue); }
-
-        /* Infinite Horizontal Marquee Ticker Typography Scroller */
-        .scrolling-ticker { background: #4A4A4A; color: white; overflow: hidden; white-space: nowrap; padding: 0.7rem 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; width: 100%; margin-top: 2rem; }
-        .ticker-content { display: inline-block; animation: marquee 20s linear infinite; }
-        .ticker-content span { margin-right: 3rem; }
+        /* Infinite Horizontal Marquee Ticker Scroller */
+        .scrolling-ticker { 
+            background: var(--velvet-blue-surface); 
+            color: var(--primary-gold); 
+            overflow: hidden; 
+            white-space: nowrap; 
+            padding: 1.2rem 0; 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            width: 100%; 
+            border-top: 1px solid rgba(197, 160, 89, 0.15);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+        }
+        .ticker-content { display: inline-block; animation: marquee 25s linear infinite; }
+        .ticker-content span { margin-right: 4rem; font-family: 'Montserrat', sans-serif; font-weight: 500; }
         @keyframes marquee { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
 
-        /* ==========================================================================
-           PHOTO CAROUSEL INTERFACE LAYOUT RULES
-           ========================================================================== */
+        /* Carousel Slider interface mechanics */
         .carousel-container {
           position: relative !important;
           width: 100% !important;
-          max-width: 600px !important; 
-          height: 400px !important;    
-          margin: 0 auto 0.75rem auto !important; /* Reduced bottom margin to put text closer */
-          overflow: hidden !important; /* Crops the sliding image track so only one frame displays at a time */
-          border-radius: 8px;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-          touch-action: pan-y; /* Permits normal vertical scroll but intercept horizontal swipes */
+          max-width: 800px !important; 
+          height: 500px !important;    
+          margin: 0 auto 1.5rem auto !important; 
+          overflow: hidden !important; 
+          border: 1px solid rgba(197, 160, 89, 0.2);
+          touch-action: pan-y; 
           user-select: none;
         }
-
         .carousel-track {
           display: flex !important;    
           flex-direction: row !important;
           width: 100% !important;
           height: 100% !important;
-          transform: translateX(0%);  
-          transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important; /* Premium elastic transition slide effect */
+          transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important; 
         }
-
-        .carousel-slide {
-          min-width: 100% !important;  
-          width: 100% !important;
-          height: 100% !important;
-          flex-shrink: 0 !important;   
-        }
-
-        .carousel-slide img {
-          width: 100% !important;
-          height: 100% !important;
-          object-fit: cover !important; /* Stretches the assets cleanly without distortion layouts */
-          display: block !important;
-        }
-
+        .carousel-slide { min-width: 100% !important; width: 100% !important; height: 100% !important; flex-shrink: 0 !important; }
+        .carousel-slide img { width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; }
         .carousel-btn {
           position: absolute !important;
           top: 50% !important;
           transform: translateY(-50%) !important;
-          background-color: rgba(255, 255, 255, 0.9) !important;
-          color: #111111 !important;
-          border: none !important;
-          width: 40px !important;
-          height: 40px !important;
-          cursor: pointer !important;
-          font-size: 16px !important;
-          border-radius: 50% !important;
-          display: flex !important;
-          align-items: center !important;
-          justify-content: center !important;
-          z-index: 10 !important;
-          transition: all 0.3s ease;
+          background-color: rgba(10, 17, 28, 0.8) !important;
+          color: var(--pure-white) !important;
+          border: 1px solid rgba(197, 160, 89, 0.3) !important;
+          width: 45px !important; height: 45px !important;
+          cursor: pointer !important; font-size: 14px !important; border-radius: 50% !important;
+          display: flex !important; align-items: center !important; justify-content: center !important;
+          z-index: 10 !important; transition: all 0.3s ease;
         }
-
-        .carousel-btn:hover {
-          background-color: #111111 !important;
-          color: #ffffff !important;
-        }
-
+        .carousel-btn:hover { background-color: var(--primary-gold) !important; color: var(--velvet-blue) !important; }
         .prev-btn { left: 15px !important; }
         .next-btn { right: 15px !important; }
+        .carousel-dots { position: absolute !important; bottom: 15px !important; left: 50% !important; transform: translateX(-50%) !important; display: flex !important; gap: 8px !important; z-index: 10 !important; }
+        .dot { width: 6px !important; height: 6px !important; background-color: rgba(255, 255, 255, 0.3) !important; border-radius: 50% !important; cursor: pointer !important; transition: all 0.3s ease; }
+        .dot.active { background-color: var(--primary-gold) !important; transform: scale(1.3) !important; }
+        .carousel-caption-bar { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase; margin: 0 auto 2.5rem auto; min-height: 1.5rem; }
 
-        .carousel-dots {
-          position: absolute !important;
-          bottom: 15px !important;
-          left: 50% !important;
-          transform: translateX(-50%) !important;
-          display: flex !important;
-          gap: 8px !important;
-          z-index: 10 !important;
+        /* Sticky Mobile Action Strip Dock matching screenshot requirements exactly */
+        .sticky-mobile-footer {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            height: 60px;
+            background-color: #B94426;
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            z-index: 9999;
+            border-top: 1px solid rgba(255,255,255,0.2);
         }
-
-        .dot {
-          width: 8px !important;
-          height: 8px !important;
-          background-color: rgba(255, 255, 255, 0.5) !important;
-          border-radius: 50% !important;
-          cursor: pointer !important;
-          transition: all 0.3s ease;
-        }
-
-        .dot.active {
-          background-color: #C5A059 !important; 
-          transform: scale(1.2) !important;
-        }
-
-        /* Dynamic Item Caption Name Bar */
-        .carousel-caption-bar {
-            text-align: center;
+        .sticky-action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pure-white);
+            text-decoration: none;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: #C5A059;
-            letter-spacing: 1px;
+            font-size: 0.8rem;
+            font-weight: 700;
             text-transform: uppercase;
-            margin: 0 auto 2.5rem auto;
-            min-height: 1.5rem;
-            transition: opacity 0.3s ease;
+            letter-spacing: 2px;
+        }
+        .sticky-action-btn:first-child {
+            border-right: 1px solid rgba(255,255,255,0.2);
         }
 
-        /* ==========================================================================
-           PREMIUM DROPDOWN HOVER ANIMATIONS INTERACTION STYLES
-           ========================================================================== */
-        .order-option-item {
-            display: block !important;
-            padding: 1rem 1.5rem !important;
-            color: #4A4A4A !important;
-            text-decoration: none !important;
-            font-weight: 600 !important;
-            font-size: 0.95rem !important;
-            border-bottom: 1px solid #FAF8F5; /* Separator track spacing lines */
-            transition: all 0.2s ease !important;
-        }
-        .order-option-item:last-child {
-            border-bottom: none; /* Removes double border lines from the last option element */
-        }
-        .order-option-item:hover {
-            background-color: #FAF8F5 !important;
-            color: #C5A059 !important;
-            padding-left: 1.8rem !important; /* Smoothly slides text slightly rightwards on mouse pointer hover */
-        }
-
-        /* Responsive Breakpoints Viewport Rules */
         @media (max-width: 768px) {
-          .carousel-container { height: 300px !important; }
+          .carousel-container { height: 340px !important; }
           .hamburger { display: flex; }
           nav { display: none; }
-          .about-content, .location-card { grid-template-columns: 1fr; }
-          .hero { padding: 40px 1.5rem; }
-          .hero h1 { font-size: 2.2rem; }
-          .map-container iframe { height: 250px; }
-        }
-        @media (max-width: 600px) {
-            footer div[style*="grid-template-columns"] {
-                grid-template-columns: 1fr !important;
-                gap: 2rem !important;
-            }
+          .editorial-section h2 { font-size: 2.8rem; }
+          .sticky-mobile-footer { display: grid; }
+          .section-title { font-size: 2.6rem; }
         }
     </style>
 </head>
@@ -337,26 +297,25 @@
 
     <header>
         <div class="header-content">
-            <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-              <img src="assets/IMG_8745.jpeg" alt="Selda Logo" style="height: 55px; width: auto; object-fit: contain;">
+            <a href="/" style="display: flex; align-items: center; text-decoration: none;">
+              <!-- Replace with path to your logo asset. Tip: Use high contrast light assets for this luxury template profile -->
+              <img src="assets/IMG_8745.jpeg" alt="Selda Logo" style="height: 45px; width: auto; object-fit: contain;">
             </a>
             
             <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
             
             <nav>
                 <a href="#about">About</a>
-                <a href="#footer-destinations">Locations</a>
+                <a href="#location-hours">Location & Hours</a>
                 <a href="#menu">Menu</a>
                 <a href="#ordering">Order</a>
                 <a href="#amenities">Hookah</a>
                 <a href="#catering">Catering</a>
-                <a href="#social">Connect</a>
             </nav>
         </div>
         
         <div class="mobile-menu" id="mobile-menu">
             <a href="#about">About</a>
-            
             <div class="mobile-dropdown-wrapper">
                 <button class="mobile-dropdown-btn" id="locations-toggle">
                     Locations <i class="fas fa-chevron-down"></i>
@@ -369,283 +328,207 @@
                     <a href="https://instagram.com/themayorshouse_byselda" target="_blank">The Mayor's House by Selda</a>
                 </div>
             </div>
-
             <a href="#menu">Menu</a>
             <a href="#ordering">Order</a>
             <a href="#amenities">Hookah</a>
             <a href="#catering">Catering</a>
-            <a href="#social">Connect</a>
         </div>
     </header>
 
-    <!-- ========================================== -->
-    <!--          HERO / BRANDING SECTION           -->
-    <!-- ========================================== -->
-    <section class="hero" style="padding-top: 1.5rem; padding-bottom: 1.5rem; text-align: center;">
-        
-        <!-- SELDA: Prominent serif branding title matching the official logo styling -->
-        <h1 style="font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #111111; margin: 0; padding: 0; line-height: 1.1; letter-spacing: 4px; text-transform: uppercase; font-weight: 500;">
-            Selda
-        </h1>
-        
-        <!-- MEDITERRANEAN KITCHEN & BAR: Balanced layout with official color break -->
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin: 15px 0 0 0; padding: 0; line-height: 1.4;">
-            <span style="color: #A31D1D;">Mediterranean</span> <span style="color: #111111;">Kitchen & Bar</span>
-        </p>
-        
-        <!-- Single, clean Location Tag -->
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 600; color: #C5A059; letter-spacing: 3px; text-transform: uppercase; margin: 12px 0 0 0;">
-            San Antonio, Texas
-        </p>
-    </section>
-
-    <!-- ========================================== -->
-    <!--         INTRODUCTION PARAGRAPH             -->
-    <!-- ========================================== -->
-    <!-- Paragraph with added side padding so it never hits the edges of mobile phone screens -->
-    <p style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #333333; line-height: 1.6; max-width: 500px; margin: 1.5rem auto; padding: 0 1.5rem; text-align: center;">
-        Discover elevated Mediterranean dining with signature coal-fired cuisine, house-made desserts, an extensive wine collection, handcrafted cocktails, and warm Turkish hospitality.
-    </p>
-                    <!-- ISOLATED RESERVATION CONTAINER: Keeps widget center layout fully encapsulated -->
-        <div style="display: block; margin: 1rem auto 0 auto; width: 100%; max-width: 400px; text-align: center;">
-            
-            <!-- Header Text -->
-            <p style="font-size: 0.85rem; font-weight: 700; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; text-align: center;">
-                <i class="fa-solid fa-calendar-days" style="color: #C5A059; margin-right: 5px;"></i> Book Your San Antonio Table:
+    <!-- ==========================================================================
+         SECTION 1: THE HERO STRIPE (Replicating image_3.png)
+         ========================================================================== -->
+    <!-- Swap 'assets/fire.jpg' below with your prime splash background visual asset -->
+    <section class="editorial-section" style="background-image: url('assets/fire.jpg'); height: 90vh;">
+        <div class="editorial-container">
+            <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 5rem; color: var(--pure-white); margin-bottom: 1rem; letter-spacing: 8px; text-transform: uppercase; font-weight: 400;">
+                Selda
+            </h1>
+            <p style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 25px;">
+                <span style="color: var(--primary-gold);">Mediterranean</span> Kitchen & Bar
             </p>
-            
-            <!-- OpenTable Widget -->
-            <script type='text/javascript' src='//www.opentable.com/widget/reservation/loader?rid=1380571&type=standard&theme=standard&color=1&dark=false&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website&cfe=true'></script>
-            
-            <!-- Phone Number Text (Snaps tightly below widget frame, larger size, regular weight) -->
-            <div style="text-align: center; margin-top: -30px; margin-bottom: 2rem;">
-                <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.05rem; font-weight: 400; color: #2F2F2F; margin: 0 0 4px 0;">
-                    Parties of 15+ please call:
-                </p>
-                <a href="tel:2102365230" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.25rem; font-weight: 400; color: #C5A059; text-decoration: none; letter-spacing: 0.5px; display: inline-block;">
-                    (210) 236-5230
-                </a>
-            </div>
-
+            <p style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 600; color: var(--accent-gold); letter-spacing: 3px; text-transform: uppercase;">
+                San Antonio, Texas
+            </p>
         </div>
-
-
     </section>
 
-          INFINITE TICKER SCROLLER: Duplicated layout sets inside tracking line to avoid stuttering/skips
-       ========================================================================== -->
+    <!-- INFINITE TICKER MARQUEE RUNNER -->
     <div class="scrolling-ticker">
         <div class="ticker-content">
-            <!-- Set 1 -->
-            <span>Small Bites</span><span>Coal-Fired Cuisine</span><span>Curated Wines</span><span>Shared Plates</span><span>Fresh Ingredients</span><span>Craft Cocktails</span><span>Turkish Lager</span><span>Turkish Hospitality</span><span>Hand-crafted Desserts</span>
-            <!-- Set 2: Exact mirror duplicate so the transition reset point is completely seamless -->
-            <span>Small Bites</span><span>Coal-Fired Cuisine</span><span>Curated Wines</span><span>Shared Plates</span><span>Fresh Ingredients</span><span>Craft Cocktails</span><span>Turkish Lager</span><span>Turkish Hospitality</span><span>Hand-crafted Desserts</span>
+            <span>Small Bites</span><span>Coal-Fired Cuisine</span><span>Curated Wines</span><span>Shared Plates</span><span>Fresh Ingredients</span><span>Craft Cocktails</span><span>Turkish Hospitality</span>
+            <span>Small Bites</span><span>Coal-Fired Cuisine</span><span>Curated Wines</span><span>Shared Plates</span><span>Fresh Ingredients</span><span>Craft Cocktails</span><span>Turkish Hospitality</span>
         </div>
     </div>
 
-    <!-- ABOUT SECTION: Spans naturally on page with fixed title proximity gap spacing metrics -->
-    <section id="about" class="container" style="padding: 5rem 2rem; max-width: 800px; margin: 0 auto; text-align: left;">
-        
-        <!-- Interactive Swipe/Click Photo Carousel Container -->
-        <div class="carousel-container" id="about-carousel">
-            <div class="carousel-track">
-                <div class="carousel-slide" data-name="Mixed Grill"><img src="assets/fire.jpg" alt="Mixed Grill"></div>
-                <div class="carousel-slide" data-name="Sizzling Lambchops"><img src="assets/lambchops.jpg" alt="Sizzling Lambchops"></div>
-                <div class="carousel-slide" data-name="Grilled Branzino"><img src="assets/bronzino.jpg" alt="Grilled Branzino"></div>
-                <div class="carousel-slide" data-name="Chicken Adana"><img src="assets/adana.jpg" alt="Chicken Adana"></div>
-                <div class="carousel-slide" data-name="Marinated Lamb Shish"><img src="assets/lamb-shish.jpg" alt="Marinated Lamb Shish"></div>
-                <div class="carousel-slide" data-name="Fresh Baked Lahmacun"><img src="assets/lahmacun.jpg" alt="Fresh Baked Lahmacun"></div>
-            </div>
-            
-            <button class="carousel-btn prev-btn" aria-label="Previous Slide">❮</button>
-            <button class="carousel-btn next-btn" aria-label="Next Slide">❯</button>
-            
-            <div class="carousel-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-        </div>
-
-        <!-- Dynamic Menu Item Name Caption Display -->
-        <div class="carousel-caption-bar" id="carousel-caption">Selda Mediterranean Kitchen</div>
-        
-        <h2 style="margin-top: 2.5rem; margin-bottom: 0.5rem; text-align: center;">About Selda</h2>
-        
-        <p style="font-size: 1.1rem; line-height: 1.8; color: #4A4A4A; margin-top: 0; margin-bottom: 2rem;">
-            At Selda, we bring the vibrant flavors and warm hospitality of Turkey and the Mediterranean to San Antonio. Inspired by generations of culinary tradition, our menu celebrates authentic Mediterranean cuisine
-        and is prepared with premium ingredients. </p>
-        <p style="font-size: 1.1rem; line-height: 1.8; color: #4A4A4A; margin-bottom: 2rem;">
-            Our coal-fired grill serves as the centerpiece of the kitchen, creating exceptional flavor to expertly prepared meats such as our hand-marinated kebabs, lamb chops, and branzino.
-            All are cooked over glowing embers to create deep, unmistakable flavor. Complimented by freshly baked pides, vibrant small bites, and handcrafted desserts, each meal is designed to be shared, savored
-            and remembered.
-<br> More than a restaurant, Selda is a place where guests gather, celebrate, and connect over exceptional food and genuine hospitality.
-              </p>
-    </section>
-
-    <section id="location-hours" class="container" style="padding: 1.5rem 1rem; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-        <div style="max-width: 500px; margin: 0 auto; background: #fff; padding: 3rem 1.5rem; border: 1px solid #eaeaea; border-radius: 4px;">
-            <h2 style="font-family: 'Playfair Display', 'Didot', 'Georgia', serif; font-size: 2.6rem; font-weight: 700; color: #1c2b39; margin-bottom: 2rem; letter-spacing: 0.5px;">Selda<br> San Antonio</h2>
-            
-            <div class="info-block" style="margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.8; color: #333; letter-spacing: 0.3px;">
-                <p style="margin: 0.6rem 0;">9955 I-10 W, San Antonio, TX 78230</p>
-                <p style="margin: 0.6rem 0;"><strong>Hours:</strong> 11:00 AM - 11:00 PM Daily</p>
-                <p style="margin: 0.6rem 0;"><strong>Phone:</strong> <a href="tel:2102365230" style="color: #c4a468; text-decoration: none; font-weight: 600;">(210) 236-5230</a></p>
-            </div>
-
-            <div class="action-buttons" style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2.5rem;">
-                <a href="https://www.opentable.com/booking/restref/availability?rid=1380571&correlationId=af0f3c63-45cb-4ba9-abbe-98288dbeda5b" target="_blank" rel="noopener noreferrer" style="background-color: #2c2c2c; color: #fff; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.95rem; font-weight: 500; letter-spacing: 1px; border-radius: 2px; min-width: 140px; display: inline-block;">Reserve</a>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=Selda+Mediterranean+Kitchen+%26+Bar+San+Antonio" target="_blank" rel="noopener noreferrer" style="border: 1px solid #2c2c2c; color: #2c2c2c; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.95rem; font-weight: 500; letter-spacing: 1px; border-radius: 2px; min-width: 140px; display: inline-block;">Directions</a>
-            </div>
-
-            <div class="map-container" style="width: 100%; border-radius: 4px; overflow: hidden; line-height: 0;">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.627732296058!2d-98.56790112356598!3d29.535786942152865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c61187cf88459%3A0x1c77d58b3eb75c3f!2sSelda%20Mediterranean%20Kitchen%20%26%20Bar!5e0!3m2!1sen!2sus!4v1718670000000!5m2!1sen!2sus" 
-                    width="100%" 
-                    height="230" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+    <!-- ==========================================================================
+         SECTION 2: DINNER MENU EDITORIAL STRIPE (Replicating image_2.png)
+         ========================================================================== -->
+    <section id="menu" class="editorial-section" style="background-image: url('assets/lambchops.jpg');">
+        <div class="editorial-container">
+            <h2>Dinner</h2>
+            <a href="assets/menu.pdf" class="btn-editorial" target="_blank">View Menu</a>
+            <div style="margin-top: 1.5rem;">
+                <a href="assets/beverages.pdf" target="_blank" style="color: var(--pure-white); font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;">View Beverages</a>
             </div>
         </div>
     </section>
 
-    <section id="menu" class="container">
-        <h2>Menu</h2>
-        <div class="menu-content">     
-            <div class="menu-buttons">
-                <a href="assets/menu.pdf" class="btn-menu" target="_blank">Dinner Menu</a>
-                <a href="assets/beverages.pdf" class="btn-menu secondary" target="_blank">Beverages</a>
-            </div>
+    <!-- ==========================================================================
+         SECTION 3: OVERHAULED ORDER ONLINE STRIPE (Replicating layout structure from image.png)
+         ========================================================================== -->
+    <section id="ordering" class="editorial-section" style="background-image: url('assets/lahmacun.jpg');">
+        <div class="editorial-container">
+            <h2>Order Online</h2>
+            <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" class="btn-editorial" target="_blank">Order Now</a>
+            <p style="font-family: 'Lato', sans-serif; font-size: 1rem; color: var(--muted-white); margin-top: 1.5rem; letter-spacing: 0.5px;">
+                For Pick-up Orders call: <a href="tel:2102365230" style="color: var(--primary-gold); text-decoration: none; font-weight: 700;">(210) 236-5230</a>
+            </p>
         </div>
     </section>
-    <br>
-    
-        <!-- Repositioned layout with safety buffer to drop strictly below the white header -->
-    <div style="height: 90px; display: block; width: 100%;"></div>
-    
-    <section id="ordering" class="container" style="padding: 2rem 2rem 4rem 2rem; text-align: center; position: relative; z-index: 1; overflow: visible;">
-        
-        <!-- Balanced, clean, matching sans-serif heading -->
-        <h1 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; color: #0F1B2E; margin: 0 0 1rem 0; padding: 0; line-height: 1.1; letter-spacing: 1px; text-transform: uppercase; font-weight: 700;">
-            Order Online
-        </h1>
-        
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #5a5a5a; max-width: 600px; margin: 0 auto 2rem auto; line-height: 1.6;">
-            Enjoy the flavors of Selda from the comfort of your home. Pick-up Orders: <a href="tel:2102365230" style="color: #C5A059; text-decoration: none; font-weight: 600;">(210) 236-5230</a> 
-        </p>
 
-        <!-- Direct Premium Order Button -->
-        <div style="margin: 0 auto; max-width: 320px;">
-            <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               style="display: inline-block; width: 100%; padding: 16px 0; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; background-color: #C5A059; color: #0F1B2E; border: 2px solid #C5A059; border-radius: 4px; box-shadow: 0 4px 12px rgba(197, 160, 89, 0.2); transition: all 0.3s ease;">
-                Order Online Now
-            </a>
-        </div>
-        
-    </section>
-
-    <section id="amenities" class="container">
-        <h2>a little more...</h2>
-        <div class="amenities-grid">
-            <div class="amenity-card"><h3>Hookah on the Patio</h3><p>Relax on our patio with premium hookah.</p></div>
+    <!-- ==========================================================================
+         SECTION 4: STANDARD INTERACTIVE APP TOOLS CONTAINER (Reservations, Gallery, and Maps)
+         ========================================================================== -->
+    <section id="about" class="standard-padding">
+        <div class="container">
+            <h2 class="section-title">About Selda</h2>
             
-            <div class="amenity-card" style="text-align: center;">
-                <h3>Reservations</h3>
-                <p>Book your table via OpenTable.</p>
-                <a href="https://www.opentable.com/restref/client/?rid=1380571" target="_blank" 
-                   style="display: inline-block; background: #C5A059; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; font-weight: 600; margin: 10px 0;">
-                   Book on OpenTable
-                </a>
-                <p style="font-size: 0.9rem;">Parties of 9+ please call: <br>
-                   <a href="tel:2102365230" style="color: #C5A059; font-weight: 700; text-decoration: none;">(210) 236-5230</a>
+            <!-- Picture Carousel slider framework components remains fully operational -->
+            <div class="carousel-container" id="about-carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide" data-name="Mixed Grill"><img src="assets/fire.jpg" alt="Mixed Grill"></div>
+                    <div class="carousel-slide" data-name="Sizzling Lambchops"><img src="assets/lambchops.jpg" alt="Sizzling Lambchops"></div>
+                    <div class="carousel-slide" data-name="Grilled Branzino"><img src="assets/bronzino.jpg" alt="Grilled Branzino"></div>
+                    <div class="carousel-slide" data-name="Chicken Adana"><img src="assets/adana.jpg" alt="Chicken Adana"></div>
+                    <div class="carousel-slide" data-name="Marinated Lamb Shish"><img src="assets/lamb-shish.jpg" alt="Marinated Lamb Shish"></div>
+                    <div class="carousel-slide" data-name="Fresh Baked Lahmacun"><img src="assets/lahmacun.jpg" alt="Fresh Baked Lahmacun"></div>
+                </div>
+                <button class="carousel-btn prev-btn" aria-label="Previous Slide">❮</button>
+                <button class="carousel-btn next-btn" aria-label="Next Slide">❯</button>
+                <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            </div>
+            <div class="carousel-caption-bar" id="carousel-caption">Selda Mediterranean Kitchen</div>
+
+            <div style="max-width: 750px; margin: 0 auto; text-align: center; font-size: 1.1rem; line-height: 1.9; color: var(--muted-white);">
+                <p style="margin-bottom: 2rem;">
+                    At Selda, we bring the vibrant flavors and warm hospitality of Turkey and the Mediterranean to San Antonio. Inspired by generations of culinary tradition, our menu celebrates authentic Mediterranean cuisine prepared with premium ingredients.
+                </p>
+                <p>
+                    Our coal-fired grill serves as the centerpiece of the kitchen, creating exceptional flavor over glowing embers to create deep, unmistakable flavor profiles.
                 </p>
             </div>
-            <div class="amenity-card"><h3>Group Events</h3><p>Gather at Selda. We specialize in accommodating large groups of 15+. With a full bar and authentic Mediterranean flavors, we make it easy to celebrate life’s special moments together.</p></div>
         </div>
     </section>
 
-    <section id="catering" class="container" style="padding: 2rem 0;">
-        <div class="amenity-card" style="background: white; padding: 2rem; box-shadow: 0 4px 16px rgba(0,0,0,0.05); margin: 0 1rem; border-radius: 8px; text-align: center;">
-            <h3 style="color: var(--dark-blue); font-family: 'Playfair Display', serif; margin-bottom: 1rem;">Catering Orders</h3>
-            <p style="color: #4A4A4A; margin-bottom: 1.5rem; line-height: 1.6;">Customizable catering packages for corporate events, weddings, and celebrations.</p>
-            <p style="color: #4A4A4A; font-weight: 700;">Contact us at: <br><a href="tel:2102365230" style="color: #C5A059; text-decoration: none;">(210) 236-5230</a></p>
+    <!-- LOCATION DETAILS & OPENTABLE RESERVATIONS INTERFACE DOCK -->
+    <section id="location-hours" style="background-color: var(--velvet-blue-surface); padding: 6rem 0; border-top: 1px solid rgba(197, 160, 89, 0.1);">
+        <div class="container" style="max-width: 1000px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem; align-items: start;">
+                
+                <!-- OpenTable Native Interactive Frame Control Elements -->
+                <div style="text-align: center;">
+                    <h2 class="section-title" style="font-size: 2.2rem; text-align: left; margin-bottom: 1.5rem;">Reservations</h2>
+                    <p style="color: var(--muted-white); text-align: left; margin-bottom: 1.5rem;">Secure your preferred schedule to experience modern Mediterranean fine dining here directly.</p>
+                    <script type='text/javascript' src='//www.opentable.com/widget/reservation/loader?rid=1380571&type=standard&theme=standard&color=1&dark=true&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website&cfe=true'></script>
+                </div>
+
+                <!-- Info Blocks & Dynamic Clean Dark-Theme Google Maps layout -->
+                <div>
+                    <h2 class="section-title" style="font-size: 2.2rem; text-align: left; margin-bottom: 1.5rem;">Location & Hours</h2>
+                    <div style="color: var(--muted-white); line-height: 1.8; margin-bottom: 2rem; font-size: 1.05rem;">
+                        <p style="margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary-gold); margin-right: 10px;"></i> 9955 I-10 W, San Antonio, TX 78230</p>
+                        <p style="margin-bottom: 0.5rem;"><i class="fas fa-clock" style="color: var(--primary-gold); margin-right: 10px;"></i> 11:00 AM - 11:00 PM Daily</p>
+                        <p><i class="fas fa-phone" style="color: var(--primary-gold); margin-right: 10px;"></i> <a href="tel:2102365230" style="color: var(--primary-gold); text-decoration: none;">(210) 236-5230</a></p>
+                    </div>
+                    <div style="width: 100%; overflow: hidden; border: 1px solid rgba(197, 160, 89, 0.15);">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.627732296058!2d-98.56790112356598!3d29.535786942152865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c61187cf88459%3A0x1c77d58b3eb75c3f!2sSelda%20Mediterranean%20Kitchen%20%26%20Bar!5e0!3m2!1sen!2sus!4v1718670000000!5m2!1sen!2sus" 
+                            width="100%" height="220" style="border:0; filter: grayscale(40%) invert(92%) hue-rotate(175deg);" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
-        <section id="social" class="container" style="padding: 1.5rem 0; text-align: center;">
-        <!-- Font-size increased to 2.8rem for larger, highly-clickable buttons -->
-        <div class="social-links" style="display: flex; justify-content: center; gap: 35px; font-size: 2.8rem;">
-            <a href="https://instagram.com/seldasanantonio" target="_blank" style="color: #C5A059; transition: transform 0.2s ease; display: inline-block;"><i class="fab fa-instagram"></i></a>
-            <a href="https://facebook.com/seldasanantonio" target="_blank" style="color: #C5A059; transition: transform 0.2s ease; display: inline-block;"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" style="color: #C5A059; transition: transform 0.2s ease; display: inline-block;"><i class="fab fa-tiktok"></i></a>
+    <!-- AMENITIES SPECIFICATIONS SECTION -->
+    <section id="amenities" class="standard-padding container">
+        <div class="amenities-grid">
+            <div class="amenity-card">
+                <h3>Hookah on the Patio</h3>
+                <p>Relax on our design lounge terrace spaces equipped with premium customizable hookah configurations.</p>
+            </div>
+            <div class="amenity-card">
+                <h3>Group Events</h3>
+                <p>We specialize in accommodating large group celebrations of 15+ patrons gracefully with customized hospitality frameworks.</p>
+            </div>
         </div>
     </section>
 
-    <footer id="footer-destinations" style="background: #0F1B2E; color: #ffffff; padding: 2rem 1rem 1rem 1rem; margin-top: 1rem;">
-        <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; text-align: left;">
+    <!-- CATERING BANNER INTERFACE -->
+    <section id="catering" class="container" style="padding-bottom: 6rem;">
+        <div class="amenity-card" style="max-width: 800px; margin: 0 auto;">
+            <h3>Catering Packages</h3>
+            <p style="margin-bottom: 1.5rem;">Custom packages structured specifically for corporate events, private functions, and weddings.</p>
+            <p style="font-weight: 700; color: var(--primary-gold);">Contact: <a href="tel:2102365230" style="color: var(--primary-gold); text-decoration: none;">(210) 236-5230</a></p>
+        </div>
+    </section>
+
+    <!-- FOOTER NAV DOCK CONTROLS -->
+    <footer id="footer-destinations" style="background: var(--velvet-blue-surface); color: var(--pure-white); padding: 4rem 2rem 2rem 2rem; border-top: 1px solid rgba(197, 160, 89, 0.15);">
+        <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; text-align: left;">
             <div>
-                <h4 style="color: #C5A059; margin-bottom: 1rem; font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 1px;">Selda Destinations</h4>
-                <ul style="list-style: none; padding: 0; line-height: 1.8;">
-                    <li><a href="#location-hours" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda San Antonio</a></li>
-                    <li><a href="https://seldadallas.com" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Dallas</a></li>
-                    <li><a href="https://instagram.com/seldafrisco" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Frisco</a></li>
-                    <li><a href="https://instagram.com/Seldalascolinas" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Las Colinas</a></li>
-                    <li><a href="https://instagram.com/themayorshouse_byselda" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">The Mayor's House by Selda</a></li>
+                <h4 style="color: var(--primary-gold); margin-bottom: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 1px;">Selda Destinations</h4>
+                <ul style="list-style: none; padding: 0; line-height: 2;">
+                    <li><a href="#location-hours" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Selda San Antonio</a></li>
+                    <li><a href="https://seldadallas.com" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Selda Dallas</a></li>
+                    <li><a href="https://instagram.com/seldafrisco" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Selda Frisco</a></li>
+                    <li><a href="https://instagram.com/Seldalascolinas" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Selda Las Colinas</a></li>
+                    <li><a href="https://instagram.com/themayorshouse_byselda" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">The Mayor's House by Selda</a></li>
                 </ul>
             </div>
             <div>
-                <h4 style="color: #C5A059; margin-bottom: 1rem; font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 1px;">Sister Concepts</h4>
-                <ul style="list-style: none; padding: 0; line-height: 1.8;">
-                    <li><a href="https://instagram.com/seldabakery" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Bakery</a></li>
-                    <li><a href="https://instagram.com/seldagyrodoner" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Selda Döner</a></li>
-                    <li><a href="https://instagram.com/Nice.coffee.cocktail" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Nice Coffee Cocktail Bar</a></li>
-                    <li><a href="https://instagram.com/Eliagreektaverndallas" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 0.95rem;">Elia Greek Tavern</a></li>
+                <h4 style="color: var(--primary-gold); margin-bottom: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 1px;">Sister Concepts</h4>
+                <ul style="list-style: none; padding: 0; line-height: 2;">
+                    <li><a href="https://instagram.com/seldabakery" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Selda Bakery</a></li>
+                    <li><a href="https://instagram.com/seldagyrodoner" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Selda Döner</a></li>
+                    <li><a href="https://instagram.com/Nice.coffee.cocktail" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Nice Coffee Cocktail Bar</a></li>
+                    <li><a href="https://instagram.com/Eliagreektaverndallas" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Elia Greek Tavern</a></li>
                 </ul>
             </div>
         </div>
-        <div style="max-width: 900px; margin: 1rem auto 0 auto; border-top: 1px solid #444; padding-top: 1rem; text-align: center; font-size: 0.8rem; color: #999;">
-            <p>© 2026 Selda. All rights reserved.</p>
+        <div style="max-width: 900px; margin: 4rem auto 0 auto; border-top: 1px solid rgba(197, 160, 89, 0.1); padding-top: 1.5rem; text-align: center; font-size: 0.85rem; color: var(--muted-white); letter-spacing: 1px;">
+            <p style="margin-bottom: 1rem;">© 2026 Selda. All rights reserved.</p>
+            <div style="display: flex; justify-content: center; gap: 20px; font-size: 1.5rem; margin-top: 1rem;">
+                <a href="https://instagram.com/seldasanantonio" target="_blank" style="color: var(--primary-gold);"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/seldasanantonio" target="_blank" style="color: var(--primary-gold);"><i class="fab fa-facebook"></i></a>
+            </div>
         </div>
     </footer>
 
-
+    <!-- STICKY MOBILE DOCK ACTION FOOTER (As shown in image_2.png) -->
+    <div class="sticky-mobile-footer">
+        <a href="tel:2102365230" class="sticky-action-btn">Call (210) 236-5230</a>
+        <a href="#location-hours" class="sticky-action-btn" style="background-color: var(--velvet-blue-surface); color: var(--primary-gold);">Reserve Table</a>
+    </div>
 
     <script>
-        // --- Mobile Hamburger Navigation Trigger Framework Logic ---
+        // Hamburger Drawer Control Setup
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobile-menu');
         const locationsToggle = document.getElementById('locations-toggle');
         const locationsDropdown = document.getElementById('locations-dropdown');
         
         if (hamburger && mobileMenu) {
-            // Toggles navigation drawer panel expansion classes upon click actions
-            hamburger.addEventListener('click', () => {
-                mobileMenu.classList.toggle('active');
-            });
-            
-            // Automatically close navigation drawer menus if a visitor triggers anchor links navigation
+            hamburger.addEventListener('click', () => mobileMenu.classList.toggle('active'));
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    if (!link.closest('#locations-dropdown')) {
-                        mobileMenu.classList.remove('active');
-                    } else {
-                        if (link.getAttribute('href').startsWith('#')) {
-                            mobileMenu.classList.remove('active');
-                        }
-                    }
+                    if (!link.closest('#locations-dropdown')) mobileMenu.classList.remove('active');
                 });
             });
         }
-
-        // Toggles responsive visual nested links layer groups inside mobile panels
         if (locationsToggle && locationsDropdown) {
             locationsToggle.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -654,34 +537,7 @@
             });
         }
 
-        // --- Order Online Premium Dropdown Trigger Logic ---
-        const orderBtn = document.getElementById('order-menu-btn');
-        const orderOptions = document.getElementById('order-options-list');
-        const orderChevron = document.getElementById('order-chevron');
-
-        if (orderBtn && orderOptions) {
-            // Controls manual clicking toggles on the primary button field
-            orderBtn.addEventListener('click', (e) => {
-                e.stopPropagation(); /* Prevents document event handlers from instantly shutting the menu panel down */
-                const isOpen = orderOptions.style.display === 'block';
-                
-                // Toggle display parameters
-                orderOptions.style.display = isOpen ? 'none' : 'block';
-                
-                // Rotates indicator arrows to signify state tracking transitions
-                if (orderChevron) {
-                    orderChevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
-                }
-            });
-
-            // Global Window Click Safety Catch: Closes order drop panel gracefully if user hits general layouts outside the field boundaries
-            document.addEventListener('click', () => {
-                orderOptions.style.display = 'none';
-                if (orderChevron) orderChevron.style.transform = 'rotate(0deg)';
-            });
-        }
-
-        // --- Photo Carousel Gallery Dynamic Animation & Touch Control Logic ---
+        // Photo Carousel Core Animation Engine
         const carouselContainer = document.getElementById('about-carousel');
         const track = document.querySelector('.carousel-track');
         const slides = document.querySelectorAll('.carousel-slide');
@@ -693,129 +549,49 @@
         let currentIndex = 0;
         const totalSlides = slides.length;
         let autoplayTimer;
+        let startX = 0, currentX = 0, isSwiping = false;
 
-        // Touch Tracking Coordinates
-        let startX = 0;
-        let currentX = 0;
-        let isSwiping = false;
-
-        // Updates slide positions, indicators, and labels synchronously
         function updateCarousel(index) {
             if (!track || slides.length === 0) return;
+            if (index >= totalSlides) currentIndex = 0;
+            else if (index < 0) currentIndex = totalSlides - 1;
+            else currentIndex = index;
             
-            if (index >= totalSlides) {
-                currentIndex = 0; // Loops back to start
-            } else if (index < 0) {
-                currentIndex = totalSlides - 1; // Loops backward to final frame slide
-            } else {
-                currentIndex = index;
-            }
-            
-            // Physical CSS transformation translation execution step
             track.style.transform = `translateX(-${currentIndex * 100}%)`;
             
-            // Sync dynamic text description names matching selected element indices
             if (captionBar && slides[currentIndex]) {
                 const itemName = slides[currentIndex].getAttribute('data-name');
-                
-                captionBar.style.opacity = 0; // Quick cross-fade effect
+                captionBar.style.opacity = 0; 
                 setTimeout(() => {
                     captionBar.textContent = itemName;
                     captionBar.style.opacity = 1;
                 }, 150);
             }
-
-            // Updates tracker status dot classes matching selected position arrays
-            if (dots.length > 0) {
-                dots.forEach(dot => dot.classList.remove('active'));
-                if (dots[currentIndex]) {
-                    dots[currentIndex].classList.add('active');
-                }
-            }
+            dots.forEach(dot => dot.classList.remove('active'));
+            if (dots[currentIndex]) dots[currentIndex].classList.add('active');
         }
 
-        function nextSlide() {
-            updateCarousel(currentIndex + 1);
-        }
+        function nextSlide() { updateCarousel(currentIndex + 1); }
+        function prevSlide() { updateCarousel(currentIndex - 1); }
 
-        function prevSlide() {
-            updateCarousel(currentIndex - 1);
-        }
+        if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); nextSlide(); resetAutoplay(); });
+        if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); prevSlide(); resetAutoplay(); });
+        dots.forEach((dot, idx) => dot.addEventListener('click', (e) => { e.preventDefault(); updateCarousel(idx); resetAutoplay(); }));
 
-        // Click Event hooks on Carousel navigation buttons
-        if (nextBtn) {
-            nextBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                nextSlide();
-                resetAutoplay();
-            });
-        }
-
-        if (prevBtn) {
-            prevBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                prevSlide();
-                resetAutoplay();
-            });
-        }
-
-        // Maps indicator dot dots click paths right directly into target element slide indices
-        if (dots.length > 0) {
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    updateCarousel(index);
-                    resetAutoplay();
-                });
-            });
-        }
-
-        // --- Touch Gesture Swiping Listeners ---
         if (carouselContainer) {
-            carouselContainer.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-                isSwiping = true;
-                clearInterval(autoplayTimer); // Pause autoplay during active gesture
-            }, { passive: true });
-
-            carouselContainer.addEventListener('touchmove', (e) => {
-                if (!isSwiping) return;
-                currentX = e.touches[0].clientX;
-            }, { passive: true });
-
+            carouselContainer.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; isSwiping = true; clearInterval(autoplayTimer); }, { passive: true });
+            carouselContainer.addEventListener('touchmove', (e) => { if (isSwiping) currentX = e.touches[0].clientX; }, { passive: true });
             carouselContainer.addEventListener('touchend', () => {
-                if (!isSwiping) return;
-                isSwiping = false;
-                
+                if (!isSwiping) return; isSwiping = false;
                 const diffX = startX - currentX;
-                const swipeThreshold = 50; // Minimum drag length in pixels to toggle swipe execution
-                
-                if (Math.abs(diffX) > swipeThreshold && currentX !== 0) {
-                    if (diffX > 0) {
-                        nextSlide(); // Swiped left -> load next image
-                    } else {
-                        prevSlide(); // Swiped right -> load previous image
-                    }
-                }
-                currentX = 0; // Reset delta parameters
-                resetAutoplay(); // Resume system idle monitoring countdown loop
+                if (Math.abs(diffX) > 50 && currentX !== 0) { if (diffX > 0) nextSlide(); else prevSlide(); }
+                currentX = 0; resetAutoplay();
             });
         }
 
-        // Background automatic timer interval execution blocks (5-second tracking slide intervals)
-        function startAutoplay() {
-            autoplayTimer = setInterval(nextSlide, 5000);
-        }
-
-        function resetAutoplay() {
-            clearInterval(autoplayTimer);
-            startAutoplay();
-        }
-
-        // Deploys auto slider looping loops if gallery slides verified active on page initialization paths
-        if (track && slides.length > 0) {
-            startAutoplay();
-        }
+        function startAutoplay() { autoplayTimer = setInterval(nextSlide, 5000); }
+        function resetAutoplay() { clearInterval(autoplayTimer); startAutoplay(); }
+        if (track && slides.length > 0) startAutoplay();
     </script>
 </body>
 </html>
