@@ -103,9 +103,26 @@
         .mobile-dropdown-content.open { display: flex; }
         .mobile-dropdown-content a { font-size: 0.95rem; font-weight: 600; color: #555555; }
 
+        /* Mobile Hamburger Horizontal Icons Layout Row */
+        .mobile-social-row {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+        }
+        .mobile-social-row a {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            transition: opacity 0.2s ease;
+        }
+        .mobile-social-row a:hover {
+            opacity: 0.6;
+        }
+
         /* ==========================================================================
            HERO CANVAS SECTION
-           ========================================================================== */
+           ========================================================================= */
         .hero-canvas-section {
             position: relative;
             background-image: url('assets/fire.jpg');
@@ -331,7 +348,7 @@
         .next-btn { right: 15px !important; }
         .carousel-dots { position: absolute !important; bottom: 15px !important; left: 50% !important; transform: translateX(-50%) !important; display: flex !important; gap: 8px !important; z-index: 10 !important; }
         .dot { width: 6px !important; height: 6px !important; background-color: rgba(255, 255, 255, 0.3) !important; border-radius: 50% !important; cursor: pointer !important; transition: all 0.3s ease; }
-        .dot.active { background-color: var(--pure-white) !important; transform: scale(1.3) !important; }
+        .dot.active { background-color: var(--pure-white) !important; transform: scale(1.3) !important; transform: scale(1.3) !important; }
         .carousel-caption-bar { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--pure-white); letter-spacing: 2px; text-transform: uppercase; margin: 0 auto 2.5rem auto; min-height: 1.5rem; }
 
         /* Mobile Layout Modifications */
@@ -358,7 +375,7 @@
             letter-spacing: 2px;
         }
         .sticky-action-btn:first-child {
-            border-right: 1px solid var(--subtle-gold); /* Gold Separator Line */
+            border-right: 1px solid var(--subtle-gold); 
         }
 
         @media (max-width: 768px) {
@@ -369,14 +386,11 @@
           .sticky-mobile-footer { display: grid; }
           .section-title { font-size: 2.6rem; }
           
-          /* Shortens Background Image Framework specifically on Mobile Devices */
           .hero-canvas-section { 
               padding: 2.5rem 1rem 0.5rem 1rem !important; 
               height: auto !important;
               max-height: 640px !important;
           }
-
-          /* Moves the paragraph content significantly upwards below location block */
           .brand-location-tag {
               margin-bottom: 0.8rem !important;
           }
@@ -385,8 +399,6 @@
               line-height: 1.4 !important;
               font-size: 0.95rem !important;
           }
-          
-          /* Pulls text flush right below OpenTable widget */
           .widget-sub-label-wrap {
               margin-top: -15px !important; 
               padding-bottom: 1.5rem !important;
@@ -415,6 +427,7 @@
             </nav>
         </div>
         
+        <!-- MOBILE DROPDOWN HAMBURGER MENU -->
         <div class="mobile-menu" id="mobile-menu">
             <a href="#about">About</a>
             <div class="mobile-dropdown-wrapper">
@@ -433,6 +446,13 @@
             <a href="#ordering">Order</a>
             <a href="#amenities">Hookah</a>
             <a href="#contact-section">Contact Us</a>
+            
+            <!-- Horizontal Icon Row cleanly structured side-by-side inside mobile nav -->
+            <div class="mobile-social-row">
+                <a href="https://instagram.com/seldasanantonio" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://facebook.com/seldasanantonio" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            </div>
         </div>
     </header>
 
@@ -493,7 +513,6 @@
         <div class="editorial-container">
             <h2>Order Online</h2>
             <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" class="btn-editorial" target="_blank">Order Now</a>
-
         </div>
     </section>
 
@@ -595,12 +614,15 @@
                 </ul>
             </div>
         </div>
-        <div style="max-width: 900px; margin: 4rem auto 0 auto; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 1.5rem; text-align: center; font-size: 0.85rem; color: var(--muted-white); letter-spacing: 1px;">
-            <p style="margin-bottom: 1rem;">© 2026 Selda. All rights reserved.</p>
-            <div style="display: flex; justify-content: center; gap: 20px; font-size: 1.5rem; margin-top: 1rem;">
-                <a href="https://instagram.com/seldasanantonio" target="_blank" style="color: var(--pure-white);"><i class="fab fa-instagram"></i></a>
-                <a href="https://facebook.com/seldasanantonio" target="_blank" style="color: var(--pure-white);"><i class="fab fa-facebook"></i></a>
+        
+        <!-- Bottom Bar: Icons stacked directly on top of Copyright -->
+        <div style="max-width: 900px; margin: 4rem auto 0 auto; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 2rem; text-align: center; font-size: 0.85rem; color: var(--muted-white); letter-spacing: 1px;">
+            <div style="display: flex; justify-content: center; gap: 28px; font-size: 1.6rem; margin-bottom: 1.2rem;">
+                <a href="https://instagram.com/seldasanantonio" target="_blank" style="color: var(--pure-white); transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" style="color: var(--pure-white); transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1"><i class="fab fa-tiktok"></i></a>
+                <a href="https://facebook.com/seldasanantonio" target="_blank" style="color: var(--pure-white); transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1"><i class="fab fa-facebook"></i></a>
             </div>
+            <p>© 2026 Selda. All rights reserved.</p>
         </div>
     </footer>
 
