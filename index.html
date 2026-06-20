@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -16,8 +16,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --primary-gold: #C5A059;       
-            --accent-gold: #E5C158;        
+            --primary-dark: #111111;
             --velvet-blue: #0A111C;        
             --velvet-blue-surface: #111B29;
             --pure-white: #FFFFFF;
@@ -32,14 +31,14 @@
             padding-bottom: 60px; /* Offset for the sticky mobile footer */
         }
         
-        /* Header & Navigation controls mimicking screenshots */
+        /* Header Match Logo Image - Pure White Theme */
         header {
-            background-color: var(--velvet-blue); 
+            background-color: var(--pure-white); 
             padding: 1.2rem 0;
             position: sticky; 
             top: 0;
             z-index: 100; 
-            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+            border-bottom: 1px solid #EAEAEA;
         }
         .header-content {
             max-width: 1400px;
@@ -50,11 +49,12 @@
             align-items: center;
         }
         nav { display: flex; gap: 2rem; }
-        nav a { color: var(--pure-white); text-decoration: none; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: color 0.3s ease; }
-        nav a:hover { color: var(--primary-gold); }
+        nav a { color: var(--primary-dark); text-decoration: none; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; transition: color 0.3s ease; }
+        nav a:hover { color: #555555; }
 
+        /* Dark Hamburger lines to pop off the white background bar */
         .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
-        .hamburger span { width: 25px; height: 2px; background-color: var(--primary-gold); }
+        .hamburger span { width: 25px; height: 2px; background-color: var(--primary-dark); }
 
         /* Mobile Absolute Dropdown Navigation Layout Structure */
         .mobile-menu {
@@ -62,23 +62,22 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background-color: var(--velvet-blue-surface); 
+            background-color: var(--pure-white); 
             width: 100%;
             flex-direction: column;
             padding: 2rem;
             gap: 1.5rem;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            border-bottom: 1px solid #EAEAEA;
             z-index: 1000;
         }
         .mobile-menu.active { display: flex; } 
-        .mobile-menu a { color: var(--pure-white); text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .mobile-menu a { color: var(--primary-dark); text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Mobile Nested Interlinking Dropdown Controls */
         .mobile-dropdown-btn {
             background: none;
             border: none;
-            color: var(--pure-white);
-            font-weight: 600;
+            color: var(--primary-dark);
+            font-weight: 700;
             font-size: 1rem;
             text-align: left;
             padding: 0;
@@ -99,16 +98,16 @@
             gap: 1rem;
             padding-left: 1rem;
             margin-top: 0.5rem;
-            border-left: 2px solid var(--primary-gold);
+            border-left: 2px solid var(--primary-dark);
         }
         .mobile-dropdown-content.open { display: flex; }
-        .mobile-dropdown-content a { font-size: 0.95rem; font-weight: 500; color: var(--muted-white); }
+        .mobile-dropdown-content a { font-size: 0.95rem; font-weight: 600; color: #555555; }
 
         /* New Full-Bleed Editorial Sections (Zou Zou's Inspired) */
         .editorial-section {
             position: relative;
-            height: 80vh;
-            min-height: 500px;
+            height: 85vh;
+            min-height: 650px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -123,14 +122,15 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(180deg, rgba(10,17,28,0.4) 0%, rgba(10,17,28,0.7) 100%);
+            background: linear-gradient(180deg, rgba(10,17,28,0.55) 0%, rgba(10,17,28,0.8) 100%);
             z-index: 1;
         }
         .editorial-container {
             position: relative;
             z-index: 2;
-            max-width: 800px;
-            padding: 0 2rem;
+            width: 100%;
+            max-width: 500px;
+            padding: 0 1.5rem;
         }
         .editorial-section h2 {
             font-family: 'Cormorant Garamond', serif;
@@ -143,11 +143,11 @@
             line-height: 1.1;
         }
 
-        /* Re-styled Editorial Action Buttons targeting the layout structure in image_2.png */
+        /* Re-styled Editorial Action Buttons - Neutral Dark/Terracotta Theme (No Orange) */
         .btn-editorial {
             display: inline-block;
             padding: 1.2rem 3rem;
-            background-color: #B94426; /* Luxury terracotta rust shade matching Zou Zou's interface buttons */
+            background-color: #111B29; 
             color: var(--pure-white);
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
@@ -155,12 +155,13 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            border: none;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         .btn-editorial:hover {
-            background-color: #96331B;
+            background-color: var(--pure-white);
+            color: var(--primary-dark);
         }
 
         /* Unified Container Blocks for standard app controls */
@@ -184,7 +185,7 @@
             background: var(--velvet-blue-surface); 
             padding: 3.5rem 2rem; 
             text-align: center; 
-            border: 1px solid rgba(197, 160, 89, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         .amenity-card h3 {
             font-family: 'Cormorant Garamond', serif;
@@ -199,7 +200,7 @@
         /* Infinite Horizontal Marquee Ticker Scroller */
         .scrolling-ticker { 
             background: var(--velvet-blue-surface); 
-            color: var(--primary-gold); 
+            color: var(--pure-white); 
             overflow: hidden; 
             white-space: nowrap; 
             padding: 1.2rem 0; 
@@ -207,11 +208,11 @@
             text-transform: uppercase; 
             letter-spacing: 3px; 
             width: 100%; 
-            border-top: 1px solid rgba(197, 160, 89, 0.15);
-            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         .ticker-content { display: inline-block; animation: marquee 25s linear infinite; }
-        .ticker-content span { margin-right: 4rem; font-family: 'Montserrat', sans-serif; font-weight: 500; }
+        .ticker-content span { margin-right: 4rem; font-family: 'Montserrat', sans-serif; font-weight: 600; }
         @keyframes marquee { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
 
         /* Carousel Slider interface mechanics */
@@ -222,7 +223,7 @@
           height: 500px !important;    
           margin: 0 auto 1.5rem auto !important; 
           overflow: hidden !important; 
-          border: 1px solid rgba(197, 160, 89, 0.2);
+          border: 1px solid rgba(255, 255, 255, 0.1);
           touch-action: pan-y; 
           user-select: none;
         }
@@ -241,30 +242,30 @@
           transform: translateY(-50%) !important;
           background-color: rgba(10, 17, 28, 0.8) !important;
           color: var(--pure-white) !important;
-          border: 1px solid rgba(197, 160, 89, 0.3) !important;
+          border: 1px solid rgba(255, 255, 255, 0.1) !important;
           width: 45px !important; height: 45px !important;
           cursor: pointer !important; font-size: 14px !important; border-radius: 50% !important;
           display: flex !important; align-items: center !important; justify-content: center !important;
           z-index: 10 !important; transition: all 0.3s ease;
         }
-        .carousel-btn:hover { background-color: var(--primary-gold) !important; color: var(--velvet-blue) !important; }
+        .carousel-btn:hover { background-color: var(--pure-white) !important; color: var(--velvet-blue) !important; }
         .prev-btn { left: 15px !important; }
         .next-btn { right: 15px !important; }
         .carousel-dots { position: absolute !important; bottom: 15px !important; left: 50% !important; transform: translateX(-50%) !important; display: flex !important; gap: 8px !important; z-index: 10 !important; }
         .dot { width: 6px !important; height: 6px !important; background-color: rgba(255, 255, 255, 0.3) !important; border-radius: 50% !important; cursor: pointer !important; transition: all 0.3s ease; }
-        .dot.active { background-color: var(--primary-gold) !important; transform: scale(1.3) !important; }
-        .carousel-caption-bar { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase; margin: 0 auto 2.5rem auto; min-height: 1.5rem; }
+        .dot.active { background-color: var(--pure-white) !important; transform: scale(1.3) !important; }
+        .carousel-caption-bar { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--pure-white); letter-spacing: 2px; text-transform: uppercase; margin: 0 auto 2.5rem auto; min-height: 1.5rem; }
 
-        /* Sticky Mobile Action Strip Dock matching screenshot requirements exactly */
+        /* Sticky Mobile Action Strip Dock (No Orange) */
         .sticky-mobile-footer {
             position: fixed;
             bottom: 0; left: 0; right: 0;
             height: 60px;
-            background-color: #B94426;
+            background-color: #111B29;
             display: none;
             grid-template-columns: 1fr 1fr;
             z-index: 9999;
-            border-top: 1px solid rgba(255,255,255,0.2);
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
         .sticky-action-btn {
             display: flex;
@@ -279,7 +280,18 @@
             letter-spacing: 2px;
         }
         .sticky-action-btn:first-child {
-            border-right: 1px solid rgba(255,255,255,0.2);
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Widget Styling Fix for Premium Dark Integration */
+        .hero-widget-wrap {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            overflow: hidden;
+            background: rgba(16, 27, 41, 0.65);
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         @media (max-width: 768px) {
@@ -298,7 +310,6 @@
     <header>
         <div class="header-content">
             <a href="/" style="display: flex; align-items: center; text-decoration: none;">
-              <!-- Replace with path to your logo asset. Tip: Use high contrast light assets for this luxury template profile -->
               <img src="assets/IMG_8745.jpeg" alt="Selda Logo" style="height: 45px; width: auto; object-fit: contain;">
             </a>
             
@@ -336,20 +347,32 @@
     </header>
 
     <!-- ==========================================================================
-         SECTION 1: THE HERO STRIPE (Replicating image_3.png)
+         SECTION 1: THE HERO STRIPE (With Moved Branding + Top Reservations Widget)
          ========================================================================== -->
-    <!-- Swap 'assets/fire.jpg' below with your prime splash background visual asset -->
-    <section class="editorial-section" style="background-image: url('assets/fire.jpg'); height: 90vh;">
+    <section class="editorial-section" style="background-image: url('assets/fire.jpg'); height: 95vh;">
         <div class="editorial-container">
-            <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 5rem; color: var(--pure-white); margin-bottom: 1rem; letter-spacing: 8px; text-transform: uppercase; font-weight: 400;">
-                Selda
+            
+            <!-- BOLD BRANDING LABELS MOVED UP TO TOP -->
+            <h1 style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: var(--pure-white); margin-bottom: 0.2rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 800;">
+                Selda Mediterranean Kitchen & Bar
             </h1>
-            <p style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 25px;">
-                <span style="color: var(--primary-gold);">Mediterranean</span> Kitchen & Bar
+            <p style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--pure-white); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 2rem;">
+                San Antonio
             </p>
-            <p style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 600; color: var(--accent-gold); letter-spacing: 3px; text-transform: uppercase;">
-                San Antonio, Texas
+
+            <!-- OPENTABLE WIDGET MOVED DIRECTLY UNDER SAN ANTONIO -->
+            <div class="hero-widget-wrap">
+                <script type='text/javascript' src='//www.opentable.com/widget/reservation/loader?rid=1380571&type=standard&theme=standard&color=1&dark=true&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website&cfe=true'></script>
+            </div>
+
+            <!-- CALLOUT PLACEMENTS BELOW WIDGET -->
+            <p style="font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--pure-white); letter-spacing: 2px; text-transform: uppercase; margin-top: 1rem; margin-bottom: 0.4rem;">
+                Book now on OpenTable
             </p>
+            <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; font-weight: 700; color: #BAC4D1; letter-spacing: 0.5px;">
+                For parties of 15+, please call <a href="tel:2102365230" style="color: var(--pure-white); text-decoration: underline;">(210) 236-5230</a>
+            </p>
+
         </div>
     </section>
 
@@ -362,7 +385,7 @@
     </div>
 
     <!-- ==========================================================================
-         SECTION 2: DINNER MENU EDITORIAL STRIPE (Replicating image_2.png)
+         SECTION 2: DINNER MENU EDITORIAL STRIPE
          ========================================================================== -->
     <section id="menu" class="editorial-section" style="background-image: url('assets/lambchops.jpg');">
         <div class="editorial-container">
@@ -375,26 +398,25 @@
     </section>
 
     <!-- ==========================================================================
-         SECTION 3: OVERHAULED ORDER ONLINE STRIPE (Replicating layout structure from image.png)
+         SECTION 3: OVERHAULED ORDER ONLINE STRIPE
          ========================================================================== -->
     <section id="ordering" class="editorial-section" style="background-image: url('assets/lahmacun.jpg');">
         <div class="editorial-container">
             <h2>Order Online</h2>
             <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" class="btn-editorial" target="_blank">Order Now</a>
-            <p style="font-family: 'Lato', sans-serif; font-size: 1rem; color: var(--muted-white); margin-top: 1.5rem; letter-spacing: 0.5px;">
-                For Pick-up Orders call: <a href="tel:2102365230" style="color: var(--primary-gold); text-decoration: none; font-weight: 700;">(210) 236-5230</a>
+            <p style="font-family: 'Lato', sans-serif; font-size: 1rem; color: var(--muted-white); margin-top: 1.5rem; letter-spacing: 0.5px; font-weight: 700;">
+                For Pick-up Orders call: <a href="tel:2102365230" style="color: var(--pure-white); text-decoration: none;">(210) 236-5230</a>
             </p>
         </div>
     </section>
 
     <!-- ==========================================================================
-         SECTION 4: STANDARD INTERACTIVE APP TOOLS CONTAINER (Reservations, Gallery, and Maps)
+         SECTION 4: GALLERY & MAP INTERACTIVE TOOLS
          ========================================================================== -->
     <section id="about" class="standard-padding">
         <div class="container">
             <h2 class="section-title">About Selda</h2>
             
-            <!-- Picture Carousel slider framework components remains fully operational -->
             <div class="carousel-container" id="about-carousel">
                 <div class="carousel-track">
                     <div class="carousel-slide" data-name="Mixed Grill"><img src="assets/fire.jpg" alt="Mixed Grill"></div>
@@ -414,41 +436,24 @@
                 <p style="margin-bottom: 2rem;">
                     At Selda, we bring the vibrant flavors and warm hospitality of Turkey and the Mediterranean to San Antonio. Inspired by generations of culinary tradition, our menu celebrates authentic Mediterranean cuisine prepared with premium ingredients.
                 </p>
-                <p>
-                    Our coal-fired grill serves as the centerpiece of the kitchen, creating exceptional flavor over glowing embers to create deep, unmistakable flavor profiles.
-                </p>
             </div>
         </div>
     </section>
 
-    <!-- LOCATION DETAILS & OPENTABLE RESERVATIONS INTERFACE DOCK -->
-    <section id="location-hours" style="background-color: var(--velvet-blue-surface); padding: 6rem 0; border-top: 1px solid rgba(197, 160, 89, 0.1);">
-        <div class="container" style="max-width: 1000px;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem; align-items: start;">
-                
-                <!-- OpenTable Native Interactive Frame Control Elements -->
-                <div style="text-align: center;">
-                    <h2 class="section-title" style="font-size: 2.2rem; text-align: left; margin-bottom: 1.5rem;">Reservations</h2>
-                    <p style="color: var(--muted-white); text-align: left; margin-bottom: 1.5rem;">Secure your preferred schedule to experience modern Mediterranean fine dining here directly.</p>
-                    <script type='text/javascript' src='//www.opentable.com/widget/reservation/loader?rid=1380571&type=standard&theme=standard&color=1&dark=true&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website&cfe=true'></script>
-                </div>
-
-                <!-- Info Blocks & Dynamic Clean Dark-Theme Google Maps layout -->
-                <div>
-                    <h2 class="section-title" style="font-size: 2.2rem; text-align: left; margin-bottom: 1.5rem;">Location & Hours</h2>
-                    <div style="color: var(--muted-white); line-height: 1.8; margin-bottom: 2rem; font-size: 1.05rem;">
-                        <p style="margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary-gold); margin-right: 10px;"></i> 9955 I-10 W, San Antonio, TX 78230</p>
-                        <p style="margin-bottom: 0.5rem;"><i class="fas fa-clock" style="color: var(--primary-gold); margin-right: 10px;"></i> 11:00 AM - 11:00 PM Daily</p>
-                        <p><i class="fas fa-phone" style="color: var(--primary-gold); margin-right: 10px;"></i> <a href="tel:2102365230" style="color: var(--primary-gold); text-decoration: none;">(210) 236-5230</a></p>
-                    </div>
-                    <div style="width: 100%; overflow: hidden; border: 1px solid rgba(197, 160, 89, 0.15);">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.627732296058!2d-98.56790112356598!3d29.535786942152865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c61187cf88459%3A0x1c77d58b3eb75c3f!2sSelda%20Mediterranean%20Kitchen%20%26%20Bar!5e0!3m2!1sen!2sus!4v1718670000000!5m2!1sen!2sus" 
-                            width="100%" height="220" style="border:0; filter: grayscale(40%) invert(92%) hue-rotate(175deg);" allowfullscreen="" loading="lazy">
-                        </iframe>
-                    </div>
-                </div>
-
+    <!-- LOCATION DETAILS DISPLAY BLOCK -->
+    <section id="location-hours" style="background-color: var(--velvet-blue-surface); padding: 5rem 0; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+        <div class="container" style="max-width: 600px;">
+            <h2 class="section-title" style="font-size: 2.2rem; margin-bottom: 1.5rem;">Location & Hours</h2>
+            <div style="color: var(--muted-white); line-height: 1.8; margin-bottom: 2rem; font-size: 1.05rem; text-align: center;">
+                <p style="margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 9955 I-10 W, San Antonio, TX 78230</p>
+                <p style="margin-bottom: 0.5rem;"><i class="fas fa-clock" style="margin-right: 10px;"></i> 11:00 AM - 11:00 PM Daily</p>
+                <p><i class="fas fa-phone" style="margin-right: 10px;"></i> <a href="tel:2102365230" style="color: var(--pure-white); text-decoration: none; font-weight: 700;">(210) 236-5230</a></p>
+            </div>
+            <div style="width: 100%; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.627732296058!2d-98.56790112356598!3d29.535786942152865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c61187cf88459%3A0x1c77d58b3eb75c3f!2sSelda%20Mediterranean%20Kitchen%20%26%20Bar!5e0!3m2!1sen!2sus!4v1718670000000!5m2!1sen!2sus" 
+                    width="100%" height="250" style="border:0; filter: grayscale(40%) invert(92%) hue-rotate(175deg);" allowfullscreen="" loading="lazy">
+                </iframe>
             </div>
         </div>
     </section>
@@ -461,26 +466,17 @@
                 <p>Relax on our design lounge terrace spaces equipped with premium customizable hookah configurations.</p>
             </div>
             <div class="amenity-card">
-                <h3>Group Events</h3>
-                <p>We specialize in accommodating large group celebrations of 15+ patrons gracefully with customized hospitality frameworks.</p>
+                <h3>Catering Packages</h3>
+                <p>Custom packages structured specifically for corporate events, private functions, and weddings.</p>
             </div>
         </div>
     </section>
 
-    <!-- CATERING BANNER INTERFACE -->
-    <section id="catering" class="container" style="padding-bottom: 6rem;">
-        <div class="amenity-card" style="max-width: 800px; margin: 0 auto;">
-            <h3>Catering Packages</h3>
-            <p style="margin-bottom: 1.5rem;">Custom packages structured specifically for corporate events, private functions, and weddings.</p>
-            <p style="font-weight: 700; color: var(--primary-gold);">Contact: <a href="tel:2102365230" style="color: var(--primary-gold); text-decoration: none;">(210) 236-5230</a></p>
-        </div>
-    </section>
-
     <!-- FOOTER NAV DOCK CONTROLS -->
-    <footer id="footer-destinations" style="background: var(--velvet-blue-surface); color: var(--pure-white); padding: 4rem 2rem 2rem 2rem; border-top: 1px solid rgba(197, 160, 89, 0.15);">
+    <footer id="footer-destinations" style="background: var(--velvet-blue-surface); color: var(--pure-white); padding: 4rem 2rem 2rem 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
         <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; text-align: left;">
             <div>
-                <h4 style="color: var(--primary-gold); margin-bottom: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 1px;">Selda Destinations</h4>
+                <h4 style="color: var(--pure-white); margin-bottom: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">Selda Destinations</h4>
                 <ul style="list-style: none; padding: 0; line-height: 2;">
                     <li><a href="#location-hours" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Selda San Antonio</a></li>
                     <li><a href="https://seldadallas.com" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Selda Dallas</a></li>
@@ -490,7 +486,7 @@
                 </ul>
             </div>
             <div>
-                <h4 style="color: var(--primary-gold); margin-bottom: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 1px;">Sister Concepts</h4>
+                <h4 style="color: var(--pure-white); margin-bottom: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">Sister Concepts</h4>
                 <ul style="list-style: none; padding: 0; line-height: 2;">
                     <li><a href="https://instagram.com/seldabakery" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Selda Bakery</a></li>
                     <li><a href="https://instagram.com/seldagyrodoner" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Selda Döner</a></li>
@@ -499,19 +495,19 @@
                 </ul>
             </div>
         </div>
-        <div style="max-width: 900px; margin: 4rem auto 0 auto; border-top: 1px solid rgba(197, 160, 89, 0.1); padding-top: 1.5rem; text-align: center; font-size: 0.85rem; color: var(--muted-white); letter-spacing: 1px;">
+        <div style="max-width: 900px; margin: 4rem auto 0 auto; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 1.5rem; text-align: center; font-size: 0.85rem; color: var(--muted-white); letter-spacing: 1px;">
             <p style="margin-bottom: 1rem;">© 2026 Selda. All rights reserved.</p>
             <div style="display: flex; justify-content: center; gap: 20px; font-size: 1.5rem; margin-top: 1rem;">
-                <a href="https://instagram.com/seldasanantonio" target="_blank" style="color: var(--primary-gold);"><i class="fab fa-instagram"></i></a>
-                <a href="https://facebook.com/seldasanantonio" target="_blank" style="color: var(--primary-gold);"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com/seldasanantonio" target="_blank" style="color: var(--pure-white);"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/seldasanantonio" target="_blank" style="color: var(--pure-white);"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- STICKY MOBILE DOCK ACTION FOOTER (As shown in image_2.png) -->
+    <!-- STICKY MOBILE DOCK ACTION FOOTER -->
     <div class="sticky-mobile-footer">
         <a href="tel:2102365230" class="sticky-action-btn">Call (210) 236-5230</a>
-        <a href="#location-hours" class="sticky-action-btn" style="background-color: var(--velvet-blue-surface); color: var(--primary-gold);">Reserve Table</a>
+        <a href="#header" class="sticky-action-btn" style="background-color: var(--velvet-blue-surface);">Reserve Table</a>
     </div>
 
     <script>
