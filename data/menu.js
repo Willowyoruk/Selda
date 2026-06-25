@@ -257,7 +257,7 @@ const menuData = {
         },
         {
             name: "Kunefe (VEG)",
-            price: "$13.00",
+            price: "$13.00 | $16.00",
             description: "Shredded pastry filled with melted cheese, baked and soaked in syrup (allow AT LEAST 20 minutes to prepare). Small: $13.00 | Large: $16.00.",
             image: "assets/menu/kunefe.jpg"
         }
