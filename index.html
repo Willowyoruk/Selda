@@ -384,6 +384,79 @@
             text-transform: uppercase;
         }
 
+        /* ==========================================================================
+           DYNAMIC MENU STYLING (FOR INDEX.HTML)
+           ========================================================================= */
+        #index-menu-target {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .index-menu-category {
+            margin-bottom: 60px;
+        }
+        .index-category-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--pure-white);
+            margin: 0 0 35px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+        .index-menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 45px;
+            row-gap: 45px;
+        }
+        .index-menu-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .index-item-image-wrapper {
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background-color: #1a2635;
+        }
+        .index-item-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .index-item-details {
+            flex-grow: 1;
+        }
+        .index-item-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+        .index-item-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--pure-white);
+            line-height: 1.2;
+        }
+        .index-item-price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--subtle-gold);
+            white-space: nowrap;
+        }
+        .index-item-description {
+            font-size: 0.95rem;
+            color: var(--muted-white);
+        }
+
         .amenities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .amenity-card { 
             background: var(--velvet-blue-surface); 
@@ -455,7 +528,7 @@
         .next-btn { right: 15px !important; }
         .carousel-dots { position: absolute !important; bottom: 15px !important; left: 50% !important; transform: translateX(-50%) !important; display: flex !important; gap: 8px !important; z-index: 10 !important; }
         .dot { width: 6px !important; height: 6px !important; background-color: rgba(255, 255, 255, 0.3) !important; border-radius: 50% !important; cursor: pointer !important; transition: all 0.3s ease; }
-        .dot.active { background-color: var(--pure-white) !important; transform: scale(1.3) !important; transform: scale(1.3) !important; }
+        .dot.active { background-color: var(--pure-white) !important; transform: scale(1.3) !important; }
         .carousel-caption-bar { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--pure-white); letter-spacing: 2px; text-transform: uppercase; margin: 0 auto 2.5rem auto; min-height: 1.5rem; }
 
         /* Mobile Layout Modifications */
@@ -483,435 +556,4 @@
             position: relative;
         }
         .sticky-action-btn:first-child {
-            border-right: 1px solid var(--subtle-gold); 
-        }
-
-        /* Mobile Sticky Dropup Menu Options */
-        .mobile-dropup-content {
-            display: none;
-            position: absolute;
-            bottom: 60px;
-            left: 0;
-            width: 100%;
-            background-color: #111B29;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            flex-direction: column;
-            z-index: 10000;
-        }
-        .mobile-dropup-content.active {
-            display: flex;
-        }
-        .mobile-dropup-item {
-            padding: 1rem;
-            color: var(--pure-white);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-          .carousel-container { height: 340px !important; }
-          .hamburger { display: flex; }
-          nav { display: none; }
-          .editorial-section h2 { font-size: 2.8rem; }
-          .sticky-mobile-footer { display: grid; }
-          .section-title { font-size: 2.6rem; }
-          
-          .hero-canvas-section { 
-              padding: 2.5rem 1rem 0.5rem 1rem !important; 
-              height: auto !important;
-              max-height: 640px !important;
-          }
-          .brand-location-tag {
-              margin-bottom: 0.8rem !important;
-          }
-          .brand-description-paragraph {
-              margin-bottom: 1rem !important;
-              line-height: 1.4 !important;
-              font-size: 0.95rem !important;
-          }
-          .widget-sub-label-wrap {
-              margin-top: -15px !important; 
-              padding-bottom: 1.5rem !important;
-          }
-        }
-    </style>
-</head>
-
-<body>
-
-    <header id="header">
-        <div class="header-content">
-            <a href="/" style="display: flex; align-items: center; text-decoration: none;">
-              <img src="assets/IMG_8745.jpeg" alt="Selda Logo" style="height: 45px; width: auto; object-fit: contain;">
-            </a>
-            
-            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-            
-            <nav>
-                <a href="#about">About</a>
-                <a href="#location-hours">Location & Hours</a>
-                <a href="#menu">Menu</a>
-                
-                <div class="desktop-dropdown">
-                    <button class="desktop-dropdown-btn">Order <i class="fas fa-chevron-down" style="font-size:0.7rem;"></i></button>
-                    <div class="desktop-dropdown-content">
-                        <a href="https://order.online/store/-30359031/" target="_blank">DoorDash</a>
-                        <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank">Uber Eats</a>
-                        <a href="https://seldasanantonio.dine.online" target="_blank">Grubhub</a>
-                        <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">Zing My Order</a>
-                    </div>
-                </div>
-
-                <a href="#amenities">Hookah</a>
-                <a href="#contact-section">Contact Us</a>
-            </nav>
-        </div>
-        
-        <div class="mobile-menu" id="mobile-menu">
-            <a href="#about">About</a>
-            <div class="mobile-dropdown-wrapper">
-                <button class="mobile-dropdown-btn" id="locations-toggle">
-                    Locations <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="mobile-dropdown-content" id="locations-dropdown">
-                    <a href="#location-hours">Selda San Antonio</a>
-                    <a href="https://seldadallas.com" target="_blank">Selda Dallas</a>
-                    <a href="https://instagram.com/seldafrisco" target="_blank">Selda Frisco</a>
-                    <a href="https://instagram.com/Seldalascolinas" target="_blank">Selda Las Colinas</a>
-                    <a href="https://instagram.com/themayorshouse_byselda" target="_blank">The Mayor's House by Selda</a>
-                </div>
-            </div>
-            <a href="#menu">Menu</a>
-            
-            <div class="mobile-dropdown-wrapper">
-                <button class="mobile-dropdown-btn" id="mobile-platforms-toggle">
-                    Order Online <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="mobile-dropdown-content" id="mobile-platforms-dropdown">
-                    <a href="https://order.online/store/-30359031/" target="_blank">DoorDash</a>
-                    <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank">Uber Eats</a>
-                    <a href="https://seldasanantonio.dine.online" target="_blank">Grubhub</a>
-                    <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">Zing My Order</a>
-                </div>
-            </div>
-
-            <a href="#amenities">Hookah</a>
-            <a href="#contact-section">Contact Us</a>
-            
-            <div class="mobile-social-row">
-                <a href="https://instagram.com/seldasanantonio" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://facebook.com/seldasanantonio" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            </div>
-        </div>
-    </header>
-
-    <section class="hero-canvas-section" id="booking-hero">
-        <div class="hero-canvas-container">
-            
-            <h1 class="brand-title-main">Selda</h1>
-            
-            <p class="brand-subtitle-tags">Mediterranean Kitchen & Bar</p>
-            <p class="brand-location-tag">San Antonio, Texas</p>
-
-            <p class="brand-description-paragraph">
-                An elevated dining experience rooted in Turkish tradition, featuring coal-fired cuisine, curated wines, handcrafted cocktails, and house-made desserts.
-            </p>
-
-            <div class="clean-widget-wrap">
-                <script type='text/javascript' src='//www.opentable.com/widget/reservation/loader?rid=1380571&type=standard&theme=standard&color=1&dark=true&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website'></script>
-            </div>
-
-            <div class="widget-sub-label-wrap">
-                <p style="font-family: 'Lato', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--muted-white); letter-spacing: 0.5px; margin-bottom: 0.5rem;">
-                    For parties of 15+, please call <a href="tel:2102365230" style="color: var(--pure-white); text-decoration: underline; font-weight: 700;">(210) 236-5230</a>
-                </p>
-                <p style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-top: 0.3rem;">
-                    <a href="https://maps.google.com/?q=Selda+Mediterranean+Kitchen+%26+Bar+San+Antonio" target="_blank" style="color: var(--subtle-gold); text-decoration: none; transition: color 0.3s ease;">
-                        <i class="fas fa-map-marker-alt" style="margin-right: 5px; font-size: 0.8rem;"></i> Getting to Selda
-                    </a>
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <div class="scrolling-ticker">
-        <div class="ticker-content">
-            <span>Small Bites</span><span>Coal-Fired Cuisine</span><span>Curated Wines</span><span>Shared Plates</span><span>Fresh Ingredients</span><span>Craft Cocktails</span><span>Turkish Hospitality</span>
-            <span>Small Bites</span><span>Coal-Fired Cuisine</span><span>Curated Wines</span><span>Shared Plates</span><span>Fresh Ingredients</span><span>Craft Cocktails</span><span>Turkish Hospitality</span>
-        </div>
-    </div>
-
-   <section id="live-menu-section" class="standard-padding" style="background-color: var(--velvet-blue-surface);">
-    <div class="container">
-        <h2 class="section-title">Our Dinner Menu</h2>
-        
-        <div id="index-menu-target"></div>
-    </div>
-</section>
-
-    <section id="ordering" class="editorial-section" style="background-image: url('assets/lahmacun.jpg');">
-        <div class="editorial-container">
-            <h2 style="margin-bottom: 2rem;">Order Online</h2>
-            <div class="order-platforms-grid">
-                <a href="https://order.online/store/-30359031/" class="btn-platform" target="_blank">Powered by DoorDash</a>
-                <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" class="btn-platform" target="_blank">Powered by Uber Eats</a>
-                <a href="https://seldasanantonio.dine.online" class="btn-platform" target="_blank">Powered by Grubhub</a>
-                <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" class="btn-platform" target="_blank">Powered by Zing</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="standard-padding">
-        <div class="container">
-            <h2 class="section-title">About Selda</h2>
-            
-            <div class="carousel-container" id="about-carousel">
-                <div class="carousel-track">
-                    <div class="carousel-slide" data-name="Mixed Grill"><img src="assets/fire.jpg" alt="Mixed Grill"></div>
-                    <div class="carousel-slide" data-name="Sizzling Lambchops"><img src="assets/lambchops.jpg" alt="Sizzling Lambchops"></div>
-                    <div class="carousel-slide" data-name="Grilled Branzino"><img src="assets/bronzino.jpg" alt="Grilled Branzino"></div>
-                    <div class="carousel-slide" data-name="Chicken Adana"><img src="assets/adana.jpg" alt="Chicken Adana"></div>
-                    <div class="carousel-slide" data-name="Marinated Lamb Shish"><img src="assets/lamb-shish.jpg" alt="Marinated Lamb Shish"></div>
-                    <div class="carousel-slide" data-name="Fresh Baked Lahmacun"><img src="assets/lahmacun.jpg" alt="Fresh Baked Lahmacun"></div>
-                </div>
-                <button class="carousel-btn prev-btn" aria-label="Previous Slide">❮</button>
-                <button class="carousel-btn next-btn" aria-label="Next Slide">❯</button>
-                <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-            </div>
-            <div class="carousel-caption-bar" id="carousel-caption">Selda Mediterranean Kitchen</div>
-
-            <div style="max-width: 750px; margin: 0 auto; text-align: center; font-size: 1.1rem; line-height: 1.9; color: var(--muted-white);">
-                <p style="margin-bottom: 2rem;">
-                    At Selda, we bring the vibrant flavors and warm hospitality of Turkey and the Mediterranean to San Antonio. Inspired by generations of culinary tradition, our menu celebrates authentic Mediterranean cuisine prepared with premium ingredients.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="location-hours" style="background-color: var(--velvet-blue-surface); padding: 5rem 0; border-top: 1px solid rgba(255, 255, 255, 0.05);">
-        <div class="container" style="max-width: 600px;">
-            <h2 class="section-title" style="font-size: 2.2rem; margin-bottom: 1.5rem;">Location & Hours</h2>
-            <div style="color: var(--muted-white); line-height: 1.8; margin-bottom: 2rem; font-size: 1.05rem; text-align: center;">
-                <p style="margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 9955 I-10 W, San Antonio, TX 78230</p>
-                <p style="margin-bottom: 0.5rem;"><i class="fas fa-clock" style="margin-right: 10px;"></i> 11:00 AM - 11:00 PM Daily</p>
-                <p><i class="fas fa-phone" style="margin-right: 10px;"></i> <a href="tel:2102365230" style="color: var(--pure-white); text-decoration: none; font-weight: 700;">(210) 236-5230</a></p>
-            </div>
-            <div style="width: 100%; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1);">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.627732296058!2d-98.56790112356598!3d29.535786942152865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c61187cf88459%3A0x1c77d58b3eb75c3f!2sSelda%20Mediterranean%20Kitchen%20%26%20Bar!5e0!3m2!1sen!2sus!4v1718670000000!5m2!1sen!2sus" 
-                    width="100%" height="250" style="border:0; filter: grayscale(40%) invert(92%) hue-rotate(175deg);" allowfullscreen="" loading="lazy">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <section id="amenities" class="standard-padding container">
-        <div class="amenities-grid">
-            <div class="amenity-card">
-                <h3>Hookah on the Patio</h3>
-                <p>Continue the evening on our patio with premium hookah and a relaxed atmosphere.</p>
-            </div>
-            <div class="amenity-card">
-                <h3>Catering Packages</h3>
-                <p>Custom packages structured specifically for corporate events, private functions, and weddings.</p>
-            </div>
-        </div>
-    </section>
-
-     <section id="contact-section" style="background-color: var(--velvet-blue); padding: 2rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05);">
-        <div style="max-width: 600px; margin: 0 auto;">
-            <h2 class="section-title" style="font-size: 2.2rem; margin-bottom: 1rem;">Contact Us</h2>
-            <p style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 1px; margin: 0;">
-                <a href="mailto:RestaurantSelda@gmail.com" style="color: var(--subtle-gold); text-decoration: none; border-bottom: 1px solid var(--subtle-gold); padding-bottom: 4px; transition: opacity 0.3s ease;">
-                    RestaurantSelda@gmail.com
-                </a>
-            </p>
-        </div>
-    </section>
-
-    <footer id="footer-destinations" style="background: var(--velvet-blue-surface); color: var(--pure-white); padding: 4rem 2rem 2rem 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
-        <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; text-align: left;">
-            <div>
-                <h4 style="color: var(--pure-white); margin-bottom: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">Selda Destinations</h4>
-                <ul style="list-style: none; padding: 0; line-height: 2;">
-                    <li><a href="#location-hours" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Selda San Antonio</a></li>
-                    <li><a href="https://seldadallas.com" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Selda Dallas</a></li>
-                    <li><a href="https://instagram.com/seldafrisco" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Selda Frisco</a></li>
-                    <li><a href="https://instagram.com/Seldalascolinas" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Selda Las Colinas</a></li>
-                    <li><a href="https://instagram.com/themayorshouse_byselda" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">The Mayor's House by Selda</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 style="color: var(--pure-white); margin-bottom: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">Sister Concepts</h4>
-                <ul style="list-style: none; padding: 0; line-height: 2;">
-                    <li><a href="https://instagram.com/seldabakery" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Selda Bakery</a></li>
-                    <li><a href="https://instagram.com/seldagyrodoner" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Selda Döner</a></li>
-                    <li><a href="https://instagram.com/Nice.coffee.cocktail" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Nice Coffee Cocktail Bar</a></li>
-                    <li><a href="https://instagram.com/Eliagreektaverndallas" target="_blank" style="color: var(--muted-white); text-decoration: none; font-size: 0.95rem;">Elia Greek Tavern</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div style="max-width: 900px; margin: 4rem auto 0 auto; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 2rem; text-align: center; font-size: 0.85rem; color: var(--muted-white); letter-spacing: 1px;">
-            <div style="display: flex; justify-content: center; gap: 28px; font-size: 1.6rem; margin-bottom: 1.2rem;">
-                <a href="https://instagram.com/seldasanantonio" target="_blank" style="color: var(--pure-white); transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" style="color: var(--pure-white); transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1"><i class="fab fa-tiktok"></i></a>
-                <a href="https://facebook.com/seldasanantonio" target="_blank" style="color: var(--pure-white); transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1"><i class="fab fa-facebook"></i></a>
-            </div>
-            <p>© 2026 Selda. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <div class="sticky-mobile-footer">
-        <a href="#" id="mobile-order-trigger" class="sticky-action-btn">Order Online</a>
-        
-        <div class="mobile-dropup-content" id="mobile-dropup-menu">
-            <a href="https://order.online/store/-30359031/" class="mobile-dropup-item" target="_blank">DoorDash</a>
-            <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" class="mobile-dropup-item" target="_blank">Uber Eats</a>
-            <a href="https://seldasanantonio.dine.online" class="mobile-dropup-item" target="_blank">Grubhub</a>
-            <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" class="mobile-dropup-item" target="_blank">Zing My Order</a>
-        </div>
-
-        <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-reservations-san-antonio?restref=1380571&lang=en-US&ot_source=Restaurant%20website" target="_blank" class="sticky-action-btn" style="background-color: var(--velvet-blue-surface);">Reserve Table</a>
-    </div>
-
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const locationsToggle = document.getElementById('locations-toggle');
-        const locationsDropdown = document.getElementById('locations-dropdown');
-        const mobilePlatformsToggle = document.getElementById('mobile-platforms-toggle');
-        const mobilePlatformsDropdown = document.getElementById('mobile-platforms-dropdown');
-        
-        if (hamburger && mobileMenu) {
-            hamburger.addEventListener('click', () => mobileMenu.classList.toggle('active'));
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (!link.closest('#locations-dropdown') && !link.closest('#mobile-platforms-dropdown')) {
-                        mobileMenu.classList.remove('active');
-                    }
-                });
-            });
-
-            // Closes the sidebar when tapping the empty white space below the social row
-            mobileMenu.addEventListener('click', (e) => {
-                if (e.target === mobileMenu) {
-                    mobileMenu.classList.remove('active');
-                }
-            });
-        }
-        if (locationsToggle && locationsDropdown) {
-            locationsToggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                locationsToggle.classList.toggle('active');
-                locationsDropdown.classList.toggle('open');
-            });
-        }
-        if (mobilePlatformsToggle && mobilePlatformsDropdown) {
-            mobilePlatformsToggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                mobilePlatformsToggle.classList.toggle('active');
-                mobilePlatformsDropdown.classList.toggle('open');
-            });
-        }
-
-        /* Advanced Translucent Background Scroll Handler */
-        let scrollTimeout;
-        window.addEventListener('scroll', () => {
-            if (mobileMenu && mobileMenu.classList.contains('active')) {
-                // Instantly make the side-drawer translucent when the page background is scrolled
-                mobileMenu.classList.add('translucent');
-                
-                // Clear the timeout handler if scrolling is actively happening
-                clearTimeout(scrollTimeout);
-                
-                // Bring it back to solid color once the user stops scrolling for 250 milliseconds
-                scrollTimeout = setTimeout(() => {
-                    mobileMenu.classList.remove('translucent');
-                }, 250);
-            }
-        }, { passive: true });
-
-        /* Sticky Mobile Order Footer Toggle Functionality */
-        const orderTrigger = document.getElementById('mobile-order-trigger');
-        const dropupMenu = document.getElementById('mobile-dropup-menu');
-
-        if (orderTrigger && dropupMenu) {
-            orderTrigger.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                dropupMenu.classList.toggle('active');
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!dropupMenu.contains(e.target) && e.target !== orderTrigger) {
-                    dropupMenu.classList.remove('active');
-                }
-            });
-        }
-
-        const carouselContainer = document.getElementById('about-carousel');
-        const track = document.querySelector('.carousel-track');
-        const slides = document.querySelectorAll('.carousel-slide');
-        const nextBtn = document.querySelector('.next-btn');
-        const prevBtn = document.querySelector('.prev-btn');
-        const dots = document.querySelectorAll('.dot');
-        const captionBar = document.getElementById('carousel-caption');
-
-        let currentIndex = 0;
-        const totalSlides = slides.length;
-        let autoplayTimer;
-        let startX = 0, currentX = 0, isSwiping = false;
-
-        function updateCarousel(index) {
-            if (!track || slides.length === 0) return;
-            if (index >= totalSlides) currentIndex = 0;
-            else if (index < 0) currentIndex = totalSlides - 1;
-            else currentIndex = index;
-            
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            
-            if (captionBar && slides[currentIndex]) {
-                const itemName = slides[currentIndex].getAttribute('data-name');
-                captionBar.style.opacity = 0; 
-                setTimeout(() => {
-                    captionBar.textContent = itemName;
-                    captionBar.style.opacity = 1;
-                }, 150);
-            }
-            dots.forEach(dot => dot.classList.remove('active'));
-            if (dots[currentIndex]) dots[currentIndex].classList.add('active');
-        }
-
-        function nextSlide() { updateCarousel(currentIndex + 1); }
-        function prevSlide() { updateCarousel(currentIndex - 1); }
-
-        if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); nextSlide(); resetAutoplay(); });
-        if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); prevSlide(); resetAutoplay(); });
-        dots.forEach((dot, idx) => dot.addEventListener('click', (e) => { e.preventDefault(); updateCarousel(idx); resetAutoplay(); }));
-
-        if (carouselContainer) {
-            carouselContainer.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; isSwiping = true; clearInterval(autoplayTimer); }, { passive: true });
-            carouselContainer.addEventListener('touchmove', (e) => { if (isSwiping) currentX = e.touches[0].clientX; }, { passive: true });
-            carouselContainer.addEventListener('touchend', () => {
-                if (!isSwiping) return; isSwiping = false;
-                const diffX = startX - currentX;
-                if (Math.abs(diffX) > 50 && currentX !== 0) { if (diffX > 0) nextSlide(); else prevSlide(); }
-                currentX = 0; resetAutoplay();
-            });
-        }
-
-        function startAutoplay() { autoplayTimer = setInterval(nextSlide, 5000); }
-        function resetAutoplay() { clearInterval(autoplayTimer); startAutoplay(); }
-        if (track && slides.length > 0) startAutoplay();
-    </script>
-</body>
-</html>
+            border-right: 1px
