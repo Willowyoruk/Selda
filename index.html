@@ -111,7 +111,7 @@
         .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
         .hamburger span { width: 25px; height: 2px; background-color: var(--primary-dark); }
 
-               /* Mobile Dropdown Layout */
+        /* Mobile Dropdown Layout Layout Fixes */
         .mobile-menu {
             display: none;
             position: absolute;
@@ -119,13 +119,14 @@
             right: 0;
             background-color: var(--pure-white); 
             width: 100%;
-            max-height: 55vh;          /* Limits the menu block to just over half the screen */
-            overflow-y: auto;          /* Enables clean internal scrolling if dropdowns expand */
+            max-height: 50vh;             /* Strictly locks height to half the screen viewport */
+            overflow-y: auto;             /* Allows menu container itself to scroll internally */
+            -webkit-overflow-scrolling: touch; 
             flex-direction: column;
             padding: 2rem;
             gap: 1.5rem;
             border-bottom: 1px solid #EAEAEA;
-            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15); /* Adds a premium shadow depth overlay */
+            box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.25); /* Premium crisp layout overlay shadow */
             z-index: 1000;
         }
         .mobile-menu.active { display: flex; } 
