@@ -263,6 +263,35 @@
             border-color: rgba(255, 255, 255, 0.4);
         }
 
+        /* Multi-Platform Order Button Grid styling */
+        .order-platforms-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+        .btn-platform {
+            display: block;
+            padding: 1rem 2rem;
+            background-color: transparent;
+            color: var(--pure-white);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .btn-platform:hover {
+            background-color: var(--subtle-gold);
+            color: var(--primary-dark);
+            border-color: var(--subtle-gold);
+        }
+
         .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
         section.standard-padding { padding: 6rem 0; }
         
@@ -373,9 +402,38 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
+            position: relative;
         }
         .sticky-action-btn:first-child {
             border-right: 1px solid var(--subtle-gold); 
+        }
+
+        /* Mobile Sticky Dropup Menu Options */
+        .mobile-dropup-content {
+            display: none;
+            position: absolute;
+            bottom: 60px;
+            left: 0;
+            width: 100%;
+            background-color: #111B29;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            flex-direction: column;
+            z-index: 10000;
+        }
+        .mobile-dropup-content.active {
+            display: flex;
+        }
+        .mobile-dropup-item {
+            padding: 1rem;
+            color: var(--pure-white);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
         }
 
         @media (max-width: 768px) {
@@ -508,11 +566,15 @@
         </div>
     </section>
 
-    <!-- ORDER ONLINE STRIPE -->
+    <!-- ORDER ONLINE STRIPE (UPDATED WITH MULTI-PLATFORM DIRECT LINKS) -->
     <section id="ordering" class="editorial-section" style="background-image: url('assets/lahmacun.jpg');">
         <div class="editorial-container">
-            <h2>Order Online</h2>
-            <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" class="btn-editorial" target="_blank">Order Now</a>
+            <h2 style="margin-bottom: 2rem;">Order Online</h2>
+            <div class="order-platforms-grid">
+                <a href="https://order.online/store/-30359031/" class="btn-platform" target="_blank">Powered by DoorDash</a>
+                <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" class="btn-platform" target="_blank">Powered by Uber Eats</a>
+                <a href="https://seldasanantonio.dine.online" class="btn-platform" target="_blank">Powered by Grubhub</a>
+            </div>
         </div>
     </section>
 
@@ -623,9 +685,18 @@
         </div>
     </footer>
 
-       <!-- STICKY ACTION NAV FOOTER -->
+    <!-- STICKY ACTION NAV FOOTER (UPDATED WITH SEAMLESS DROPOP SYSTEM FOR ONLINE ORDERING) -->
     <div class="sticky-mobile-footer">
-        <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" class="sticky-action-btn">Order Online</a>
+        <!-- Interactive Order Toggle Button -->
+        <a href="#" id="mobile-order-trigger" class="sticky-action-btn">Order Online</a>
+        
+        <!-- Dropup Platform Container -->
+        <div class="mobile-dropup-content" id="mobile-dropup-menu">
+            <a href="https://order.online/store/-30359031/" class="mobile-dropup-item" target="_blank">DoorDash</a>
+            <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" class="mobile-dropup-item" target="_blank">Uber Eats</a>
+            <a href="https://seldasanantonio.dine.online" class="mobile-dropup-item" target="_blank">Grubhub</a>
+        </div>
+
         <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-reservations-san-antonio?restref=1380571&lang=en-US&ot_source=Restaurant%20website" target="_blank" class="sticky-action-btn" style="background-color: var(--velvet-blue-surface);">Reserve Table</a>
     </div>
 
@@ -648,6 +719,25 @@
                 e.preventDefault();
                 locationsToggle.classList.toggle('active');
                 locationsDropdown.classList.toggle('open');
+            });
+        }
+
+        /* NEW CODE: Sticky Mobile Order Footer Toggle Functionality */
+        const orderTrigger = document.getElementById('mobile-order-trigger');
+        const dropupMenu = document.getElementById('mobile-dropup-menu');
+
+        if (orderTrigger && dropupMenu) {
+            orderTrigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropupMenu.classList.toggle('active');
+            });
+
+            // Closes dropup window automatically if they tap anywhere else on screen
+            document.addEventListener('click', (e) => {
+                if (!dropupMenu.contains(e.target) && e.target !== orderTrigger) {
+                    dropupMenu.classList.remove('active');
+                }
             });
         }
 
