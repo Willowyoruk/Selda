@@ -111,25 +111,44 @@
         .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
         .hamburger span { width: 25px; height: 2px; background-color: var(--primary-dark); }
 
-        /* Mobile Dropdown Layout Layout Fixes */
+        /* ADVANCED RIGHT SIDE DRAWER MENU */
         .mobile-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background-color: var(--pure-white); 
-            width: 100%;
-            max-height: 50vh;             /* Strictly locks height to half the screen viewport */
-            overflow-y: auto;             /* Allows menu container itself to scroll internally */
+            display: flex;
+            position: fixed;
+            top: 70px;                    /* Sits perfectly right beneath the main navbar */
+            right: -60%;                  /* Hidden completely off screen on the right side by default */
+            background-color: rgba(255, 255, 255, 0.98); 
+            width: 60%;                   /* Takes up just over half the screen widthwise */
+            height: calc(100vh - 70px);   /* Stretches to the bottom of the device viewport screen */
+            overflow-y: auto;             /* Internal scrolling enabled if dropdown items are opened */
             -webkit-overflow-scrolling: touch; 
             flex-direction: column;
-            padding: 2rem;
+            padding: 2.5rem 1.5rem;
             gap: 1.5rem;
-            border-bottom: 1px solid #EAEAEA;
-            box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.25); /* Premium crisp layout overlay shadow */
+            border-left: 1px solid #EAEAEA;
+            box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.15); 
             z-index: 1000;
+            transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease; /* Smooth slide-in and translucent fade */
+            opacity: 0;
+            pointer-events: none;         /* Blocks user accidental clicks while hidden */
         }
-        .mobile-menu.active { display: flex; } 
+        
+        /* Slide drawer out when active */
+        .mobile-menu.active { 
+            right: 0; 
+            opacity: 1;
+            pointer-events: auto;
+        } 
+
+        /* Translucent state activated via scrolling JavaScript handler */
+        .mobile-menu.translucent {
+            opacity: 0.35 !important;      /* Makes it nicely see-through when they scroll background page */
+        }
+        .mobile-menu.translucent:hover,
+        .mobile-menu.translucent:focus-within {
+            opacity: 1 !important;         /* Instantly returns to full solid bright white if they touch it */
+        }
+
         .mobile-menu a { color: var(--primary-dark); text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
         .mobile-dropdown-btn {
@@ -166,12 +185,12 @@
         .mobile-social-row {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 20px;
             margin-top: 0.5rem;
             padding-top: 0.5rem;
         }
         .mobile-social-row a {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: var(--primary-dark);
             transition: opacity 0.2s ease;
         }
@@ -799,6 +818,23 @@
             });
         }
 
+        /* Advanced Translucent Background Scroll Handler */
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+                // Instantly make the side-drawer translucent when the page background is scrolled
+                mobileMenu.classList.add('translucent');
+                
+                // Clear the timeout handler if scrolling is actively happening
+                clearTimeout(scrollTimeout);
+                
+                // Bring it back to solid color once the user stops scrolling for 250 milliseconds
+                scrollTimeout = setTimeout(() => {
+                    mobileMenu.classList.remove('translucent');
+                }, 250);
+            }
+        }, { passive: true });
+
         /* Sticky Mobile Order Footer Toggle Functionality */
         const orderTrigger = document.getElementById('mobile-order-trigger');
         const dropupMenu = document.getElementById('mobile-dropup-menu');
@@ -810,7 +846,6 @@
                 dropupMenu.classList.toggle('active');
             });
 
-            // Closes dropup window automatically if they tap anywhere else on screen
             document.addEventListener('click', (e) => {
                 if (!dropupMenu.contains(e.target) && e.target !== orderTrigger) {
                     dropupMenu.classList.remove('active');
