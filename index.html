@@ -49,9 +49,64 @@
             justify-content: space-between;
             align-items: center;
         }
-        nav { display: flex; gap: 2rem; }
+        nav { display: flex; gap: 2rem; align-items: center; }
         nav a { color: var(--primary-dark); text-decoration: none; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; transition: color 0.3s ease; }
         nav a:hover { color: #555555; }
+
+        /* Desktop Dropdown Container for Ordering Link */
+        .desktop-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .desktop-dropdown-btn {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 0;
+        }
+        .desktop-dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--pure-white);
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 101;
+            margin-top: 1.2rem;
+            border: 1px solid #EAEAEA;
+        }
+        .desktop-dropdown:hover .desktop-dropdown-content {
+            display: flex;
+            flex-direction: column;
+        }
+        .desktop-dropdown-content a {
+            color: var(--primary-dark);
+            padding: 0.8rem 1.2rem;
+            text-decoration: none;
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #F5F5F5;
+            text-align: center;
+            transition: background-color 0.2s ease;
+        }
+        .desktop-dropdown-content a:last-child { border-bottom: none; }
+        .desktop-dropdown-content a:hover {
+            background-color: #F9F9F9;
+            color: var(--subtle-gold);
+        }
 
         .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
         .hamburger span { width: 25px; height: 2px; background-color: var(--primary-dark); }
@@ -479,13 +534,22 @@
                 <a href="#about">About</a>
                 <a href="#location-hours">Location & Hours</a>
                 <a href="#menu">Menu</a>
-                <a href="#ordering">Order</a>
+                
+                <div class="desktop-dropdown">
+                    <button class="desktop-dropdown-btn">Order <i class="fas fa-chevron-down" style="font-size:0.7rem;"></i></button>
+                    <div class="desktop-dropdown-content">
+                        <a href="https://order.online/store/-30359031/" target="_blank">DoorDash</a>
+                        <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank">Uber Eats</a>
+                        <a href="https://seldasanantonio.dine.online" target="_blank">Grubhub</a>
+                        <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">Zing My Order</a>
+                    </div>
+                </div>
+
                 <a href="#amenities">Hookah</a>
                 <a href="#contact-section">Contact Us</a>
             </nav>
         </div>
         
-        <!-- MOBILE DROPDOWN HAMBURGER MENU -->
         <div class="mobile-menu" id="mobile-menu">
             <a href="#about">About</a>
             <div class="mobile-dropdown-wrapper">
@@ -501,11 +565,22 @@
                 </div>
             </div>
             <a href="#menu">Menu</a>
-            <a href="#ordering">Order</a>
+            
+            <div class="mobile-dropdown-wrapper">
+                <button class="mobile-dropdown-btn" id="mobile-platforms-toggle">
+                    Order Online <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="mobile-dropdown-content" id="mobile-platforms-dropdown">
+                    <a href="https://order.online/store/-30359031/" target="_blank">DoorDash</a>
+                    <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank">Uber Eats</a>
+                    <a href="https://seldasanantonio.dine.online" target="_blank">Grubhub</a>
+                    <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">Zing My Order</a>
+                </div>
+            </div>
+
             <a href="#amenities">Hookah</a>
             <a href="#contact-section">Contact Us</a>
             
-            <!-- Horizontal Icon Row cleanly structured side-by-side inside mobile nav -->
             <div class="mobile-social-row">
                 <a href="https://instagram.com/seldasanantonio" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
@@ -514,8 +589,7 @@
         </div>
     </header>
 
-       <!-- HERO PHOTO SECTION -->
-    <section class="hero-canvas-section" id="booking-hero">
+       <section class="hero-canvas-section" id="booking-hero">
         <div class="hero-canvas-container">
             
             <h1 class="brand-title-main">Selda</h1>
@@ -527,12 +601,10 @@
                 An elevated dining experience rooted in Turkish tradition, featuring coal-fired cuisine, curated wines, handcrafted cocktails, and house-made desserts.
             </p>
 
-            <!-- OPENTABLE WIDGET CONTAINER FRAME -->
             <div class="clean-widget-wrap">
                 <script type='text/javascript' src='//www.opentable.com/widget/reservation/loader?rid=1380571&type=standard&theme=standard&color=1&dark=true&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website'></script>
             </div>
 
-            <!-- FLUSH LABELS SET SNUG BENEATH THE DISCOVER BUTTON -->
             <div class="widget-sub-label-wrap">
                 <p style="font-family: 'Lato', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--muted-white); letter-spacing: 0.5px; margin-bottom: 0.5rem;">
                     For parties of 15+, please call <a href="tel:2102365230" style="color: var(--pure-white); text-decoration: underline; font-weight: 700;">(210) 236-5230</a>
@@ -547,7 +619,6 @@
         </div>
     </section>
 
-    <!-- INFINITE TICKER MARQUEE RUNNER -->
     <div class="scrolling-ticker">
         <div class="ticker-content">
             <span>Small Bites</span><span>Coal-Fired Cuisine</span><span>Curated Wines</span><span>Shared Plates</span><span>Fresh Ingredients</span><span>Craft Cocktails</span><span>Turkish Hospitality</span>
@@ -555,7 +626,6 @@
         </div>
     </div>
 
-    <!-- DINNER MENU EDITORIAL STRIPE -->
     <section id="menu" class="editorial-section" style="background-image: url('assets/lambchops.jpg');">
         <div class="editorial-container">
             <h2>Dinner</h2>
@@ -566,7 +636,6 @@
         </div>
     </section>
 
-    <!-- ORDER ONLINE STRIPE (UPDATED WITH MULTI-PLATFORM DIRECT LINKS) -->
     <section id="ordering" class="editorial-section" style="background-image: url('assets/lahmacun.jpg');">
         <div class="editorial-container">
             <h2 style="margin-bottom: 2rem;">Order Online</h2>
@@ -574,11 +643,11 @@
                 <a href="https://order.online/store/-30359031/" class="btn-platform" target="_blank">Powered by DoorDash</a>
                 <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" class="btn-platform" target="_blank">Powered by Uber Eats</a>
                 <a href="https://seldasanantonio.dine.online" class="btn-platform" target="_blank">Powered by Grubhub</a>
+                <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" class="btn-platform" target="_blank">Powered by Zing</a>
             </div>
         </div>
     </section>
 
-    <!-- GALLERY & ABOUT TIMELINE TOOLS -->
     <section id="about" class="standard-padding">
         <div class="container">
             <h2 class="section-title">About Selda</h2>
@@ -606,7 +675,6 @@
         </div>
     </section>
 
-    <!-- MAP BLOCK DETAILS -->
     <section id="location-hours" style="background-color: var(--velvet-blue-surface); padding: 5rem 0; border-top: 1px solid rgba(255, 255, 255, 0.05);">
         <div class="container" style="max-width: 600px;">
             <h2 class="section-title" style="font-size: 2.2rem; margin-bottom: 1.5rem;">Location & Hours</h2>
@@ -624,7 +692,6 @@
         </div>
     </section>
 
-    <!-- FEATURES LISTING -->
     <section id="amenities" class="standard-padding container">
         <div class="amenities-grid">
             <div class="amenity-card">
@@ -638,8 +705,7 @@
         </div>
     </section>
 
-     <!-- CONTACT US SECTION -->
-    <section id="contact-section" style="background-color: var(--velvet-blue); padding: 2rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+     <section id="contact-section" style="background-color: var(--velvet-blue); padding: 2rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05);">
         <div style="max-width: 600px; margin: 0 auto;">
             <h2 class="section-title" style="font-size: 2.2rem; margin-bottom: 1rem;">Contact Us</h2>
             <p style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 1px; margin: 0;">
@@ -650,7 +716,6 @@
         </div>
     </section>
 
-    <!-- MAIN INTERACTIVE FOOTER SYSTEM -->
     <footer id="footer-destinations" style="background: var(--velvet-blue-surface); color: var(--pure-white); padding: 4rem 2rem 2rem 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
         <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; text-align: left;">
             <div>
@@ -674,7 +739,6 @@
             </div>
         </div>
         
-        <!-- Bottom Bar: Icons stacked directly on top of Copyright -->
         <div style="max-width: 900px; margin: 4rem auto 0 auto; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 2rem; text-align: center; font-size: 0.85rem; color: var(--muted-white); letter-spacing: 1px;">
             <div style="display: flex; justify-content: center; gap: 28px; font-size: 1.6rem; margin-bottom: 1.2rem;">
                 <a href="https://instagram.com/seldasanantonio" target="_blank" style="color: var(--pure-white); transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1"><i class="fab fa-instagram"></i></a>
@@ -685,16 +749,14 @@
         </div>
     </footer>
 
-    <!-- STICKY ACTION NAV FOOTER (UPDATED WITH SEAMLESS DROPOP SYSTEM FOR ONLINE ORDERING) -->
     <div class="sticky-mobile-footer">
-        <!-- Interactive Order Toggle Button -->
         <a href="#" id="mobile-order-trigger" class="sticky-action-btn">Order Online</a>
         
-        <!-- Dropup Platform Container -->
         <div class="mobile-dropup-content" id="mobile-dropup-menu">
             <a href="https://order.online/store/-30359031/" class="mobile-dropup-item" target="_blank">DoorDash</a>
             <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" class="mobile-dropup-item" target="_blank">Uber Eats</a>
             <a href="https://seldasanantonio.dine.online" class="mobile-dropup-item" target="_blank">Grubhub</a>
+            <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" class="mobile-dropup-item" target="_blank">Zing My Order</a>
         </div>
 
         <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-reservations-san-antonio?restref=1380571&lang=en-US&ot_source=Restaurant%20website" target="_blank" class="sticky-action-btn" style="background-color: var(--velvet-blue-surface);">Reserve Table</a>
@@ -705,12 +767,16 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const locationsToggle = document.getElementById('locations-toggle');
         const locationsDropdown = document.getElementById('locations-dropdown');
+        const mobilePlatformsToggle = document.getElementById('mobile-platforms-toggle');
+        const mobilePlatformsDropdown = document.getElementById('mobile-platforms-dropdown');
         
         if (hamburger && mobileMenu) {
             hamburger.addEventListener('click', () => mobileMenu.classList.toggle('active'));
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    if (!link.closest('#locations-dropdown')) mobileMenu.classList.remove('active');
+                    if (!link.closest('#locations-dropdown') && !link.closest('#mobile-platforms-dropdown')) {
+                        mobileMenu.classList.remove('active');
+                    }
                 });
             });
         }
@@ -721,8 +787,15 @@
                 locationsDropdown.classList.toggle('open');
             });
         }
+        if (mobilePlatformsToggle && mobilePlatformsDropdown) {
+            mobilePlatformsToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                mobilePlatformsToggle.classList.toggle('active');
+                mobilePlatformsDropdown.classList.toggle('open');
+            });
+        }
 
-        /* NEW CODE: Sticky Mobile Order Footer Toggle Functionality */
+        /* Sticky Mobile Order Footer Toggle Functionality */
         const orderTrigger = document.getElementById('mobile-order-trigger');
         const dropupMenu = document.getElementById('mobile-dropup-menu');
 
