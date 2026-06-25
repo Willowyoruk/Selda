@@ -612,7 +612,7 @@
         </div>
     </header>
 
-       <section class="hero-canvas-section" id="booking-hero">
+    <section class="hero-canvas-section" id="booking-hero">
         <div class="hero-canvas-container">
             
             <h1 class="brand-title-main">Selda</h1>
@@ -801,6 +801,13 @@
                         mobileMenu.classList.remove('active');
                     }
                 });
+            });
+
+            // Closes the sidebar when tapping the empty white space below the social row
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) {
+                    mobileMenu.classList.remove('active');
+                }
             });
         }
         if (locationsToggle && locationsDropdown) {
