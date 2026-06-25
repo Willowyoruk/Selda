@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Basic Meta tags telling the web browser how to decode data and scale the page fluidly on mobile screen widths -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selda Mediterranean Kitchen | Dinner Menu</title>
     
-    <!-- FAVICON: Renders your custom logo brand image directly onto the browser tab shortcut bar -->
     <link rel="icon" href="assets/IMG_8745.jpeg" type="image/jpeg">
 
-    <!-- GOOGLE STRUCTURED DATA SCHEMA: Explains explicitly to search engine crawling bots that this exact  
-         webpage acts as a live restaurant menu, helping generate interactive rich snippets directly in search indexes -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -22,7 +18,6 @@
     }
     </script>
     
-    <!-- FONTS & GRAPHICS: Pre-loading your Google typography families and FontAwesome graphic layout assets -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -96,62 +91,75 @@
         /* MAIN HEADING BRANDS: Applies the stylized upscale serif typographic features for the principal "SELDA" title text */
         .menu-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
         .menu-header h1 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 4.2rem;
             font-weight: 300;
             color: var(--pure-white);
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             text-transform: uppercase;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.2rem;
         }
-        .menu-header p {
+        .menu-header .subtitle {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--pure-white);
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+        }
+        .menu-header .location {
             font-family: 'Montserrat', sans-serif;
             color: var(--subtle-gold);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             font-weight: 600;
         }
 
-        /* TRADITIONAL PDF PROMPT STRIP: Generates a premium contrast bar offering traditional PDF layouts to users */
-        .pdf-action-bar {
-            background-color: var(--velvet-blue-surface);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        /* PROMOTIONAL ACTION CONSOLE: Houses gift info and the secondary PDF toggle */
+        .promo-action-container {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 50px auto;
+            padding: 20px;
+            background: rgba(17, 27, 41, 0.4);
             border-radius: 4px;
-            padding: 18px 24px;
-            margin-bottom: 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.03);
         }
-        .pdf-text {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
+        .gift-notice {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-style: italic;
             color: var(--pure-white);
             letter-spacing: 1px;
-            font-weight: 500;
+            margin-bottom: 12px;
         }
-        .pdf-btn {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: var(--subtle-gold); 
-            color: var(--primary-dark);
-            text-decoration: none;
+        .gift-notice i {
+            color: var(--subtle-gold);
+            margin-right: 6px;
+            font-size: 1rem;
+        }
+        .pdf-btn-small {
+            display: inline-inline-flex;
+            align-items: center;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 700;
+            font-size: 0.75rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            border: 1px solid var(--subtle-gold);
+            letter-spacing: 1.5px;
+            color: var(--muted-white);
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(186, 196, 209, 0.4);
+            padding-bottom: 2px;
             transition: all 0.3s ease;
         }
-        .pdf-btn:hover {
-            background-color: transparent;
-            color: var(--pure-white);
-            border-color: rgba(255, 255, 255, 0.4);
+        .pdf-btn-small:hover {
+            color: var(--subtle-gold);
+            border-bottom-color: var(--subtle-gold);
         }
 
         /* CARDS & CATEGORIES DISPLAY blocks: Distinct surface backdrops partitioning food courses */
@@ -319,11 +327,6 @@
             .menu-header h1 { font-size: 3.2rem; }
         }
         @media (max-width: 480px) {
-            .pdf-action-bar {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
             .menu-section { padding: 25px 20px; }
             .menu-item { gap: 15px; }
             .item-image-wrapper { width: 75px; height: 75px; }
@@ -333,7 +336,6 @@
 </head>
 <body>
 
-    <!-- VISUAL NAVBAR: Clean top-anchored layout block containing branding imagery and navigation pathways mapped back home -->
     <header id="header">
         <div class="header-content">
             <a href="index.html" class="back-btn">
@@ -348,22 +350,24 @@
     <div class="menu-container">
         <div class="menu-header">
             <h1>SELDA</h1>
-            <p>Mediterranean Kitchen & Bar</p>
+            <div class="subtitle">Mediterranean Kitchen & Bar</div>
+            <div class="location">San Antonio, Texas</div>
         </div>
 
-        <!-- LINK BOX: Safely connects users trying to open a standard PDF layout copy alternative -->
-        <div class="pdf-action-bar">
-         
-            <a href="assets/menu.pdf" target="_blank" class="pdf-btn">Open PDF Menu</a>
+        <div class="promo-action-container">
+            <div class="gift-notice">
+                <i class="fa-solid fa-gift"></i> Gift certificates are available for purchase
+            </div>
+            <a href="assets/menu.pdf" target="_blank" class="pdf-btn-small">
+                <i class="fa-solid fa-file-pdf" style="margin-right: 5px;"></i> View Printable PDF Menu
+            </a>
         </div>
 
-        <!-- LIVE MENU DOM PLUG: The central landing container where Javascript appends all categorized dishes live -->
         <div id="live-menu-target"></div>
         
         <p class="menu-footer-note">Selda | San Antonio</p>
     </div>
 
-    <!-- FLOATING UTILITY BLOCK: Displays shortcut order mechanics fixed directly to bottom system panels on mobile -->
     <div class="sticky-mobile-footer">
         <a href="#" id="mobile-order-trigger" class="sticky-action-btn">Order Online</a>
         
@@ -377,7 +381,6 @@
         <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-reservations-san-antonio?restref=1380571&lang=en-US&ot_source=Restaurant%20website" target="_blank" class="sticky-action-btn" style="background-color: var(--velvet-blue-surface);">Reserve Table</a>
     </div>
 
-    <!-- INTERNAL INGESTION LINK: Imports the static arrays containing your prices, descriptions, and pictures -->
     <script src="data/menu.js"></script>
 
     <script>
@@ -421,7 +424,6 @@
                     // The raw element card frame structure populated using JSON field entries
                     itemElement.innerHTML = `
                         <div class="item-image-wrapper">
-                            <!-- onerror safety fallback hides the image frame gracefully if a picture fails to load -->
                             <img src="${item.image}" alt="${item.name}" class="item-image" loading="lazy" onerror="this.parentNode.style.display='none';">
                         </div>
                         <div class="item-details">
