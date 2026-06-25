@@ -34,7 +34,7 @@ const menuData = {
             image: "assets/menu/hummus.jpg"
         },
         {
-            name: "Grilled Eggplant Salad (Baba Ganoush) (VEG, GF)",
+            name: "Grilled Eggplant Salad  (VEG, GF)",
             price: "$9.00",
             description: "A smoky purée of roasted eggplant, yogurt, sesame tahini, garlic and extra virgin olive oil.",
             image: "assets/menu/baba-ganoush.jpg"
