@@ -170,7 +170,7 @@ const menuData = {
         {
             name: "Mixed Grill (2-4 Guests)",
             price: "$68.00",
-            description: "Urfa Kebab, Chicken Shish, Butcher Meatballs, Beef Kebab, and Chicken Adana served with Turkish rice and bean salad. Add: Lamb Shish (8), Lamb Chops (8).",
+            description: "Urfa Kebab, Chicken Shish, Butcher Meatballs, Beef Kebab, and Chicken Adana served with Turkish rice and bean salad.<br> Add: Lamb Shish (8), Lamb Chops (8).",
             image: "assets/menu/mixed-grill.jpg"
         },
         {
