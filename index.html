@@ -127,12 +127,12 @@
         .mobile-menu {
             display: flex;
             position: fixed;
-            top: 70px;                    /* Sits perfectly right beneath the main navbar */
-            right: -60%;                  /* Hidden completely off screen on the right side by default */
+            top: 70px;
+            right: -60%;
             background-color: rgba(255, 255, 255, 0.98); 
-            width: 60%;                   /* Takes up just over half the screen widthwise */
-            height: calc(100vh - 70px);   /* Stretches to the bottom of the device viewport screen */
-            overflow-y: auto;             /* Internal scrolling enabled if dropdown items are opened */
+            width: 60%;
+            height: calc(100vh - 70px);
+            overflow-y: auto;
             -webkit-overflow-scrolling: touch; 
             flex-direction: column;
             padding: 2.5rem 1.5rem;
@@ -140,25 +140,23 @@
             border-left: 1px solid #EAEAEA;
             box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.15); 
             z-index: 1000;
-            transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease; /* Smooth slide-in and translucent fade */
+            transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
             opacity: 0;
-            pointer-events: none;         /* Blocks user accidental clicks while hidden */
+            pointer-events: none;
         }
         
-        /* Slide drawer out when active */
         .mobile-menu.active { 
             right: 0; 
             opacity: 1;
             pointer-events: auto;
         } 
 
-        /* Translucent state activated via scrolling JavaScript handler */
         .mobile-menu.translucent {
-            opacity: 0.35 !important;      /* Makes it nicely see-through when they scroll background page */
+            opacity: 0.35 !important;
         }
         .mobile-menu.translucent:hover,
         .mobile-menu.translucent:focus-within {
-            opacity: 1 !important;         /* Instantly returns to full solid bright white if they touch it */
+            opacity: 1 !important;
         }
 
         .mobile-menu a { color: var(--primary-dark); text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
@@ -193,7 +191,6 @@
         .mobile-dropdown-content.open { display: flex; }
         .mobile-dropdown-content a { font-size: 0.95rem; font-weight: 600; color: #555555; }
 
-        /* Mobile Hamburger Horizontal Icons Layout Row */
         .mobile-social-row {
             display: flex;
             align-items: center;
@@ -277,7 +274,6 @@
             padding: 0 0.5rem;
         }
 
-        /* Constraints the Iframe Frame to Prevent Extra Layout Leakage */
         .clean-widget-wrap {
             width: 100%;
             margin: 0 auto;
@@ -285,7 +281,6 @@
             overflow: hidden;
         }
         
-        /* Pulls Book Now text flush up beneath widget layout */
         .widget-sub-label-wrap {
             margin-top: -12px !important; 
             position: relative;
@@ -331,7 +326,6 @@
             line-height: 1.1;
         }
 
-        /* Gold-Themed Action Buttons */
         .btn-editorial {
             display: inline-block;
             padding: 1.2rem 3rem;
@@ -353,7 +347,6 @@
             border-color: rgba(255, 255, 255, 0.4);
         }
 
-        /* Multi-Platform Order Button Grid styling */
         .order-platforms-grid {
             display: flex;
             flex-direction: column;
@@ -403,44 +396,48 @@
             gap: 2rem; 
         }
         .amenity-card { 
-            position: relative; /* Acts as the positional anchor point for the pseudo-element overlay */
+            position: relative; 
             background-size: cover;
-            background-position: center;
+            background-position: center center;
             background-repeat: no-repeat;
-            padding: 4.5rem 2rem; /* Increased padding to balance text layout readability over images */
+            padding: 5.5rem 2rem; /* Enhanced desktop padding for luxury framing */
             text-align: center; 
             border: 1px solid rgba(255, 255, 255, 0.05);
-            overflow: hidden; /* Encapsulates components inside the card boundary, stopping image leakage */
-            z-index: 1; /* Sets stacking order baseline */
+            overflow: hidden; 
+            z-index: 1; 
         }
-        /* Absolute-positioned pseudo-element overlay layer to darken photo asset visibility */
         .amenity-card::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(180deg, rgba(10, 17, 28, 0.75) 0%, rgba(10, 17, 28, 0.85) 100%);
-            z-index: -1; /* Safely sandwiches the translucent layer directly between the background image and text layer */
+            background: linear-gradient(180deg, rgba(10, 17, 28, 0.72) 0%, rgba(10, 17, 28, 0.82) 100%);
+            z-index: -1; 
         }
-        /* Assigned dynamic specific background properties per individual module */
+        
+        /* ADJUSTED PHOTO SCALING FOR BALANCED MOBILE FRAMING */
         .bg-hookah {
             background-image: url('assets/open.JPG');
         }
         .bg-catering {
-            background-image: url('assets/catering.jpg'); /* Dedicated space reserved for separate catering imagery asset */
+            background-image: url('assets/catering.jpg'); 
         }
+        
         .amenity-card h3 {
             font-family: 'Cormorant Garamond', serif;
             color: var(--pure-white);
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
             font-weight: 400;
             letter-spacing: 1px;
             text-transform: uppercase;
-            position: relative; /* Prevents text from slipping beneath the overlay element */
+            position: relative; 
         }
         .amenity-card p {
             color: var(--muted-white);
-            position: relative; /* Keeps paragraph block floating structural order bright and clear above background */
+            font-size: 1rem;
+            max-width: 440px;
+            margin: 0 auto;
+            position: relative; 
         }
 
         .scrolling-ticker { 
@@ -499,6 +496,7 @@
         .dot { width: 6px !important; height: 6px !important; background-color: rgba(255, 255, 255, 0.3) !important; border-radius: 50% !important; cursor: pointer !important; transition: all 0.3s ease; }
         .dot.active { background-color: var(--pure-white) !important; transform: scale(1.3) !important; }
         .carousel-caption-bar { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--pure-white); letter-spacing: 2px; text-transform: uppercase; margin: 0 auto 2.5rem auto; min-height: 1.5rem; transition: opacity 0.2s ease; }
+        
         /* Mobile Layout Modifications */
         .sticky-mobile-footer {
             position: fixed;
@@ -527,7 +525,6 @@
             border-right: 1px solid var(--subtle-gold); 
         }
 
-        /* Mobile Sticky Dropup Menu Options */
         .mobile-dropup-content {
             display: none;
             position: absolute;
@@ -580,6 +577,15 @@
               margin-top: -15px !important; 
               padding-bottom: 1.5rem !important;
           }
+          
+          /* RESPONSIVE CARD IMAGE FIX: Restricts massive zoom scaling on mobile views */
+          .amenity-card {
+              padding: 4rem 1.5rem; /* Scales padding gracefully on mobile viewports */
+          }
+          .bg-hookah {
+              background-size: 140% auto; /* Forces the vertical asset to shrink down horizontally */
+              background-position: center 40%; /* Pans the framing down to showcase more of the beautiful hookah structure */
+          }
         }
     </style>
 </head>
@@ -589,8 +595,8 @@
     <header id="header">
         <div class="header-content">
             <a href="/" style="display: flex; align-items: center; text-decoration: none;">
-  <img src="assets/logo.jpg" alt="Selda Logo" style="height: 65px; width: auto; object-fit: contain;">
-</a>
+                <img src="assets/logo.jpg" alt="Selda Logo" style="height: 65px; width: auto; object-fit: contain;">
+            </a>
             
             <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
             
@@ -741,7 +747,10 @@
     </div>
 </section>
 
-      <section id="location-hours" style="position: relative; padding: 6rem 0; background: linear-gradient(rgba(10, 23, 36, 0.93), rgba(10, 23, 36, 0.96)), url('assets/front.jpeg') center center / cover no-repeat; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+    <!-- ==========================================================================
+     LOCATION & HOURS SECTION
+     ========================================================================= -->
+    <section id="location-hours" style="position: relative; padding: 6rem 0; background: linear-gradient(rgba(10, 23, 36, 0.93), rgba(10, 23, 36, 0.96)), url('assets/front.jpeg') center center / cover no-repeat; border-top: 1px solid rgba(255, 255, 255, 0.05);">
         <div class="container" style="max-width: 600px; padding: 0 20px; box-sizing: border-box; position: relative; z-index: 2;">
             
             <h2 style="font-family: 'Cinzel', serif; font-size: 2.1rem; color: var(--pure-white); text-align: center; margin-bottom: 2rem; white-space: nowrap; letter-spacing: 2px; text-transform: uppercase;">Location & Hours</h2>
