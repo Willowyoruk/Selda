@@ -16,7 +16,7 @@ const menuData = {
         {
             name: "Arugula Quinoa Salad (VEG, V, GF)",
             price: "$12.00",
-            description: "Fresh arugula mixed with quinoa, diced tomatoes, cucumbers, and onion; tossed with lemon, olive oil and vinaigrette. Add Protein: Chicken (8), Beef (9), Salmon (10), Shrimp (9).",
+            description: "Fresh arugula mixed with quinoa, diced tomatoes, cucumbers, and onion; tossed with lemon, olive oil and vinaigrette.",
             image: "assets/menu/arugula-salad.jpg"
         }
     ],
@@ -258,7 +258,7 @@ const menuData = {
         {
             name: "Kunefe (VEG)",
             price: "$13.00 | $16.00",
-            description: "Shredded pastry filled with melted cheese, baked and soaked in syrup (allow AT LEAST 20 minutes to prepare). Small: $13.00 | Large: $16.00.",
+            description: "Shredded pastry filled with melted cheese, baked and soaked in syrup (allow AT LEAST 20 minutes to prepare).",
             image: "assets/menu/kunefe.jpg"
         }
     ]
