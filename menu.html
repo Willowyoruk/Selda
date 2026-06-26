@@ -151,7 +151,7 @@
             font-size: 1rem;
         }
         .pdf-btn-small {
-            display: inline-inline-flex;
+            display: inline-flex;
             align-items: center;
             font-family: 'Montserrat', sans-serif;
             font-size: 0.75rem;
@@ -349,9 +349,9 @@
                 <i class="fas fa-chevron-left" style="margin-right: 8px;"></i> Back to Main Site
             </a>
             <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-  <!-- Updated Header Image Path -->
-  <img src="assets/logo.jpg" alt="Selda Logo" style="height: 65px; width: auto; object-fit: contain;">
-</a>
+                <!-- Updated Header Image Path -->
+                <img src="assets/logo.jpg" alt="Selda Logo" style="height: 65px; width: auto; object-fit: contain;">
+            </a>
         </div>
     </header>
 
@@ -416,6 +416,17 @@
                 heading.className = 'section-title';
                 heading.innerText = sectionTitles[category] || category;
                 sectionBlock.appendChild(heading);
+
+                // DYNAMIC INTEGRATION: If the section is Salads, inject the global Option 1 Option line right under the header
+                if (category === 'salads') {
+                    heading.style.marginBottom = '8px'; // Tighten header gap to sit close to subtitle banner
+                    
+                    const addProteinBanner = document.createElement('p');
+                    addProteinBanner.className = 'salad-protein-banner';
+                    addProteinBanner.innerHTML = 'Add Protein: Chicken (+8) &nbsp;•&nbsp; Beef (+9) &nbsp;•&nbsp; Salmon (+10) &nbsp;•&nbsp; Shrimp (+9)';
+                    addProteinBanner.style.cssText = "font-family: 'Montserrat', sans-serif; font-size: 0.85rem; color: var(--subtle-gold); font-style: italic; letter-spacing: 1px; margin-bottom: 35px; text-transform: uppercase; font-weight: 500;";
+                    sectionBlock.appendChild(addProteinBanner);
+                }
 
                 // Creates the grid container wrapper inside this section block
                 const gridBlock = document.createElement('div');
