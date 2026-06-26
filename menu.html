@@ -449,12 +449,12 @@
                 // OPTION 2 DYNAMIC INTEGRATION: Append footer elements to the bottom of the salad section block
                 if (category === 'salads') {
                     const footDivider = document.createElement('div');
-                    footDivider.style.cssText = "margin-top: 35px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.12); text-align: center;";
+                    footDivider.style.cssText = "margin-top: 35px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.12); text-align: center; width: 100%;";
                     
                     footDivider.innerHTML = `
-                        <h4 style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--pure-white); margin-bottom: 0.4rem; font-weight: 600;">Salad Enhancements</h4>
-                        <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--subtle-gold); letter-spacing: 0.5px;">
-                            Add Chicken <strong>(8)</strong> &nbsp;•&nbsp; Beef <strong>(9)</strong> &nbsp;•&nbsp; Salmon <strong>(10)</strong> &nbsp;•&nbsp; Shrimp <strong>(9)</strong>
+                        <h4 style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--pure-white); margin-bottom: 0.5rem; font-weight: 600;">Salad Enhancements</h4>
+                        <p style="font-family: 'Lato', sans-serif; font-size: 0.82rem; color: var(--subtle-gold); letter-spacing: 0.3px; white-space: nowrap; width: 100%; overflow: hidden;">
+                            Chicken (8) &nbsp;•&nbsp; Beef (9) &nbsp;•&nbsp; Salmon (10) &nbsp;•&nbsp; Shrimp (9)
                         </p>
                     `;
                     sectionBlock.appendChild(footDivider);
