@@ -207,9 +207,7 @@
             opacity: 0.6;
         }
 
-        /* ==========================================================================
-           HERO CANVAS SECTION
-           ========================================================================= */
+        /* HERO CANVAS SECTION */
         .hero-canvas-section {
             position: relative;
             background-image: url('assets/fire.jpg');
@@ -394,50 +392,52 @@
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 2rem; 
+            align-items: start;
         }
+        
+        /* NEW BLUE STRETCH CARD DESIGN */
         .amenity-card { 
-            position: relative; 
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            padding: 5.5rem 2rem; /* Enhanced desktop padding for luxury framing */
-            text-align: center; 
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: rgba(10, 17, 28, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
             overflow: hidden; 
-            z-index: 1; 
+            border-radius: 4px;
         }
-        .amenity-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(180deg, rgba(10, 17, 28, 0.72) 0%, rgba(10, 17, 28, 0.82) 100%);
-            z-index: -1; 
+
+        .amenity-text-wrapper {
+            padding: 3.5rem 2rem 2.5rem 2rem;
+            width: 100%;
         }
-        
-        /* ADJUSTED PHOTO SCALING FOR BALANCED MOBILE FRAMING */
-        .bg-hookah {
-            background-image: url('assets/open.JPG');
-        }
-        .bg-catering {
-            background-image: url('assets/catering.jpg'); 
-        }
-        
+
         .amenity-card h3 {
             font-family: 'Cormorant Garamond', serif;
             color: var(--pure-white);
             font-size: 2.2rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             font-weight: 400;
             letter-spacing: 1px;
             text-transform: uppercase;
-            position: relative; 
         }
         .amenity-card p {
             color: var(--muted-white);
             font-size: 1rem;
             max-width: 440px;
             margin: 0 auto;
-            position: relative; 
+        }
+
+        /* STANDALONE IMAGE ELEMENT FRAMES (Maintains original file crop perfectly) */
+        .amenity-image {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .scrolling-ticker { 
@@ -565,9 +565,7 @@
               height: auto !important;
               max-height: 640px !important;
           }
-          .brand-location-tag {
-              margin-bottom: 0.8rem !important;
-          }
+          .brand-location-tag { margin-bottom: 0.8rem !important; }
           .brand-description-paragraph {
               margin-bottom: 1rem !important;
               line-height: 1.4 !important;
@@ -577,14 +575,12 @@
               margin-top: -15px !important; 
               padding-bottom: 1.5rem !important;
           }
-          
-          /* RESPONSIVE CARD IMAGE FIX: Restricts massive zoom scaling on mobile views */
-          .amenity-card {
-              padding: 4rem 1.5rem; /* Scales padding gracefully on mobile viewports */
+
+          .amenity-text-wrapper {
+              padding: 2.5rem 1.5rem 2rem 1.5rem;
           }
-          .bg-hookah {
-              background-size: 140% auto; /* Forces the vertical asset to shrink down horizontally */
-              background-position: center 40%; /* Pans the framing down to showcase more of the beautiful hookah structure */
+          .amenity-image {
+              max-height: 380px;
           }
         }
     </style>
@@ -747,9 +743,7 @@
     </div>
 </section>
 
-    <!-- ==========================================================================
-     LOCATION & HOURS SECTION
-     ========================================================================= -->
+    <!-- LOCATION & HOURS SECTION -->
     <section id="location-hours" style="position: relative; padding: 6rem 0; background: linear-gradient(rgba(10, 23, 36, 0.93), rgba(10, 23, 36, 0.96)), url('assets/front.jpeg') center center / cover no-repeat; border-top: 1px solid rgba(255, 255, 255, 0.05);">
         <div class="container" style="max-width: 600px; padding: 0 20px; box-sizing: border-box; position: relative; z-index: 2;">
             
@@ -771,16 +765,28 @@
         </div>
     </section>
 
+    <!-- AMENITIES DESIGN SECTION WITH DETACHED IMAGES -->
     <section id="amenities" class="standard-padding container">
         <div class="amenities-grid">
-            <div class="amenity-card bg-hookah">
-                <h3>Hookah on the Patio</h3>
-                <p>Continue the evening on our patio with premium hookah and a relaxed atmosphere.</p>
+            
+            <!-- HOOKAH CARD -->
+            <div class="amenity-card">
+                <div class="amenity-text-wrapper">
+                    <h3>Hookah on the Patio</h3>
+                    <p>Continue the evening on our patio with premium hookah and a relaxed atmosphere.</p>
+                </div>
+                <img src="assets/open.JPG" alt="Hookah on the Patio" class="amenity-image">
             </div>
-            <div class="amenity-card bg-catering">
-                <h3>Catering Packages</h3>
-                <p>Custom packages structured specifically for corporate events, private functions, and weddings.</p>
+            
+            <!-- CATERING CARD -->
+            <div class="amenity-card">
+                <div class="amenity-text-wrapper">
+                    <h3>Catering Packages</h3>
+                    <p>Custom packages structured specifically for corporate events, private functions, and weddings.</p>
+                </div>
+                <img src="assets/catering.jpg" alt="Catering Packages" class="amenity-image">
             </div>
+            
         </div>
     </section>
 
