@@ -285,11 +285,11 @@
             z-index: 5;
         }
 
-        /* Editorial Content Full Strips */
+        /* EDITORIAL CONTENT FULL STRIPS (Matches main site sections) */
         .editorial-section {
             position: relative;
             height: 70vh;
-            min-height: 500px;
+            min-height: 520px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -303,25 +303,32 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(180deg, rgba(10,17,28,0.55) 0%, rgba(10,17,28,0.8) 100%);
+            background: linear-gradient(180deg, rgba(10,17,28,0.55) 0%, rgba(10,17,28,0.85) 100%);
             z-index: 1;
         }
         .editorial-container {
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 500px;
+            max-width: 600px;
             padding: 0 1.5rem;
         }
-        .editorial-section h2 {
+        .editorial-section h2, .editorial-section h3 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 4rem;
             font-weight: 400;
             color: var(--pure-white);
             text-transform: uppercase;
             letter-spacing: 4px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             line-height: 1.1;
+        }
+        .editorial-section p {
+            color: var(--muted-white);
+            font-family: 'Lato', sans-serif;
+            font-size: 1.1rem;
+            max-width: 480px;
+            margin: 0 auto 2rem auto;
         }
 
         .btn-editorial {
@@ -385,59 +392,6 @@
             color: var(--pure-white); 
             letter-spacing: 2px;
             text-transform: uppercase;
-        }
-
-        /* AMENITIES DESIGN SECTION STYLING OVERHAUL */
-        .amenities-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 2rem; 
-            align-items: start;
-        }
-        
-        /* NEW BLUE STRETCH CARD DESIGN */
-        .amenity-card { 
-            background-color: rgba(10, 17, 28, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            text-align: center;
-            overflow: hidden; 
-            border-radius: 4px;
-        }
-
-        .amenity-text-wrapper {
-            padding: 3.5rem 2rem 2.5rem 2rem;
-            width: 100%;
-        }
-
-        .amenity-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--pure-white);
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .amenity-card p {
-            color: var(--muted-white);
-            font-size: 1rem;
-            max-width: 440px;
-            margin: 0 auto;
-        }
-
-        /* STANDALONE IMAGE ELEMENT FRAMES (Maintains original file crop perfectly) */
-        .amenity-image {
-            width: 100%;
-            height: auto;
-            max-height: 480px;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .scrolling-ticker { 
@@ -556,7 +510,8 @@
           .carousel-container { height: 340px !important; }
           .hamburger { display: flex; }
           nav { display: none; }
-          .editorial-section h2 { font-size: 2.8rem; }
+          .editorial-section { height: 60vh; min-height: 440px; }
+          .editorial-section h2, .editorial-section h3 { font-size: 2.8rem; }
           .sticky-mobile-footer { display: grid; }
           .section-title { font-size: 2.6rem; }
           
@@ -574,13 +529,6 @@
           .widget-sub-label-wrap {
               margin-top: -15px !important; 
               padding-bottom: 1.5rem !important;
-          }
-
-          .amenity-text-wrapper {
-              padding: 2.5rem 1.5rem 2rem 1.5rem;
-          }
-          .amenity-image {
-              max-height: 380px;
           }
         }
     </style>
@@ -692,25 +640,43 @@
         </div>
     </div>
 
-  <section id="menu" class="editorial-section" style="background-image: url('assets/lambchops.jpg');">
-    <div class="editorial-container">
-        <h2>Dinner</h2>
-        <a href="menu.html" class="btn-editorial">View Menu</a>
-        <div style="margin-top: 1.5rem;">
-            <a href="assets/beverages.pdf" target="_blank" style="color: var(--pure-white); font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;">View Beverages</a>
+    <!-- DINNER MENU SECTION -->
+    <section id="menu" class="editorial-section" style="background-image: url('assets/lambchops.jpg');">
+        <div class="editorial-container">
+            <h2>Dinner</h2>
+            <a href="menu.html" class="btn-editorial">View Menu</a>
+            <div style="margin-top: 1.5rem;">
+                <a href="assets/beverages.pdf" target="_blank" style="color: var(--pure-white); font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;">View Beverages</a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <!-- ORDER ONLINE SECTION -->
     <section id="ordering" class="editorial-section" style="background-image: url('assets/lahmacun.jpg');">
         <div class="editorial-container">
-            <h2 style="margin-bottom: 2rem;">Order Online</h2>
+            <h2>Order Online</h2>
             <div class="order-platforms-grid">
                 <a href="https://order.online/store/-30359031/" class="btn-platform" target="_blank">Powered by DoorDash</a>
                 <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" class="btn-platform" target="_blank">Powered by Uber Eats</a>
                 <a href="https://seldasanantonio.dine.online" class="btn-platform" target="_blank">Powered by Grubhub</a>
                 <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" class="btn-platform" target="_blank">Powered by Zing</a>
             </div>
+        </div>
+    </section>
+
+    <!-- IMMERSIVE BACKGROUND STRIP: HOOKAH -->
+    <section id="amenities" class="editorial-section" style="background-image: url('assets/open.JPG');">
+        <div class="editorial-container">
+            <h3>Hookah On The Patio</h3>
+            <p>Continue the evening on our patio with premium hookah and a relaxed atmosphere.</p>
+        </div>
+    </section>
+
+    <!-- IMMERSIVE BACKGROUND STRIP: CATERING -->
+    <section id="catering" class="editorial-section" style="background-image: url('assets/catering.jpg');">
+        <div class="editorial-container">
+            <h3>Catering Packages</h3>
+            <p>Custom packages structured specifically for corporate events, private functions, and weddings.</p>
         </div>
     </section>
 
@@ -760,31 +726,6 @@
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.627732296058!2d-98.56790112356598!3d29.535786942152865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c61187cf88459%3A0x1c77d58b3eb75c3f!2sSelda%20Mediterranean%20Kitchen%20%26%20Bar!5e0!3m2!1sen!2sus!4v1718670000000!5m2!1sen!2sus" 
                     width="100%" height="250" style="border:0; filter: grayscale(40%) invert(92%) hue-rotate(175deg); display: block;" allowfullscreen="" loading="lazy">
                 </iframe>
-            </div>
-            
-        </div>
-    </section>
-
-    <!-- AMENITIES DESIGN SECTION WITH DETACHED IMAGES -->
-    <section id="amenities" class="standard-padding container">
-        <div class="amenities-grid">
-            
-            <!-- HOOKAH CARD -->
-            <div class="amenity-card">
-                <div class="amenity-text-wrapper">
-                    <h3>Hookah on the Patio</h3>
-                    <p>Continue the evening on our patio with premium hookah and a relaxed atmosphere.</p>
-                </div>
-                <img src="assets/open.JPG" alt="Hookah on the Patio" class="amenity-image">
-            </div>
-            
-            <!-- CATERING CARD -->
-            <div class="amenity-card">
-                <div class="amenity-text-wrapper">
-                    <h3>Catering Packages</h3>
-                    <p>Custom packages structured specifically for corporate events, private functions, and weddings.</p>
-                </div>
-                <img src="assets/catering.jpg" alt="Catering Packages" class="amenity-image">
             </div>
             
         </div>
