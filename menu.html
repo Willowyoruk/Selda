@@ -126,6 +126,26 @@
             font-weight: 600;
         }
 
+        /* DIETARY LEGEND KEY (TOP): High-end, thin horizontal list below primary headings */
+        .top-dietary-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 0 auto 35px auto;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .top-dietary-key span {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .top-dietary-key strong {
+            color: var(--subtle-gold);
+            font-weight: 700;
+            margin-right: 4px;
+        }
+
         /* PROMOTIONAL ACTION CONSOLE: Houses gift info and the secondary PDF toggle */
         .promo-action-container {
             text-align: center;
@@ -254,9 +274,41 @@
             line-height: 1.5;
         }
 
+        /* DIETARY LEGEND BOX (BOTTOM): Fine print layout and legal allergy disclaimer wrapper */
+        .bottom-legend-container {
+            max-width: 650px;
+            margin: 60px auto 20px auto;
+            text-align: center;
+        }
+        .bottom-legend-row {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .bottom-legend-row p {
+            color: var(--pure-white);
+            margin: 0;
+        }
+        .bottom-legend-row strong {
+            color: var(--subtle-gold);
+        }
+        .allergy-disclaimer {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.75rem;
+            color: rgba(186, 196, 209, 0.4);
+            line-height: 1.6;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
         .menu-footer-note {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 30px;
             font-family: 'Montserrat', sans-serif;
             font-size: 0.85rem;
             color: var(--muted-white);
@@ -331,6 +383,8 @@
             .sticky-mobile-footer { display: grid; } /* Reveals the floating reservation tray exclusively on small handheld screens */
             .menu-container { margin: 30px auto; }
             .menu-header h1 { font-size: 3.2rem; }
+            .top-dietary-key { gap: 1.2rem; font-size: 0.65rem; margin-bottom: 25px; }
+            .bottom-legend-row { gap: 1.5rem; }
         }
         @media (max-width: 480px) {
             .menu-section { padding: 25px 20px; }
@@ -360,6 +414,13 @@
             <div class="location">San Antonio, Texas</div>
         </div>
 
+        <!-- Elegant Top Key Reference -->
+        <div class="top-dietary-key">
+            <span><strong>GF</strong> Gluten Free</span>
+            <span><strong>VEG</strong> Vegetarian</span>
+            <span><strong>V</strong> Vegan</span>
+        </div>
+
         <div class="promo-action-container">
             <div class="gift-notice">
                 <i class="fa-solid fa-gift"></i> Gift Certificates Available
@@ -371,6 +432,19 @@
 
         <div id="live-menu-target"></div>
         
+        <!-- Elegant Bottom Key & Direct Allergy Note -->
+        <div class="bottom-legend-container">
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.06); margin-bottom: 2rem;">
+            <div class="bottom-legend-row">
+                <p><strong>GF</strong> Gluten Free</p>
+                <p><strong>VEG</strong> Vegetarian</p>
+                <p><strong>V</strong> Vegan</p>
+            </div>
+            <p class="allergy-disclaimer">
+                *Please inform your server of any food allergies or dietary restrictions prior to placing your order.
+            </p>
+        </div>
+
         <p class="menu-footer-note">Selda | San Antonio</p>
     </div>
 
