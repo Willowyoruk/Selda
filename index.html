@@ -352,48 +352,6 @@
             border-color: rgba(255, 255, 255, 0.4);
         }
 
-        /* Compact Nested Accent Box Style for Lunch Special */
-        .nested-lunch-accent {
-            margin-top: 2.5rem;
-            background-color: rgba(17, 27, 41, 0.85);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 1.5rem 2rem;
-            display: inline-block;
-            max-width: 420px;
-            width: 100%;
-            text-align: center;
-        }
-        .nested-lunch-accent h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            color: var(--pure-white);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.4rem;
-        }
-        .nested-lunch-accent p {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            color: var(--subtle-gold);
-            margin-bottom: 1rem !important;
-            letter-spacing: 1px;
-        }
-        .btn-lunch-subtle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--pure-white);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-bottom: 1px solid var(--subtle-gold);
-            padding-bottom: 2px;
-            transition: opacity 0.2s ease;
-        }
-        .btn-lunch-subtle:hover {
-            opacity: 0.7;
-        }
-
         .order-platforms-grid {
             display: flex;
             flex-direction: column;
@@ -766,21 +724,30 @@
         </div>
     </section>
 
-    <!-- Main Focus Menu Section (Dinner Strip) -->
-    <section id="menu" class="editorial-section" style="background-image: url('assets/lambchops.jpg'); height: auto; min-height: 550px; padding: 6rem 0;">
+    <!-- Main Editorial Menu Section -->
+    <section id="menu" class="editorial-section" style="background-image: url('assets/lambchops.jpg'); height: auto; min-height: 520px; padding: 6rem 0;">
         <div class="editorial-container">
             <h2>Our Menu</h2>
-            <p style="margin-bottom: 2.5rem;">Experience an authentic presentation of Mediterranean and Turkish coal-fired dining.</p>
+            <p style="margin-bottom: 2rem;">Experience an authentic presentation of Mediterranean and Turkish coal-fired dining.</p>
+            
+            <!-- Primary Action Button -->
             <a href="menu.html" class="btn-editorial">View Dinner Menu</a>
-            <div style="margin-top: 1.5rem; margin-bottom: 1rem;">
-                <a href="assets/beverages.pdf" target="_blank" style="color: var(--pure-white); font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;">View Beverages</a>
-            </div>
-
-            <!-- Subtle, Compact Nested Lunch Special Accent Card -->
-            <div class="nested-lunch-accent">
-                <h4>Prix Fixe Lunch</h4>
-                <p>Mon - Fri &bull; 11:00 AM - 2:00 PM &bull; 2 Courses $19.95</p>
-                <a href="assets/lunch.pdf" target="_blank" class="btn-lunch-subtle">Explore Lunch Details</a>
+            
+            <!-- Secondary Editorial Text Links Stacked Cleanly Below -->
+            <div style="margin-top: 1.8rem; display: flex; flex-direction: column; gap: 1.2rem; align-items: center;">
+                <a href="assets/beverages.pdf" target="_blank" style="color: var(--pure-white); font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;">
+                    View Beverages
+                </a>
+                
+                <!-- Highly Subdued Lunch Footnote -->
+                <div style="margin-top: 0.5rem;">
+                    <a href="assets/lunch.pdf" target="_blank" style="color: var(--muted-white); font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; text-decoration: underline; transition: color 0.3s;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='#BAC4D1'">
+                        View Prix Fixe Lunch Menu
+                    </a>
+                    <p style="font-family: 'Lato', sans-serif; font-size: 0.75rem; color: rgba(255,255,255,0.4); letter-spacing: 1px; margin-top: 0.2rem; text-transform: uppercase; margin-bottom: 0 !important;">
+                        Mon - Fri &bull; 11:00 AM - 2:00 PM &bull; $19.95
+                    </p>
+                </div>
             </div>
         </div>
     </section>
