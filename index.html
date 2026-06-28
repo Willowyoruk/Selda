@@ -1,3 +1,7 @@
+I’m happy that the title is showing this all the Mediterranean kitchen with that flash line and then San Antonio but why I understand URL show Cell restaurant.com but why above the URL does it still just show the same URL is that normal and why isn’t my photo showing for the icon?
+
+Here is my index code 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +10,16 @@
     <title>Selda Mediterranean Kitchen | San Antonio</title>
     
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Selda Mediterranean Kitchen | San Antonio",
+  "url": "https://www.seldarestaurant.com/",
+  "logo": "https://www.seldarestaurant.com/assets/logo.jpg"
+}
+</script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -506,29 +520,14 @@
             color: var(--muted-white);
         }
 
-        .story-link-wrapper {
-            margin-top: 1.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-        .story-link {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--subtle-gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-        .story-link:hover { opacity: 0.7; }
-
+        /* UPDATED: Tablet Specific Adjustments (769px - 1024px) */
         @media (min-width: 769px) and (max-width: 1024px) {
             .header-content { padding: 0 1rem; }
             nav { gap: 1rem; } 
             nav a { font-size: 0.75rem; letter-spacing: 1px; } 
         }
 
+        /* Mobile/Small Tablet Breakpoint */
         @media (max-width: 768px) {
           .carousel-container { height: 340px !important; }
           .hamburger { display: flex; }
@@ -570,34 +569,72 @@
 
 <body>
 
-      <!-- HEADER -->
-<header id="header">
-    <div class="header-content">
-        <a href="index.html">
-            <img src="assets/logo.jpg" alt="Selda Logo" style="height: 65px; width: auto; object-fit: contain;">
-        </a>
-        
-        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-        
-        <nav>
-            <a href="about.html">About</a>
-            <a href="index.html#location-hours">Location & Hours</a>
-            <a href="menu.html">Menu</a>
+    <header id="header">
+        <div class="header-content">
+            <a href="/" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="assets/logo.jpg" alt="Selda Logo" style="height: 65px; width: auto; object-fit: contain;">
+            </a>
             
-            <div class="desktop-dropdown">
-                <button class="desktop-dropdown-btn">Order <i class="fas fa-chevron-down"></i></button>
-                <div class="desktop-dropdown-content">
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            
+            <nav>
+                <a href="#about">About</a>
+                <a href="#location-hours">Location & Hours</a>
+                <a href="#menu">Menu</a>
+                
+                <div class="desktop-dropdown">
+                    <button class="desktop-dropdown-btn">Order <i class="fas fa-chevron-down" style="font-size:0.7rem;"></i></button>
+                    <div class="desktop-dropdown-content">
+                        <a href="https://order.online/store/-30359031/" target="_blank">DoorDash</a>
+                        <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank">Uber Eats</a>
+                        <a href="https://seldasanantonio.dine.online" target="_blank">Grubhub</a>
+                        <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">Zing My Order</a>
+                    </div>
+                </div>
+
+                <a href="#amenities">Hookah</a>
+                <a href="#contact-section">Contact Us</a>
+            </nav>
+        </div>
+        
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#about">About</a>
+            <div class="mobile-dropdown-wrapper">
+                <button class="mobile-dropdown-btn" id="locations-toggle">
+                    Locations <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="mobile-dropdown-content" id="locations-dropdown">
+                    <a href="#location-hours">Selda San Antonio</a>
+                    <a href="https://seldadallas.com" target="_blank">Selda Dallas</a>
+                    <a href="https://instagram.com/seldafrisco" target="_blank">Selda Frisco</a>
+                    <a href="https://instagram.com/Seldalascolinas" target="_blank">Selda Las Colinas</a>
+                    <a href="https://instagram.com/themayorshouse_byselda" target="_blank">The Mayor's House by Selda</a>
+                </div>
+            </div>
+            <a href="#menu">Menu</a>
+            
+            <div class="mobile-dropdown-wrapper">
+                <button class="mobile-dropdown-btn" id="mobile-platforms-toggle">
+                    Order Online <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="mobile-dropdown-content" id="mobile-platforms-dropdown">
                     <a href="https://order.online/store/-30359031/" target="_blank">DoorDash</a>
                     <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank">Uber Eats</a>
                     <a href="https://seldasanantonio.dine.online" target="_blank">Grubhub</a>
                     <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">Zing My Order</a>
                 </div>
             </div>
-            <a href="index.html#amenities">Hookah</a>
-            <a href="index.html#contact-section">Contact</a>
-        </nav>
-    </div>
-</header>
+
+            <a href="#amenities">Hookah</a>
+            <a href="#contact-section">Contact Us</a>
+            
+            <div class="mobile-social-row">
+                <a href="https://instagram.com/seldasanantonio" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://facebook.com/seldasanantonio" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </header>
 
     <section class="hero-canvas-section" id="booking-hero">
         <div class="hero-canvas-container">
@@ -665,24 +702,21 @@
                 <span class="dot"></span>
             </div>
         </div>
-      
-<div class="carousel-caption-bar" id="carousel-caption" style="margin-bottom: 4rem;">Selda Mediterranean Kitchen</div>
+        
+        <div class="carousel-caption-bar" id="carousel-caption" style="margin-bottom: 4rem;">Selda Mediterranean Kitchen</div>
 
-<h2 class="section-title" style="text-align: center; margin-bottom: 0.8rem;">About Selda</h2>
-
-<div class="about-text-wrapper">
-    <p style="margin-bottom: 1.2rem;">
-        At Selda Mediterranean Kitchen, we bring the vibrant flavors and warm, soulful hospitality of Turkey to the heart of San Antonio. Our menu is a tribute to tradition, featuring authentic charcoal-grilled dishes prepared with premium, seasonal ingredients.
-    </p>
-    <p style="margin-bottom: 1.5rem;">
-        We are proud to serve an entirely Halal menu, ensuring the highest standards of quality, integrity, and ethical sourcing. From our signature kebabs to our family-style platters, experience the taste of true Turkish heritage.
-    </p>
-</div>
-
-<!-- THE BRIDGE LINK -->
-<div class="story-link-wrapper">
-    <a href="about.html" class="story-link">Learn More About Our Story →</a>
-</div>
+        <h2 class="section-title" style="text-align: center; margin-bottom: 0.8rem;">About Selda</h2>
+        
+        <div class="about-text-wrapper">
+            <p style="margin-bottom: 1.2rem;">
+                At Selda Mediterranean Kitchen, we bring the vibrant flavors and warm hospitality of Turkey to San Antonio. Inspired by generations of culinary tradition, our menu celebrates authentic Turkish cuisine prepared with premium ingredients.
+            </p>
+            <p>
+                We are dedicated to an uncompromising standard of quality. All of our meats are certified Halal, which ensures the highest level of ethical sourcing, cleanliness, and quality control. By adhering to these traditional standards, we ensure that every cut—from our tender kebabs to our signature coal-grilled entrees—is prepared with the integrity that true Turkish cuisine demands.
+            </p>
+        </div>
+    </div>
+</section>
 
     <section id="location-hours" style="position: relative; padding: 6rem 0; background: linear-gradient(rgba(10, 23, 36, 0.65), rgba(10, 23, 36, 0.8)), url('assets/front.jpeg') center center / cover no-repeat; border-top: 1px solid rgba(255, 255, 255, 0.05);">
         <div class="container" style="max-width: 600px; padding: 0 20px; box-sizing: border-box; position: relative; z-index: 2; text-shadow: 0 2px 4px rgba(0,0,0,0.9);">
@@ -942,7 +976,6 @@
         function resetAutoplay() { clearInterval(autoplayTimer); startAutoplay(); }
         if (track && slides.length > 0) startAutoplay();
     </script>
-    
-    <script src="schema.js"></script>
 </body>
 </html>
+
