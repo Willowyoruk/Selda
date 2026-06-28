@@ -5,72 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Selda Mediterranean Kitchen | San Antonio</title>
     
+    <!-- FAVICON -->
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* [1. GLOBAL STYLES] */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --primary-dark: #111111; --velvet-blue: #0A111C; --velvet-blue-surface: #111B29; --pure-white: #FFFFFF; --muted-white: #BAC4D1; --subtle-gold: #D4AF37; }
-        body { font-family: 'Lato', sans-serif; background-color: var(--velvet-blue); color: var(--muted-white); line-height: 1.7; padding-bottom: 60px; }
-        header { background-color: var(--pure-white); padding: 1.2rem 0; border-bottom: 1px solid #EAEAEA; }
+        :root { --primary-dark: #111111; --velvet-blue: #0A111C; --pure-white: #FFFFFF; --muted-white: #BAC4D1; --subtle-gold: #D4AF37; }
+        body { font-family: 'Lato', sans-serif; background-color: var(--velvet-blue); color: var(--muted-white); line-height: 1.7; }
+        
+        /* [2. HEADER & NAV] */
+        header { background-color: var(--pure-white); padding: 1.2rem 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #EAEAEA; }
         .header-content { max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
         nav { display: flex; gap: 2rem; align-items: center; }
         nav a { color: var(--primary-dark); text-decoration: none; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
-        .section-title { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 400; text-align: center; margin-bottom: 2.5rem; color: var(--pure-white); letter-spacing: 2px; text-transform: uppercase; }
-        .about-text-wrapper { max-width: 750px; margin: 0 auto; text-align: center; font-size: 1.1rem; line-height: 1.9; color: var(--muted-white); }
-        .btn-editorial { display: inline-block; padding: 1.2rem 2.2rem; background-color: var(--subtle-gold); color: var(--primary-dark); text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; border: 1px solid var(--subtle-gold); }
-        #footer-destinations { background: var(--velvet-blue-surface); color: var(--pure-white); padding: 4rem 2rem 2rem 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+        
+        /* [3. MOBILE HAMBURGER] */
+        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
+        .hamburger span { width: 25px; height: 2px; background-color: var(--primary-dark); }
+        .mobile-menu { display: none; position: fixed; top: 70px; right: 0; width: 60%; background: var(--pure-white); padding: 2rem; z-index: 1000; height: 100vh; }
+        .mobile-menu.active { display: flex; flex-direction: column; gap: 1.5rem; }
+        
+        /* [4. CONTENT STYLES] */
+        .section-title { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; text-align: center; margin-bottom: 2.5rem; color: var(--pure-white); text-transform: uppercase; }
+        .about-text-wrapper { max-width: 750px; margin: 0 auto; text-align: center; font-size: 1.1rem; line-height: 1.9; }
+        .btn-editorial { display: inline-block; padding: 1.2rem 2.2rem; background-color: var(--subtle-gold); color: var(--primary-dark); text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; text-align: center; }
+        
+        /* [5. FOOTER & SOCIALS] */
+        footer { background: var(--velvet-blue); color: var(--muted-white); padding: 4rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+        .social-links { display: flex; justify-content: center; gap: 28px; font-size: 1.6rem; margin-bottom: 1.2rem; }
+        .social-links a { color: var(--pure-white); transition: opacity 0.3s; }
+        
+        @media (max-width: 768px) { .hamburger { display: flex; } nav { display: none; } }
     </style>
 </head>
 
 <body>
 
+    <!-- HEADER -->
     <header id="header">
         <div class="header-content">
-            <a href="/" style="display: flex; align-items: center; text-decoration: none;">
-                <img src="assets/logo.jpg" alt="Selda Logo" style="height: 65px; width: auto; object-fit: contain;">
-            </a>
+            <a href="/"><img src="assets/logo.jpg" alt="Selda Logo" style="height: 65px;"></a>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
             <nav>
-                <a href="/">Home</a>
+                <a href="about.html">About</a>
                 <a href="menu.html">Menu</a>
                 <a href="catering.html">Catering</a>
                 <a href="events.html">Events</a>
             </nav>
         </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="about.html" style="color:var(--primary-dark); text-decoration:none;">About</a>
+            <a href="menu.html" style="color:var(--primary-dark); text-decoration:none;">Menu</a>
+        </div>
     </header>
 
-    <section style="padding: 6rem 1.5rem; background-color: var(--velvet-blue);">
+    <!-- CONTENT -->
+    <section style="padding: 6rem 1.5rem;">
         <div class="container" style="max-width: 800px; margin: 0 auto;">
             <h1 class="section-title">Our Story</h1>
-            
             <div class="about-text-wrapper">
-                <p style="margin-bottom: 2rem;">
-                    At Selda Mediterranean Kitchen, we believe that every meal is an opportunity to share a story. Founded on the principle that the most memorable moments happen around a table, our kitchen is a tribute to the vibrant culinary heritage of Turkey. We combine time-honored techniques—like the mastery of our authentic charcoal grill—with the freshest seasonal ingredients to create a dining experience that feels both sophisticated and deeply familiar.
-                </p>
-
-                <p style="margin-bottom: 2rem;">
-                    We are proud to be a part of the growing Selda family. Expanding from our roots in the Dallas area to the heart of San Antonio, our mission remains the same: to bring the authentic, soulful flavors of Mediterranean cuisine to our guests. While we have grown, our commitment to quality, Halal-certified ingredients, and genuine Turkish hospitality has never wavered.
-                </p>
-
-                <p>
-                    Whether you are joining us for an intimate dinner or a celebration with friends, we invite you to experience the passion that defines every dish we serve. We are honored to be a part of the San Antonio culinary landscape and look forward to welcoming you to our table.
-                </p>
+                <p style="margin-bottom: 2rem;">At Selda Mediterranean Kitchen, we believe that every meal is an opportunity to share a story. Founded on the principle that the most memorable moments happen around a table, our kitchen is a tribute to the vibrant culinary heritage of Turkey.</p>
+                <p style="margin-bottom: 2rem;">Expanding from our roots in the Dallas area to the heart of San Antonio, our mission remains the same: to bring the authentic, soulful flavors of Mediterranean cuisine to our guests. While we have grown, our commitment to quality, Halal-certified ingredients, and genuine Turkish hospitality has never wavered.</p>
+                <p>Whether you are joining us for an intimate dinner or a celebration with friends, we invite you to experience the passion that defines every dish we serve.</p>
             </div>
-
             <div style="text-align: center; margin-top: 4rem;">
                 <a href="menu.html" class="btn-editorial">View Our Menu</a>
             </div>
         </div>
     </section>
 
-    <footer id="footer-destinations">
-        <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-            <p>© 2026 Selda. All rights reserved.</p>
+    <!-- FOOTER WITH SOCIALS -->
+    <footer>
+        <div class="social-links">
+            <a href="https://instagram.com/seldasanantonio" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@seldamediterranean" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://facebook.com/seldasanantonio" target="_blank"><i class="fab fa-facebook"></i></a>
         </div>
+        <p>© 2026 Selda Mediterranean Kitchen. All rights reserved.</p>
     </footer>
 
+    <!-- SCRIPT -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        hamburger.addEventListener('click', () => mobileMenu.classList.toggle('active'));
+    </script>
 </body>
 </html>
