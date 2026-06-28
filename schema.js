@@ -73,6 +73,7 @@
         "@context": "https://schema.org",
         "@type": "Restaurant",
         "name": "Selda Mediterranean Kitchen | San Antonio",
+        "priceRange":"$$",
         "url": "https://www.seldarestaurant.com/",
         "logo": "https://www.seldarestaurant.com/assets/logo.jpg",
         "image": "https://www.seldarestaurant.com/assets/front.jpeg",
