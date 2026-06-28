@@ -431,33 +431,6 @@
             orderTrigger.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); dropupMenu.classList.toggle('active'); });
             document.addEventListener('click', (e) => { if (!dropupMenu.contains(e.target) && e.target !== orderTrigger) dropupMenu.classList.remove('active'); });
         }
-
-        // DYNAMIC SCHEMA GENERATOR
-        const menuSchema = {
-            "@context": "https://schema.org",
-            "@type": "Menu",
-            "name": "Selda Mediterranean Kitchen Menu",
-            "url": "https://www.seldarestaurant.com/menu",
-            "hasMenuSection": Object.keys(menuData).map(categoryName => ({
-                "@type": "MenuSection",
-                "name": categoryName.charAt(0).toUpperCase() + categoryName.slice(1),
-                "hasMenuItem": menuData[categoryName].map(item => ({
-                    "@type": "MenuItem",
-                    "name": item.name.replace(/<br>/g, " "),
-                    "description": item.description,
-                    "offers": {
-                        "@type": "Offer",
-                        "priceCurrency": "USD",
-                        "price": item.price.replace('$', '').split('|')[0].trim()
-                    }
-                }))
-            }))
-        };
-
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.text = JSON.stringify(menuSchema);
-        document.head.appendChild(script);
     </script>
     <script src="schema.js"></script>
     
