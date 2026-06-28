@@ -506,6 +506,23 @@
             color: var(--muted-white);
         }
 
+        .story-link-wrapper {
+            margin-top: 1.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .story-link {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--subtle-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        .story-link:hover { opacity: 0.7; }
+
         @media (min-width: 769px) and (max-width: 1024px) {
             .header-content { padding: 0 1rem; }
             nav { gap: 1rem; } 
@@ -648,7 +665,7 @@
                 <span class="dot"></span>
             </div>
         </div>
-      <!-- ABOUT SELDA SECTION -->
+      
 <div class="carousel-caption-bar" id="carousel-caption" style="margin-bottom: 4rem;">Selda Mediterranean Kitchen</div>
 
 <h2 class="section-title" style="text-align: center; margin-bottom: 0.8rem;">About Selda</h2>
@@ -660,11 +677,11 @@
     <p style="margin-bottom: 1.5rem;">
         We are proud to serve an entirely Halal menu, ensuring the highest standards of quality, integrity, and ethical sourcing. From our signature kebabs to our family-style platters, experience the taste of true Turkish heritage.
     </p>
-    
-    <!-- THE BRIDGE LINK -->
-    <a href="about.html" style="color: var(--subtle-gold); font-family: 'Montserrat', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; font-size: 0.9rem;">
-        Learn More About Our Story →
-    </a>
+</div>
+
+<!-- THE BRIDGE LINK -->
+<div class="story-link-wrapper">
+    <a href="about.html" class="story-link">Learn More About Our Story →</a>
 </div>
 
     <section id="location-hours" style="position: relative; padding: 6rem 0; background: linear-gradient(rgba(10, 23, 36, 0.65), rgba(10, 23, 36, 0.8)), url('assets/front.jpeg') center center / cover no-repeat; border-top: 1px solid rgba(255, 255, 255, 0.05);">
