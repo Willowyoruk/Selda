@@ -6,23 +6,6 @@
     <title>Selda Mediterranean Kitchen | Dinner Menu</title>
     
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
-
-   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FoodMenu",
-  "name": "Selda Mediterranean Kitchen",
-  "url": "https://www.seldarestaurant.com/menu",
-  "mainEntityOfPage": "https://www.seldarestaurant.com/menu",
-  "inLanguage": "en",
-  "provider": {
-    "@type": "Restaurant",
-    "name": "Selda Mediterranean Kitchen",
-    "url": "https://www.seldarestaurant.com/",
-    "logo": "https://www.seldarestaurant.com/assets/logo.jpg"
-  }
-}
-</script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,10 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* RESET OVERRIDES: Clears out default browser spacing behaviors to prevent messy layout shifts */
+        /* RESET OVERRIDES */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* THEME STYLE TOKENS: Centralized variable palette holding your exact brand signature colors */
+        /* THEME STYLE TOKENS */
         :root {
             --primary-dark: #111111;
             --velvet-blue: #0A111C;        
@@ -43,7 +26,6 @@
             --subtle-gold: #D4AF37;
         }
 
-        /* BODY FRAME: Dictates background properties and typography rendering styles across the viewport canvas */
         body {
             background-color: var(--velvet-blue);
             color: var(--muted-white);
@@ -53,7 +35,6 @@
             padding-bottom: 80px;
         }
 
-        /* HEADER WRAPPER: Pinpoints the sticky primary white navigation header strip directly to the top edge when scrolling */
         header {
             background-color: var(--pure-white); 
             padding: 1.2rem 0;
@@ -71,7 +52,6 @@
             align-items: center;
         }
         
-        /* NAVIGATION BUTTON: Formats the elegant back-arrow text returning users to the clean homepage */
         .back-btn {
             display: inline-flex;
             align-items: center;
@@ -83,22 +63,15 @@
             letter-spacing: 2px;
             transition: color 0.3s ease;
         }
-        .back-btn:hover {
-            color: var(--subtle-gold);
-        }
+        .back-btn:hover { color: var(--subtle-gold); }
 
-        /* CANVAS AREA CONTAINERS: Defines widths and alignment margins centering the menu sections evenly */
         .menu-container {
             max-width: 1100px;
             margin: 50px auto;
             padding: 0 20px;
         }
 
-        /* MAIN HEADING BRANDS: Applies the stylized upscale serif typographic features for the principal "SELDA" title text */
-        .menu-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+        .menu-header { text-align: center; margin-bottom: 30px; }
         .menu-header h1 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 4.2rem;
@@ -126,7 +99,6 @@
             font-weight: 600;
         }
 
-        /* DIETARY LEGEND KEY (TOP): High-end, thin horizontal list below primary headings */
         .top-dietary-key {
             display: flex;
             justify-content: center;
@@ -137,16 +109,9 @@
             letter-spacing: 2px;
             text-transform: uppercase;
         }
-        .top-dietary-key span {
-            color: rgba(255, 255, 255, 0.6);
-        }
-        .top-dietary-key strong {
-            color: var(--subtle-gold);
-            font-weight: 700;
-            margin-right: 4px;
-        }
+        .top-dietary-key span { color: rgba(255, 255, 255, 0.6); }
+        .top-dietary-key strong { color: var(--subtle-gold); font-weight: 700; margin-right: 4px; }
 
-        /* PROMOTIONAL ACTION CONSOLE: Houses gift info and the secondary PDF toggle */
         .promo-action-container {
             text-align: center;
             max-width: 650px;
@@ -164,11 +129,7 @@
             letter-spacing: 1px;
             margin-bottom: 12px;
         }
-        .gift-notice i {
-            color: var(--subtle-gold);
-            margin-right: 6px;
-            font-size: 1rem;
-        }
+        .gift-notice i { color: var(--subtle-gold); margin-right: 6px; font-size: 1rem; }
         .pdf-btn-small {
             display: inline-flex;
             align-items: center;
@@ -183,12 +144,8 @@
             padding-bottom: 2px;
             transition: all 0.3s ease;
         }
-        .pdf-btn-small:hover {
-            color: var(--subtle-gold);
-            border-bottom-color: var(--subtle-gold);
-        }
+        .pdf-btn-small:hover { color: var(--subtle-gold); border-bottom-color: var(--subtle-gold); }
 
-        /* CARDS & CATEGORIES DISPLAY blocks: Distinct surface backdrops partitioning food courses */
         .menu-section {
             margin-bottom: 50px;
             background: var(--velvet-blue-surface);
@@ -207,7 +164,6 @@
             display: inline-block;
         }
 
-        /* TWO-COLUMN GRID SETUP: Automatically lines up items into clean side-by-side balanced columns */
         .menu-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -215,14 +171,8 @@
             row-gap: 45px;
         }
 
-        /* FOOD DISH CARDS LAYOUT: Structures image thumbnails side-by-side with text details */
-        .menu-item {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
+        .menu-item { display: flex; gap: 20px; align-items: flex-start; }
 
-        /* THUMBNAIL WRAPPERS: Cropper box that shapes plate pictures into standard small matching squares */
         .item-image-wrapper {
             width: 80px;
             height: 80px;
@@ -237,21 +187,10 @@
             object-fit: cover;
             transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        /* Zoom animation styling that smoothly activates when hovering dishes */
-        .menu-item:hover .item-image {
-            transform: scale(1.06);
-        }
+        .menu-item:hover .item-image { transform: scale(1.06); }
 
-        /* DETAIL ALIGNMENT BLOCKS: Organizes price tags directly opposite dish titles nicely */
-        .item-details {
-            flex-grow: 1;
-        }
-        .item-top-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 6px;
-        }
+        .item-details { flex-grow: 1; }
+        .item-top-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
         .item-name {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.35rem;
@@ -268,18 +207,9 @@
             padding-left: 15px;
             white-space: nowrap;
         }
-        .item-description {
-            font-size: 0.9rem;
-            color: var(--muted-white);
-            line-height: 1.5;
-        }
+        .item-description { font-size: 0.9rem; color: var(--muted-white); line-height: 1.5; }
 
-        /* DIETARY LEGEND BOX (BOTTOM): Fine print layout and legal allergy disclaimer wrapper */
-        .bottom-legend-container {
-            max-width: 650px;
-            margin: 60px auto 20px auto;
-            text-align: center;
-        }
+        .bottom-legend-container { max-width: 650px; margin: 60px auto 20px auto; text-align: center; }
         .bottom-legend-row {
             display: flex;
             justify-content: center;
@@ -290,13 +220,8 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
-        .bottom-legend-row p {
-            color: var(--pure-white);
-            margin: 0;
-        }
-        .bottom-legend-row strong {
-            color: var(--subtle-gold);
-        }
+        .bottom-legend-row p { color: var(--pure-white); margin: 0; }
+        .bottom-legend-row strong { color: var(--subtle-gold); }
         .allergy-disclaimer {
             font-family: 'Lato', sans-serif;
             font-size: 0.75rem;
@@ -316,7 +241,6 @@
             text-transform: uppercase;
         }
 
-        /* MOBILE FIXATION BUTTON BAR: Builds the sticky bottom mobile call-to-action tray mimicking index.html */
         .sticky-mobile-footer {
             position: fixed;
             bottom: 0; left: 0; right: 0;
@@ -340,11 +264,8 @@
             letter-spacing: 2px;
             position: relative;
         }
-        .sticky-action-btn:first-child {
-            border-right: 1px solid var(--subtle-gold); 
-        }
+        .sticky-action-btn:first-child { border-right: 1px solid var(--subtle-gold); }
 
-        /* OVERLAY ORDER CONSOLE: The sliding pop-up layer listing out delivery platforms on phones */
         .mobile-dropup-content {
             display: none;
             position: absolute;
@@ -356,9 +277,7 @@
             flex-direction: column;
             z-index: 10000;
         }
-        .mobile-dropup-content.active {
-            display: flex;
-        }
+        .mobile-dropup-content.active { display: flex; }
         .mobile-dropup-item {
             padding: 1rem;
             color: var(--pure-white);
@@ -372,25 +291,15 @@
             text-align: center;
         }
 
-        /* RESPONSIVE CSS MEDIA BREAKPOINTS: Instructs columns to break down safely on smaller mobile displays */
         @media (max-width: 850px) {
-            .menu-grid {
-                grid-template-columns: 1fr; /* Shifts from side-by-side into simple top-to-bottom cards on medium screens */
-                row-gap: 35px;
-            }
+            .menu-grid { grid-template-columns: 1fr; row-gap: 35px; }
         }
         @media (max-width: 768px) {
-            .sticky-mobile-footer { display: grid; } /* Reveals the floating reservation tray exclusively on small handheld screens */
+            .sticky-mobile-footer { display: grid; }
             .menu-container { margin: 30px auto; }
             .menu-header h1 { font-size: 3.2rem; }
             .top-dietary-key { gap: 1.2rem; font-size: 0.65rem; margin-bottom: 25px; }
             .bottom-legend-row { gap: 1.5rem; }
-        }
-        @media (max-width: 480px) {
-            .menu-section { padding: 25px 20px; }
-            .menu-item { gap: 15px; }
-            .item-image-wrapper { width: 75px; height: 75px; }
-            .item-name { font-size: 1.25rem; }
         }
     </style>
 </head>
@@ -414,7 +323,6 @@
             <div class="location">San Antonio, Texas</div>
         </div>
 
-        <!-- Elegant Top Key Reference -->
         <div class="top-dietary-key">
             <span><strong>GF</strong> Gluten Free</span>
             <span><strong>VEG</strong> Vegetarian</span>
@@ -432,7 +340,6 @@
 
         <div id="live-menu-target"></div>
         
-        <!-- Elegant Bottom Key & Direct Allergy Note -->
         <div class="bottom-legend-container">
             <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.06); margin-bottom: 2rem;">
             <div class="bottom-legend-row">
@@ -450,21 +357,19 @@
 
     <div class="sticky-mobile-footer">
         <a href="#" id="mobile-order-trigger" class="sticky-action-btn">Order Online</a>
-        
         <div class="mobile-dropup-content" id="mobile-dropup-menu">
             <a href="https://order.online/store/-30359031/" class="mobile-dropup-item" target="_blank">DoorDash</a>
             <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" class="mobile-dropup-item" target="_blank">Uber Eats</a>
-            <a href="https://order.online/store/-30359031/" class="mobile-dropup-item" target="_blank">DoorDash Storefront Direct</a>
+            <a href="https://seldasanantonio.dine.online" class="mobile-dropup-item" target="_blank">Grubhub</a>
             <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" class="mobile-dropup-item" target="_blank">Zing My Order</a>
         </div>
-
         <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-reservations-san-antonio?restref=1380571&lang=en-US&ot_source=Restaurant%20website" target="_blank" class="sticky-action-btn" style="background-color: var(--velvet-blue-surface);">Reserve Table</a>
     </div>
 
     <script src="data/menu.js"></script>
 
     <script>
-        // DICTIONARY MAPPER: Maps short system internal keys into formatted titles printed onto the screens
+        // UI rendering logic
         const sectionTitles = {
             salads: "salads",
             smallBites: "small bites...",
@@ -475,33 +380,21 @@
 
         const targetContainer = document.getElementById('live-menu-target');
 
-        // REPETITION ENGINE: Loops over every category key found inside data/menu.js to map HTML blocks automatically
         for (const category in menuData) {
             if (menuData.hasOwnProperty(category)) {
-                
-                // Creates the enclosing outer structural page card container
                 const sectionBlock = document.createElement('section');
                 sectionBlock.className = 'menu-section';
-
-                // Assigns and attaches clean category titles to section headers
                 const heading = document.createElement('h2');
                 heading.className = 'section-title';
                 heading.innerText = sectionTitles[category] || category;
                 sectionBlock.appendChild(heading);
-
-                // Creates the grid container wrapper inside this section block
                 const gridBlock = document.createElement('div');
                 gridBlock.className = 'menu-grid';
 
-                // SUB LOOP INTERACTION: Pulls out every specific plate item array and injects formatted card grids
                 menuData[category].forEach(item => {
                     const itemElement = document.createElement('div');
                     itemElement.className = 'menu-item';
-                    
-                    // Fallback operator handling ensuring prices cleanly append standard currency characters ($)
                     const itemPriceDisplay = item.price.includes('$') ? item.price : `$${item.price}`;
-                    
-                    // The raw element card frame structure populated using JSON field entries
                     itemElement.innerHTML = `
                         <div class="item-image-wrapper">
                             <img src="${item.image}" alt="${item.name}" class="item-image" loading="lazy" onerror="this.parentNode.style.display='none';">
@@ -516,15 +409,10 @@
                     `;
                     gridBlock.appendChild(itemElement);
                 });
-
-                // Attaches the grid to the main section block container
                 sectionBlock.appendChild(gridBlock);
-
-                // OPTION 2 DYNAMIC INTEGRATION: Append footer elements to the bottom of the salad section block
                 if (category === 'salads') {
                     const footDivider = document.createElement('div');
                     footDivider.style.cssText = "margin-top: 35px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.12); text-align: center; width: 100%;";
-                    
                     footDivider.innerHTML = `
                         <h4 style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--pure-white); margin-bottom: 0.5rem; font-weight: 600;">Salad Enhancements</h4>
                         <p style="font-family: 'Lato', sans-serif; font-size: 0.82rem; color: var(--subtle-gold); letter-spacing: 0.3px; white-space: nowrap; width: 100%; overflow: hidden;">
@@ -533,30 +421,43 @@
                     `;
                     sectionBlock.appendChild(footDivider);
                 }
-
-                // Append the complete category block to your live target container on the webpage
                 targetContainer.appendChild(sectionBlock);
             }
         }
 
-        /* STICKY INTERACTION FUNCTIONALITY: Triggers click interactions that reveal or hide delivery links on mobile displays */
         const orderTrigger = document.getElementById('mobile-order-trigger');
         const dropupMenu = document.getElementById('mobile-dropup-menu');
-
         if (orderTrigger && dropupMenu) {
-            orderTrigger.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                dropupMenu.classList.toggle('active'); // Toggles panel visualization
-            });
-
-            // GLOBAL EVENT LISTENER: Safely collapses the overlay panel automatically if users tap outside the drawer frame
-            document.addEventListener('click', (e) => {
-                if (!dropupMenu.contains(e.target) && e.target !== orderTrigger) {
-                    dropupMenu.classList.remove('active');
-                }
-            });
+            orderTrigger.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); dropupMenu.classList.toggle('active'); });
+            document.addEventListener('click', (e) => { if (!dropupMenu.contains(e.target) && e.target !== orderTrigger) dropupMenu.classList.remove('active'); });
         }
+
+        // DYNAMIC SCHEMA GENERATOR
+        const menuSchema = {
+            "@context": "https://schema.org",
+            "@type": "Menu",
+            "name": "Selda Mediterranean Kitchen Menu",
+            "url": "https://www.seldarestaurant.com/menu",
+            "hasMenuSection": Object.keys(menuData).map(categoryName => ({
+                "@type": "MenuSection",
+                "name": categoryName.charAt(0).toUpperCase() + categoryName.slice(1),
+                "hasMenuItem": menuData[categoryName].map(item => ({
+                    "@type": "MenuItem",
+                    "name": item.name.replace(/<br>/g, " "),
+                    "description": item.description,
+                    "offers": {
+                        "@type": "Offer",
+                        "priceCurrency": "USD",
+                        "price": item.price.replace('$', '').split('|')[0].trim()
+                    }
+                }))
+            }))
+        };
+
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.text = JSON.stringify(menuSchema);
+        document.head.appendChild(script);
     </script>
 </body>
 </html>
