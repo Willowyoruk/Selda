@@ -294,12 +294,33 @@
         @media (max-width: 850px) {
             .menu-grid { grid-template-columns: 1fr; row-gap: 35px; }
         }
+        
         @media (max-width: 768px) {
             .sticky-mobile-footer { display: grid; }
-            .menu-container { margin: 30px auto; }
+            
+            /* UPDATED FOR BETTER MOBILE READABILITY */
+            .menu-container {
+                max-width: 100% !important;
+                padding: 0 10px !important;
+                margin: 20px auto !important;
+                padding-bottom: 150px !important; /* Prevents cutoff behind footer */
+            }
+            .menu-section {
+                padding: 20px 15px !important;
+            }
             .menu-header h1 { font-size: 3.2rem; }
             .top-dietary-key { gap: 1.2rem; font-size: 0.65rem; margin-bottom: 25px; }
             .bottom-legend-row { gap: 1.5rem; }
+            
+            .item-top-row {
+                flex-direction: column; /* Stacks name and price */
+                align-items: flex-start;
+            }
+            .item-price {
+                padding-left: 0 !important;
+                margin-top: 4px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
