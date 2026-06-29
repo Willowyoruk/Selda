@@ -305,7 +305,7 @@
 </head>
 <body>
 
-       <header id="header">
+    <header id="header">
         <div class="header-content">
             <a href="index.html" class="back-btn">
                 <i class="fas fa-chevron-left" style="margin-right: 8px;"></i> Back to Main Site
@@ -353,13 +353,13 @@
         </div>
 
         <p class="menu-footer-note">Selda | San Antonio</p>
-   <!-- Address added here -->
-               <!-- New wrapper with center alignment -->
+        
         <div style="text-align: center; margin-top: 1rem; color: var(--muted-white); font-size: 0.85rem;">
             <p style="margin-bottom: 0.5rem; color: var(--pure-white); font-weight: 600;">Selda Mediterranean Kitchen & Bar</p>
             <p style="margin-bottom: 1.5rem;">9955 I-10 W, San Antonio, Texas 78230</p>
             <p>© 2026 Selda. All rights reserved.</p>
         </div>
+    </div>
 
     <div class="sticky-mobile-footer">
         <a href="#" id="mobile-order-trigger" class="sticky-action-btn">Order Online</a>
@@ -435,7 +435,11 @@
         const dropupMenu = document.getElementById('mobile-dropup-menu');
         if (orderTrigger && dropupMenu) {
             orderTrigger.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); dropupMenu.classList.toggle('active'); });
-            document.addEventListener('click', (e) => { if (!dropupMenu.contains(e.target) && e.target !== orderTrigger) dropupMenu.classList.remove('active'); });
+            document.addEventListener('click', (e) => { 
+                if (!dropupMenu.contains(e.target) && e.target !== orderTrigger) {
+                    dropupMenu.classList.remove('active'); 
+                } 
+            });
         }
     </script>
     <script src="schema.js"></script>
