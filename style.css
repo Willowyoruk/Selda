@@ -535,3 +535,11 @@
               font-size: 0.8rem;
           }
         }
+
+/* Responsive Map sizing */
+@media (max-width: 768px) {
+    .location-map {
+        height: 250px !important; /* Makes the map shorter on mobile */
+    }
+}
+
