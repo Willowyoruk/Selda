@@ -37,7 +37,16 @@
         
         /* [3. CONTENT STYLES] */
         .section-title { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; text-align: center; margin-bottom: 2.5rem; color: var(--pure-white); text-transform: uppercase; }
-        .about-text-wrapper { max-width: 750px; margin: 0 auto; text-align: center; font-size: 1.1rem; line-height: 1.9; }
+        
+        /* Left-aligned wrapper for specific text */
+        .about-text-left { 
+            max-width: 750px; 
+            margin: 0 auto; 
+            text-align: left; 
+            font-size: 1.1rem; 
+            line-height: 1.9; 
+        }
+        
         .btn-editorial { display: inline-block; padding: 1.2rem 2.2rem; background-color: var(--subtle-gold); color: var(--primary-dark); text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; text-align: center; }
         
         /* [4. FOOTER & SOCIALS] */
@@ -61,34 +70,35 @@
         </div>
     </header>
 
-  <!-- CONTENT -->
-<section style="padding: 6rem 1.5rem;">
-    <div class="container" style="max-width: 800px; margin: 0 auto;">
-        <h1 class="section-title">About Selda</h1>
+    <!-- CONTENT -->
+    <section style="padding: 6rem 1.5rem;">
+        <div class="container" style="max-width: 800px; margin: 0 auto;">
+            <h1 class="section-title">About Selda</h1>
 
-        <div class="about-text-wrapper">
-            <p style="margin-bottom: 2rem;">
-                At Selda, every meal is an invitation to experience the rich traditions of Turkish cuisine and hospitality. Inspired by generations of culinary heritage, our menu celebrates authentic recipes prepared with premium ingredients, bold flavors, and time-honored techniques.
-            </p>
+            <!-- Left-aligned content section -->
+            <div class="about-text-left">
+                <p style="margin-bottom: 2rem;">
+                    At Selda, every meal is an invitation to experience the rich traditions of Turkish cuisine and hospitality. Inspired by generations of culinary heritage, our menu celebrates authentic recipes prepared with premium ingredients, bold flavors, and time-honored techniques.
+                </p>
 
-            <p style="margin-bottom: 2rem;">
-                From our roots in the Dallas area to our home in San Antonio, our mission has remained the same: to share the warmth, authenticity, and exceptional flavors of Turkey with every guest. We are committed to uncompromising quality, and all of our meats are certified Halal, reflecting the highest standards of sourcing, preparation, and care.
-            </p>
+                <p style="margin-bottom: 2rem;">
+                    From our roots in the Dallas area to our home in San Antonio, our mission has remained the same: to share the warmth, authenticity, and exceptional flavors of Turkey with every guest. We are committed to uncompromising quality, and all of our meats are certified Halal, reflecting the highest standards of sourcing, preparation, and care.
+                </p>
 
-            <p style="margin-bottom: 2rem;">
-                Whether you're joining us for a casual lunch, an intimate dinner, or a special celebration, you'll find genuine hospitality, exceptional service, and a dining experience that brings people together around the table.
-            </p>
+                <p style="margin-bottom: 2rem;">
+                    Whether you're joining us for a casual lunch, an intimate dinner, or a special celebration, you'll find genuine hospitality, exceptional service, and a dining experience that brings people together around the table.
+                </p>
 
-            <p>
-                Planning an event? Selda proudly offers catering for gatherings of all sizes, along with gift certificates—perfect for sharing the experience of authentic Turkish cuisine with family, friends, and colleagues.
-            </p>
+                <p>
+                    Planning an event? Selda proudly offers catering for gatherings of all sizes, along with gift certificates—perfect for sharing the experience of authentic Turkish cuisine with family, friends, and colleagues.
+                </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="menu.html" class="btn-editorial">View Our Menu</a>
+            </div>
         </div>
-
-        <div style="text-align: center; margin-top: 4rem;">
-            <a href="menu.html" class="btn-editorial">View Our Menu</a>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- FOOTER WITH SOCIALS -->
     <footer>
@@ -97,12 +107,12 @@
             <a href="https://www.tiktok.com/@seldamediterranean" target="_blank"><i class="fab fa-tiktok"></i></a>
             <a href="https://facebook.com/seldasanantonio" target="_blank"><i class="fab fa-facebook"></i></a>
         </div>
-   <!-- Address added here -->
-            <p style="margin-bottom: 0.5rem; color: var(--pure-white); font-weight: 600;">Selda Mediterranean Kitchen & Bar</p>
-            <p style="margin-bottom: 1.5rem;">9955 I-10 W, San Antonio, Texas 78230</p>
-            
-            <p>© 2026 Selda Mediterranean Kitchen & Bar | San Antonio. All rights reserved.</p>
-        </div>
+        
+        <p style="margin-bottom: 0.5rem; color: var(--pure-white); font-weight: 600;">Selda Mediterranean Kitchen & Bar</p>
+        <p style="margin-bottom: 1.5rem;">9955 I-10 W, San Antonio, Texas 78230</p>
+        
+        <p>© 2026 Selda Mediterranean Kitchen & Bar | San Antonio. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
