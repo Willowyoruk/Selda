@@ -97,9 +97,9 @@
         .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
         .hamburger span { width: 25px; height: 2px; background-color: var(--primary-dark); }
 
-        /* Drawer Mobile Menu */
+        /* Drawer Mobile Menu */        /* Drawer Mobile Menu */
         .mobile-menu {
-            display: flex;
+            display: none; /* Change this from flex to none */
             position: fixed;
             top: 70px;
             right: -60%;
@@ -120,10 +120,11 @@
         }
         
         .mobile-menu.active { 
+            display: flex; /* Add this so it shows when active */
             right: 0; 
             opacity: 1;
             pointer-events: auto;
-        } 
+        }
 
         .mobile-menu.translucent {
             opacity: 0.35 !important;
