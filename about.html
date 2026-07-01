@@ -48,14 +48,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* [1. GLOBAL STYLES] */
+     /* Global Structural Overrides */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --primary-dark: #111111; --velvet-blue: #0A111C; --pure-white: #FFFFFF; --muted-white: #BAC4D1; --subtle-gold: #D4AF37; }
-        body { font-family: 'Lato', sans-serif; background-color: var(--velvet-blue); color: var(--muted-white); line-height: 1.7; }
         
-        /* [2. HEADER & NAV] */
-        header { background-color: var(--pure-white); padding: 1.2rem 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #EAEAEA; }
-        .header-content { max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        :root {
+            --primary-dark: #111111;
+            --velvet-blue: #0A111C;        
+            --velvet-blue-surface: #111B29;
+            --pure-white: #FFFFFF;
+            --muted-white: #BAC4D1;  
+            --subtle-gold: #D4AF37;
+        }
+        
+        body { 
+            font-family: 'Lato', sans-serif; 
+            background-color: var(--velvet-blue); 
+            color: var(--muted-white); 
+            line-height: 1.7; 
+            padding-bottom: 60px; 
+        }
+        
+      /* Header Menu Navigation Bar */
+header {
+    background-color: var(--pure-white); 
+    /* Reduced vertical padding to make the bar thinner */
+    padding: 0.6rem 0;
+    position: sticky; 
+    top: 0;
+    z-index: 100; 
+    border-bottom: 1px solid #EAEAEA;
+}
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
         
         .back-btn {
             display: inline-flex;
