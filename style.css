@@ -18,15 +18,16 @@
             padding-bottom: 60px; 
         }
         
-        /* Header Menu Navigation Bar */
-        header {
-            background-color: var(--pure-white); 
-            padding: 1.2rem 0;
-            position: sticky; 
-            top: 0;
-            z-index: 100; 
-            border-bottom: 1px solid #EAEAEA;
-        }
+      /* Header Menu Navigation Bar */
+header {
+    background-color: var(--pure-white); 
+    /* Reduced vertical padding to make the bar thinner */
+    padding: 0.6rem 0;
+    position: sticky; 
+    top: 0;
+    z-index: 100; 
+    border-bottom: 1px solid #EAEAEA;
+}
         .header-content {
             max-width: 1400px;
             margin: 0 auto;
