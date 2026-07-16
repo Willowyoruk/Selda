@@ -440,19 +440,24 @@ header {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .sticky-action-btn-split {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--pure-white);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: background-color 0.2s ease;
-        }
+       .sticky-action-btn-split {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pure-white) !important; /* Forces the text to stay white */
+    text-decoration: none !important;    /* Keeps underlines away */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background-color 0.2s ease;
+}
+
+/* Forces the icons to stay white as well */
+.sticky-action-btn-split i {
+    color: var(--pure-white) !important;
+}
 
         /* Subtle gold dividing border right between the thumbs */
         .sticky-action-btn-split:first-child {
