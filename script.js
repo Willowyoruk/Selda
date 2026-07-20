@@ -104,3 +104,21 @@ if (carouselContainer) {
 function startAutoplay() { autoplayTimer = setInterval(nextSlide, 5000); }
 function resetAutoplay() { clearInterval(autoplayTimer); startAutoplay(); }
 if (track && slides.length > 0) startAutoplay();
+
+// Toggle mobile delivery submenu
+const mobileDeliveryToggle = document.getElementById('mobile-delivery-toggle');
+const mobileDeliveryDropdown = document.getElementById('mobile-delivery-dropdown');
+
+if (mobileDeliveryToggle && mobileDeliveryDropdown) {
+    mobileDeliveryToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = mobileDeliveryDropdown.style.display === 'block';
+        mobileDeliveryDropdown.style.display = isOpen ? 'none' : 'block';
+        
+        // Rotate arrow icon optionally
+        const icon = mobileDeliveryToggle.querySelector('i');
+        if (icon) {
+            icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(90deg)';
+        }
+    });
+}
