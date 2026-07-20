@@ -58,77 +58,67 @@
 </head>
 <body>
 
-    <!-- SECTION: HEADER & NAV -->
-    <header id="header">
-        <div class="header-content">
-            <a href="/" style="display: flex; align-items: center; text-decoration: none;">
-                <img src="assets/logo.jpg" alt="Selda Logo" style="height: 65px; width: auto; object-fit: contain;">
-            </a>
+<!-- SECTION: HEADER & NAV -->
+<header id="header">
+    <div class="header-content">
+        <a href="/" style="display: flex; align-items: center; text-decoration: none;">
+            <img src="assets/logo.jpg" alt="Selda Logo" style="height: 65px; width: auto; object-fit: contain;">
+        </a>
+        
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        
+        <nav>
+            <a href="about.html">About</a>
+            <a href="#location-hours">Location & Hours</a>
+            <a href="#menu">Menu</a>
             
-            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-            
-            <nav>
-                <a href="about.html">About</a>
-                <a href="#location-hours">Location & Hours</a>
-                <a href="#menu">Menu</a>
-                
-                <div class="desktop-dropdown">
-                    <button class="desktop-dropdown-btn">Order <i class="fas fa-chevron-down" style="font-size:0.7rem;"></i></button>
-                    <div class="desktop-dropdown-content">
-                        <a href="https://order.online/store/-30359031/" target="_blank" rel="noopener noreferrer">DoorDash</a>
-                        <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" rel="noopener noreferrer">Uber Eats</a>
-                        <a href="https://seldasanantonio.dine.online" target="_blank" rel="noopener noreferrer">Grubhub</a>
-                        <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" rel="noopener noreferrer">Zing My Order</a>
+            <div class="desktop-dropdown">
+                <button class="desktop-dropdown-btn">Order <i class="fas fa-chevron-down" style="font-size:0.7rem;"></i></button>
+                <div class="desktop-dropdown-content">
+                    <a href="https://selda.cloveronline.com" target="_blank" rel="noopener noreferrer">Order Pickup</a>
+                    <hr style="margin: 5px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.2);">
+                    <div class="nested-delivery">
+                        <a href="#">Order Delivery <i class="fas fa-chevron-right" style="font-size:0.6rem;"></i></a>
+                        <div class="nested-content">
+                            <a href="https://order.online/store/-30359031/" target="_blank">DoorDash</a>
+                            <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank">Uber Eats</a>
+                            <a href="https://seldasanantonio.dine.online" target="_blank">Grubhub</a>
+                            <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank">Zing My Order</a>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <a href="#amenities">Hookah</a>
-                <a href="#contact-section">Contact Us</a>
-            </nav>
-        </div>
+            <a href="#amenities">Hookah</a>
+            <a href="#contact-section">Contact Us</a>
+        </nav>
+    </div>
+    
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="about.html">About</a>
+        <a href="#location-hours">Location & Hours</a>
+        <a href="#menu">Menu</a>
         
-       <div class="mobile-menu" id="mobile-menu">
-    <a href="about.html">About</a>
-    <a href="#menu">Menu</a>
-    
-    <div class="mobile-dropdown-wrapper">
-        <button class="mobile-dropdown-btn" id="mobile-platforms-toggle">
-            Order Online <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="mobile-dropdown-content" id="mobile-platforms-dropdown">
-            <a href="https://order.online/store/-30359031/" target="_blank" rel="noopener noreferrer">DoorDash</a>
-            <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" rel="noopener noreferrer">Uber Eats</a>
-            <a href="https://seldasanantonio.dine.online" target="_blank" rel="noopener noreferrer">Grubhub</a>
-            <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" rel="noopener noreferrer">Zing My Order</a>
+        <div class="mobile-dropdown-wrapper">
+            <button class="mobile-dropdown-btn" id="mobile-platforms-toggle">
+                Order Online <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="mobile-dropdown-content" id="mobile-platforms-dropdown">
+                <a href="https://selda.cloveronline.com" target="_blank" rel="noopener noreferrer">Order Pickup</a>
+                <div style="padding: 10px 15px; font-weight: bold; color: var(--subtle-gold); font-size: 0.9rem;">Order Delivery:</div>
+                <a href="https://order.online/store/-30359031/" target="_blank" rel="noopener noreferrer">DoorDash</a>
+                <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" rel="noopener noreferrer">Uber Eats</a>
+                <a href="https://seldasanantonio.dine.online" target="_blank" rel="noopener noreferrer">Grubhub</a>
+                <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" rel="noopener noreferrer">Zing My Order</a>
+            </div>
         </div>
-    </div>
 
-    <a href="#amenities">Hookah</a>
-    <a href="#catering">Catering</a>
-           
-    <!-- Locations moved here -->
-    <div class="mobile-dropdown-wrapper">
-        <button class="mobile-dropdown-btn" id="locations-toggle">
-            Locations <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="mobile-dropdown-content" id="locations-dropdown">
-            <a href="#location-hours">Selda San Antonio</a>
-            <a href="https://seldadallas.com" target="_blank" rel="noopener noreferrer">Selda Dallas</a>
-            <a href="https://instagram.com/seldafrisco" target="_blank" rel="noopener noreferrer">Selda Frisco</a>
-            <a href="https://instagram.com/Seldalascolinas" target="_blank" rel="noopener noreferrer">Selda Las Colinas</a>
-            <a href="https://instagram.com/themayorshouse_byselda" target="_blank" rel="noopener noreferrer">The Mayor's House by Selda</a>
-        </div>
+        <a href="#amenities">Hookah</a>
+        <a href="#catering">Catering</a>
+        <a href="#contact-section">Contact Us</a>
     </div>
-
-    <a href="#contact-section">Contact Us</a>
-    
-    <div class="mobile-social-row">
-        <a href="https://instagram.com/seldasanantonio" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="https://facebook.com/seldasanantonio" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-    </div>
-</div>
-    </header>
+</header>
 
     <!-- SECTION: HERO -->
     <section class="hero-canvas-section" id="booking-hero">
