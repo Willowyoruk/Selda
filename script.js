@@ -9,7 +9,7 @@ if (hamburger && mobileMenu) {
     hamburger.addEventListener('click', () => mobileMenu.classList.toggle('active'));
     mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
-            if (!link.closest('#locations-dropdown') && !link.closest('#mobile-platforms-dropdown')) {
+            if (!link.closest('#locations-dropdown') && !link.closest('#mobile-platforms-dropdown') && !link.closest('#mobile-delivery-dropdown')) {
                 mobileMenu.classList.remove('active');
             }
         });
@@ -105,20 +105,23 @@ function startAutoplay() { autoplayTimer = setInterval(nextSlide, 5000); }
 function resetAutoplay() { clearInterval(autoplayTimer); startAutoplay(); }
 if (track && slides.length > 0) startAutoplay();
 
-// Toggle mobile delivery submenu
+// Toggle mobile delivery submenu inside the hamburger menu
 const mobileDeliveryToggle = document.getElementById('mobile-delivery-toggle');
 const mobileDeliveryDropdown = document.getElementById('mobile-delivery-dropdown');
 
 if (mobileDeliveryToggle && mobileDeliveryDropdown) {
     mobileDeliveryToggle.addEventListener('click', (e) => {
         e.stopPropagation();
-        const isOpen = mobileDeliveryDropdown.style.display === 'block';
-        mobileDeliveryDropdown.style.display = isOpen ? 'none' : 'block';
+        const isOpen = mobileDeliveryDropdown.classList.contains('open');
         
-        // Rotate arrow icon optionally
+        // Toggle the 'open' class to match CSS rules
+        mobileDeliveryDropdown.classList.toggle('open');
+        mobileDeliveryToggle.classList.toggle('active');
+        
+        // Rotate arrow icon smoothly
         const icon = mobileDeliveryToggle.querySelector('i');
         if (icon) {
-            icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(90deg)';
+            icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
         }
     });
 }
