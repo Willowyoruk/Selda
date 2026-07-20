@@ -198,11 +198,25 @@
         </div>
     </section>
     
-    <!-- SECTION: ORDERING -->
-    <section id="ordering" class="editorial-section" style="background-image: url('assets/lahmacun.jpg');">
-        <div class="editorial-container">
-            <h2>Order Online</h2>
+ <!-- SECTION: ORDERING -->
+<section id="ordering" class="editorial-section" style="background-image: url('assets/lahmacun.jpg');">
+    <div class="editorial-container">
+        <h2>Order Online</h2>
+        
+        <div class="order-platforms-grid" id="main-order-options">
+            <a href="https://selda.cloveronline.com" class="btn-platform" target="_blank" rel="noopener noreferrer" style="background: var(--subtle-gold); color: #000;">Order Pickup</a>
             
+            <button class="btn-platform" onclick="document.getElementById('delivery-options').style.display='grid'; this.style.display='none';">Order Delivery</button>
+        </div>
+
+        <div class="order-platforms-grid" id="delivery-options" style="display: none; margin-top: 1rem;">
+            <a href="https://order.online/store/-30359031/" class="btn-platform" target="_blank" rel="noopener noreferrer">DoorDash</a>
+            <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" class="btn-platform" target="_blank" rel="noopener noreferrer">Uber Eats</a>
+            <a href="https://seldasanantonio.dine.online" class="btn-platform" target="_blank" rel="noopener noreferrer">Grubhub</a>
+            <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" class="btn-platform" target="_blank" rel="noopener noreferrer">Zing</a>
+        </div>
+    </div>
+</section> 
             <!-- Professional disclaimer for supporting the business -->
  <p style="color: var(--pure-white); font-size: 0.8rem; text-align: center; margin: 0 1rem 2rem 1rem; line-height: 1.4; opacity: 0.9; font-weight: 500; letter-spacing: 0.5px;">
     Sign in using your existing account credentials 
