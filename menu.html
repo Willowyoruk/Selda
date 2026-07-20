@@ -71,15 +71,14 @@
             padding-bottom: 80px;
         }
 
-header {
-    background-color: var(--pure-white); 
-    /* Reduced vertical padding to make the bar thinner */
-    padding: 0.6rem 0;
-    position: sticky; 
-    top: 0;
-    z-index: 100; 
-    border-bottom: 1px solid #EAEAEA;
-}
+        header {
+            background-color: var(--pure-white); 
+            padding: 0.6rem 0;
+            position: sticky; 
+            top: 0;
+            z-index: 100; 
+            border-bottom: 1px solid #EAEAEA;
+        }
         .header-content {
             max-width: 1400px;
             margin: 0 auto;
@@ -268,21 +267,12 @@ header {
             margin: 0 auto;
         }
 
-        .menu-footer-note {
-            text-align: center;
-            margin-top: 30px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            color: var(--muted-white);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
+        /* STICKY MOBILE FOOTER & DROP-UP STYLING */
         .sticky-mobile-footer {
             position: fixed;
             bottom: 0; left: 0; right: 0;
             height: 60px;
-            background-color: #111B29;
+            background-color: var(--velvet-blue-surface);
             display: none;
             grid-template-columns: 1fr 1fr;
             z-index: 9999;
@@ -309,24 +299,70 @@ header {
             bottom: 60px;
             left: 0;
             width: 100%;
-            background-color: #111B29;
+            background-color: var(--velvet-blue-surface);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             flex-direction: column;
             z-index: 10000;
         }
         .mobile-dropup-content.active { display: flex; }
-        .mobile-dropup-item {
+        
+        .mobile-pickup-link {
             padding: 1rem;
-            color: var(--pure-white);
+            color: var(--subtle-gold) !important;
             text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            display: block;
+        }
+
+        .mobile-nested-wrapper { width: 100%; }
+        .mobile-nested-btn {
+            width: 100%;
+            background: none;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--muted-white);
+            padding: 1rem;
+            text-align: center;
             font-family: 'Montserrat', sans-serif;
             font-size: 0.85rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s ease;
+        }
+        .mobile-nested-btn:hover { color: var(--subtle-gold); }
+        .mobile-nested-btn i { transition: transform 0.3s ease; font-size: 0.7rem; }
+
+        .mobile-nested-content {
+            display: none;
+            flex-direction: column;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .mobile-nested-content.open { display: flex; }
+        .mobile-nested-content a {
+            padding: 0.8rem 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
             text-align: center;
         }
+        .mobile-nested-content a:hover { color: var(--subtle-gold); }
 
         @media (max-width: 850px) {
             .menu-grid { grid-template-columns: 1fr; row-gap: 35px; }
@@ -335,12 +371,11 @@ header {
         @media (max-width: 768px) {
             .sticky-mobile-footer { display: grid; }
             
-            /* UPDATED FOR BETTER MOBILE READABILITY */
             .menu-container {
                 max-width: 100% !important;
                 padding: 0 10px !important;
                 margin: 20px auto !important;
-                padding-bottom: 150px !important; /* Prevents cutoff behind footer */
+                padding-bottom: 150px !important; 
             }
             .menu-section {
                 padding: 20px 15px !important;
@@ -350,7 +385,7 @@ header {
             .bottom-legend-row { gap: 1.5rem; }
             
             .item-top-row {
-                flex-direction: column; /* Stacks name and price */
+                flex-direction: column;
                 align-items: flex-start;
             }
             .item-price {
@@ -438,10 +473,21 @@ header {
     <div class="sticky-mobile-footer">
         <a href="#" id="mobile-order-trigger" class="sticky-action-btn">Order Online</a>
         <div class="mobile-dropup-content" id="mobile-dropup-menu">
-            <a href="https://order.online/store/-30359031/" class="mobile-dropup-item" target="_blank" rel="noopener noreferrer">DoorDash</a>
-            <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" class="mobile-dropup-item" target="_blank" rel="noopener noreferrer">Uber Eats</a>
-            <a href="https://seldasanantonio.dine.online" class="mobile-dropup-item" target="_blank" rel="noopener noreferrer">Grubhub</a>
-            <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" class="mobile-dropup-item" target="_blank" rel="noopener noreferrer">Zing My Order</a>
+            <!-- Order Pickup Primary Link -->
+            <a href="https://selda.cloveronline.com" class="mobile-pickup-link" target="_blank" rel="noopener noreferrer">Order Pickup</a>
+            
+            <!-- Order Delivery Nested Toggle -->
+            <div class="mobile-nested-wrapper">
+                <button class="mobile-nested-btn" id="mobile-footer-delivery-toggle">
+                    Order Delivery <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="mobile-nested-content" id="mobile-footer-delivery-dropdown">
+                    <a href="https://order.online/store/-30359031/" target="_blank" rel="noopener noreferrer">DoorDash</a>
+                    <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" rel="noopener noreferrer">Uber Eats</a>
+                    <a href="https://seldasanantonio.dine.online" target="_blank" rel="noopener noreferrer">Grubhub</a>
+                    <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" rel="noopener noreferrer">Zing My Order</a>
+                </div>
+            </div>
         </div>
         <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-reservations-san-antonio?restref=1380571&lang=en-US&ot_source=Restaurant%20website" target="_blank" rel="noopener noreferrer" class="sticky-action-btn" style="background-color: var(--velvet-blue-surface);">Reserve Table</a>
     </div>
@@ -505,14 +551,37 @@ header {
             }
         }
 
+        // Footer Main Drop-Up Toggle
         const orderTrigger = document.getElementById('mobile-order-trigger');
         const dropupMenu = document.getElementById('mobile-dropup-menu');
+        
         if (orderTrigger && dropupMenu) {
-            orderTrigger.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); dropupMenu.classList.toggle('active'); });
+            orderTrigger.addEventListener('click', (e) => { 
+                e.preventDefault(); 
+                e.stopPropagation(); 
+                dropupMenu.classList.toggle('active'); 
+            });
             document.addEventListener('click', (e) => { 
                 if (!dropupMenu.contains(e.target) && e.target !== orderTrigger) {
                     dropupMenu.classList.remove('active'); 
                 } 
+            });
+        }
+
+        // Footer Nested Delivery Submenu Toggle
+        const footerDeliveryToggle = document.getElementById('mobile-footer-delivery-toggle');
+        const footerDeliveryDropdown = document.getElementById('mobile-footer-delivery-dropdown');
+
+        if (footerDeliveryToggle && footerDeliveryDropdown) {
+            footerDeliveryToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = footerDeliveryDropdown.classList.contains('open');
+                footerDeliveryDropdown.classList.toggle('open');
+                
+                const icon = footerDeliveryToggle.querySelector('i');
+                if (icon) {
+                    icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                }
             });
         }
     </script>
