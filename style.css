@@ -191,14 +191,53 @@ nav a:hover { color: #555555; }
 .mobile-dropdown-content.open { display: flex; }
 .mobile-dropdown-content a { font-size: 0.95rem; font-weight: 600; color: #555555; }
 
-/* Mobile Nested Delivery Layout */
-.mobile-nested-container {
-    padding-left: 1rem;
+/* Mobile Nested Delivery Layout & Visibility Fix */
+.mobile-nested-wrapper {
+    width: 100%;
+}
+
+.mobile-nested-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--muted-white, #BAC4D1);
+    padding: 12px 20px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s ease;
+}
+
+.mobile-nested-btn:hover {
+    color: var(--subtle-gold, #D4AF37);
+}
+
+.mobile-nested-content {
+    display: none !important; /* Forces delivery options to stay hidden by default */
     flex-direction: column;
-    gap: 0.8rem;
-    margin-top: 0.5rem;
-    border-left: 2px solid var(--subtle-gold);
+    padding-left: 15px;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.mobile-nested-content.open {
+    display: flex !important; /* Only reveals when JavaScript applies the 'open' class */
+}
+
+.mobile-nested-content a {
+    font-size: 0.85rem !important;
+    padding: 10px 15px !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Highlight Pickup style */
+.mobile-pickup-link {
+    color: var(--subtle-gold, #D4AF37) !important;
+    font-weight: 700 !important;
 }
 
 .mobile-social-row {
@@ -562,49 +601,7 @@ section.standard-padding { padding: 6rem 0; }
       font-size: 0.8rem;
   }
 }
-/* Nested Delivery Dropdown inside Mobile Menu */
-.mobile-nested-wrapper {
-    width: 100%;
-}
 
-.mobile-nested-btn {
-    width: 100%;
-    background: none;
-    border: none;
-    color: var(--muted-white, #BAC4D1);
-    padding: 12px 20px;
-    text-align: left;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: color 0.2s ease;
-}
-
-.mobile-nested-btn:hover {
-    color: var(--subtle-gold, #D4AF37);
-}
-
-.mobile-nested-content {
-    display: none; /* Hidden by default */
-    padding-left: 15px;
-    background: rgba(0, 0, 0, 0.15);
-}
-
-.mobile-nested-content a {
-    font-size: 0.85rem !important;
-    padding: 10px 15px !important;
-    color: rgba(255, 255, 255, 0.8) !important;
-}
-
-/* Highlight Pickup style */
-.mobile-pickup-link {
-    color: var(--subtle-gold, #D4AF37) !important;
-    font-weight: 700 !important;
-}
 /* Responsive Map sizing */
 @media (max-width: 768px) {
     .location-map {
