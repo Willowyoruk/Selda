@@ -517,7 +517,9 @@ section.standard-padding { padding: 6rem 0; }
     height: 60px;
     background-color: var(--velvet-blue-surface);
     display: none;
-    grid-template-columns: 1fr 1fr 1fr; /* 3 equal columns */
+    /* Use flex instead of grid to guarantee they align side-by-side */
+    justify-content: space-between;
+    align-items: center;
     z-index: 9999;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
@@ -527,24 +529,25 @@ section.standard-padding { padding: 6rem 0; }
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 100% !important;
+    flex: 1 1 0% !important; /* Forces all three to share equal width perfectly */
     height: 100% !important;
     text-decoration: none !important;    
     
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem; /* Sized down slightly to comfortably fit 3 items */
+    font-size: 0.7rem; /* Compact size to prevent line-wrapping */
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     
     color: var(--pure-white) !important; 
     transition: background-color 0.2s ease;
+    white-space: nowrap; /* Keeps text on a single line */
 }
 
 .sticky-action-btn-split i {
     color: var(--subtle-gold) !important;
-    margin-right: 5px;
-    font-size: 0.85rem;
+    margin-right: 4px;
+    font-size: 0.8rem;
 }
 
 /* Vertical dividers separating items */
@@ -580,7 +583,7 @@ section.standard-padding { padding: 6rem 0; }
   .editorial-section { height: 60vh; min-height: 440px; }
   .editorial-section h2, .editorial-section h3 { font-size: 2.8rem; }
   
-  .sticky-mobile-footer { display: grid; }
+  .sticky-mobile-footer { display: flex; } /* Ensures flex layout is activated on mobile */
   
   .section-title { font-size: 2.6rem; }
   
