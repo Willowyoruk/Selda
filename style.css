@@ -10,7 +10,6 @@
     --subtle-gold: #D4AF37;
 }
 
-
 body { 
     font-family: 'Lato', sans-serif; 
     background-color: var(--velvet-blue); 
@@ -67,13 +66,20 @@ nav a:hover { color: #555555; }
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--pure-white);
+    background-color: transparent;
     min-width: 200px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
     z-index: 101;
-    margin-top: 1.2rem;
-    border: 1px solid #EAEAEA;
+    padding-top: 1.2rem; /* Bridges the physical gap safely so mouse tracker doesn't drop */
     flex-direction: column;
+}
+
+.desktop-dropdown-inner {
+    background-color: var(--pure-white);
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    border: 1px solid #EAEAEA;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 /* Open on hover OR when the JavaScript toggles the .active class */
@@ -120,7 +126,8 @@ nav a:hover { color: #555555; }
     z-index: 102;
     flex-direction: column;
 }
-.nested-delivery:hover .nested-content {
+.nested-delivery:hover .nested-content,
+.nested-delivery.active .nested-content {
     display: flex;
 }
 
