@@ -20,41 +20,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Enhanced Restaurant Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Restaurant",
-      "name": "Selda Mediterranean Kitchen & Bar | San Antonio",
-      "url": "https://www.seldarestaurant.com/",
-      "logo": "https://www.seldarestaurant.com/assets/favicon.png",
-      "image": "https://www.seldarestaurant.com/assets/fire.jpg",
-      "priceRange": "$$",
-      "servesCuisine": ["Mediterranean", "Turkish"],
-      "telephone": "(210) 236-5230",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "9955 I-10 W",
-        "addressLocality": "San Antonio",
-        "addressRegion": "TX",
-        "postalCode": "78230",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 29.5357,
-        "longitude": -98.5636
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "11:00",
-        "closes": "23:00"
-      },
-      "acceptsReservations": true,
-      "hasMenu": "https://www.seldarestaurant.com/menu.html"
-    }
-    </script>
+   <!-- Enhanced Restaurant Schema with Typo & Variant Support -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Selda Mediterranean Kitchen & Bar | San Antonio",
+  "alternateName": [
+    "Selda San Antonio",
+    "Melda Mediterranean",
+    "Yelda Mediterranean",
+    "Telda Mediterranean",
+    "Nelda Mediterranean",
+    "Selda Kitchen",
+    "Selda Bar"
+  ],
+  "url": "https://www.seldarestaurant.com/",
+  "logo": "https://www.seldarestaurant.com/assets/favicon.png",
+  "image": "https://www.seldarestaurant.com/assets/fire.jpg",
+  "priceRange": "$$",
+  "servesCuisine": ["Mediterranean", "Turkish"],
+  "telephone": "(210) 236-5230",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9955 I-10 W",
+    "addressLocality": "San Antonio",
+    "addressRegion": "TX",
+    "postalCode": "78230",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 29.5357,
+    "longitude": -98.5636
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "11:00",
+    "closes": "23:00"
+  },
+  "acceptsReservations": true,
+  "hasMenu": "https://www.seldarestaurant.com/menu.html"
+}
+</script>
 </head>
 <body>
 
