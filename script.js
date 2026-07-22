@@ -114,14 +114,31 @@ if (mobileDeliveryToggle && mobileDeliveryDropdown) {
         e.stopPropagation();
         const isOpen = mobileDeliveryDropdown.classList.contains('open');
         
-        // Toggle the 'open' class to match CSS rules
         mobileDeliveryDropdown.classList.toggle('open');
         mobileDeliveryToggle.classList.toggle('active');
         
-        // Rotate arrow icon smoothly
         const icon = mobileDeliveryToggle.querySelector('i');
         if (icon) {
             icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
         }
     });
 }
+
+// Desktop Dropdown Toggle Fix (Click to stay open, click outside to close)
+document.addEventListener('DOMContentLoaded', () => {
+    const desktopDropdown = document.getElementById('desktop-dropdown');
+    const desktopDropdownBtn = document.getElementById('desktop-dropdown-btn');
+
+    if (desktopDropdown && desktopDropdownBtn) {
+        desktopDropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            desktopDropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!desktopDropdown.contains(e.target)) {
+                desktopDropdown.classList.remove('active');
+            }
+        });
+    }
+});
