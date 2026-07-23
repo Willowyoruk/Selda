@@ -632,6 +632,11 @@ section.standard-padding { padding: 6rem 0; }
    8. STICKY MOBILE FOOTER & POPUP DRAWER
    ========================================== */
 
+/* Hide the sticky footer container completely on desktop screens */
+.sticky-mobile-footer-container {
+    display: none;
+}
+
 /* Fixed bottom mobile footer bar split into 3 actionable buttons */
 .sticky-mobile-footer {
     position: fixed;
@@ -704,6 +709,15 @@ section.standard-padding { padding: 6rem 0; }
 
 /* Mobile/Small Tablet Breakpoint (768px and down) */
 @media (max-width: 768px) {
+  .sticky-mobile-footer-container {
+      display: block !important;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+  }
+
   .carousel-container { height: 340px !important; }
   .hamburger { display: flex; }
   nav { display: none; }
