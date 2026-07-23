@@ -369,8 +369,8 @@
 
 <!-- SECTION: STICKY FOOTER -->
 <div class="sticky-mobile-footer-container" style="position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999;">
-        <!-- Popup Drawer for Order Options -->
-    <div id="sticky-order-popup" style="display: none; background: rgba(10, 17, 28, 0.95); backdrop-filter: blur(10px); border-top: 1px solid rgba(212, 175, 55, 0.3); padding: 1.2rem; box-shadow: 0 -10px 25px rgba(0,0,0,0.5); max-height: 75vh; overflow-y: auto;">
+    <!-- Popup Drawer for Order Options -->
+    <div id="sticky-order-popup" style="display: none; position: absolute; bottom: 100%; left: 0; width: 100%; background: rgba(10, 17, 28, 0.98); backdrop-filter: blur(10px); border-top: 1px solid rgba(212, 175, 55, 0.3); padding: 1.2rem; box-shadow: 0 -10px 25px rgba(0,0,0,0.5); max-height: calc(100vh - 120px); overflow-y: auto; box-sizing: border-box;">
         <div style="max-width: 400px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.8rem;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.2rem;">
                 <span style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--subtle-gold); font-weight: 700;">Select Order Method</span>
