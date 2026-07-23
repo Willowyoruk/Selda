@@ -373,26 +373,26 @@
 
 <!-- SECTION: STICKY FOOTER -->
 <div class="sticky-mobile-footer-container" style="position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999;">
-    <!-- Popup Drawer for Order Options -->
-    <div id="sticky-order-popup" style="display: none; position: absolute; bottom: 100%; left: 0; width: 100%; background: rgba(10, 17, 28, 0.98); backdrop-filter: blur(10px); border-top: 1px solid rgba(212, 175, 55, 0.3); padding: 1.2rem; box-shadow: 0 -10px 25px rgba(0,0,0,0.5); max-height: calc(100vh - 120px); overflow-y: auto; box-sizing: border-box;">
-        <div style="max-width: 400px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.8rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.2rem;">
-                <span style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--subtle-gold); font-weight: 700;">Select Order Method</span>
-                <button onclick="toggleStickyOrderPopup()" style="background: none; border: none; color: var(--pure-white); font-size: 1.2rem; cursor: pointer;"><i class="fas fa-times"></i></button>
-            </div>
-            <a href="https://selda.cloveronline.com" target="_blank" rel="noopener noreferrer" style="background: var(--subtle-gold); color: #000; padding: 12px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; text-decoration: none;">Order Pickup</a>
-            
-            <div style="display: flex; flex-direction: column; gap: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.8rem; border-radius: 4px;">
-                <span style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted-white); font-weight: 600; text-align: center; margin-bottom: 0.2rem;">Order Delivery Platforms</span>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-                    <a href="https://order.online/store/-30359031/" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.1); color: var(--pure-white); padding: 8px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-decoration: none; border-radius: 3px;">DoorDash</a>
-                    <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.1); color: var(--pure-white); padding: 8px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-decoration: none; border-radius: 3px;">Uber Eats</a>
-                    <a href="https://seldasanantonio.dine.online" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.1); color: var(--pure-white); padding: 8px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-decoration: none; border-radius: 3px;">Grubhub</a>
-                    <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.1); color: var(--pure-white); padding: 8px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-decoration: none; border-radius: 3px;">Zing</a>
-                </div>
+    <!-- Popup Drawer (Fully Visible & Scrollable) -->
+<div id="sticky-order-popup" style="display: none; position: fixed; bottom: 60px; left: 0; width: 100%; background: rgba(10, 17, 28, 0.98); backdrop-filter: blur(10px); border-top: 1px solid rgba(212, 175, 55, 0.3); padding: 1.2rem; box-shadow: 0 -10px 25px rgba(0,0,0,0.5); max-height: 75vh; overflow-y: auto; -webkit-overflow-scrolling: touch; z-index: 10000; box-sizing: border-box;">
+    <div style="max-width: 400px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.8rem; padding-bottom: 1rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.2rem;">
+            <span style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--subtle-gold); font-weight: 700;">Select Order Method</span>
+            <button onclick="toggleStickyOrderPopup()" style="background: none; border: none; color: var(--pure-white); font-size: 1.2rem; cursor: pointer; padding: 5px;"><i class="fas fa-times"></i></button>
+        </div>
+        <a href="https://selda.cloveronline.com" target="_blank" rel="noopener noreferrer" style="background: var(--subtle-gold); color: #000; padding: 12px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; text-decoration: none;">Order Pickup</a>
+        
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; background: rgba(255,255,255,0.05); padding: 0.8rem; border-radius: 4px;">
+            <span style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted-white); font-weight: 600; text-align: center; margin-bottom: 0.2rem;">Order Delivery Platforms</span>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                <a href="https://order.online/store/-30359031/" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.1); color: var(--pure-white); padding: 10px 8px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-decoration: none; border-radius: 3px;">DoorDash</a>
+                <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.1); color: var(--pure-white); padding: 10px 8px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-decoration: none; border-radius: 3px;">Uber Eats</a>
+                <a href="https://seldasanantonio.dine.online" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.1); color: var(--pure-white); padding: 10px 8px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-decoration: none; border-radius: 3px;">Grubhub</a>
+                <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.1); color: var(--pure-white); padding: 10px 8px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-decoration: none; border-radius: 3px;">Zing</a>
             </div>
         </div>
     </div>
+</div>
 
     <!-- Sticky Bar Buttons -->
     <div class="sticky-mobile-footer" style="display: grid; grid-template-columns: 1fr 1fr 1fr; background: var(--velvet-blue-surface, #0a111c); border-top: 1px solid rgba(255,255,255,0.1);">
