@@ -1,6 +1,11 @@
-/* Global Structural Overrides */
+/* ==========================================
+   1. GLOBAL STRUCTURAL OVERRIDES & VARIABLES
+   ========================================== */
+
+/* Resets margins, padding, and forces box-sizing globally */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* Defines core color variables and theme tokens used throughout the site */
 :root {
     --primary-dark: #111111;
     --velvet-blue: #0A111C;        
@@ -10,6 +15,7 @@
     --subtle-gold: #D4AF37;
 }
 
+/* Sets baseline typography, page background, default font colors, and bottom spacing for mobile bars */
 body { 
     font-family: 'Lato', sans-serif; 
     background-color: var(--velvet-blue); 
@@ -18,7 +24,12 @@ body {
     padding-bottom: 60px; 
 }
 
-/* Header Menu Navigation Bar */
+
+/* ==========================================
+   2. HEADER & DESKTOP NAVIGATION
+   ========================================== */
+
+/* Main top sticky navigation bar */
 header {
     background-color: var(--pure-white); 
     padding: 0.6rem 0;
@@ -27,6 +38,8 @@ header {
     z-index: 100; 
     border-bottom: 1px solid #EAEAEA;
 }
+
+/* Centers header contents and applies max-width wrapper limits */
 .header-content {
     max-width: 1400px;
     margin: 0 auto;
@@ -35,15 +48,29 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+
+/* Desktop nav links container and alignment */
 nav { display: flex; gap: 2rem; align-items: center; }
-nav a { color: var(--primary-dark); text-decoration: none; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; transition: color 0.3s ease; }
+
+/* Styling for desktop navigation text links */
+nav a { 
+    color: var(--primary-dark); 
+    text-decoration: none; 
+    font-size: 0.85rem; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    transition: color 0.3s ease; 
+}
 nav a:hover { color: #555555; }
 
-/* Desktop Dropdown Container for Ordering Link */
+/* Wrapper for desktop dropdown elements */
 .desktop-dropdown {
     position: relative;
     display: inline-block;
 }
+
+/* Button element that triggers the desktop dropdown */
 .desktop-dropdown-btn {
     color: var(--primary-dark);
     text-decoration: none;
@@ -60,6 +87,8 @@ nav a:hover { color: #555555; }
     gap: 5px;
     padding: 0;
 }
+
+/* Dropdown menu container that drops down on hover/click */
 .desktop-dropdown-content {
     display: none;
     position: absolute;
@@ -69,10 +98,11 @@ nav a:hover { color: #555555; }
     background-color: transparent;
     min-width: 200px;
     z-index: 101;
-    padding-top: 1.2rem; /* Bridges the physical gap safely so mouse tracker doesn't drop */
+    padding-top: 1.2rem; /* Bridges physical gap so mouse doesn't lose hover state */
     flex-direction: column;
 }
 
+/* Inner card wrapper for desktop dropdown links */
 .desktop-dropdown-inner {
     background-color: var(--pure-white);
     box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
@@ -82,12 +112,13 @@ nav a:hover { color: #555555; }
     width: 100%;
 }
 
-/* Open on hover OR when the JavaScript toggles the .active class */
+/* Triggers the dropdown to display on hover or when JS adds .active */
 .desktop-dropdown:hover .desktop-dropdown-content,
 .desktop-dropdown.active .desktop-dropdown-content {
     display: flex;
 }
 
+/* Individual links inside the desktop dropdown */
 .desktop-dropdown-content a {
     color: var(--primary-dark);
     padding: 0.8rem 1.2rem;
@@ -105,7 +136,7 @@ nav a:hover { color: #555555; }
     color: var(--subtle-gold);
 }
 
-/* Desktop Nested Delivery Submenu */
+/* Container for desktop nested submenus (e.g., Delivery options) */
 .nested-delivery {
     position: relative;
 }
@@ -114,6 +145,8 @@ nav a:hover { color: #555555; }
     justify-content: space-between;
     align-items: center;
 }
+
+/* Secondary submenu panel that pops out to the right on desktop */
 .nested-delivery .nested-content {
     display: none;
     position: absolute;
@@ -131,10 +164,16 @@ nav a:hover { color: #555555; }
     display: flex;
 }
 
+/* Mobile hamburger button styling */
 .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
 .hamburger span { width: 25px; height: 2px; background-color: var(--primary-dark); }
 
-/* Drawer Mobile Menu */
+
+/* ==========================================
+   3. MOBILE NAVIGATION DRAWER
+   ========================================== */
+
+/* Off-canvas slide-out menu drawer for mobile viewports */
 .mobile-menu {
     display: none; 
     position: fixed;
@@ -156,6 +195,7 @@ nav a:hover { color: #555555; }
     pointer-events: none;
 }
 
+/* Opens the mobile menu when active class is applied */
 .mobile-menu.active { 
     display: flex; 
     right: 0; 
@@ -163,6 +203,7 @@ nav a:hover { color: #555555; }
     pointer-events: auto;
 }
 
+/* Makes menu translucent on scroll for better visibility of content behind it */
 .mobile-menu.translucent {
     opacity: 0.35 !important;
 }
@@ -173,6 +214,7 @@ nav a:hover { color: #555555; }
 
 .mobile-menu a { color: var(--primary-dark); text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
+/* Buttons inside the mobile menu drawer that expand dropdown panels */
 .mobile-dropdown-btn {
     background: none;
     border: none;
@@ -192,6 +234,8 @@ nav a:hover { color: #555555; }
 }
 .mobile-dropdown-btn i { transition: transform 0.3s ease; }
 .mobile-dropdown-btn.active i { transform: rotate(180deg); }
+
+/* Dropdown content section inside the mobile drawer */
 .mobile-dropdown-content {
     display: none;
     flex-direction: column;
@@ -203,11 +247,12 @@ nav a:hover { color: #555555; }
 .mobile-dropdown-content.open { display: flex; }
 .mobile-dropdown-content a { font-size: 0.95rem; font-weight: 600; color: #555555; }
 
-/* Mobile Nested Delivery Layout & Visibility Fix */
+/* Wrapper for nested delivery layout inside mobile menu */
 .mobile-nested-wrapper {
     width: 100%;
 }
 
+/* Toggle button for mobile delivery submenu */
 .mobile-nested-btn {
     width: 100%;
     background: none;
@@ -228,22 +273,20 @@ nav a:hover { color: #555555; }
     align-items: center;
     transition: color 0.2s ease;
 }
-
 .mobile-nested-btn:hover {
     color: var(--subtle-gold);
 }
 
+/* Expandable content area for mobile delivery submenu */
 .mobile-nested-content {
     display: none !important;
     flex-direction: column;
     background: rgba(0, 0, 0, 0.03);
     padding-left: 10px;
 }
-
 .mobile-nested-content.open {
     display: flex !important;
 }
-
 .mobile-nested-content a {
     font-size: 0.85rem !important;
     padding: 10px 15px !important;
@@ -251,6 +294,7 @@ nav a:hover { color: #555555; }
     font-weight: 600 !important;
 }
 
+/* Direct link for pickup option in mobile drawer */
 .mobile-pickup-link {
     color: var(--primary-dark) !important;
     font-weight: 700 !important;
@@ -261,6 +305,7 @@ nav a:hover { color: #555555; }
     color: var(--subtle-gold) !important;
 }
 
+/* Row for social media icons inside mobile menu */
 .mobile-social-row {
     display: flex;
     align-items: center;
@@ -277,7 +322,12 @@ nav a:hover { color: #555555; }
     opacity: 0.6;
 }
 
-/* HERO CANVAS SECTION */
+
+/* ==========================================
+   4. HERO CANVAS SECTION
+   ========================================== */
+
+/* Main hero banner section layout */
 .hero-canvas-section {
     position: relative;
     background-image: url('assets/fire.jpg');
@@ -290,6 +340,8 @@ nav a:hover { color: #555555; }
     justify-content: center;
     align-items: center;
 }
+
+/* Dark gradient overlay on top of the hero background image */
 .hero-canvas-section::before {
     content: '';
     position: absolute;
@@ -297,6 +349,8 @@ nav a:hover { color: #555555; }
     background: linear-gradient(180deg, rgba(10,17,28,0.7) 0%, rgba(10,17,28,0.85) 100%);
     z-index: 1;
 }
+
+/* Content wrapper box inside the hero section */
 .hero-canvas-container {
     position: relative;
     z-index: 2;
@@ -304,6 +358,8 @@ nav a:hover { color: #555555; }
     max-width: 580px;
     margin: 0 auto;
 }
+
+/* Main brand header text styling */
 .brand-title-main {
     font-family: 'Cormorant Garamond', serif;
     font-size: 4.2rem;
@@ -314,6 +370,8 @@ nav a:hover { color: #555555; }
     text-transform: uppercase;
     margin-bottom: 0.6rem;
 }
+
+/* Subtitle tags configuration */
 .brand-subtitle-tags {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.95rem;
@@ -323,6 +381,8 @@ nav a:hover { color: #555555; }
     text-transform: uppercase;
     margin-bottom: 0.5rem;
 }
+
+/* Location tag label accent text */
 .brand-location-tag {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.85rem;
@@ -332,6 +392,8 @@ nav a:hover { color: #555555; }
     text-transform: uppercase;
     margin-bottom: 1.8rem;
 }
+
+/* Introductory description paragraph block */
 .brand-description-paragraph {
     font-family: 'Lato', sans-serif;
     font-size: 1.05rem;
@@ -342,6 +404,7 @@ nav a:hover { color: #555555; }
     padding: 0 0.5rem;
 }
 
+/* Widget frame wrapper */
 .clean-widget-wrap {
     width: 100%;
     margin: 0 auto;
@@ -349,13 +412,19 @@ nav a:hover { color: #555555; }
     overflow: hidden;
 }
 
+/* Positioning wrapper for widget labels */
 .widget-sub-label-wrap {
     margin-top: -12px !important; 
     position: relative;
     z-index: 5;
 }
 
-/* EDITORIAL CONTENT FULL STRIPS */
+
+/* ==========================================
+   5. EDITORIAL SECTIONS & BUTTONS
+   ========================================== */
+
+/* Full-width editorial background strip sections */
 .editorial-section {
     position: relative;
     height: 70vh;
@@ -369,6 +438,8 @@ nav a:hover { color: #555555; }
     background-position: center;
     background-repeat: no-repeat;
 }
+
+/* Gradient filter overlay for editorial sections */
 .editorial-section::before {
     content: '';
     position: absolute;
@@ -376,6 +447,8 @@ nav a:hover { color: #555555; }
     background: linear-gradient(180deg, rgba(10,17,28,0.55) 0%, rgba(10,17,28,0.85) 100%);
     z-index: 1;
 }
+
+/* Inner text container for editorial content */
 .editorial-container {
     position: relative;
     z-index: 2;
@@ -383,6 +456,8 @@ nav a:hover { color: #555555; }
     max-width: 600px;
     padding: 0 1rem;
 }
+
+/* Editorial header typography */
 .editorial-section h2, .editorial-section h3 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 4rem;
@@ -393,6 +468,8 @@ nav a:hover { color: #555555; }
     margin-bottom: 1.2rem;
     line-height: 1.1;
 }
+
+/* Editorial paragraph styling */
 .editorial-section p {
     color: var(--muted-white);
     font-family: 'Lato', sans-serif;
@@ -401,6 +478,7 @@ nav a:hover { color: #555555; }
     margin: 0 auto 2rem auto;
 }
 
+/* Primary editorial call-to-action button */
 .btn-editorial {
     display: inline-block;
     padding: 1.2rem 2.2rem;
@@ -423,6 +501,7 @@ nav a:hover { color: #555555; }
     border-color: rgba(255, 255, 255, 0.4);
 }
 
+/* Layout container for multiple ordering platform choices */
 .order-platforms-grid {
     display: flex;
     flex-direction: column;
@@ -430,6 +509,8 @@ nav a:hover { color: #555555; }
     max-width: 320px;
     margin: 0 auto;
 }
+
+/* Styling for individual platform option buttons */
 .btn-platform {
     display: block;
     padding: 1rem 2rem;
@@ -451,9 +532,16 @@ nav a:hover { color: #555555; }
     border-color: var(--subtle-gold);
 }
 
+
+/* ==========================================
+   6. UTILITY, SECTIONS & TICKERS
+   ========================================== */
+
+/* Main page layout containers and section padding paddings */
 .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
 section.standard-padding { padding: 6rem 0; }
 
+/* Global section header title text formatting */
 .section-title { 
     font-family: 'Cormorant Garamond', serif; 
     font-size: 3.5rem; 
@@ -465,6 +553,7 @@ section.standard-padding { padding: 6rem 0; }
     text-transform: uppercase;
 }
 
+/* Animated scrolling text ticker bar */
 .scrolling-ticker { 
     background: var(--velvet-blue-surface); 
     color: var(--pure-white); 
@@ -482,6 +571,12 @@ section.standard-padding { padding: 6rem 0; }
 .ticker-content span { margin-right: 4rem; font-family: 'Montserrat', sans-serif; font-weight: 600; }
 @keyframes marquee { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
 
+
+/* ==========================================
+   7. CAROUSEL COMPONENT
+   ========================================== */
+
+/* Outer viewing container window for the interactive image carousel */
 .carousel-container {
   position: relative !important;
   width: 100% !important;
@@ -493,6 +588,8 @@ section.standard-padding { padding: 6rem 0; }
   touch-action: pan-y; 
   user-select: none;
 }
+
+/* Sliding track element holding all image slides horizontally */
 .carousel-track {
   display: flex !important;    
   flex-direction: row !important;
@@ -500,8 +597,12 @@ section.standard-padding { padding: 6rem 0; }
   height: 100% !important;
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important; 
 }
+
+/* Individual slide item settings */
 .carousel-slide { min-width: 100% !important; width: 100% !important; height: 100% !important; flex-shrink: 0 !important; }
 .carousel-slide img { width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; }
+
+/* Left/Right navigation arrow buttons for carousel */
 .carousel-btn {
   position: absolute !important;
   top: 50% !important;
@@ -517,12 +618,21 @@ section.standard-padding { padding: 6rem 0; }
 .carousel-btn:hover { background-color: var(--pure-white) !important; color: var(--velvet-blue) !important; }
 .prev-btn { left: 15px !important; }
 .next-btn { right: 15px !important; }
+
+/* Pagination dots indicator wrapper */
 .carousel-dots { position: absolute !important; bottom: 15px !important; left: 50% !important; transform: translateX(-50%) !important; display: flex !important; gap: 8px !important; z-index: 10 !important; }
 .dot { width: 6px !important; height: 6px !important; background-color: rgba(255, 255, 255, 0.3) !important; border-radius: 50% !important; cursor: pointer !important; transition: all 0.3s ease; }
 .dot.active { background-color: var(--pure-white) !important; transform: scale(1.3) !important; }
+
+/* Text caption descriptor bar located below the carousel */
 .carousel-caption-bar { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--pure-white); letter-spacing: 2px; text-transform: uppercase; margin: 0 auto 2.5rem auto; min-height: 1.5rem; transition: opacity 0.2s ease; }
 
-/* STICKY MOBILE FOOTER (3-Way Split: Order | Call | Map) */
+
+/* ==========================================
+   8. STICKY MOBILE FOOTER & POPUP DRAWER
+   ========================================== */
+
+/* Fixed bottom mobile footer bar split into 3 actionable buttons */
 .sticky-mobile-footer {
     position: fixed;
     bottom: 0; left: 0; right: 0;
@@ -536,6 +646,7 @@ section.standard-padding { padding: 6rem 0; }
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Individual split buttons inside the sticky mobile footer */
 .sticky-action-btn-split {
     display: flex !important;
     align-items: center !important;
@@ -569,6 +680,7 @@ section.standard-padding { padding: 6rem 0; }
     background-color: rgba(255, 255, 255, 0.08);
 }
 
+/* Container wrapper for about section text blocks */
 .about-text-wrapper {
     max-width: 750px; 
     margin: 0 auto; 
@@ -578,6 +690,11 @@ section.standard-padding { padding: 6rem 0; }
     color: var(--muted-white);
 }
 
+
+/* ==========================================
+   9. RESPONSIVE MEDIA QUERIES
+   ========================================== */
+
 /* Tablet Specific Adjustments (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     .header-content { padding: 0 1rem; }
@@ -585,7 +702,7 @@ section.standard-padding { padding: 6rem 0; }
     nav a { font-size: 0.75rem; letter-spacing: 1px; } 
 }
 
-/* Mobile/Small Tablet Breakpoint */
+/* Mobile/Small Tablet Breakpoint (768px and down) */
 @media (max-width: 768px) {
   .carousel-container { height: 340px !important; }
   .hamburger { display: flex; }
@@ -625,14 +742,19 @@ section.standard-padding { padding: 6rem 0; }
   }
 }
 
-/* Responsive Map sizing */
+/* Responsive Map sizing adjustments for mobile screens */
 @media (max-width: 768px) {
     .location-map {
         height: 250px !important; 
     }
 }
 
-/* Centered Section Widget Wrapper Fix */
+
+/* ==========================================
+   10. WIDGETS & SECTIONS WRAPPERS
+   ========================================== */
+
+/* Centered section widget wrapper block styling */
 .reservation-section-wrap {
     width: 100%;
     max-width: 420px;
