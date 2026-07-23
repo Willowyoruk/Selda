@@ -740,14 +740,19 @@ section.standard-padding { padding: 6rem 0; }
       line-height: 1.8;
   }
   
+  /* FIXED: Tighter mobile padding to pull carousel closer */
   .hero-canvas-section { 
-      padding: 2.5rem 1rem 0.5rem 1rem !important; 
+      padding: 2rem 1rem 1rem 1rem !important; 
       height: auto !important;
-      max-height: 640px !important;
+      max-height: none !important;
   }
-  .brand-location-tag { margin-bottom: 0.8rem !important; }
+  .brand-title-main {
+      font-size: 3.2rem !important; 
+      margin-bottom: 0.3rem !important;
+  }
+  .brand-location-tag { margin-bottom: 0.6rem !important; }
   .brand-description-paragraph {
-      margin-bottom: 1.0rem !important;
+      margin-bottom: 1.2rem !important;
       line-height: 1.4 !important;
       font-size: 0.95rem !important;
   }
@@ -756,7 +761,7 @@ section.standard-padding { padding: 6rem 0; }
       padding-bottom: 1.5rem !important;
   }
   .btn-editorial {
-      padding: 1.2rem 1.6rem;
+      padding: 0.9rem 1.6rem;
       font-size: 0.8rem;
   }
 }
