@@ -667,7 +667,7 @@ section.standard-padding { padding: 6rem 0; }
     letter-spacing: 0.5px;
     
     color: var(--pure-white) !important; 
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
     white-space: nowrap;
 }
 
@@ -679,6 +679,11 @@ section.standard-padding { padding: 6rem 0; }
 
 .sticky-action-btn-split:not(:last-child) {
     border-right: 1px solid rgba(255, 255, 255, 0.1) !important; 
+}
+
+.sticky-action-btn-split:hover {
+    color: var(--pure-white) !important;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .sticky-action-btn-split:active {
@@ -742,7 +747,7 @@ section.standard-padding { padding: 6rem 0; }
   }
   .brand-location-tag { margin-bottom: 0.8rem !important; }
   .brand-description-paragraph {
-      margin-bottom: 1rem !important;
+      margin-bottom: 1.0rem !important;
       line-height: 1.4 !important;
       font-size: 0.95rem !important;
   }
