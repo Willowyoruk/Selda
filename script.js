@@ -142,3 +142,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Sticky Mobile Footer Order Popup Drawer Toggle
+function toggleStickyOrderPopup() {
+    const popup = document.getElementById('sticky-order-popup');
+    if (popup) {
+        popup.style.display = (popup.style.display === 'none' || popup.style.display === '') ? 'block' : 'none';
+    }
+}
