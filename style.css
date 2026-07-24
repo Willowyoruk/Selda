@@ -555,19 +555,23 @@ section.standard-padding { padding: 6rem 0; }
     text-transform: uppercase;
 }
 
-/* Animated scrolling text ticker bar - Made smaller */
+/* Animated scrolling text ticker bar with clean dedicated spacing */
 .scrolling-ticker { 
     background: var(--velvet-blue-surface); 
     color: var(--pure-white); 
     overflow: hidden; 
     white-space: nowrap; 
-    padding: 0.7rem 0; 
+    padding: 0.8rem 0; 
     font-size: 0.75rem; 
     text-transform: uppercase; 
     letter-spacing: 2px; 
     width: 100%; 
+    display: block;
+    visibility: visible;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 1.5rem 0; 
+    z-index: 5;
 }
 .ticker-content { display: inline-block; animation: marquee 25s linear infinite; }
 .ticker-content span { margin-right: 3rem; font-family: 'Montserrat', sans-serif; font-weight: 600; }
@@ -725,8 +729,11 @@ section.standard-padding { padding: 6rem 0; }
       z-index: 9999;
   }
 
-  /* Raised and shrunk carousel height slightly to fit mobile screen better */
-  .carousel-container { height: 280px !important; margin: -1.5rem auto 0.8rem auto !important; }
+  /* Adjusted mobile carousel height and spacing to prevent overlaps with ticker */
+  .carousel-container { 
+      height: 280px !important; 
+      margin: 1rem auto !important; 
+  }
   
   .hamburger { display: flex; }
   nav { display: none; }
@@ -773,8 +780,9 @@ section.standard-padding { padding: 6rem 0; }
   }
 
   .scrolling-ticker {
-      padding: 0.5rem 0;
+      padding: 0.6rem 0;
       font-size: 0.65rem;
+      margin: 1rem 0;
   }
 }
 
