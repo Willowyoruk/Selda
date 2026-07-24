@@ -724,8 +724,8 @@ section.standard-padding { padding: 6rem 0; }
   }
 
   .carousel-container { 
-      height: 340px !important; 
-      margin: -1.5rem auto 1rem auto !important; /* Pulls the carousel up closer to the section above */
+      height: 300px !important; 
+      margin: -2rem auto 1rem auto !important; 
   }
   .hamburger { display: flex; }
   nav { display: none; }
@@ -743,36 +743,40 @@ section.standard-padding { padding: 6rem 0; }
       line-height: 1.8;
   }
   
-  /* Compact mobile banner padding and font sizing */
+  /* Extremely compact mobile banner styling */
   .hero-canvas-section { 
-      padding: 1rem 1rem 0.5rem 1rem !important; /* Reduced top/bottom padding */
+      padding: 0.6rem 0.75rem 0.2rem 0.75rem !important; 
       height: auto !important;
       max-height: none !important;
   }
   .brand-title-main {
-      font-size: 2.6rem !important; /* Reduced from 3.2rem to make banner smaller */
-      margin-bottom: 0.2rem !important;
+      font-size: 2.1rem !important; 
+      margin-bottom: 0.1rem !important;
+      letter-spacing: 3px !important;
   }
   .brand-subtitle-tags {
-      font-size: 0.8rem !important;
-      letter-spacing: 2px !important;
+      font-size: 0.7rem !important;
+      letter-spacing: 1.5px !important;
+      margin-bottom: 0.2rem !important;
   }
   .brand-location-tag { 
-      font-size: 0.75rem !important;
-      margin-bottom: 0.4rem !important; 
+      font-size: 0.65rem !important;
+      margin-bottom: 0.3rem !important; 
+      letter-spacing: 2px !important;
   }
   .brand-description-paragraph {
-      font-size: 0.88rem !important;
-      line-height: 1.4 !important;
-      margin-bottom: 1rem !important;
+      font-size: 0.8rem !important;
+      line-height: 1.3 !important;
+      margin-bottom: 0.6rem !important;
+      padding: 0 !important;
   }
   .widget-sub-label-wrap {
-      margin-top: -15px !important; 
-      padding-bottom: 1rem !important;
+      margin-top: -18px !important; 
+      padding-bottom: 0.5rem !important;
   }
   .btn-editorial {
-      padding: 0.7rem 1.2rem;
-      font-size: 0.75rem;
+      padding: 0.6rem 1rem;
+      font-size: 0.7rem;
   }
 }
 
