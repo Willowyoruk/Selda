@@ -804,3 +804,59 @@ section.standard-padding { padding: 6rem 0; }
     }
 
 }
+/* ==========================================
+   FIX: LIGHTEN HERO/BANNER OVERLAYS & NAV
+   ========================================== */
+
+/* 1. Lighten the hero section background overlay so it isn't too dark */
+.hero-canvas-section::before {
+    background: linear-gradient(180deg, rgba(10,17,28,0.35) 0%, rgba(10,17,28,0.55) 100%) !important;
+}
+
+/* 2. Lighten general editorial section backgrounds/overlays for better clarity */
+.editorial-section::before {
+    background: linear-gradient(180deg, rgba(10,17,28,0.35) 0%, rgba(10,17,28,0.6) 100%) !important;
+}
+
+/* 3. Redesign the desktop top banner / header for a cleaner layout */
+header {
+    background-color: rgba(10, 17, 28, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.8rem 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 40px;
+}
+
+/* Give breathing room and clean spacing to desktop nav items */
+nav { 
+    display: flex; 
+    gap: 2.5rem; 
+    align-items: center; 
+    justify-content: center;
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100%;
+}
+
+nav a, .desktop-dropdown-btn {
+    font-size: 0.8rem;
+    letter-spacing: 2.5px;
+    opacity: 0.9;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover, .desktop-dropdown-btn:hover {
+    opacity: 1;
+    color: var(--subtle-gold);
+}
