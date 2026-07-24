@@ -45,7 +45,7 @@ header {
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centered top navigation bar on desktop */
     align-items: center;
 }
 
@@ -568,9 +568,9 @@ section.standard-padding { padding: 6rem 0; }
     width: 100%; 
     display: block;
     visibility: visible;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    margin: 1.5rem 0; 
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0 auto 2rem auto !important; /* Spacing fix before carousel */
     z-index: 5;
 }
 .ticker-content { display: inline-block; animation: marquee 25s linear infinite; }
@@ -588,7 +588,7 @@ section.standard-padding { padding: 6rem 0; }
   width: 100% !important;
   max-width: 800px !important; 
   height: 500px !important;    
-  margin: 0 auto 1.5rem auto !important; 
+  margin: -0.5rem auto 1.5rem auto !important; /* Moved carousel up closer to the ticker */
   overflow: hidden !important; 
   border: 1px solid rgba(255, 255, 255, 0.1);
   touch-action: pan-y; 
@@ -809,5 +809,34 @@ section.standard-padding { padding: 6rem 0; }
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-sizing: border-box;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+}
+
+/* Direct placement rules for the party note underneath the booking button inside the reservation card */
+.reservation-section-wrap .party-size-note, 
+.reservation-section-wrap p + p,
+.reservation-section-wrap div > div:last-child,
+.reservation-section-wrap + p, 
+.reservation-section-wrap ~ .party-note {
+    color: var(--muted-white);
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.reservation-section-wrap a {
+    color: var(--subtle-gold);
+    text-decoration: underline;
+}
+
+/* "Book a Table" Hero Button Gold Hover State Fix */
+.hero-canvas-container a[href*="reservation"]:hover,
+.hero-canvas-container a.btn-editorial:nth-of-type(2):hover,
+.hero-canvas-container .btn-editorial:hover {
+    background-color: var(--subtle-gold) !important;
+    color: var(--primary-dark) !important;
+    border-color: var(--subtle-gold) !important;
 }
