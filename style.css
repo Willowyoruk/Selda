@@ -700,6 +700,8 @@ section.standard-padding { padding: 6rem 0; }
   }
   .hamburger { display: flex; }
   nav { display: none; }
+  .header-logo-link { display: none !important; }
+  .header-content { justify-content: flex-end; }
   .editorial-section { height: 60vh; min-height: 440px; }
   .editorial-section h2, .editorial-section h3 { font-size: 2.8rem; }
   
@@ -744,6 +746,15 @@ section.standard-padding { padding: 6rem 0; }
   .btn-editorial {
       padding: 0.5rem 0.9rem;
       font-size: 0.65rem;
+  }
+
+  .scrolling-ticker {
+      padding: 0.6rem 0;
+      font-size: 0.6rem;
+      letter-spacing: 1.5px;
+  }
+  .ticker-content span {
+      margin-right: 1.8rem;
   }
 }
 
