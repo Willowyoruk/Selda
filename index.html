@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selda Mediterranean Kitchen & Bar | San Antonio</title>
     <meta name="description" content="Experience authentic Turkish cuisine in San Antonio. Featuring coal-fired Mediterranean dishes, craft cocktails, and curated wines. Walk-ins welcome!">
-      
+
     <!-- Open Graph / Social Media Preview -->
     <meta property="og:title" content="Selda Mediterranean Kitchen & Bar | San Antonio">
     <meta property="og:description" content="Experience authentic Turkish cuisine in San Antonio. Featuring coal-fired Mediterranean dishes, craft cocktails, and curated wines.">
@@ -34,11 +33,7 @@
     "Telda Mediterranean",
     "Nelda Mediterranean",
     "Selda Kitchen",
-    "Selda Bar",
-    "Melda San Antonio",
-    "Yelda San Antonio",
-    "Telda San Antonio",
-    "Nelda San Antonio"
+    "Selda Bar"
   ],
   "url": "https://www.seldarestaurant.com/",
   "logo": "https://www.seldarestaurant.com/assets/favicon.png",
@@ -151,26 +146,22 @@
 </header>
 
 <!-- SECTION: HERO -->
-<div class="hero-canvas-container" style="text-align: center;">
-    <h1 class="brand-title-main">Selda</h1>
-    <h2 class="brand-subtitle-tags">Mediterranean Kitchen & Bar</h2>
-    <div class="brand-location-tag">San Antonio, Texas</div>
-    
-    <p class="brand-description-paragraph">
-        An elevated dining experience rooted in Turkish tradition, featuring coal-fired cuisine, curated wines, handcrafted cocktails, and house-made desserts.
-    </p>
-
-    <!-- Buttons Row -->
-    <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 1.2rem; flex-wrap: wrap;">
-        <a href="menu.html" class="btn-editorial" style="margin: 0;">View Menu</a>
-        <a href="reservation.html" class="btn-editorial" style="margin: 0; background: transparent; color: var(--pure-white); border-color: rgba(255,255,255,0.4);">Book a Table</a>
+<section class="hero-canvas-section" id="booking-hero" style="min-height: 85vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 4rem 1rem;">
+    <div class="hero-canvas-container" style="max-width: 700px; margin: 0 auto;">
+        <span style="display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--subtle-gold); margin-bottom: 1rem; background: rgba(212, 175, 55, 0.1); padding: 6px 16px; border-radius: 50px; border: 1px solid rgba(212, 175, 55, 0.3);">Walk-Ins Always Welcome</span>
+        <h1 class="brand-title-main" style="font-size: 3.5rem; margin-bottom: 0.2rem;">Selda</h1>
+        <p class="brand-subtitle-tags" style="font-size: 1.2rem; margin-bottom: 0.5rem; letter-spacing: 2px;">Mediterranean Kitchen & Bar</p>
+        <p class="brand-location-tag" style="margin-bottom: 1.5rem; font-size: 0.9rem; letter-spacing: 2px;">San Antonio, Texas</p>
+        <p class="brand-description-paragraph" style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 2.5rem; color: var(--muted-white);">An elevated dining experience rooted in Turkish tradition, featuring coal-fired cuisine, curated wines, handcrafted cocktails, and house-made desserts.</p>
+        
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <!-- Direct Menu Link -->
+            <a href="https://seldarestaurant.com/menu" class="btn-editorial" style="background: var(--subtle-gold); color: #000; border-color: var(--subtle-gold); padding: 12px 28px; text-shadow: none; font-weight: 600;">View Menu</a>
+            <!-- Direct OpenTable Link -->
+            <a href="https://www.opentable.com/restref/client/?rid=1380571&restref=1380571&lang=en-US&ot_source=Restaurant%20website" target="_blank" rel="noopener noreferrer" class="btn-editorial" style="background: transparent; color: var(--pure-white); border-color: rgba(255,255,255,0.4); padding: 12px 28px; text-shadow: none;">Book a Table</a>
+        </div>
     </div>
-
-    <!-- Centered Walk-Ins Badge -->
-    <div style="display: inline-block; border: 1px solid rgba(212, 175, 55, 0.5); padding: 6px 16px; font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--subtle-gold); border-radius: 2px; margin: 0 auto;">
-        Walk-Ins Always Welcome
-    </div>
-</div>
+</section>
 
 <!-- SECTION: TICKER -->
 <div class="scrolling-ticker">
@@ -372,42 +363,17 @@
     </div>
 </footer>
 
-<!-- SECTION: STICKY FOOTER (MOBILE ONLY) -->
-<div class="sticky-mobile-footer-container">
-    
-    <!-- Popup Drawer -->
-    <div id="sticky-order-popup" class="sticky-order-popup-drawer">
-        <div class="sticky-popup-inner">
-            <div class="sticky-popup-header">
-                <span class="sticky-popup-title">Select Order Method</span>
-                <button onclick="toggleStickyOrderPopup()" class="sticky-popup-close"><i class="fas fa-times"></i></button>
-            </div>
-            <a href="https://selda.cloveronline.com" target="_blank" rel="noopener noreferrer" class="sticky-popup-main-btn">Order Pickup</a>
-            
-            <div class="sticky-delivery-box">
-                <span class="sticky-delivery-label">Order Delivery Platforms</span>
-                <div class="sticky-delivery-grid">
-                    <a href="https://order.online/store/-30359031/" target="_blank" rel="noopener noreferrer" class="sticky-platform-link">DoorDash</a>
-                    <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" rel="noopener noreferrer" class="sticky-platform-link">Uber Eats</a>
-                    <a href="https://seldasanantonio.dine.online" target="_blank" rel="noopener noreferrer" class="sticky-platform-link">Grubhub</a>
-                    <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" rel="noopener noreferrer" class="sticky-platform-link">Zing</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Sticky Bar Buttons -->
-    <div class="sticky-mobile-footer">
-        <button onclick="toggleStickyOrderPopup()" class="sticky-action-btn-split">
-            <i class="fas fa-shopping-bag"></i> Order
-        </button>
-        <a href="tel:2102365230" class="sticky-action-btn-split">
-            <i class="fas fa-phone"></i> Call
-        </a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Selda+Mediterranean+Kitchen+%26+Bar+San+Antonio+TX" target="_blank" rel="noopener noreferrer" class="sticky-action-btn-split">
-            <i class="fas fa-map-marker-alt"></i> Map
-        </a>
-    </div>
+<!-- SECTION: STICKY FOOTER -->
+<div class="sticky-mobile-footer">
+    <a href="#ordering" class="sticky-action-btn-split">
+        <i class="fas fa-shopping-bag"></i> Order
+    </a>
+    <a href="tel:2102365230" class="sticky-action-btn-split">
+        <i class="fas fa-phone"></i> Call
+    </a>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=Selda+Mediterranean+Kitchen+%26+Bar+San+Antonio+TX" target="_blank" rel="noopener noreferrer" class="sticky-action-btn-split">
+        <i class="fas fa-map-marker-alt"></i> Map
+    </a>
 </div>
 
 <script src="script.js"></script>
