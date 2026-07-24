@@ -736,20 +736,7 @@ section.standard-padding { padding: 6rem 0; }
    10. WIDGETS & SECTIONS WRAPPERS
    ========================================== */
 
-.reservation-section-wrap {
-    width: 100%;
-    max-width: 420px;
-    margin: 0 auto;
-    background: rgba(10, 17, 28, 0.6);
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .reservation-section-wrap .party-size-note, 
 .reservation-section-wrap p + p,
@@ -763,12 +750,57 @@ section.standard-padding { padding: 6rem 0; }
     letter-spacing: 0.5px;
 }
 
-.reservation-section-wrap a { color: var(--subtle-gold); text-decoration: underline; }
+.reservation-section-wrap{
+    width:100%;
+    max-width:460px;
+    margin:2rem auto;
 
-a.btn-editorial:hover,
-.btn-editorial:hover,
-.hero-canvas-container a.btn-editorial:hover {
-    background-color: transparent !important;
-    color: var(--subtle-gold) !important;
-    border-color: var(--subtle-gold) !important;
+    background:rgba(12,18,28,.72);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:16px;
+
+    padding:2rem;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45);
+
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+#reservations::before{
+    background:
+    linear-gradient(
+        rgba(10,17,28,.78),
+        rgba(10,17,28,.82)
+    );
+}
+
+#reservations .section-title{
+    margin-bottom:.8rem;
+}
+
+#reservations p{
+    max-width:520px;
+    margin:0 auto;
+}
+
+@media (max-width:768px){
+
+    #reservations{
+        min-height:auto;
+        padding:5rem 1rem;
+    }
+
+    .reservation-section-wrap{
+        padding:1rem;
+        border-radius:14px;
+    }
+
 }
