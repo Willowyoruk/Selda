@@ -73,11 +73,7 @@
 
 <!-- SECTION: HEADER & NAV -->
 <header id="header">
-    <div class="header-content">
-        <a href="/" style="display: flex; align-items: center; text-decoration: none;">
-            <img src="assets/logo.jpg" alt="Selda Logo" style="height: 65px; width: auto; object-fit: contain;">
-        </a>
-        
+    <div class="header-content" style="justify-content: flex-end;">
         <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         
         <nav>
@@ -150,21 +146,23 @@
 </header>
 
 <!-- SECTION: HERO -->
-<div class="hero-canvas-container" style="text-align: center;">
-    <h1 class="brand-title-main">Selda</h1>
-    <h2 class="brand-subtitle-tags">Mediterranean Kitchen & Bar</h2>
-    <div class="brand-location-tag">San Antonio, Texas</div>
-    
-    <p class="brand-description-paragraph">
-        An elevated dining experience rooted in Turkish tradition, featuring coal-fired cuisine, curated wines, handcrafted cocktails, and house-made desserts. Reservations are recommended for large parties, walk-ins are always welcome.
+<section class="hero-canvas-section">
+    <div class="hero-canvas-container" style="text-align: center;">
+        <h1 class="brand-title-main">Selda</h1>
+        <h2 class="brand-subtitle-tags">Mediterranean Kitchen & Bar</h2>
+        <div class="brand-location-tag">San Antonio, Texas</div>
+        
+        <p class="brand-description-paragraph">
+            An elevated dining experience rooted in Turkish tradition, featuring coal-fired cuisine, curated wines, handcrafted cocktails, and house-made desserts. Reservations are recommended for large parties, walk-ins are always welcome.
+        </p>
 
-    </p>
-
-    <!-- Buttons Row -->
-    <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 1.2rem; flex-wrap: wrap;">
-        <a href="menu.html" class="btn-editorial" style="margin: 0;">View Menu</a>
-        <a href="reservation.html" class="btn-editorial" style="margin: 0; background: transparent; color: var(--pure-white); border-color: rgba(255,255,255,0.4);">Book a Table</a>
+        <!-- Buttons Row -->
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 0.5rem; flex-wrap: wrap;">
+            <a href="menu.html" class="btn-editorial" style="margin: 0;">View Menu</a>
+            <a href="reservation.html" class="btn-editorial" style="margin: 0; background: transparent; color: var(--pure-white); border-color: rgba(255,255,255,0.4);">Book a Table</a>
+        </div>
     </div>
+</section>
 
 <!-- SECTION: TICKER -->
 <div class="scrolling-ticker">
@@ -175,7 +173,7 @@
 </div>
 
 <!-- SECTION: ABOUT -->
-<section id="about" class="standard-padding">
+<section id="about" class="standard-padding" style="padding-top: 3rem;">
     <div class="container">
         <div class="carousel-container" id="about-carousel">
             <div class="carousel-track">
