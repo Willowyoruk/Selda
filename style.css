@@ -609,68 +609,123 @@ section.standard-padding { padding: 6rem 0; }
    8. STICKY MOBILE FOOTER & POPUP DRAWER
    ========================================== */
 
-.sticky-mobile-footer-container {
+/* ==========================================
+   STICKY ORDER POPUP DRAWER FIX
+   ========================================== */
+
+.sticky-order-popup-drawer {
     display: none;
+    position: fixed;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    background-color: var(--velvet-blue-surface);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    z-index: 10000;
+    box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.5);
+    animation: slideUpPopup 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.sticky-mobile-footer {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    height: 60px;
-    background-color: var(--velvet-blue-surface);
-    display: none;
+@keyframes slideUpPopup {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.sticky-popup-inner {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sticky-popup-header {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 9999;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.8rem;
 }
 
-.sticky-action-btn-split {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    flex: 1 1 0% !important;
-    height: 100% !important;
-    text-decoration: none !important;    
-    
+.sticky-popup-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    
-    color: var(--pure-white) !important; 
-    transition: background-color 0.2s ease, color 0.2s ease;
-    white-space: nowrap;
+    letter-spacing: 1px;
+    color: var(--pure-white);
 }
 
-.sticky-action-btn-split i {
-    color: var(--subtle-gold) !important;
-    margin-right: 4px;
-    font-size: 0.8rem;
-}
-
-.sticky-action-btn-split:not(:last-child) {
-    border-right: 1px solid rgba(255, 255, 255, 0.1) !important; 
-}
-
-.sticky-action-btn-split:hover {
-    color: var(--pure-white) !important;
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-.sticky-action-btn-split:active {
-    background-color: rgba(255, 255, 255, 0.08);
-}
-
-.about-text-wrapper {
-    max-width: 750px; 
-    margin: 0 auto; 
-    text-align: center; 
-    font-size: 1.1rem; 
-    line-height: 1.9; 
+.sticky-popup-close {
+    background: none;
+    border: none;
     color: var(--muted-white);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 4px;
+}
+.sticky-popup-close:hover {
+    color: var(--subtle-gold);
+}
+
+.sticky-popup-main-btn {
+    display: block;
+    width: 100%;
+    padding: 0.9rem;
+    background-color: var(--subtle-gold);
+    color: var(--primary-dark);
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 2px;
+}
+
+.sticky-delivery-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 0.2rem;
+}
+
+.sticky-delivery-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted-white);
+}
+
+.sticky-delivery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+}
+
+.sticky-platform-link {
+    display: block;
+    padding: 0.7rem;
+    background-color: transparent;
+    color: var(--pure-white);
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.sticky-platform-link:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--subtle-gold);
+    color: var(--subtle-gold);
 }
 
 
