@@ -864,3 +864,20 @@ section.standard-padding { padding: 6rem 0; }
         color: var(--subtle-gold);
     }
 }
+
+/* ==========================================
+   FIX: RESTORE CLICKABILITY FOR RESERVATION WIDGET
+   ========================================== */
+
+/* Allow click events to pass straight through section background overlays */
+#reservations::before,
+.editorial-section::before {
+    pointer-events: none !important;
+}
+
+/* Ensure the reservation container stays fully interactive */
+.reservation-section-wrap {
+    position: relative;
+    z-index: 5;
+    pointer-events: auto !important;
+}
