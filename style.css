@@ -352,12 +352,12 @@ nav a:hover { color: var(--subtle-gold); }
     z-index: 1;
 }
 
-/* Content wrapper box inside the hero section */
+/* Content wrapper box inside the hero section - Expanded width */
 .hero-canvas-container {
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 580px;
+    max-width: 640px; 
     margin: 0 auto;
 }
 
@@ -395,15 +395,16 @@ nav a:hover { color: var(--subtle-gold); }
     margin-bottom: 1.8rem;
 }
 
-/* Introductory description paragraph block */
+/* Introductory description paragraph block - Larger & Higher Contrast */
 .brand-description-paragraph {
     font-family: 'Lato', sans-serif;
-    font-size: 1.05rem;
+    font-size: 1.15px; 
+    font-size: 1.15rem;
     font-weight: 400;
-    color: var(--muted-white);
-    line-height: 1.6;
-    margin-bottom: 1.8rem;
-    padding: 0 0.5rem;
+    color: var(--pure-white);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
 }
 
 /* Widget frame wrapper */
@@ -767,8 +768,8 @@ section.standard-padding { padding: 6rem 0; }
   .brand-location-tag { margin-bottom: 0.4rem !important; font-size: 0.75rem !important; }
   .brand-description-paragraph {
       margin-bottom: 0.8rem !important;
-      line-height: 1.4 !important;
-      font-size: 0.9rem !important;
+      line-height: 1.5 !important;
+      font-size: 1.05rem !important;
   }
   .widget-sub-label-wrap {
       margin-top: -15px !important; 
