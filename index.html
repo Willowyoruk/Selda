@@ -24,26 +24,26 @@
 {
   "@context": "https://schema.org",
   "@type": "Restaurant",
-  "name": "Selda Mediterranean Kitchen & Bar | San Antonio",
+  "name": "Selda Mediterranean Kitchen & Bar",
   "alternateName": [
     "Selda San Antonio",
+    "Selda Mediterranean",
+    "Salda Mediterranean",
     "Melda Mediterranean",
     "Yelda Mediterranean",
     "Telda Mediterranean",
     "Nelda Mediterranean",
     "Selda Kitchen",
     "Selda Bar",
-    "Melda San Antonio",
-    "Yelda San Antonio",
-    "Telda San Antonio",
-    "Nelda San Antonio"
+    "Selda Turkish Restaurant"
   ],
+  "description": "Authentic Turkish restaurant in San Antonio offering charcoal-grilled kebabs, doner, dolma, mezze, fresh halal options, and catering available for pickup.",
   "url": "https://www.seldarestaurant.com/",
   "logo": "https://www.seldarestaurant.com/assets/favicon.PNG",
   "image": "https://www.seldarestaurant.com/assets/fire.jpg",
   "priceRange": "$$",
-  "servesCuisine": ["Mediterranean", "Turkish"],
-  "telephone": "(210) 236-5230",
+  "servesCuisine": ["Mediterranean", "Turkish", "Halal"],
+  "telephone": "+12102365230",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "9955 I-10 W",
@@ -59,12 +59,36 @@
   },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-    "opens": "11:00",
-    "closes": "23:00"
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "11:00:00",
+    "closes": "23:00:00"
   },
   "acceptsReservations": true,
-  "hasMenu": "https://www.seldarestaurant.com/menu.html"
+  "hasMenu": "https://www.seldarestaurant.com/menu.html",
+  "potentialAction": {
+    "@type": "FoodEstablishmentReservationAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.seldarestaurant.com/",
+      "inLanguage": "en-US",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform"
+      ]
+    },
+    "result": {
+      "@type": "FoodOrder",
+      "name": "Reserve a Table"
+    }
+  }
 }
 </script>
 </head>
