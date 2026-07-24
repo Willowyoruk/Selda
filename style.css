@@ -29,14 +29,14 @@ body {
    2. HEADER & DESKTOP NAVIGATION
    ========================================== */
 
-/* Main top sticky navigation bar */
+/* Main top sticky navigation bar - Updated to velvet blue theme */
 header {
-    background-color: var(--pure-white); 
+    background-color: var(--velvet-blue); 
     padding: 0.6rem 0;
     position: sticky; 
     top: 0;
     z-index: 100; 
-    border-bottom: 1px solid #EAEAEA;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Centers header contents and applies max-width wrapper limits */
@@ -54,7 +54,7 @@ nav { display: flex; gap: 2rem; align-items: center; }
 
 /* Styling for desktop navigation text links */
 nav a { 
-    color: var(--primary-dark); 
+    color: var(--pure-white); 
     text-decoration: none; 
     font-size: 0.85rem; 
     font-weight: 700; 
@@ -62,7 +62,7 @@ nav a {
     letter-spacing: 2px; 
     transition: color 0.3s ease; 
 }
-nav a:hover { color: #555555; }
+nav a:hover { color: var(--subtle-gold); }
 
 /* Wrapper for desktop dropdown elements */
 .desktop-dropdown {
@@ -72,7 +72,7 @@ nav a:hover { color: #555555; }
 
 /* Button element that triggers the desktop dropdown */
 .desktop-dropdown-btn {
-    color: var(--primary-dark);
+    color: var(--pure-white);
     text-decoration: none;
     font-size: 0.85rem;
     font-weight: 700;
@@ -86,7 +86,9 @@ nav a:hover { color: #555555; }
     align-items: center;
     gap: 5px;
     padding: 0;
+    transition: color 0.3s ease;
 }
+.desktop-dropdown-btn:hover { color: var(--subtle-gold); }
 
 /* Dropdown menu container that drops down on hover/click */
 .desktop-dropdown-content {
@@ -98,15 +100,15 @@ nav a:hover { color: #555555; }
     background-color: transparent;
     min-width: 200px;
     z-index: 101;
-    padding-top: 1.2rem; /* Bridges physical gap so mouse doesn't lose hover state */
+    padding-top: 1.2rem;
     flex-direction: column;
 }
 
 /* Inner card wrapper for desktop dropdown links */
 .desktop-dropdown-inner {
-    background-color: var(--pure-white);
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-    border: 1px solid #EAEAEA;
+    background-color: var(--velvet-blue-surface);
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -120,23 +122,23 @@ nav a:hover { color: #555555; }
 
 /* Individual links inside the desktop dropdown */
 .desktop-dropdown-content a {
-    color: var(--primary-dark);
+    color: var(--muted-white);
     padding: 0.8rem 1.2rem;
     text-decoration: none;
     display: block;
     font-size: 0.8rem;
     letter-spacing: 1px;
-    border-bottom: 1px solid #F5F5F5;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     text-align: center;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 .desktop-dropdown-content a:last-child { border-bottom: none; }
 .desktop-dropdown-content a:hover {
-    background-color: #F9F9F9;
+    background-color: rgba(255, 255, 255, 0.05);
     color: var(--subtle-gold);
 }
 
-/* Container for desktop nested submenus (e.g., Delivery options) */
+/* Container for desktop nested submenus */
 .nested-delivery {
     position: relative;
 }
@@ -152,10 +154,10 @@ nav a:hover { color: #555555; }
     position: absolute;
     top: 0;
     left: 100%;
-    background-color: var(--pure-white);
+    background-color: var(--velvet-blue-surface);
     min-width: 190px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-    border: 1px solid #EAEAEA;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 102;
     flex-direction: column;
 }
@@ -164,9 +166,10 @@ nav a:hover { color: #555555; }
     display: flex;
 }
 
-/* Mobile hamburger button styling */
+/* Mobile hamburger button styling - Updated lines to gold */
 .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
-.hamburger span { width: 25px; height: 2px; background-color: var(--primary-dark); }
+.hamburger span { width: 25px; height: 2px; background-color: var(--subtle-gold); transition: background-color 0.3s ease; }
+.hamburger:hover span { background-color: var(--pure-white); }
 
 
 /* ==========================================
@@ -177,18 +180,18 @@ nav a:hover { color: #555555; }
 .mobile-menu {
     display: none; 
     position: fixed;
-    top: 70px;
-    right: -60%;
-    background-color: rgba(255, 255, 255, 0.98); 
-    width: 60%;
-    height: calc(100vh - 70px);
+    top: 65px;
+    right: -70%;
+    background-color: rgba(17, 27, 41, 0.98);
+    width: 70%;
+    height: calc(100vh - 65px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch; 
     flex-direction: column;
     padding: 2.5rem 1.5rem;
     gap: 1.5rem;
-    border-left: 1px solid #EAEAEA;
-    box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.15); 
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.5); 
     z-index: 1000;
     transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
     opacity: 0;
@@ -203,7 +206,7 @@ nav a:hover { color: #555555; }
     pointer-events: auto;
 }
 
-/* Makes menu translucent on scroll for better visibility of content behind it */
+/* Makes menu translucent on scroll */
 .mobile-menu.translucent {
     opacity: 0.35 !important;
 }
@@ -212,13 +215,13 @@ nav a:hover { color: #555555; }
     opacity: 1 !important;
 }
 
-.mobile-menu a { color: var(--primary-dark); text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.mobile-menu a { color: var(--pure-white); text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
 /* Buttons inside the mobile menu drawer that expand dropdown panels */
 .mobile-dropdown-btn {
     background: none;
     border: none;
-    color: var(--primary-dark);
+    color: var(--pure-white);
     font-weight: 700;
     font-size: 1rem;
     text-align: left;
@@ -232,7 +235,7 @@ nav a:hover { color: #555555; }
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-.mobile-dropdown-btn i { transition: transform 0.3s ease; }
+.mobile-dropdown-btn i { transition: transform 0.3s ease; color: var(--subtle-gold); }
 .mobile-dropdown-btn.active i { transform: rotate(180deg); }
 
 /* Dropdown content section inside the mobile drawer */
@@ -245,7 +248,7 @@ nav a:hover { color: #555555; }
     border-left: none;
 }
 .mobile-dropdown-content.open { display: flex; }
-.mobile-dropdown-content a { font-size: 0.95rem; font-weight: 600; color: #555555; }
+.mobile-dropdown-content a { font-size: 0.95rem; font-weight: 600; color: var(--muted-white); }
 
 /* Wrapper for nested delivery layout inside mobile menu */
 .mobile-nested-wrapper {
@@ -257,9 +260,9 @@ nav a:hover { color: #555555; }
     width: 100%;
     background: none;
     border: none;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    color: var(--primary-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--pure-white);
     padding: 12px 15px;
     text-align: left;
     font-family: 'Lato', sans-serif;
@@ -281,7 +284,7 @@ nav a:hover { color: #555555; }
 .mobile-nested-content {
     display: none !important;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.03);
+    background: rgba(0, 0, 0, 0.2);
     padding-left: 10px;
 }
 .mobile-nested-content.open {
@@ -290,13 +293,13 @@ nav a:hover { color: #555555; }
 .mobile-nested-content a {
     font-size: 0.85rem !important;
     padding: 10px 15px !important;
-    color: #555555 !important;
+    color: var(--muted-white) !important;
     font-weight: 600 !important;
 }
 
 /* Direct link for pickup option in mobile drawer */
 .mobile-pickup-link {
-    color: var(--primary-dark) !important;
+    color: var(--pure-white) !important;
     font-weight: 700 !important;
     padding: 10px 15px;
     display: block;
@@ -315,11 +318,11 @@ nav a:hover { color: #555555; }
 }
 .mobile-social-row a {
     font-size: 1.3rem;
-    color: var(--primary-dark);
+    color: var(--pure-white);
     transition: opacity 0.2s ease;
 }
 .mobile-social-row a:hover {
-    opacity: 0.6;
+    color: var(--subtle-gold);
 }
 
 
@@ -327,7 +330,6 @@ nav a:hover { color: #555555; }
    4. HERO CANVAS SECTION
    ========================================== */
 
-/* Main hero banner section layout */
 .hero-canvas-section {
     position: relative;
     background-image: url('assets/fire.jpg');
@@ -341,7 +343,6 @@ nav a:hover { color: #555555; }
     align-items: center;
 }
 
-/* Dark gradient overlay on top of the hero background image */
 .hero-canvas-section::before {
     content: '';
     position: absolute;
@@ -350,7 +351,6 @@ nav a:hover { color: #555555; }
     z-index: 1;
 }
 
-/* Content wrapper box inside the hero section */
 .hero-canvas-container {
     position: relative;
     z-index: 2;
@@ -359,7 +359,6 @@ nav a:hover { color: #555555; }
     margin: 0 auto;
 }
 
-/* Main brand header text styling */
 .brand-title-main {
     font-family: 'Cormorant Garamond', serif;
     font-size: 4.2rem;
@@ -371,7 +370,6 @@ nav a:hover { color: #555555; }
     margin-bottom: 0.6rem;
 }
 
-/* Subtitle tags configuration */
 .brand-subtitle-tags {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.95rem;
@@ -382,7 +380,6 @@ nav a:hover { color: #555555; }
     margin-bottom: 0.5rem;
 }
 
-/* Location tag label accent text */
 .brand-location-tag {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.85rem;
@@ -393,7 +390,6 @@ nav a:hover { color: #555555; }
     margin-bottom: 1.8rem;
 }
 
-/* Introductory description paragraph block */
 .brand-description-paragraph {
     font-family: 'Lato', sans-serif;
     font-size: 1.05rem;
@@ -404,7 +400,6 @@ nav a:hover { color: #555555; }
     padding: 0 0.5rem;
 }
 
-/* Widget frame wrapper */
 .clean-widget-wrap {
     width: 100%;
     margin: 0 auto;
@@ -412,7 +407,6 @@ nav a:hover { color: #555555; }
     overflow: hidden;
 }
 
-/* Positioning wrapper for widget labels */
 .widget-sub-label-wrap {
     margin-top: -12px !important; 
     position: relative;
@@ -424,7 +418,6 @@ nav a:hover { color: #555555; }
    5. EDITORIAL SECTIONS & BUTTONS
    ========================================== */
 
-/* Full-width editorial background strip sections */
 .editorial-section {
     position: relative;
     height: 70vh;
@@ -439,7 +432,6 @@ nav a:hover { color: #555555; }
     background-repeat: no-repeat;
 }
 
-/* Gradient filter overlay for editorial sections */
 .editorial-section::before {
     content: '';
     position: absolute;
@@ -448,7 +440,6 @@ nav a:hover { color: #555555; }
     z-index: 1;
 }
 
-/* Inner text container for editorial content */
 .editorial-container {
     position: relative;
     z-index: 2;
@@ -457,7 +448,6 @@ nav a:hover { color: #555555; }
     padding: 0 1rem;
 }
 
-/* Editorial header typography */
 .editorial-section h2, .editorial-section h3 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 4rem;
@@ -469,7 +459,6 @@ nav a:hover { color: #555555; }
     line-height: 1.1;
 }
 
-/* Editorial paragraph styling */
 .editorial-section p {
     color: var(--muted-white);
     font-family: 'Lato', sans-serif;
@@ -478,7 +467,6 @@ nav a:hover { color: #555555; }
     margin: 0 auto 2rem auto;
 }
 
-/* Primary editorial call-to-action button */
 .btn-editorial {
     display: inline-block;
     padding: 1.2rem 2.2rem;
@@ -501,7 +489,6 @@ nav a:hover { color: #555555; }
     border-color: rgba(255, 255, 255, 0.4);
 }
 
-/* Layout container for multiple ordering platform choices */
 .order-platforms-grid {
     display: flex;
     flex-direction: column;
@@ -510,7 +497,6 @@ nav a:hover { color: #555555; }
     margin: 0 auto;
 }
 
-/* Styling for individual platform option buttons */
 .btn-platform {
     display: block;
     padding: 1rem 2rem;
@@ -537,11 +523,9 @@ nav a:hover { color: #555555; }
    6. UTILITY, SECTIONS & TICKERS
    ========================================== */
 
-/* Main page layout containers and section padding paddings */
 .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
 section.standard-padding { padding: 6rem 0; }
 
-/* Global section header title text formatting */
 .section-title { 
     font-family: 'Cormorant Garamond', serif; 
     font-size: 3.5rem; 
@@ -553,7 +537,6 @@ section.standard-padding { padding: 6rem 0; }
     text-transform: uppercase;
 }
 
-/* Animated scrolling text ticker bar */
 .scrolling-ticker { 
     background: var(--velvet-blue-surface); 
     color: var(--pure-white); 
@@ -576,7 +559,6 @@ section.standard-padding { padding: 6rem 0; }
    7. CAROUSEL COMPONENT
    ========================================== */
 
-/* Outer viewing container window for the interactive image carousel */
 .carousel-container {
   position: relative !important;
   width: 100% !important;
@@ -589,7 +571,6 @@ section.standard-padding { padding: 6rem 0; }
   user-select: none;
 }
 
-/* Sliding track element holding all image slides horizontally */
 .carousel-track {
   display: flex !important;    
   flex-direction: row !important;
@@ -598,11 +579,9 @@ section.standard-padding { padding: 6rem 0; }
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important; 
 }
 
-/* Individual slide item settings */
 .carousel-slide { min-width: 100% !important; width: 100% !important; height: 100% !important; flex-shrink: 0 !important; }
 .carousel-slide img { width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; }
 
-/* Left/Right navigation arrow buttons for carousel */
 .carousel-btn {
   position: absolute !important;
   top: 50% !important;
@@ -619,12 +598,10 @@ section.standard-padding { padding: 6rem 0; }
 .prev-btn { left: 15px !important; }
 .next-btn { right: 15px !important; }
 
-/* Pagination dots indicator wrapper */
 .carousel-dots { position: absolute !important; bottom: 15px !important; left: 50% !important; transform: translateX(-50%) !important; display: flex !important; gap: 8px !important; z-index: 10 !important; }
 .dot { width: 6px !important; height: 6px !important; background-color: rgba(255, 255, 255, 0.3) !important; border-radius: 50% !important; cursor: pointer !important; transition: all 0.3s ease; }
 .dot.active { background-color: var(--pure-white) !important; transform: scale(1.3) !important; }
 
-/* Text caption descriptor bar located below the carousel */
 .carousel-caption-bar { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--pure-white); letter-spacing: 2px; text-transform: uppercase; margin: 0 auto 2.5rem auto; min-height: 1.5rem; transition: opacity 0.2s ease; }
 
 
@@ -632,12 +609,10 @@ section.standard-padding { padding: 6rem 0; }
    8. STICKY MOBILE FOOTER & POPUP DRAWER
    ========================================== */
 
-/* Hide the sticky footer container completely on desktop screens */
 .sticky-mobile-footer-container {
     display: none;
 }
 
-/* Fixed bottom mobile footer bar split into 3 actionable buttons */
 .sticky-mobile-footer {
     position: fixed;
     bottom: 0; left: 0; right: 0;
@@ -651,7 +626,6 @@ section.standard-padding { padding: 6rem 0; }
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Individual split buttons inside the sticky mobile footer */
 .sticky-action-btn-split {
     display: flex !important;
     align-items: center !important;
@@ -690,7 +664,6 @@ section.standard-padding { padding: 6rem 0; }
     background-color: rgba(255, 255, 255, 0.08);
 }
 
-/* Container wrapper for about section text blocks */
 .about-text-wrapper {
     max-width: 750px; 
     margin: 0 auto; 
@@ -705,14 +678,12 @@ section.standard-padding { padding: 6rem 0; }
    9. RESPONSIVE MEDIA QUERIES
    ========================================== */
 
-/* Tablet Specific Adjustments (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     .header-content { padding: 0 1rem; }
     nav { gap: 1rem; } 
     nav a { font-size: 0.75rem; letter-spacing: 1px; } 
 }
 
-/* Mobile/Small Tablet Breakpoint (768px and down) */
 @media (max-width: 768px) {
   .sticky-mobile-footer-container {
       display: block !important;
@@ -724,8 +695,8 @@ section.standard-padding { padding: 6rem 0; }
   }
 
   .carousel-container { 
-      height: 300px !important; 
-      margin: -2rem auto 1rem auto !important; 
+      height: 260px !important; 
+      margin: -2.5rem auto 0.8rem auto !important; 
   }
   .hamburger { display: flex; }
   nav { display: none; }
@@ -743,44 +714,39 @@ section.standard-padding { padding: 6rem 0; }
       line-height: 1.8;
   }
   
-  /* Extremely compact mobile banner styling */
   .hero-canvas-section { 
-      padding: 0.6rem 0.75rem 0.2rem 0.75rem !important; 
+      padding: 0.3rem 0.5rem 0.1rem 0.5rem !important; 
       height: auto !important;
       max-height: none !important;
   }
   .brand-title-main {
-      font-size: 2.1rem !important; 
-      margin-bottom: 0.1rem !important;
-      letter-spacing: 3px !important;
-  }
-  .brand-subtitle-tags {
-      font-size: 0.7rem !important;
-      letter-spacing: 1.5px !important;
-      margin-bottom: 0.2rem !important;
-  }
-  .brand-location-tag { 
-      font-size: 0.65rem !important;
-      margin-bottom: 0.3rem !important; 
+      font-size: 1.6rem !important; 
+      margin-bottom: 0.05rem !important;
       letter-spacing: 2px !important;
   }
+  .brand-subtitle-tags {
+      font-size: 0.55rem !important;
+      letter-spacing: 1px !important;
+      margin-bottom: 0.1rem !important;
+  }
+  .brand-location-tag { 
+      font-size: 0.55rem !important;
+      margin-bottom: 0.2rem !important; 
+      letter-spacing: 1.5px !important;
+  }
   .brand-description-paragraph {
-      font-size: 0.8rem !important;
-      line-height: 1.3 !important;
-      margin-bottom: 0.6rem !important;
-      padding: 0 !important;
+      display: none !important;
   }
   .widget-sub-label-wrap {
-      margin-top: -18px !important; 
-      padding-bottom: 0.5rem !important;
+      margin-top: -20px !important; 
+      padding-bottom: 0.2rem !important;
   }
   .btn-editorial {
-      padding: 0.6rem 1rem;
-      font-size: 0.7rem;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.65rem;
   }
 }
 
-/* Responsive Map sizing adjustments for mobile screens */
 @media (max-width: 768px) {
     .location-map {
         height: 250px !important; 
@@ -792,7 +758,6 @@ section.standard-padding { padding: 6rem 0; }
    10. WIDGETS & SECTIONS WRAPPERS
    ========================================== */
 
-/* Centered section widget wrapper block styling */
 .reservation-section-wrap {
     width: 100%;
     max-width: 420px;
