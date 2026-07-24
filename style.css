@@ -723,7 +723,10 @@ section.standard-padding { padding: 6rem 0; }
       z-index: 9999;
   }
 
-  .carousel-container { height: 340px !important; }
+  .carousel-container { 
+      height: 340px !important; 
+      margin: -1.5rem auto 1rem auto !important; /* Pulls the carousel up closer to the section above */
+  }
   .hamburger { display: flex; }
   nav { display: none; }
   .editorial-section { height: 60vh; min-height: 440px; }
@@ -740,29 +743,36 @@ section.standard-padding { padding: 6rem 0; }
       line-height: 1.8;
   }
   
-  /* FIXED: Tighter mobile padding to pull carousel closer */
+  /* Compact mobile banner padding and font sizing */
   .hero-canvas-section { 
-      padding: 2rem 1rem 1rem 1rem !important; 
+      padding: 1rem 1rem 0.5rem 1rem !important; /* Reduced top/bottom padding */
       height: auto !important;
       max-height: none !important;
   }
   .brand-title-main {
-      font-size: 3.2rem !important; 
-      margin-bottom: 0.3rem !important;
+      font-size: 2.6rem !important; /* Reduced from 3.2rem to make banner smaller */
+      margin-bottom: 0.2rem !important;
   }
-  .brand-location-tag { margin-bottom: 0.6rem !important; }
+  .brand-subtitle-tags {
+      font-size: 0.8rem !important;
+      letter-spacing: 2px !important;
+  }
+  .brand-location-tag { 
+      font-size: 0.75rem !important;
+      margin-bottom: 0.4rem !important; 
+  }
   .brand-description-paragraph {
-      margin-bottom: 1.2rem !important;
+      font-size: 0.88rem !important;
       line-height: 1.4 !important;
-      font-size: 0.95rem !important;
+      margin-bottom: 1rem !important;
   }
   .widget-sub-label-wrap {
       margin-top: -15px !important; 
-      padding-bottom: 1.5rem !important;
+      padding-bottom: 1rem !important;
   }
   .btn-editorial {
-      padding: 0.9rem 1.6rem;
-      font-size: 0.8rem;
+      padding: 0.7rem 1.2rem;
+      font-size: 0.75rem;
   }
 }
 
