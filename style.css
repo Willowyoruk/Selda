@@ -657,8 +657,11 @@ section.standard-padding { padding: 6rem 0; }
 
 @media (max-width: 768px) {
   .header-content { 
+      display: flex !important;
       justify-content: space-between !important; 
-      width: 100%;
+      align-items: center !important;
+      width: 100% !important;
+      padding: 0 1.5rem !important;
   }
 
   .sticky-mobile-footer-container {
@@ -677,7 +680,8 @@ section.standard-padding { padding: 6rem 0; }
   
   .hamburger { 
       display: flex !important; 
-      margin-left: auto; 
+      margin-left: auto !important;
+      order: 99 !important; 
   }
   nav { display: none; }
   .editorial-section { height: 60vh; min-height: 440px; }
