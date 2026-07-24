@@ -733,8 +733,50 @@ section.standard-padding { padding: 6rem 0; }
 
 
 /* ==========================================
-   10. WIDGETS & SECTIONS WRAPPERS & FIXES
+   10. WIDGETS, RESERVATIONS & TEXT LEGIBILITY
    ========================================== */
+
+#reservations {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Darken the overlay behind the text and widget so white text stands out cleanly */
+#reservations::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10, 17, 28, 0.88) !important;
+    z-index: 1;
+    pointer-events: none !important;
+}
+
+/* Ensure container elements sit above the overlay */
+#reservations .container,
+#reservations .section-title,
+#reservations p,
+.reservation-section-wrap {
+    position: relative;
+    z-index: 2;
+}
+
+#reservations .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--pure-white) !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+    margin-bottom: 0.8rem;
+}
+
+#reservations p {
+    max-width: 520px;
+    margin: 0 auto 1.5rem auto;
+    color: var(--pure-white) !important;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
 
 .reservation-section-wrap .party-size-note, 
 .reservation-section-wrap p + p,
@@ -767,22 +809,6 @@ section.standard-padding { padding: 6rem 0; }
     position: relative;
     z-index: 5;
     pointer-events: auto !important;
-}
-
-/* Darken reservation section overlay for crisp readability of white text */
-#reservations::before {
-    background: rgba(10, 17, 28, 0.85) !important;
-}
-
-#reservations .section-title {
-    margin-bottom: 0.5rem;
-}
-
-#reservations p {
-    max-width: 520px;
-    margin: 0 auto;
-    color: var(--pure-white) !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 @media (max-width: 768px) {
@@ -862,7 +888,6 @@ section.standard-padding { padding: 6rem 0; }
    ========================================== */
 
 /* Allow click events to pass straight through section background overlays */
-#reservations::before,
 .editorial-section::before {
     pointer-events: none !important;
 }
