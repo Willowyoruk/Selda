@@ -329,14 +329,14 @@ nav a:hover { color: var(--subtle-gold); }
    4. HERO CANVAS SECTION
    ========================================== */
 
-/* Main hero banner section layout */
+/* Main hero banner section layout - Expanded height to close the gap to the ticker */
 .hero-canvas-section {
     position: relative;
     background-image: url('assets/fire.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 3rem 1.5rem 1.5rem 1.5rem;
+    padding: 5rem 1.5rem 3rem 1.5rem;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -398,7 +398,6 @@ nav a:hover { color: var(--subtle-gold); }
 /* Introductory description paragraph block - Larger & Higher Contrast */
 .brand-description-paragraph {
     font-family: 'Lato', sans-serif;
-    font-size: 1.15px; 
     font-size: 1.15rem;
     font-weight: 400;
     color: var(--pure-white);
@@ -500,8 +499,8 @@ nav a:hover { color: var(--subtle-gold); }
 }
 .btn-editorial:hover {
     background-color: transparent;
-    color: var(--pure-white);
-    border-color: rgba(255, 255, 255, 0.4);
+    color: var(--subtle-gold);
+    border-color: var(--subtle-gold);
 }
 
 /* Layout container for multiple ordering platform choices */
@@ -754,7 +753,7 @@ section.standard-padding { padding: 6rem 0; }
   
   /* Reduced mobile banner padding to make it smaller */
   .hero-canvas-section { 
-      padding: 1.5rem 1rem 0.8rem 1rem !important; 
+      padding: 2.5rem 1rem 1.8rem 1rem !important; 
       height: auto !important;
       max-height: none !important;
   }
