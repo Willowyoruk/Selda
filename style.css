@@ -438,7 +438,7 @@ nav a:hover { color: var(--subtle-gold); }
 }
 
 .editorial-section p {
-    color: var(--muted-white);
+    color: var(--pure-white);
     font-family: 'Lato', sans-serif;
     font-size: 1.1rem;
     max-width: 480px;
