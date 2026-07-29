@@ -348,17 +348,42 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof drinkData !== 'undefined' && drinksTargetContainer) {
         drinksTargetContainer.innerHTML = ""; // Clear container
 
+        // 1. Render Category Quick-Jump Navigation Bar at the top if defined
+        if (drinkData.quickNav) {
+            const navContainer = document.createElement('div');
+            navContainer.style.cssText = "display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin: 0 auto 2.5rem auto; max-width: 900px; padding: 0 1rem;";
+            
+            drinkData.quickNav.items.forEach(nav => {
+                const navLink = document.createElement('a');
+                navLink.href = nav.anchor;
+                navLink.className = 'btn-editorial';
+                navLink.style.cssText = "font-size: 0.75rem; padding: 0.5rem 1rem; margin: 0; background: transparent; color: var(--subtle-gold); border-color: rgba(255,255,255,0.4); text-decoration: none;";
+                navLink.innerText = nav.name;
+                navContainer.appendChild(navLink);
+            });
+            drinksTargetContainer.appendChild(navContainer);
+        }
+
+        // 2. Loop through each drink category
         for (const [categoryKey, categoryObj] of Object.entries(drinkData)) {
+            if (categoryKey === 'quickNav') continue; // Skip the quickNav metadata object
+
             const sectionBlock = document.createElement('section');
             sectionBlock.className = 'menu-category-section';
             sectionBlock.setAttribute('aria-label', categoryObj.title);
+            
+            // Assign anchor ID so the quick-jump links target smoothly
+            if (categoryObj.anchorId) {
+                sectionBlock.id = categoryObj.anchorId;
+                sectionBlock.style.scrollMarginTop = "100px";
+            }
 
             // Category Title
             const heading = document.createElement('h2');
             heading.innerText = categoryObj.title;
             sectionBlock.appendChild(heading);
 
-            // Optional Subtitle (e.g., "Individually served" for Soft Drinks)
+            // Optional Subtitle
             if (categoryObj.subtitle) {
                 const subHeading = document.createElement('p');
                 subHeading.style.cssText = "text-align: center; font-size: 0.85rem; color: var(--muted-white); margin-top: -1rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px;";
