@@ -898,6 +898,13 @@ section.standard-padding {
       padding: 0 1.5rem !important;
   }
 
+/* Hide sticky mobile footer on desktop screens */
+@media (min-width: 769px) {
+    .sticky-mobile-footer {
+        display: none !important;
+    }
+}
+
   .sticky-mobile-footer-container {
       display: block !important;
       position: fixed;
