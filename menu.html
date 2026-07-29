@@ -110,20 +110,45 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ADA: Skip Link for Keyboard Navigation */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 10px;
+            background: #D4AF37;
+            color: #111111;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: 700;
+            z-index: 1000;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 10px;
+        }
+    </style>
 </head>
 <body class="menu-page">
 
+    <!-- ADA: Skip to Main Content Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <header id="header">
-        <div class="header-content">
+        <!-- Fixed: Wrapped header elements in semantic <nav> landmark, matching about.html -->
+        <nav class="header-content" aria-label="Header Navigation">
             <a href="index.html" class="back-btn">
-                <i class="fas fa-chevron-left" style="margin-right: 8px;"></i> Back to Main Site
+                <i class="fas fa-chevron-left" style="margin-right: 8px;" aria-hidden="true"></i> Back to Main Site
             </a>
-            <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-                <img src="assets/logo.jpg" alt="Selda Logo" style="height: 65px; width: auto; object-fit: contain;">
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none;" aria-label="Selda Home Page">
+                <img src="assets/logo.jpg" alt="Selda Mediterranean Kitchen & Bar Logo" style="height: 65px; width: auto; object-fit: contain;">
             </a>
-        </div>
+        </nav>
     </header>
 
+    <!-- ADA: Semantic Main Landmark Wrap -->
+    <main id="main-content">
     <div class="menu-container">
         <div class="menu-header">
             <h1>SELDA</h1>
@@ -139,10 +164,10 @@
 
         <div class="promo-action-container">
             <div class="gift-notice">
-                <i class="fa-solid fa-gift"></i> Gift Certificates Available
+                <i class="fa-solid fa-gift" aria-hidden="true"></i> Gift Certificates Available
             </div>
             <a href="assets/menu.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn-small">
-                <i class="fa-solid fa-file-pdf" style="margin-right: 5px;"></i> View Printable PDF Menu
+                <i class="fa-solid fa-file-pdf" style="margin-right: 5px;" aria-hidden="true"></i> View Printable PDF Menu
             </a>
         </div>
 
@@ -161,25 +186,26 @@
             </p>
         </div>
     </div>
+    </main>
 
     <!-- Footer Bottom Area -->
     <footer style="max-width: 900px; margin: 4rem auto 0 auto; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 2rem; text-align: center; color: var(--muted-white); letter-spacing: 1px;">
         
         <!-- Social Media Icons -->
         <div style="display: flex; justify-content: center; gap: 32px; font-size: 2rem; margin-bottom: 1rem;">
-            <a href="https://instagram.com/seldasanantonio" target="_blank" rel="noopener noreferrer" style="color: var(--pure-white); transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" rel="noopener noreferrer" style="color: var(--pure-white); transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1"><i class="fab fa-tiktok"></i></a>
-            <a href="https://facebook.com/seldasanantonio" target="_blank" rel="noopener noreferrer" style="color: var(--pure-white); transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com/seldasanantonio" target="_blank" rel="noopener noreferrer" aria-label="Visit Selda San Antonio on Instagram" style="color: var(--pure-white); transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" rel="noopener noreferrer" aria-label="Visit Selda Mediterranean on TikTok" style="color: var(--pure-white); transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+            <a href="https://facebook.com/seldasanantonio" target="_blank" rel="noopener noreferrer" aria-label="Visit Selda San Antonio on Facebook" style="color: var(--pure-white); transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1"><i class="fab fa-facebook" aria-hidden="true"></i></a>
         </div>
 
         <!-- Local Identity -->
         <p style="font-size: 0.95rem; margin-bottom: 2rem; text-transform: uppercase; font-weight: 600; color: var(--pure-white);">Selda | San Antonio</p>
         
-        <!-- Legal Copyright -->
-        <p style="font-size: 0.75rem; opacity: 0.7; margin-bottom: 0.5rem;">&copy; 2026 Selda Mediterranean Kitchen & Bar</p>
+        <!-- Legal Copyright: Fixed - removed low opacity to hit 4.5:1 contrast, matching index.html/about.html -->
+        <p style="font-size: 0.75rem; color: var(--muted-white); margin-bottom: 0.5rem;">&copy; 2026 Selda Mediterranean Kitchen & Bar</p>
         
         <!-- Yörük Credit -->
-        <p style="font-size: 0.75rem; opacity: 0.9; font-family: 'Playfair Display', serif;">
+        <p style="font-size: 0.75rem; color: var(--muted-white); font-family: 'Playfair Display', serif;">
             Built by <a href="https://helloyoruk.com" target="_blank" rel="noopener noreferrer" 
             style="color: var(--pure-white); text-decoration: none; border-bottom: none; transition: 0.3s;" 
             onmouseover="this.style.borderBottom='1px solid var(--pure-white)'" 
@@ -188,15 +214,15 @@
     </footer>
 
     <div class="sticky-mobile-footer">
-        <a href="#" id="mobile-order-trigger" class="sticky-action-btn">Order Online</a>
+        <button type="button" id="mobile-order-trigger" class="sticky-action-btn" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-dropup-menu">Order Online</button>
         <div class="mobile-dropup-content" id="mobile-dropup-menu">
             <!-- Order Pickup Primary Link -->
             <a href="https://selda.cloveronline.com" class="mobile-pickup-link" target="_blank" rel="noopener noreferrer">Order Pickup</a>
             
             <!-- Order Delivery Nested Toggle -->
             <div class="mobile-nested-wrapper">
-                <button class="mobile-nested-btn" id="mobile-footer-delivery-toggle">
-                    Order Delivery <i class="fas fa-chevron-down"></i>
+                <button class="mobile-nested-btn" id="mobile-footer-delivery-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-footer-delivery-dropdown">
+                    Order Delivery <i class="fas fa-chevron-down" aria-hidden="true"></i>
                 </button>
                 <div class="mobile-nested-content" id="mobile-footer-delivery-dropdown">
                     <a href="https://order.online/store/-30359031/" target="_blank" rel="noopener noreferrer">DoorDash</a>
