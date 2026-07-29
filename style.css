@@ -1329,6 +1329,11 @@ section.standard-padding {
             text-transform: uppercase;
             letter-spacing: 2px;
             position: relative;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
         }
         .sticky-action-btn:first-child { border-right: 1px solid var(--subtle-gold); }
 
@@ -1434,5 +1439,4 @@ section.standard-padding {
             }
         }
     
-
 
