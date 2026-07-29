@@ -1094,7 +1094,15 @@ body.menu-page {
     padding-bottom: 90px;
 }
 
-/* Header & Navigation Fixes for Menu Page */
+/* Header & Navigation Fixes for Menu Page (White Header Background) */
+body.menu-page header {
+    background-color: var(--pure-white) !important;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .header-content-menu {
     max-width: 1400px;
     margin: 0 auto;
@@ -1105,16 +1113,8 @@ body.menu-page {
     min-height: 60px;
 }
 
-/* Fixed Header Correction */
-header {
-    background-color: var(--velvet-blue);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.header-content-menu .back-btn {
-    color: var(--pure-white);
+body.menu-page .header-content-menu .back-btn {
+    color: var(--primary-dark) !important;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.75rem;
@@ -1127,9 +1127,9 @@ header {
     transition: color 0.3s ease;
 }
 
-.header-content-menu .back-btn:hover,
-.header-content-menu .back-btn:focus-visible {
-    color: var(--subtle-gold);
+body.menu-page .header-content-menu .back-btn:hover,
+body.menu-page .header-content-menu .back-btn:focus-visible {
+    color: var(--subtle-gold) !important;
 }
 
 .header-content-menu .logo-link img {
@@ -1394,17 +1394,57 @@ header {
     border-bottom: 1px solid var(--pure-white);
 }
 
+/* Updated Sticky Footer Fix */
 .sticky-mobile-footer {
     position: fixed !important;
     bottom: 0 !important;
     left: 0 !important;
+    right: 0 !important;
     width: 100% !important;
+    height: 60px !important;
     z-index: 9999 !important;
     display: flex !important;
-    justify-content: space-around !important;
-    background-color: var(--primary-dark, #111111) !important;
-    border-top: 1px solid rgba(212, 175, 55, 0.3) !important;
-    padding: 10px 0 !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background-color: var(--velvet-blue-surface, #111B29) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3) !important;
+    padding: 0 !important;
+}
+
+.sticky-mobile-footer a,
+.sticky-mobile-footer button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 1 1 0% !important;
+    height: 100% !important;
+    min-height: 44px !important;
+    text-decoration: none !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--pure-white) !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+}
+
+.sticky-mobile-footer a:not(:last-child),
+.sticky-mobile-footer button:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.sticky-mobile-footer a:hover,
+.sticky-mobile-footer a:focus-visible,
+.sticky-mobile-footer button:hover,
+.sticky-mobile-footer button:focus-visible {
+    color: var(--pure-white) !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
 /* Position the dropup box right above the sticky footer */
