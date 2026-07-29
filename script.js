@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoplay();
     }
 
-        // --- DYNAMIC MENU RENDERING (MENU PAGE - ADA COMPLIANT) ---
+    // --- DYNAMIC MENU RENDERING (MENU PAGE - ADA COMPLIANT) ---
     const targetContainer = document.getElementById('live-menu-target');
 
     if (typeof menuData !== 'undefined' && targetContainer) {
@@ -305,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const gridBlock = document.createElement('div');
             gridBlock.className = 'menu-items-grid';
 
-                  items.forEach(item => {
+            items.forEach(item => {
                 const itemElement = document.createElement('div');
                 itemElement.className = 'menu-item';
                 
@@ -341,6 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
             targetContainer.appendChild(sectionBlock);
         }
     }
+
     // --- MOBILE FOOTER DROP-UP MENU ---
     const orderTrigger = document.getElementById('mobile-order-trigger');
     const dropupMenu = document.getElementById('mobile-dropup-menu');
@@ -349,12 +350,12 @@ document.addEventListener('DOMContentLoaded', () => {
         orderTrigger.addEventListener('click', (e) => { 
             e.preventDefault(); 
             e.stopPropagation(); 
-            const isOpen = dropupMenu.classList.toggle('active'); 
+            const isOpen = dropupMenu.classList.toggle('open'); 
             setAriaExpanded(orderTrigger, isOpen);
         });
         document.addEventListener('click', (e) => { 
             if (!dropupMenu.contains(e.target) && e.target !== orderTrigger) {
-                dropupMenu.classList.remove('active'); 
+                dropupMenu.classList.remove('open'); 
                 setAriaExpanded(orderTrigger, false);
             } 
         });
@@ -366,9 +367,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (footerDeliveryToggle && footerDeliveryDropdown) {
         footerDeliveryToggle.addEventListener('click', (e) => {
+            e.preventDefault();
             e.stopPropagation();
             const isOpen = footerDeliveryDropdown.classList.contains('open');
             footerDeliveryDropdown.classList.toggle('open');
+            footerDeliveryToggle.classList.toggle('active');
             setAriaExpanded(footerDeliveryToggle, !isOpen);
             
             const icon = footerDeliveryToggle.querySelector('i');
