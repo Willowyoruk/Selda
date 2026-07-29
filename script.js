@@ -284,11 +284,11 @@ document.addEventListener('DOMContentLoaded', () => {
         targetContainer.innerHTML = ""; // Clear out anything existing to prevent duplication
         
         const sectionTitles = {
-            salads: "Salads",
-            smallBites: "Small Bites & Mezzes",
-            aLittleMore: "Entrées & Grills",
-            fromTheOven: "From The Oven (Pide & Lahmacun)",
-            desserts: "Desserts"
+            salads: "salads",
+            smallBites: "small bites",
+            aLittleMore: "a little more",
+            fromTheOven: "from the oven",
+            desserts: "desserts"
         };
 
         for (const [category, items] of Object.entries(menuData)) {
