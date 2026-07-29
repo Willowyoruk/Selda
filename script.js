@@ -341,6 +341,60 @@ document.addEventListener('DOMContentLoaded', () => {
             targetContainer.appendChild(sectionBlock);
         }
     }
+//drinks//
+// --- DYNAMIC DRINKS RENDERING (DRINKS PAGE - ADA COMPLIANT) ---
+document.addEventListener('DOMContentLoaded', () => {
+    const targetContainer = document.getElementById('live-drinks-target');
+
+    if (typeof drinkData !== 'undefined' && targetContainer) {
+        targetContainer.innerHTML = ""; // Clear container
+
+        for (const [categoryKey, categoryObj] of Object.entries(drinkData)) {
+            const sectionBlock = document.createElement('section');
+            sectionBlock.className = 'menu-category-section';
+            sectionBlock.setAttribute('aria-label', categoryObj.title);
+
+            // Category Title
+            const heading = document.createElement('h2');
+            heading.innerText = categoryObj.title;
+            sectionBlock.appendChild(heading);
+
+            // Optional Subtitle (e.g., "Individually served" for Soft Drinks)
+            if (categoryObj.subtitle) {
+                const subHeading = document.createElement('p');
+                subHeading.style.cssText = "text-align: center; font-size: 0.85rem; color: var(--muted-white); margin-top: -1rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px;";
+                subHeading.innerText = categoryObj.subtitle;
+                sectionBlock.appendChild(subHeading);
+            }
+
+            // Grid Block for Items
+            const gridBlock = document.createElement('div');
+            gridBlock.className = 'menu-items-grid';
+
+            categoryObj.items.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'menu-item';
+                
+                const itemPriceDisplay = item.price.includes('$') ? item.price : `$${item.price}`;
+                
+                itemElement.innerHTML = `
+                    <div class="menu-item-content" style="width: 100%;">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">${item.name}</span>
+                            <span class="menu-item-price">${itemPriceDisplay}</span>
+                        </div>
+                        ${item.description ? `<p class="menu-item-desc">${item.description}</p>` : ''}
+                    </div>
+                `;
+                gridBlock.appendChild(itemElement);
+            });
+
+            sectionBlock.appendChild(gridBlock);
+            targetContainer.appendChild(sectionBlock);
+        }
+    }
+});
+
 
     // --- MOBILE FOOTER DROP-UP MENU ---
     const orderTrigger = document.getElementById('mobile-order-trigger');
@@ -381,6 +435,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+
 
 // --- STICKY FOOTER DRAWER TOGGLE (Global scope for inline onclick handlers) ---
 function toggleStickyOrderPopup() {
