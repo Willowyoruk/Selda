@@ -104,6 +104,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- DESKTOP NESTED DELIVERY SUBMENU: keep aria-expanded in sync ---
+    // The submenu itself opens via CSS (:hover / :focus-within), so this only
+    // updates the ARIA state for screen reader users - it doesn't control visibility.
+    const desktopDeliveryToggle = document.getElementById('desktop-delivery-toggle');
+    const desktopNestedWrap = desktopDeliveryToggle ? desktopDeliveryToggle.closest('.nested-delivery') : null;
+
+    if (desktopDeliveryToggle && desktopNestedWrap) {
+        desktopNestedWrap.addEventListener('mouseenter', () => setAriaExpanded(desktopDeliveryToggle, true));
+        desktopNestedWrap.addEventListener('mouseleave', () => setAriaExpanded(desktopDeliveryToggle, false));
+        desktopNestedWrap.addEventListener('focusin', () => setAriaExpanded(desktopDeliveryToggle, true));
+        desktopNestedWrap.addEventListener('focusout', (e) => {
+            if (!desktopNestedWrap.contains(e.relatedTarget)) {
+                setAriaExpanded(desktopDeliveryToggle, false);
+            }
+        });
+    }
+
     // --- ESCAPE KEY HANDLER (Closes Open Menus/Dropdowns) ---
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
@@ -337,11 +354,13 @@ document.addEventListener('DOMContentLoaded', () => {
         orderTrigger.addEventListener('click', (e) => { 
             e.preventDefault(); 
             e.stopPropagation(); 
-            dropupMenu.classList.toggle('active'); 
+            const isOpen = dropupMenu.classList.toggle('active'); 
+            setAriaExpanded(orderTrigger, isOpen);
         });
         document.addEventListener('click', (e) => { 
             if (!dropupMenu.contains(e.target) && e.target !== orderTrigger) {
                 dropupMenu.classList.remove('active'); 
+                setAriaExpanded(orderTrigger, false);
             } 
         });
     }
@@ -355,6 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
             const isOpen = footerDeliveryDropdown.classList.contains('open');
             footerDeliveryDropdown.classList.toggle('open');
+            setAriaExpanded(footerDeliveryToggle, !isOpen);
             
             const icon = footerDeliveryToggle.querySelector('i');
             if (icon) {
