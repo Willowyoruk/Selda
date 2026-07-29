@@ -277,69 +277,149 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoplay();
     }
 
-    // --- DYNAMIC MENU RENDERING (MENU PAGE - ADA COMPLIANT) ---
+    // --- DYNAMIC MENU RENDERING (MENU PAGE - ACCESSIBLE) ---
     const targetContainer = document.getElementById('live-menu-target');
 
     if (typeof menuData !== 'undefined' && targetContainer) {
-        targetContainer.innerHTML = ""; // Clear out anything existing to prevent duplication
-        
+        targetContainer.innerHTML = "";
+
         const sectionTitles = {
-            salads: "salads",
-            smallBites: "small bites",
-            aLittleMore: "a little more",
-            fromTheOven: "from the oven",
-            desserts: "desserts"
+            salads: "Salads",
+            smallBites: "Small Bites",
+            aLittleMore: "A Little More",
+            fromTheOven: "From the Oven",
+            desserts: "Desserts"
         };
 
-        for (const [category, items] of Object.entries(menuData)) {
+        // Utility: strip any HTML tags (data contains some <br>)
+        function stripHTML(html = "") {
+            const tmp = document.createElement('div');
+            tmp.innerHTML = html;
+            return tmp.textContent || tmp.innerText || "";
+        }
+
+        // Utility: create a short alt text for image if none provided
+        function altForItem(item) {
+            if (item.alt && item.alt.trim()) return item.alt;
+            // Prefer the name without dietary markers in parentheses
+            const nameOnly = item.name ? item.name.replace(/\(.+?\)/g, '').trim() : 'Menu item';
+            const descShort = stripHTML(item.description || '').split('.').shift() || '';
+            return descShort ? `${nameOnly} — ${descShort}` : `${nameOnly}`;
+        }
+
+        Object.entries(menuData).forEach(([category, items]) => {
             const sectionBlock = document.createElement('section');
             sectionBlock.className = 'menu-category-section';
-            
             const sectionTitleText = sectionTitles[category] || category;
             sectionBlock.setAttribute('aria-label', sectionTitleText);
 
             const heading = document.createElement('h2');
-            heading.innerText = sectionTitleText;
+            heading.textContent = sectionTitleText;
             sectionBlock.appendChild(heading);
 
-            const gridBlock = document.createElement('div');
-            gridBlock.className = 'menu-items-grid';
+            // Use a semantic list
+            const list = document.createElement('ul');
+            list.className = 'menu-items-grid';
+            list.setAttribute('role', 'list');
 
-            items.forEach(item => {
-                const itemElement = document.createElement('div');
-                itemElement.className = 'menu-item';
-                
-                const itemPriceDisplay = item.price.includes('$') ? item.price : `$${item.price}`;
-                
-                itemElement.innerHTML = `
-                    ${item.image ? `<div class="menu-item-image-wrap"><img src="${item.image}" alt="" class="menu-item-img"></div>` : ''}
-                    <div class="menu-item-content">
-                        <div class="menu-item-header">
-                            <span class="menu-item-title">${item.name}</span>
-                            <span class="menu-item-price" aria-label="Price: ${itemPriceDisplay}">${itemPriceDisplay}</span>
-                        </div>
-                        <p class="menu-item-desc">${item.description}</p>
-                    </div>
-                `;
-                gridBlock.appendChild(itemElement);
+            items.forEach((item, idx) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'menu-item';
+                listItem.setAttribute('role', 'listitem');
+
+                // Generate stable IDs for labelling / describing
+                const baseId = `${category.replace(/\s+/g,'-')}-item-${idx}`;
+                const titleId = `${baseId}-title`;
+                const descId = `${baseId}-desc`;
+                const priceId = `${baseId}-price`;
+                const imgCaptionId = `${baseId}-imgcap`;
+
+                // Figure + image
+                if (item.image) {
+                    const figure = document.createElement('figure');
+                    figure.className = 'menu-item-image-wrap';
+
+                    const img = document.createElement('img');
+                    img.className = 'menu-item-img';
+                    img.src = item.image;
+                    img.alt = altForItem(item);
+
+                    const figcap = document.createElement('figcaption');
+                    figcap.id = imgCaptionId;
+                    figcap.className = 'sr-only';
+                    // Provide a longer hidden description if available (allergens / notes)
+                    figcap.textContent = stripHTML(item.description || '');
+
+                    figure.appendChild(img);
+                    figure.appendChild(figcap);
+                    listItem.appendChild(figure);
+                }
+
+                // Content wrapper
+                const content = document.createElement('div');
+                content.className = 'menu-item-content';
+
+                // Header: title + price
+                const header = document.createElement('div');
+                header.className = 'menu-item-header';
+
+                const titleSpan = document.createElement('span');
+                titleSpan.className = 'menu-item-title';
+                titleSpan.id = titleId;
+                // Treat name as plain text to avoid injecting HTML
+                titleSpan.textContent = stripHTML(item.name || 'Menu item');
+
+                const priceSpan = document.createElement('span');
+                priceSpan.className = 'menu-item-price';
+                priceSpan.id = priceId;
+                const itemPriceDisplay = (item.price && item.price.includes('$')) ? item.price : (item.price ? `$${item.price}` : '');
+                priceSpan.textContent = itemPriceDisplay;
+                priceSpan.setAttribute('aria-label', `Price: ${itemPriceDisplay}`);
+
+                header.appendChild(titleSpan);
+                header.appendChild(priceSpan);
+                content.appendChild(header);
+
+                // Visible description paragraph
+                if (item.description) {
+                    const p = document.createElement('p');
+                    p.className = 'menu-item-desc';
+                    p.id = descId;
+                    p.textContent = stripHTML(item.description);
+                    content.appendChild(p);
+                }
+
+                // Associate the list item with title/desc/price for screen readers
+                const describedByIds = [];
+                if (item.description) describedByIds.push(descId);
+                if (item.image) describedByIds.push(imgCaptionId);
+                if (itemPriceDisplay) describedByIds.push(priceId);
+                if (describedByIds.length > 0) {
+                    listItem.setAttribute('aria-labelledby', titleId);
+                    listItem.setAttribute('aria-describedby', describedByIds.join(' '));
+                } else {
+                    listItem.setAttribute('aria-labelledby', titleId);
+                }
+
+                listItem.appendChild(content);
+                list.appendChild(listItem);
             });
 
-            sectionBlock.appendChild(gridBlock);
+            sectionBlock.appendChild(list);
 
+            // optional foot divider preserved for 'salads'
             if (category === 'salads') {
                 const footDivider = document.createElement('div');
                 footDivider.style.cssText = "margin-top: 35px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.12); text-align: center; width: 100%;";
                 footDivider.innerHTML = `
-                    <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--pure-white); margin-bottom: 0.5rem; font-weight: 600;">Salad Enhancements</h3>
-                    <p style="font-family: 'Lato', sans-serif; font-size: 0.82rem; color: var(--subtle-gold); letter-spacing: 0.3px; white-space: nowrap; width: 100%; overflow: hidden;">
-                        Chicken (8) &nbsp;•&nbsp; Beef (9) &nbsp;•&nbsp; Salmon (10) &nbsp;•&nbsp; Shrimp (9)
-                    </p>
+                    <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--pure-white); margin-bottom: 0.5rem; font-weight: 700;">Protein Add-Ons</h3>
+                    <p style="font-family: 'Lato', sans-serif; font-size: 0.82rem; color: var(--subtle-gold); letter-spacing: 0.3px;">Chicken (8) • Beef (9) • Salmon (10) • Shrimp (9)</p>
                 `;
                 sectionBlock.appendChild(footDivider);
             }
 
             targetContainer.appendChild(sectionBlock);
-        }
+        });
     }
 
     // --- DYNAMIC DRINKS RENDERING (DRINKS PAGE - ADA COMPLIANT DROPDOWN) ---
@@ -355,8 +435,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const selectDropdown = document.createElement('select');
             selectDropdown.setAttribute('aria-label', 'Drink Menu Categories');
-            selectDropdown.style.cssText = "width: 100%; padding: 0.75rem 1rem; background-color: var(--velvet-blue-surface, #0f172a); color: var(--subtle-gold); border: 1px solid rgba(255,255,255,0.4); border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer;";
-            
+            selectDropdown.style.cssText = "width: 100%; padding: 0.75rem 1rem; background-color: var(--velvet-blue-surface, #0f172a); color: var(--subtle-gold); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px;";
+
             // Default prompt option
             const defaultOption = document.createElement('option');
             defaultOption.value = "";
