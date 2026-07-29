@@ -1,3 +1,7 @@
+/* ==========================================
+   MAIN SITE & MENU SCRIPT
+   ========================================== */
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- HELPER FUNCTION: Sync ARIA Expanded State ---
@@ -257,28 +261,29 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel(0); // Initialize state
         startAutoplay();
     }
-});
-// menu js // 
 
-    // UI rendering logic
-        const sectionTitles = {
-            salads: "salads",
-            smallBites: "small bites...",
-            aLittleMore: "a little more...",
-            fromTheOven: "from the oven",
-            desserts: "desserts"
-        };
+    // --- DYNAMIC MENU RENDERING (MENU PAGE) ---
+    const sectionTitles = {
+        salads: "salads",
+        smallBites: "small bites...",
+        aLittleMore: "a little more...",
+        fromTheOven: "from the oven",
+        desserts: "desserts"
+    };
 
-        const targetContainer = document.getElementById('live-menu-target');
+    const targetContainer = document.getElementById('live-menu-target');
 
+    if (typeof menuData !== 'undefined' && targetContainer) {
         for (const category in menuData) {
             if (menuData.hasOwnProperty(category)) {
                 const sectionBlock = document.createElement('section');
                 sectionBlock.className = 'menu-section';
+
                 const heading = document.createElement('h2');
                 heading.className = 'section-title';
                 heading.innerText = sectionTitles[category] || category;
                 sectionBlock.appendChild(heading);
+
                 const gridBlock = document.createElement('div');
                 gridBlock.className = 'menu-grid';
 
@@ -300,7 +305,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     `;
                     gridBlock.appendChild(itemElement);
                 });
+
                 sectionBlock.appendChild(gridBlock);
+
                 if (category === 'salads') {
                     const footDivider = document.createElement('div');
                     footDivider.style.cssText = "margin-top: 35px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.12); text-align: center; width: 100%;";
@@ -312,47 +319,48 @@ document.addEventListener('DOMContentLoaded', () => {
                     `;
                     sectionBlock.appendChild(footDivider);
                 }
+
                 targetContainer.appendChild(sectionBlock);
             }
         }
+    }
 
-        // Footer Main Drop-Up Toggle
-        const orderTrigger = document.getElementById('mobile-order-trigger');
-        const dropupMenu = document.getElementById('mobile-dropup-menu');
-        
-        if (orderTrigger && dropupMenu) {
-            orderTrigger.addEventListener('click', (e) => { 
-                e.preventDefault(); 
-                e.stopPropagation(); 
-                dropupMenu.classList.toggle('active'); 
-            });
-            document.addEventListener('click', (e) => { 
-                if (!dropupMenu.contains(e.target) && e.target !== orderTrigger) {
-                    dropupMenu.classList.remove('active'); 
-                } 
-            });
-        }
-
-        // Footer Nested Delivery Submenu Toggle
-        const footerDeliveryToggle = document.getElementById('mobile-footer-delivery-toggle');
-        const footerDeliveryDropdown = document.getElementById('mobile-footer-delivery-dropdown');
-
-        if (footerDeliveryToggle && footerDeliveryDropdown) {
-            footerDeliveryToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const isOpen = footerDeliveryDropdown.classList.contains('open');
-                footerDeliveryDropdown.classList.toggle('open');
-                
-                const icon = footerDeliveryToggle.querySelector('i');
-                if (icon) {
-                    icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
-                }
-            });
-        }
+    // --- MOBILE FOOTER DROP-UP MENU ---
+    const orderTrigger = document.getElementById('mobile-order-trigger');
+    const dropupMenu = document.getElementById('mobile-dropup-menu');
     
+    if (orderTrigger && dropupMenu) {
+        orderTrigger.addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            e.stopPropagation(); 
+            dropupMenu.classList.toggle('active'); 
+        });
+        document.addEventListener('click', (e) => { 
+            if (!dropupMenu.contains(e.target) && e.target !== orderTrigger) {
+                dropupMenu.classList.remove('active'); 
+            } 
+        });
+    }
 
+    // --- MOBILE FOOTER NESTED DELIVERY SUBMENU ---
+    const footerDeliveryToggle = document.getElementById('mobile-footer-delivery-toggle');
+    const footerDeliveryDropdown = document.getElementById('mobile-footer-delivery-dropdown');
 
-// --- STICKY FOOTER DRAWER TOGGLE ---
+    if (footerDeliveryToggle && footerDeliveryDropdown) {
+        footerDeliveryToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = footerDeliveryDropdown.classList.contains('open');
+            footerDeliveryDropdown.classList.toggle('open');
+            
+            const icon = footerDeliveryToggle.querySelector('i');
+            if (icon) {
+                icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+            }
+        });
+    }
+});
+
+// --- STICKY FOOTER DRAWER TOGGLE (Global scope for inline onclick handlers) ---
 function toggleStickyOrderPopup() {
     const popup = document.getElementById('sticky-order-popup');
     const button = document.querySelector('[onclick="toggleStickyOrderPopup()"]');
