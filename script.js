@@ -342,26 +342,51 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- DYNAMIC DRINKS RENDERING (DRINKS PAGE - ADA COMPLIANT) ---
+    // --- DYNAMIC DRINKS RENDERING (DRINKS PAGE - ADA COMPLIANT DROPDOWN) ---
     const drinksTargetContainer = document.getElementById('live-drinks-target');
 
     if (typeof drinkData !== 'undefined' && drinksTargetContainer) {
         drinksTargetContainer.innerHTML = ""; // Clear container
 
-        // 1. Render Category Quick-Jump Navigation Bar at the top if defined
+        // 1. Render Category Jump Dropdown at the top (ADA Compliant)
         if (drinkData.quickNav) {
-            const navContainer = document.createElement('div');
-            navContainer.style.cssText = "display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin: 0 auto 2.5rem auto; max-width: 900px; padding: 0 1rem;";
+            const navWrapper = document.createElement('div');
+            navWrapper.style.cssText = "text-align: center; margin: 0 auto 2.5rem auto; max-width: 320px; padding: 0 1rem;";
             
+            const selectDropdown = document.createElement('select');
+            selectDropdown.setAttribute('aria-label', 'Drink Menu Categories');
+            selectDropdown.style.cssText = "width: 100%; padding: 0.75rem 1rem; background-color: var(--velvet-blue-surface, #0f172a); color: var(--subtle-gold); border: 1px solid rgba(255,255,255,0.4); border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer;";
+            
+            // Default prompt option
+            const defaultOption = document.createElement('option');
+            defaultOption.value = "";
+            defaultOption.disabled = true;
+            defaultOption.selected = true;
+            defaultOption.innerText = "— JUMP TO CATEGORY —";
+            selectDropdown.appendChild(defaultOption);
+
             drinkData.quickNav.items.forEach(nav => {
-                const navLink = document.createElement('a');
-                navLink.href = nav.anchor;
-                navLink.className = 'btn-editorial';
-                navLink.style.cssText = "font-size: 0.75rem; padding: 0.5rem 1rem; margin: 0; background: transparent; color: var(--subtle-gold); border-color: rgba(255,255,255,0.4); text-decoration: none;";
-                navLink.innerText = nav.name;
-                navContainer.appendChild(navLink);
+                const option = document.createElement('option');
+                option.value = nav.anchor;
+                option.innerText = nav.name;
+                selectDropdown.appendChild(option);
             });
-            drinksTargetContainer.appendChild(navContainer);
+
+            // Jump behavior on change
+            selectDropdown.addEventListener('change', (e) => {
+                const targetId = e.target.value;
+                if (targetId) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    // Reset dropdown selection back to default prompt after jumping
+                    e.target.value = "";
+                }
+            });
+
+            navWrapper.appendChild(selectDropdown);
+            drinksTargetContainer.appendChild(navWrapper);
         }
 
         // 2. Loop through each drink category
@@ -372,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
             sectionBlock.className = 'menu-category-section';
             sectionBlock.setAttribute('aria-label', categoryObj.title);
             
-            // Assign anchor ID so the quick-jump links target smoothly
+            // Assign anchor ID so the quick-jump dropdown targets smoothly
             if (categoryObj.anchorId) {
                 sectionBlock.id = categoryObj.anchorId;
                 sectionBlock.style.scrollMarginTop = "100px";
