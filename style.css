@@ -1178,6 +1178,7 @@ header {
     text-transform: uppercase;
 }
 
+
 /* Dietary Key & Promos */
 .top-dietary-key {
     display: flex;
@@ -1283,6 +1284,20 @@ header {
     font-size: 0.95rem;
     color: var(--muted-white);
     line-height: 1.6;
+}
+
+.menu-item-image-wrap {
+    width: 100%;
+    max-height: 180px;
+    overflow: hidden;
+    border-radius: 6px 6px 0 0;
+}
+
+.menu-item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* Bottom Legend & Footer */
