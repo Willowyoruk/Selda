@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoplay();
     }
 
-    // --- DYNAMIC MENU RENDERING (MENU PAGE - ACCESSIBLE) ---
+    // --- DYNAMIC MENU RENDERING (MENU PAGE - ACCESSIBLE + FOCUSABLE ITEMS) ---
     const targetContainer = document.getElementById('live-menu-target');
 
     if (typeof menuData !== 'undefined' && targetContainer) {
@@ -326,6 +326,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const listItem = document.createElement('li');
                 listItem.className = 'menu-item';
                 listItem.setAttribute('role', 'listitem');
+
+                // Make the list item keyboard-focusable so Tab lands on it
+                listItem.tabIndex = 0;
+
+                // Optional: let Space/Enter move focus into first interactive child (if present)
+                listItem.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const firstFocusable = listItem.querySelector('button, a, [tabindex]:not([tabindex="-1"])');
+                        if (firstFocusable) firstFocusable.focus();
+                    }
+                });
 
                 // Generate stable IDs for labelling / describing
                 const baseId = `${category.replace(/\s+/g,'-')}-item-${idx}`;
