@@ -230,7 +230,7 @@ nav a:focus-visible {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.5); 
     z-index: 1000;
-    transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+    transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease, background-color 0.3s ease;
     opacity: 0;
     pointer-events: none;
 }
@@ -242,12 +242,11 @@ nav a:focus-visible {
     pointer-events: auto;
 }
 
+/* --- ACCESSIBILITY FIX: Maintain 4.5:1 text contrast on scroll (WCAG 1.4.3) --- */
 .mobile-menu.translucent {
-    opacity: 0.35 !important;
-}
-.mobile-menu.translucent:hover,
-.mobile-menu.translucent:focus-within {
-    opacity: 1 !important;
+    background-color: rgba(17, 27, 41, 0.85) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .mobile-menu a { 
@@ -646,6 +645,13 @@ section.standard-padding {
     font-family: 'Montserrat', sans-serif; 
     font-weight: 600; 
 }
+
+/* --- ACCESSIBILITY FIX: Pause marquee on hover or focus (WCAG 2.2.2) --- */
+.scrolling-ticker:hover .ticker-content,
+.scrolling-ticker:focus-within .ticker-content {
+    animation-play-state: paused;
+}
+
 @keyframes marquee { 
     0% { transform: translate3d(0,0,0); } 
     100% { transform: translate3d(-50%,0,0); } 
@@ -725,7 +731,7 @@ section.standard-padding {
     z-index: 10 !important; 
 }
 
-/* --- ACCESSIBILITY: Expanded Touch Target for Carousel Dots (WCAG 2.2) --- */
+/* --- ACCESSIBILITY: Expanded Touch Target for Carousel Dots (WCAG 2.5.8) --- */
 .dot { 
     width: 10px !important; 
     height: 10px !important; 
@@ -956,7 +962,7 @@ section.standard-padding {
       font-size: 0.75rem;
   }
 
-  /* ACCESSIBILITY: Increased mobile ticker size from 0.65rem to 0.75rem for legibility */
+  /* ACCESSIBILITY: Increased mobile ticker size for legibility */
   .scrolling-ticker {
       padding: 0.6rem 0;
       font-size: 0.75rem;
@@ -1059,7 +1065,7 @@ section.standard-padding {
 
 
 /* ==========================================
-   11. ACCESSIBILITY: REDUCED MOTION PREFERENCES
+   11. ACCESSIBILITY: REDUCED MOTION PREFERENCES (WCAG 2.3.3)
    ========================================== */
 
 @media (prefers-reduced-motion: reduce) {
