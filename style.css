@@ -1252,7 +1252,14 @@ header {
 }
 
 .menu-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
     margin-bottom: 1.8rem;
+}
+
+.menu-item-content {
+    flex-grow: 1;
 }
 
 .menu-item-header {
@@ -1287,10 +1294,12 @@ header {
 }
 
 .menu-item-image-wrap {
-    width: 100%;
-    max-height: 180px;
+    flex-shrink: 0;
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
     overflow: hidden;
-    border-radius: 6px 6px 0 0;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .menu-item-img {
