@@ -20,16 +20,54 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400;600;700&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Accessibility Style Override for Disclaimer Contrast -->
+    <!-- Accessibility Overrides -->
     <style>
+        /* ADA: Keyboard Navigation Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 10px;
+            background: #D4AF37;
+            color: #111111;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: 700;
+            z-index: 1000;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 10px;
+        }
+
+        /* ADA: Visible Focus Rings for Keyboard Users */
+        a:focus-visible, button:focus-visible {
+            outline: 3px solid #D4AF37 !important;
+            outline-offset: 3px !important;
+        }
+
         .allergy-disclaimer {
             font-family: 'Lato', sans-serif;
-            font-size: 0.8rem;
-            color: rgba(186, 196, 209, 0.85) !important; /* WCAG AA Compliant Contrast Ratio */
+            font-size: 0.85rem;
+            color: #BAC4D1 !important; /* WCAG AA Compliant Solid Contrast Color */
             text-align: center;
             max-width: 800px;
             margin: 3rem auto 1rem auto;
             line-height: 1.6;
+        }
+
+        /* Clean styling for nested delivery button trigger */
+        .nested-delivery-btn {
+            background: none;
+            border: none;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
     </style>
 
@@ -62,10 +100,12 @@
 </head>
 <body>
 
+<!-- ADA: Skip to Main Content Link -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <!-- SECTION: HEADER & NAV -->
 <header id="header">
     <div class="header-content">
-        <!-- Accessible Button Replacement for Hamburger Menu -->
         <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
@@ -84,7 +124,10 @@
                     <div class="desktop-dropdown-inner">
                         <a href="https://selda.cloveronline.com" target="_blank" rel="noopener noreferrer">Pickup</a>
                         <div class="nested-delivery">
-                            <a href="#">Delivery <i class="fas fa-chevron-right" aria-hidden="true"></i></a>
+                            <!-- Fixed: Converted fake link into an accessible button -->
+                            <button class="nested-delivery-btn" aria-haspopup="true" aria-expanded="false">
+                                Delivery <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            </button>
                             <div class="nested-content">
                                 <a href="https://order.online/store/-30359031/" target="_blank" rel="noopener noreferrer">DoorDash</a>
                                 <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" rel="noopener noreferrer">Uber Eats</a>
@@ -110,7 +153,6 @@
         <a href="index.html#location-hours">Location & Hours</a>
         <a href="menu.html" class="active" aria-current="page">Menu</a>
         
-        <!-- Order Online Dropdown Wrapper -->
         <div class="mobile-dropdown-wrapper">
             <button class="mobile-dropdown-btn" id="mobile-platforms-toggle" aria-haspopup="true" aria-expanded="false">
                 Order Online <i class="fas fa-chevron-down" aria-hidden="true"></i>
@@ -139,125 +181,130 @@
     </div>
 </header>
 
-<!-- SECTION: MENU HERO -->
-<section class="hero-canvas-section" style="min-height: 320px; padding-top: 7rem; padding-bottom: 3rem;">
-    <div class="hero-canvas-container" style="text-align: center;">
-        <h1 class="brand-title-main" style="font-size: 3rem;">San Antonio Menu</h1>
-        <h2 class="brand-subtitle-tags">Authentic Turkish & Mediterranean Cuisine</h2>
-        <div class="brand-location-tag">All Meats Are 100% Halal</div>
+<!-- ADA: Semantic Main Landmark Enclosing All Unique Page Content -->
+<main id="main-content">
+
+    <!-- SECTION: MENU HERO -->
+    <section class="hero-canvas-section" style="min-height: 320px; padding-top: 7rem; padding-bottom: 3rem;">
+        <div class="hero-canvas-container" style="text-align: center;">
+            <h1 class="brand-title-main" style="font-size: 3rem;">San Antonio Menu</h1>
+            <p class="brand-subtitle-tags" style="font-size: 1.2rem; font-weight: 600;">Authentic Turkish & Mediterranean Cuisine</p>
+            <div class="brand-location-tag">All Meats Are 100% Halal</div>
+            
+            <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="assets/beverages.pdf" target="_blank" rel="noopener noreferrer" class="btn-editorial" style="font-size: 0.75rem; padding: 0.6rem 1.2rem;">Beverages PDF</a>
+                <a href="assets/lunch.pdf" target="_blank" rel="noopener noreferrer" class="btn-editorial" style="font-size: 0.75rem; padding: 0.6rem 1.2rem; background: transparent; color: var(--subtle-gold); border-color: rgba(255,255,255,0.4);">Lunch Special PDF</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: MENU CONTENT -->
+    <div class="container" style="max-width: 1000px; padding: 3rem 1.5rem;">
         
-        <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="assets/beverages.pdf" target="_blank" rel="noopener noreferrer" class="btn-editorial" style="font-size: 0.75rem; padding: 0.6rem 1.2rem;">Beverages PDF</a>
-            <a href="assets/lunch.pdf" target="_blank" rel="noopener noreferrer" class="btn-editorial" style="font-size: 0.75rem; padding: 0.6rem 1.2rem; background: transparent; color: var(--subtle-gold); border-color: rgba(255,255,255,0.4);">Lunch Special PDF</a>
+        <!-- MEZZE SECTION -->
+        <section class="menu-category" style="margin-bottom: 4rem;">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">Starters & Mezze</h2>
+            
+            <div class="menu-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <article class="menu-item">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
+                        <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Hummus</h3>
+                    </div>
+                    <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Creamy chickpeas, tahini, garlic, olive oil, and fresh lemon juice served with warm pita.</p>
+                </article>
+
+                <article class="menu-item">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
+                        <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Babaganoush</h3>
+                    </div>
+                    <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Smoked eggplant blended with tahini, garlic, olive oil, and herbs.</p>
+                </article>
+
+                <article class="menu-item">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
+                        <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Seared Halloumi</h3>
+                    </div>
+                    <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Pan-seared Cyprus halloumi cheese with fresh herbs and olive oil glaze.</p>
+                </article>
+
+                <article class="menu-item">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
+                        <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Lahmacun</h3>
+                    </div>
+                    <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Crispy thin Turkish flatbread topped with minced spiced lamb, beef, peppers, and onions.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ENTREES SECTION -->
+        <section class="menu-category" style="margin-bottom: 4rem;">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">Coal-Fired Specialties</h2>
+            
+            <div class="menu-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <article class="menu-item">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
+                        <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Mixed Grill</h3>
+                    </div>
+                    <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Combination of Chicken Adana, Lamb Shish, Chicken Shish, and Doner kebab served with rice pilaf.</p>
+                </article>
+
+                <article class="menu-item">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
+                        <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Sizzling Lamb Chops</h3>
+                    </div>
+                    <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Charcoal-grilled tender lamb chops marinated in Mediterranean spices, served with grilled vegetables.</p>
+                </article>
+
+                <article class="menu-item">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
+                        <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Chicken Adana Kebab</h3>
+                    </div>
+                    <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Hand-minced seasoned chicken skewer grilled over charcoal embers.</p>
+                </article>
+
+                <article class="menu-item">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
+                        <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Mediterranean Branzino</h3>
+                    </div>
+                    <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Whole grilled sea bass served with house side salad and lemon-herb vinaigrette.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- DESSERTS SECTION -->
+        <section class="menu-category" style="margin-bottom: 2rem;">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">Desserts</h2>
+            
+            <div class="menu-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <article class="menu-item">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
+                        <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Traditional Künefe</h3>
+                    </div>
+                    <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Warm shredded kadayif pastry with unsalted melting cheese, soaked in sweet syrup and topped with crushed pistachios.</p>
+                </article>
+
+                <article class="menu-item">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
+                        <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Pistachio Baklava</h3>
+                    </div>
+                    <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Layers of crisp phyllo dough filled with finely ground Antep pistachios and light honey syrup.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ACCESSIBLE ALLERGY DISCLAIMER -->
+        <div class="allergy-disclaimer">
+            * Consumer Advisory: Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness. Please inform your server of any food allergies or dietary restrictions prior to ordering.
         </div>
     </div>
-</section>
 
-<!-- SECTION: MENU CONTENT -->
-<main class="container" style="max-width: 1000px; padding: 3rem 1.5rem;">
-    
-    <!-- MEZZE SECTION -->
-    <section class="menu-category" style="margin-bottom: 4rem;">
-        <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">Starters & Mezze</h2>
-        
-        <div class="menu-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-            <article class="menu-item">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
-                    <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Hummus</h3>
-                </div>
-                <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Creamy chickpeas, tahini, garlic, olive oil, and fresh lemon juice served with warm pita.</p>
-            </article>
-
-            <article class="menu-item">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
-                    <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Babaganoush</h3>
-                </div>
-                <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Smoked eggplant blended with tahini, garlic, olive oil, and herbs.</p>
-            </article>
-
-            <article class="menu-item">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
-                    <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Seared Halloumi</h3>
-                </div>
-                <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Pan-seared Cyprus halloumi cheese with fresh herbs and olive oil glaze.</p>
-            </article>
-
-            <article class="menu-item">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
-                    <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Lahmacun</h3>
-                </div>
-                <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Crispy thin Turkish flatbread topped with minced spiced lamb, beef, peppers, and onions.</p>
-            </article>
-        </div>
-    </section>
-
-    <!-- ENTREES SECTION -->
-    <section class="menu-category" style="margin-bottom: 4rem;">
-        <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">Coal-Fired Specialties</h2>
-        
-        <div class="menu-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-            <article class="menu-item">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
-                    <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Mixed Grill</h3>
-                </div>
-                <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Combination of Chicken Adana, Lamb Shish, Chicken Shish, and Doner kebab served with rice pilaf.</p>
-            </article>
-
-            <article class="menu-item">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
-                    <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Sizzling Lamb Chops</h3>
-                </div>
-                <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Charcoal-grilled tender lamb chops marinated in Mediterranean spices, served with grilled vegetables.</p>
-            </article>
-
-            <article class="menu-item">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
-                    <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Chicken Adana Kebab</h3>
-                </div>
-                <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Hand-minced seasoned chicken skewer grilled over charcoal embers.</p>
-            </article>
-
-            <article class="menu-item">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
-                    <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Mediterranean Branzino</h3>
-                </div>
-                <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Whole grilled sea bass served with house side salad and lemon-herb vinaigrette.</p>
-            </article>
-        </div>
-    </section>
-
-    <!-- DESSERTS SECTION -->
-    <section class="menu-category" style="margin-bottom: 2rem;">
-        <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">Desserts</h2>
-        
-        <div class="menu-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-            <article class="menu-item">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
-                    <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Traditional Künefe</h3>
-                </div>
-                <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Warm shredded kadayif pastry with unsalted melting cheese, soaked in sweet syrup and topped with crushed pistachios.</p>
-            </article>
-
-            <article class="menu-item">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dotted rgba(255,255,255,0.2); padding-bottom: 0.3rem; margin-bottom: 0.5rem;">
-                    <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--pure-white);">Pistachio Baklava</h3>
-                </div>
-                <p style="font-family: 'Lato', sans-serif; font-size: 0.9rem; color: var(--muted-white);">Layers of crisp phyllo dough filled with finely ground Antep pistachios and light honey syrup.</p>
-            </article>
-        </div>
-    </section>
-
-    <!-- ACCESSIBLE ALLERGY DISCLAIMER -->
-    <div class="allergy-disclaimer">
-        * Consumer Advisory: Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness. Please inform your server of any food allergies or dietary restrictions prior to ordering.
-    </div>
 </main>
 
 <!-- SECTION: FOOTER -->
 <footer id="footer-destinations" style="background: var(--velvet-blue-surface); color: var(--pure-white); padding: 4rem 2rem 2rem 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
     <div style="max-width: 900px; margin: 0 auto; text-align: center;">
         <div style="padding-bottom: 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 2rem;">
-            <a href="https://seldadallas.com" target="_blank" rel="noopener noreferrer" style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; color: var(--pure-white); text-decoration: none; font-weight: 600; display: inline-block; transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">
+            <a href="https://seldadallas.com" target="_blank" rel="noopener noreferrer" style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; color: var(--pure-white); text-decoration: none; font-weight: 600; display: inline-block;">
                 View All Selda Locations <i class="fas fa-arrow-right" style="font-size: 0.85rem; margin-left: 6px;" aria-hidden="true"></i>
             </a>
         </div>
@@ -265,29 +312,26 @@
     
     <!-- Footer Bottom Area -->
     <div style="max-width: 900px; margin: 0 auto; padding-top: 1rem; text-align: center; color: var(--muted-white); letter-spacing: 1px;">
-        
-        <!-- Social Links Updated with Aria Labels -->
         <div style="display: flex; justify-content: center; gap: 32px; font-size: 2rem; margin-bottom: 1rem;">
-            <a href="https://instagram.com/seldasanantonio" target="_blank" rel="noopener noreferrer" aria-label="Visit Selda San Antonio on Instagram" style="color: var(--pure-white); transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">
+            <a href="https://instagram.com/seldasanantonio" target="_blank" rel="noopener noreferrer" aria-label="Visit Selda San Antonio on Instagram" style="color: var(--pure-white);">
                 <i class="fab fa-instagram" aria-hidden="true"></i>
             </a>
-            <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" rel="noopener noreferrer" aria-label="Visit Selda Mediterranean on TikTok" style="color: var(--pure-white); transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">
+            <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" rel="noopener noreferrer" aria-label="Visit Selda Mediterranean on TikTok" style="color: var(--pure-white);">
                 <i class="fab fa-tiktok" aria-hidden="true"></i>
             </a>
-            <a href="https://facebook.com/seldasanantonio" target="_blank" rel="noopener noreferrer" aria-label="Visit Selda San Antonio on Facebook" style="color: var(--pure-white); transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">
+            <a href="https://facebook.com/seldasanantonio" target="_blank" rel="noopener noreferrer" aria-label="Visit Selda San Antonio on Facebook" style="color: var(--pure-white);">
                 <i class="fab fa-facebook" aria-hidden="true"></i>
             </a>
         </div>
 
         <p style="font-size: 0.95rem; margin-bottom: 2rem; text-transform: uppercase; font-weight: 600; color: var(--pure-white);">Selda | San Antonio</p>
         
-        <p style="font-size: 0.75rem; opacity: 0.7; margin-bottom: 0.5rem;">&copy; 2026 Selda Mediterranean Kitchen & Bar</p>
+        <!-- Fixed: Removed low opacity to preserve minimum 4.5:1 text contrast ratio -->
+        <p style="font-size: 0.8rem; color: var(--muted-white); margin-bottom: 0.5rem;">&copy; 2026 Selda Mediterranean Kitchen & Bar</p>
         
-        <p style="font-size: 0.75rem; opacity: 0.9; font-family: 'Playfair Display', serif;">
+        <p style="font-size: 0.8rem; color: var(--muted-white); font-family: 'Playfair Display', serif;">
             Built by <a href="https://helloyoruk.com" target="_blank" rel="noopener noreferrer" 
-            style="color: var(--pure-white); text-decoration: none; border-bottom: none; transition: 0.3s;" 
-            onmouseover="this.style.borderBottom='1px solid var(--pure-white)'" 
-            onmouseout="this.style.borderBottom='none'">Yörük</a>
+            style="color: var(--pure-white); text-decoration: underline;">Yörük</a>
         </p>
     </div>
 </footer>
