@@ -1513,14 +1513,26 @@ body.menu-page .header-content-menu .back-btn:focus-visible {
         line-height: 1.5;
     }
 
-    @media (max-width: 768px) {
-        .lunch-grid-container {
-            grid-template-columns: 1fr !important;
-            gap: 2.5rem !important;
-        }
-        .menu-header h1 {
-            font-size: 1.5rem !important; /* Adjusts nicely on smaller mobile screens */
-        }
+  /* Lunch Grid Layout: Mobile-first stacking */
+.lunch-grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+/* Two columns on larger screens (desktop) */
+@media (min-width: 900px) {
+    .lunch-grid-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
     }
+}
+
+/* Header mobile adjustments */
+@media (max-width: 768px) {
+    .menu-header h1 {
+        font-size: 1.5rem !important;
+    }
+}
 
 
