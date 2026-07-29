@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="menu-item-content">
                         <div class="menu-item-header">
                             <span class="menu-item-title">${item.name}</span>
-                            <span class="menu-item-price">${itemPriceDisplay}</span>
+                            <span class="menu-item-price" aria-label="Price: ${itemPriceDisplay}">${itemPriceDisplay}</span>
                         </div>
                         <p class="menu-item-desc">${item.description}</p>
                     </div>
@@ -330,7 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const footDivider = document.createElement('div');
                 footDivider.style.cssText = "margin-top: 35px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.12); text-align: center; width: 100%;";
                 footDivider.innerHTML = `
-                    <h4 style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--pure-white); margin-bottom: 0.5rem; font-weight: 600;">Salad Enhancements</h4>
+                    <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--pure-white); margin-bottom: 0.5rem; font-weight: 600;">Salad Enhancements</h3>
                     <p style="font-family: 'Lato', sans-serif; font-size: 0.82rem; color: var(--subtle-gold); letter-spacing: 0.3px; white-space: nowrap; width: 100%; overflow: hidden;">
                         Chicken (8) &nbsp;•&nbsp; Beef (9) &nbsp;•&nbsp; Salmon (10) &nbsp;•&nbsp; Shrimp (9)
                     </p>
@@ -380,7 +380,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="menu-item-content" style="width: 100%;">
                         <div class="menu-item-header">
                             <span class="menu-item-title">${item.name}</span>
-                            <span class="menu-item-price">${itemPriceDisplay}</span>
+                            <span class="menu-item-price" aria-label="Price: ${itemPriceDisplay}">${itemPriceDisplay}</span>
                         </div>
                         ${item.description ? `<p class="menu-item-desc">${item.description}</p>` : ''}
                     </div>
