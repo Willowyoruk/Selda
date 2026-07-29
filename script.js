@@ -434,7 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- DYNAMIC DRINKS RENDERING (DRINKS PAGE - ADA COMPLIANT DROPDOWN) ---
+    // --- DYNAMIC DRINKS RENDERING (DRINKS PAGE - ADA COMPLIANT DROPDOWN & SAFE DOM) ---
     const drinksTargetContainer = document.getElementById('live-drinks-target');
 
     if (typeof drinkData !== 'undefined' && drinksTargetContainer) {
@@ -471,6 +471,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         targetElement.scrollIntoView({ behavior: 'smooth' });
+                        // Move focus to the category heading for screen reader users
+                        const heading = targetElement.querySelector('h2');
+                        if (heading) heading.focus({preventScroll: true});
                     }
                     // Reset dropdown selection back to default prompt after jumping
                     e.target.value = "";
@@ -498,6 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Category Title
             const heading = document.createElement('h2');
             heading.innerText = categoryObj.title;
+            heading.tabIndex = -1; // focusable programmatically if needed
             sectionBlock.appendChild(heading);
 
             // Optional Subtitle
@@ -512,21 +516,51 @@ document.addEventListener('DOMContentLoaded', () => {
             const gridBlock = document.createElement('div');
             gridBlock.className = 'menu-items-grid';
 
-            categoryObj.items.forEach(item => {
+            categoryObj.items.forEach((item, idx) => {
                 const itemElement = document.createElement('div');
                 itemElement.className = 'menu-item';
-                
-                const itemPriceDisplay = item.price.includes('$') ? item.price : `$${item.price}`;
-                
-                itemElement.innerHTML = `
-                    <div class="menu-item-content" style="width: 100%;">
-                        <div class="menu-item-header">
-                            <span class="menu-item-title">${item.name}</span>
-                            <span class="menu-item-price" aria-label="Price: ${itemPriceDisplay}">${itemPriceDisplay}</span>
-                        </div>
-                        ${item.description ? `<p class="menu-item-desc">${item.description}</p>` : ''}
-                    </div>
-                `;
+                itemElement.setAttribute('role', 'group');
+
+                // Make drink items keyboard focusable so Tab lands on them
+                itemElement.tabIndex = 0;
+
+                const itemPriceDisplay = (item.price && String(item.price).includes('$')) ? item.price : (item.price ? `$${item.price}` : '');
+
+                // Build content safely using DOM methods
+                const contentWrap = document.createElement('div');
+                contentWrap.className = 'menu-item-content';
+                contentWrap.style.width = '100%';
+
+                const headerDiv = document.createElement('div');
+                headerDiv.className = 'menu-item-header';
+
+                const titleSpan = document.createElement('span');
+                titleSpan.className = 'menu-item-title';
+                titleSpan.textContent = item.name;
+
+                const priceSpan = document.createElement('span');
+                priceSpan.className = 'menu-item-price';
+                priceSpan.setAttribute('aria-label', `Price: ${itemPriceDisplay}`);
+                priceSpan.textContent = itemPriceDisplay;
+
+                headerDiv.appendChild(titleSpan);
+                headerDiv.appendChild(priceSpan);
+                contentWrap.appendChild(headerDiv);
+
+                if (item.description) {
+                    const descP = document.createElement('p');
+                    descP.className = 'menu-item-desc';
+                    descP.textContent = item.description;
+                    contentWrap.appendChild(descP);
+                }
+
+                // Compose an accessible label for the group (brief)
+                const ariaLabelParts = [item.name];
+                if (itemPriceDisplay) ariaLabelParts.push(itemPriceDisplay);
+                if (item.description) ariaLabelParts.push(item.description);
+                itemElement.setAttribute('aria-label', ariaLabelParts.join('. '));
+
+                itemElement.appendChild(contentWrap);
                 gridBlock.appendChild(itemElement);
             });
 
@@ -571,6 +605,17 @@ document.addEventListener('DOMContentLoaded', () => {
             if (icon) {
                 icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
             }
+        });
+    }
+
+    // --- Optional: Replace inline delivery-toggle behavior if present on page ---
+    const deliveryToggleBtn = document.getElementById('delivery-toggle-btn');
+    const deliveryOptions = document.getElementById('delivery-options');
+    if (deliveryToggleBtn && deliveryOptions) {
+        deliveryToggleBtn.addEventListener('click', () => {
+            deliveryOptions.style.display = 'grid';
+            deliveryToggleBtn.style.display = 'none';
+            deliveryToggleBtn.setAttribute('aria-expanded', 'true');
         });
     }
 });
