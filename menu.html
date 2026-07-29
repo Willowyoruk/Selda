@@ -3,10 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selda Mediterranean | San Antonio | Turkish Restaurant</title>
+    <meta name="description" content="Experience authentic Turkish cuisine in San Antonio. Featuring coal-fired Mediterranean dishes, craft cocktails, and curated wines. Walk-ins welcome!">
+
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:title" content="Selda Mediterranean Kitchen & Bar | San Antonio">
+    <meta property="og:description" content="Experience authentic Turkish cuisine in San Antonio. Featuring coal-fired Mediterranean dishes, craft cocktails, and curated wines.">
+    <meta property="og:image" content="https://www.seldarestaurant.com/assets/fire.jpg">
+    <meta property="og:url" content="https://www.seldarestaurant.com/">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="assets/favicon.PNG" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Selda Mediterranean Kitchen & Bar | Dinner Menu</title>
-    
-    <!-- Enhanced Restaurant Schema with Typo & Variant Support -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400;600;700&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Schema Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -47,39 +61,16 @@
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
+          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
         ],
         "opens": "11:00:00",
         "closes": "23:00:00"
       },
       "acceptsReservations": true,
-      "hasMenu": "https://www.seldarestaurant.com/menu.html",
-      "potentialAction": {
-        "@type": "FoodEstablishmentReservationAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://www.seldarestaurant.com/",
-          "inLanguage": "en-US",
-          "actionPlatform": [
-            "http://schema.org/DesktopWebPlatform",
-            "http://schema.org/MobileWebPlatform"
-          ]
-        },
-        "result": {
-          "@type": "FoodOrder",
-          "name": "Reserve a Table"
-        }
-      }
+      "hasMenu": "https://www.seldarestaurant.com/menu.html"
     }
     </script>
 
-    <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -94,117 +85,268 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Selda Mediterranean | San Antonio",
-          "item": "https://www.seldarestaurant.com/"
+          "name": "Dinner Menu",
+          "item": "https://www.seldarestaurant.com/menu.html"
         }
       ]
     }
     </script>
 
-    <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+    <style>
+        /* ADA: Keyboard Navigation Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 10px;
+            background: #D4AF37;
+            color: #111111;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: 700;
+            z-index: 1000;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 10px;
+        }
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        /* ADA: Visible Focus Rings for Keyboard Users */
+        a:focus-visible, button:focus-visible {
+            outline: 3px solid #D4AF37 !important;
+            outline-offset: 3px !important;
+        }
+
+        /* Clean styling for nested delivery button */
+        .nested-delivery-btn {
+            background: none;
+            border: none;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
 </head>
-<body class="menu-page">
+<body>
 
-    <header id="header">
-        <div class="header-content-menu">
-            <a href="index.html" class="back-btn">
-                <i class="fas fa-chevron-left" style="margin-right: 8px;"></i> Back to Main Site
-            </a>
-            <a href="index.html" class="logo-link">
-                <img src="assets/logo.jpg" alt="Selda Logo">
-            </a>
-        </div>
-    </header>
+<!-- ADA: Skip to Main Content Link -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div class="menu-container">
-        <div class="menu-header">
-            <h1>SELDA</h1>
-            <div class="subtitle">Mediterranean Kitchen & Bar</div>
-            <div class="location">San Antonio, Texas</div>
-        </div>
-
-        <div class="top-dietary-key">
-            <span><strong>GF</strong> Gluten Free</span>
-            <span><strong>VEG</strong> Vegetarian</span>
-            <span><strong>V</strong> Vegan</span>
-        </div>
-
-        <div class="promo-action-container">
-            <div class="gift-notice">
-                <i class="fa-solid fa-gift"></i> Gift Certificates Available
-            </div>
-        </div>
-
-        <!-- Target container where menu.js data gets rendered -->
-        <div id="live-menu-target"></div>
+<!-- SECTION: HEADER & NAV -->
+<header id="header">
+    <div class="header-content">
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
         
-        <div class="bottom-legend-container">
-            <hr class="menu-divider">
-            <div class="bottom-legend-row">
-                <p><strong>GF</strong> Gluten Free</p>
-                <p><strong>VEG</strong> Vegetarian</p>
-                <p><strong>V</strong> Vegan</p>
-            </div>
-            <p class="allergy-disclaimer">
-                *Please inform your server of any food allergies or dietary restrictions prior to placing your order.
-            </p>
-        </div>
-    </div>
-
-    <!-- Footer Bottom Area -->
-    <footer class="menu-footer">
-        
-        <!-- Social Media Icons -->
-        <div class="footer-socials">
-            <a href="https://instagram.com/seldasanantonio" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
-            <a href="https://facebook.com/seldasanantonio" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
-        </div>
-
-        <!-- Local Identity -->
-        <p class="footer-identity">Selda | San Antonio</p>
-        
-        <!-- Legal Copyright -->
-        <p class="footer-copyright">&copy; 2026 Selda Mediterranean Kitchen & Bar</p>
-        
-        <!-- Yörük Credit -->
-        <p class="footer-credit">
-            Built by <a href="https://helloyoruk.com" target="_blank" rel="noopener noreferrer">Yörük</a>
-        </p>
-    </footer>
-
-    <div class="sticky-mobile-footer">
-        <a href="#" id="mobile-order-trigger" class="sticky-action-btn">Order Online</a>
-        <div class="mobile-dropup-content" id="mobile-dropup-menu">
-            <!-- Order Pickup Primary Link -->
-            <a href="https://selda.cloveronline.com" class="mobile-pickup-link" target="_blank" rel="noopener noreferrer">Order Pickup</a>
+        <nav aria-label="Main Navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="menu.html" aria-current="page">Menu</a>
+            <a href="lunch.html">Lunch</a>
+            <a href="drinks.html">Drinks</a>
             
-            <!-- Order Delivery Nested Toggle -->
-            <div class="mobile-nested-wrapper">
-                <button class="mobile-nested-btn" id="mobile-footer-delivery-toggle">
-                    Order Delivery <i class="fas fa-chevron-down"></i>
+            <div class="desktop-dropdown" id="desktop-dropdown">
+                <button class="desktop-dropdown-btn" id="desktop-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+                    Order <i class="fas fa-chevron-down" aria-hidden="true"></i>
                 </button>
-                <div class="mobile-nested-content" id="mobile-footer-delivery-dropdown">
-                    <a href="https://order.online/store/-30359031/" target="_blank" rel="noopener noreferrer">DoorDash</a>
-                    <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" rel="noopener noreferrer">Uber Eats</a>
-                    <a href="https://seldasanantonio.dine.online" target="_blank" rel="noopener noreferrer">Grubhub</a>
-                    <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" rel="noopener noreferrer">Zing My Order</a>
+                <div class="desktop-dropdown-content">
+                    <div class="desktop-dropdown-inner">
+                        <a href="https://selda.cloveronline.com" target="_blank" rel="noopener noreferrer">Pickup</a>
+                        <div class="nested-delivery">
+                            <button class="nested-delivery-btn" id="desktop-delivery-toggle" aria-haspopup="true" aria-expanded="false">
+                                Delivery <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            </button>
+                            <div class="nested-content">
+                                <a href="https://order.online/store/-30359031/" target="_blank" rel="noopener noreferrer">DoorDash</a>
+                                <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" rel="noopener noreferrer">Uber Eats</a>
+                                <a href="https://seldasanantonio.dine.online" target="_blank" rel="noopener noreferrer">Grubhub</a>
+                                <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" rel="noopener noreferrer">Zing My Order</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="index.html#amenities">Hookah</a>
+            <a href="index.html#catering">Catering</a>
+            <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-reservations-san-antonio?restref=1380571&lang=en-US&ot_source=Restaurant%2520website" target="_blank" rel="noopener noreferrer">Reservations</a>
+            <a href="index.html#contact-section">Contact Us</a>
+        </nav>
+    </div>
+    
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="menu.html" aria-current="page">Menu</a>
+        <a href="lunch.html">Lunch</a>
+        <a href="drinks.html">Drinks</a>
+        
+        <div class="mobile-dropdown-wrapper">
+            <button class="mobile-dropdown-btn" id="mobile-platforms-toggle" aria-haspopup="true" aria-expanded="false">
+                Order Online <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="mobile-dropdown-content" id="mobile-platforms-dropdown">
+                <a href="https://selda.cloveronline.com" class="mobile-pickup-link" target="_blank" rel="noopener noreferrer">Order Pickup</a>
+                
+                <div class="mobile-nested-wrapper">
+                    <button class="mobile-nested-btn" id="mobile-delivery-toggle" aria-haspopup="true" aria-expanded="false">
+                        Order Delivery <i class="fas fa-chevron-right" style="font-size: 0.7rem;" aria-hidden="true"></i>
+                    </button>
+                    <div class="mobile-nested-content" id="mobile-delivery-dropdown">
+                        <a href="https://order.online/store/-30359031/" target="_blank" rel="noopener noreferrer">DoorDash</a>
+                        <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" rel="noopener noreferrer">Uber Eats</a>
+                        <a href="https://seldasanantonio.dine.online" target="_blank" rel="noopener noreferrer">Grubhub</a>
+                        <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" rel="noopener noreferrer">Zing My Order</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-reservations-san-antonio?restref=1380571&lang=en-US&ot_source=Restaurant%20website" target="_blank" rel="noopener noreferrer" class="sticky-action-btn" style="background-color: var(--velvet-blue-surface);">Reserve Table</a>
-    </div>
 
-    <!-- JavaScript Execution Order -->
-    <script src="data/menu.js"></script>
-    <script src="script.js"></script>
+        <a href="index.html#amenities">Hookah</a>
+        <a href="index.html#catering">Catering</a>
+        <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-reservations-san-antonio?restref=1380571&lang=en-US&ot_source=Restaurant%2520website" target="_blank" rel="noopener noreferrer">Reservations</a>
+        <a href="index.html#contact-section">Contact Us</a>
+    </div>
+</header>
+
+<!-- ADA: Semantic Main Landmark Wrap -->
+<main id="main-content">
+
+    <!-- BREADCRUMBS VISUAL UI -->
+    <nav aria-label="Breadcrumb" style="max-width: 1200px; margin: 2rem auto 0 auto; padding: 0 1.5rem; font-family: 'Montserrat', sans-serif; font-size: 0.85rem;">
+        <ol style="list-style: none; display: flex; gap: 0.5rem; align-items: center; padding: 0; margin: 0;">
+            <li><a href="index.html" style="color: var(--subtle-gold); text-decoration: none;">Home</a></li>
+            <li style="color: var(--muted-white);" aria-hidden="true">/</li>
+            <li><span style="color: var(--pure-white);" aria-current="page">Dinner Menu</span></li>
+        </ol>
+    </nav>
+
+    <!-- SECTION: DINNER MENU HERO / HEADER -->
+    <section class="hero-canvas-section" style="min-height: 35vh; padding-top: 3rem;">
+        <div class="hero-canvas-container" style="text-align: center;">
+            <h1 class="brand-title-main" style="font-size: 3rem; margin-bottom: 0.5rem;">Dinner Menu</h1>
+            <div class="brand-location-tag">San Antonio, Texas</div>
+            <p class="brand-description-paragraph" style="max-width: 600px; margin: 1.5rem auto;">
+                Authentic charcoal-grilled Mediterranean specialties, cold & warm mezze, and handcrafted creations.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION: MENU CONTENT CONTAINER -->
+    <section class="standard-padding" style="padding-top: 1rem; padding-bottom: 6rem;">
+        <div class="container" style="max-width: 900px; margin: 0 auto;">
+            
+            <!-- Salads & Salad Enhancements Section -->
+            <div class="menu-category-section" aria-label="Salads">
+                <h2>Salads</h2>
+                <div class="menu-items-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-content" style="width: 100%;">
+                            <div class="menu-item-header">
+                                <span class="menu-item-title">Beet Salad (VEG, GF)</span>
+                                <span class="menu-item-price" aria-label="Price: $12">$12.00</span>
+                            </div>
+                            <p class="menu-item-desc">Diced red beets, watermelon, and feta cheese, tossed with fresh spinach, walnut, balsamic.</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-content" style="width: 100%;">
+                            <div class="menu-item-header">
+                                <span class="menu-item-title">Arugula Quinoa Salad (VEG, V, GF)</span>
+                                <span class="menu-item-price" aria-label="Price: $12">$12.00</span>
+                            </div>
+                            <p class="menu-item-desc">Fresh arugula mixed with quinoa, diced tomatoes, cucumbers, and onion; tossed with lemon, olive oil and vinaigrette.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Increased spacing specifically around Salad Enhancements -->
+                <div class="salad-enhancements-container" style="margin-top: 3.5rem; margin-bottom: 4rem; padding-top: 1.5rem; border-top: 1px dashed rgba(212, 175, 55, 0.3); text-align: center;">
+                    <h3 style="font-family: 'Cinzel', serif; font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; color: var(--subtle-gold, #D4AF37); margin-bottom: 1rem;">Salad Enhancements</h3>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; color: var(--pure-white); word-spacing: 12px; letter-spacing: 0.5px;">
+                        <span>Chicken (8)</span> &bull; 
+                        <span>Beef (9)</span> &bull; 
+                        <span>Salmon (10)</span> &bull; 
+                        <span>Shrimp (9)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Small Bites Section with clear visual separation -->
+            <div class="menu-category-section" aria-label="Small Bites" style="margin-top: 4rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 4rem;">
+                <h2 style="text-align: center; font-family: 'Cinzel', serif; font-size: 2.2rem; letter-spacing: 3px; margin-bottom: 3rem; text-transform: uppercase; color: var(--subtle-gold, #D4AF37);">Small Bites</h2>
+                <div class="menu-items-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-content" style="width: 100%;">
+                            <div class="menu-item-header">
+                                <span class="menu-item-title">Lentil Soup (VEG, GF)</span>
+                                <span class="menu-item-price" aria-label="Price: $9">$9.00</span>
+                            </div>
+                            <p class="menu-item-desc">Smooth and creamy lentil soup garnished with a sprinkle of spices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- SECTION: FOOTER -->
+<footer id="footer-destinations" style="background: var(--velvet-blue-surface); color: var(--pure-white); padding: 4rem 2rem 2rem 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+        <div style="padding-bottom: 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 2rem;">
+            <a href="https://seldadallas.com" target="_blank" rel="noopener noreferrer" style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; color: var(--pure-white); text-decoration: none; font-weight: 600; display: inline-block;">
+                    View All Selda Locations <i class="fas fa-arrow-right" style="font-size: 0.85rem; margin-left: 6px;" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+    
+    <div style="max-width: 900px; margin: 0 auto; padding-top: 1rem; text-align: center; color: var(--muted-white); letter-spacing: 1px;">
+        <div style="display: flex; justify-content: center; gap: 32px; font-size: 2rem; margin-bottom: 1rem;">
+            <a href="https://instagram.com/seldasanantonio" target="_blank" rel="noopener noreferrer" aria-label="Visit Selda San Antonio on Instagram" style="color: var(--pure-white);">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" rel="noopener noreferrer" aria-label="Visit Selda Mediterranean on TikTok" style="color: var(--pure-white);">
+                <i class="fab fa-tiktok" aria-hidden="true"></i>
+            </a>
+            <a href="https://facebook.com/seldasanantonio" target="_blank" rel="noopener noreferrer" aria-label="Visit Selda San Antonio on Facebook" style="color: var(--pure-white);">
+                <i class="fab fa-facebook" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <p style="font-size: 0.95rem; margin-bottom: 2rem; text-transform: uppercase; font-weight: 600; color: var(--pure-white);">Selda | San Antonio</p>
+        
+        <p style="font-size: 0.8rem; color: var(--muted-white); margin-bottom: 0.5rem;">&copy; 2026 Selda Mediterranean Kitchen & Bar</p>
+        
+        <p style="font-size: 0.8rem; color: var(--muted-white); font-family: 'Playfair Display', serif;">
+            Built by <a href="https://helloyoruk.com" target="_blank" rel="noopener noreferrer" 
+            style="color: var(--pure-white); text-decoration: underline;">Yörük</a>
+        </p>
+    </div>
+</footer>
+
+<!-- SECTION: STICKY FOOTER (MOBILE ONLY) -->
+<div class="sticky-mobile-footer-index">
+    <a href="index.html#ordering" class="sticky-action-btn-split">
+        <i class="fas fa-shopping-bag"></i> Order
+    </a>
+    <a href="tel:2102365230" class="sticky-action-btn-split">
+        <i class="fas fa-phone"></i> Call
+    </a>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=Selda+Mediterranean+Kitchen+%26+Bar+San+Antonio+TX" target="_blank" rel="noopener noreferrer" class="sticky-action-btn-split">
+        <i class="fas fa-map-marker-alt"></i> Map
+    </a>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
