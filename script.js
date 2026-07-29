@@ -277,68 +277,67 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoplay();
     }
 
-    // --- DYNAMIC MENU RENDERING (MENU PAGE - ADA COMPLIANT) ---
-    const sectionTitles = {
-        salads: "Salads",
-        smallBites: "Small Bites & Mezzes",
-        aLittleMore: "Entrées & Grills",
-        fromTheOven: "From The Oven (Pide & Lahmacun)",
-        desserts: "Desserts"
-    };
-
+        // --- DYNAMIC MENU RENDERING (MENU PAGE - ADA COMPLIANT) ---
     const targetContainer = document.getElementById('live-menu-target');
 
     if (typeof menuData !== 'undefined' && targetContainer) {
-        for (const category in menuData) {
-            if (menuData.hasOwnProperty(category)) {
-                const sectionBlock = document.createElement('section');
-                sectionBlock.className = 'menu-category-section'; // Updated to match style.css selector
+        targetContainer.innerHTML = ""; // Clear out anything existing to prevent duplication
+        
+        const sectionTitles = {
+            salads: "Salads",
+            smallBites: "Small Bites & Mezzes",
+            aLittleMore: "Entrées & Grills",
+            fromTheOven: "From The Oven (Pide & Lahmacun)",
+            desserts: "Desserts"
+        };
+
+        for (const [category, items] of Object.entries(menuData)) {
+            const sectionBlock = document.createElement('section');
+            sectionBlock.className = 'menu-category-section';
+            
+            const sectionTitleText = sectionTitles[category] || category;
+            sectionBlock.setAttribute('aria-label', sectionTitleText);
+
+            const heading = document.createElement('h2');
+            heading.innerText = sectionTitleText;
+            sectionBlock.appendChild(heading);
+
+            const gridBlock = document.createElement('div');
+            gridBlock.className = 'menu-items-grid';
+
+            items.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'menu-item';
                 
-                const sectionTitleText = sectionTitles[category] || category;
-                sectionBlock.setAttribute('aria-label', sectionTitleText);
+                const itemPriceDisplay = item.price.includes('$') ? item.price : `$${item.price}`;
+                
+                itemElement.innerHTML = `
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">${item.name}</span>
+                        <span class="menu-item-price">${itemPriceDisplay}</span>
+                    </div>
+                    <p class="menu-item-desc">${item.description}</p>
+                `;
+                gridBlock.appendChild(itemElement);
+            });
 
-                const heading = document.createElement('h2');
-                heading.innerText = sectionTitleText;
-                sectionBlock.appendChild(heading);
+            sectionBlock.appendChild(gridBlock);
 
-                const gridBlock = document.createElement('div');
-                gridBlock.className = 'menu-items-grid'; // Updated to match style.css selector
-
-                menuData[category].forEach(item => {
-                    const itemElement = document.createElement('div');
-                    itemElement.className = 'menu-item';
-                    
-                    const itemPriceDisplay = item.price.includes('$') ? item.price : `$${item.price}`;
-                    
-                    itemElement.innerHTML = `
-                        <div class="menu-item-header">
-                            <span class="menu-item-title">${item.name}</span>
-                            <span class="menu-item-price">${itemPriceDisplay}</span>
-                        </div>
-                        <p class="menu-item-desc">${item.description}</p>
-                    `;
-                    gridBlock.appendChild(itemElement);
-                });
-
-                sectionBlock.appendChild(gridBlock);
-
-                if (category === 'salads') {
-                    const footDivider = document.createElement('div');
-                    footDivider.style.cssText = "margin-top: 35px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.12); text-align: center; width: 100%;";
-                    footDivider.innerHTML = `
-                        <h4 style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--pure-white); margin-bottom: 0.5rem; font-weight: 600;">Salad Enhancements</h4>
-                        <p style="font-family: 'Lato', sans-serif; font-size: 0.82rem; color: var(--subtle-gold); letter-spacing: 0.3px; white-space: nowrap; width: 100%; overflow: hidden;">
-                            Chicken (8) &nbsp;•&nbsp; Beef (9) &nbsp;•&nbsp; Salmon (10) &nbsp;•&nbsp; Shrimp (9)
-                        </p>
-                    `;
-                    sectionBlock.appendChild(footDivider);
-                }
-
-                targetContainer.appendChild(sectionBlock);
+            if (category === 'salads') {
+                const footDivider = document.createElement('div');
+                footDivider.style.cssText = "margin-top: 35px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.12); text-align: center; width: 100%;";
+                footDivider.innerHTML = `
+                    <h4 style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--pure-white); margin-bottom: 0.5rem; font-weight: 600;">Salad Enhancements</h4>
+                    <p style="font-family: 'Lato', sans-serif; font-size: 0.82rem; color: var(--subtle-gold); letter-spacing: 0.3px; white-space: nowrap; width: 100%; overflow: hidden;">
+                        Chicken (8) &nbsp;•&nbsp; Beef (9) &nbsp;•&nbsp; Salmon (10) &nbsp;•&nbsp; Shrimp (9)
+                    </p>
+                `;
+                sectionBlock.appendChild(footDivider);
             }
+
+            targetContainer.appendChild(sectionBlock);
         }
     }
-
     // --- MOBILE FOOTER DROP-UP MENU ---
     const orderTrigger = document.getElementById('mobile-order-trigger');
     const dropupMenu = document.getElementById('mobile-dropup-menu');
