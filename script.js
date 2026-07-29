@@ -105,8 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- DESKTOP NESTED DELIVERY SUBMENU: keep aria-expanded in sync ---
-    // The submenu itself opens via CSS (:hover / :focus-within), so this only
-    // updates the ARIA state for screen reader users - it doesn't control visibility.
     const desktopDeliveryToggle = document.getElementById('desktop-delivery-toggle');
     const desktopNestedWrap = desktopDeliveryToggle ? desktopDeliveryToggle.closest('.nested-delivery') : null;
 
@@ -281,11 +279,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- DYNAMIC MENU RENDERING (MENU PAGE - ADA COMPLIANT) ---
     const sectionTitles = {
-        salads: "salads",
-        smallBites: "small bites...",
-        aLittleMore: "a little more...",
-        fromTheOven: "from the oven",
-        desserts: "desserts"
+        salads: "Salads",
+        smallBites: "Small Bites & Mezzes",
+        aLittleMore: "Entrées & Grills",
+        fromTheOven: "From The Oven (Pide & Lahmacun)",
+        desserts: "Desserts"
     };
 
     const targetContainer = document.getElementById('live-menu-target');
@@ -294,35 +292,30 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const category in menuData) {
             if (menuData.hasOwnProperty(category)) {
                 const sectionBlock = document.createElement('section');
-                sectionBlock.className = 'menu-section';
+                sectionBlock.className = 'menu-category-section'; // Updated to match style.css selector
                 
-                // Added explicit aria-label for screen readers
                 const sectionTitleText = sectionTitles[category] || category;
                 sectionBlock.setAttribute('aria-label', sectionTitleText);
 
                 const heading = document.createElement('h2');
-                heading.className = 'section-title';
                 heading.innerText = sectionTitleText;
                 sectionBlock.appendChild(heading);
 
                 const gridBlock = document.createElement('div');
-                gridBlock.className = 'menu-grid';
+                gridBlock.className = 'menu-items-grid'; // Updated to match style.css selector
 
                 menuData[category].forEach(item => {
                     const itemElement = document.createElement('div');
                     itemElement.className = 'menu-item';
+                    
                     const itemPriceDisplay = item.price.includes('$') ? item.price : `$${item.price}`;
+                    
                     itemElement.innerHTML = `
-                        <div class="item-image-wrapper">
-                            <img src="${item.image}" alt="${item.name}" class="item-image" loading="lazy" onerror="this.parentNode.style.display='none';">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">${item.name}</span>
+                            <span class="menu-item-price">${itemPriceDisplay}</span>
                         </div>
-                        <div class="item-details">
-                            <div class="item-top-row">
-                                <h3 class="item-name">${item.name}</h3>
-                                <p class="item-price">${itemPriceDisplay}</p>
-                            </div>
-                            <p class="item-description">${item.description}</p>
-                        </div>
+                        <p class="menu-item-desc">${item.description}</p>
                     `;
                     gridBlock.appendChild(itemElement);
                 });
