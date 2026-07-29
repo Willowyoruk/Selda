@@ -258,6 +258,99 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoplay();
     }
 });
+// menu js // 
+
+    // UI rendering logic
+        const sectionTitles = {
+            salads: "salads",
+            smallBites: "small bites...",
+            aLittleMore: "a little more...",
+            fromTheOven: "from the oven",
+            desserts: "desserts"
+        };
+
+        const targetContainer = document.getElementById('live-menu-target');
+
+        for (const category in menuData) {
+            if (menuData.hasOwnProperty(category)) {
+                const sectionBlock = document.createElement('section');
+                sectionBlock.className = 'menu-section';
+                const heading = document.createElement('h2');
+                heading.className = 'section-title';
+                heading.innerText = sectionTitles[category] || category;
+                sectionBlock.appendChild(heading);
+                const gridBlock = document.createElement('div');
+                gridBlock.className = 'menu-grid';
+
+                menuData[category].forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'menu-item';
+                    const itemPriceDisplay = item.price.includes('$') ? item.price : `$${item.price}`;
+                    itemElement.innerHTML = `
+                        <div class="item-image-wrapper">
+                            <img src="${item.image}" alt="${item.name}" class="item-image" loading="lazy" onerror="this.parentNode.style.display='none';">
+                        </div>
+                        <div class="item-details">
+                            <div class="item-top-row">
+                                <h3 class="item-name">${item.name}</h3>
+                                <p class="item-price">${itemPriceDisplay}</p>
+                            </div>
+                            <p class="item-description">${item.description}</p>
+                        </div>
+                    `;
+                    gridBlock.appendChild(itemElement);
+                });
+                sectionBlock.appendChild(gridBlock);
+                if (category === 'salads') {
+                    const footDivider = document.createElement('div');
+                    footDivider.style.cssText = "margin-top: 35px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.12); text-align: center; width: 100%;";
+                    footDivider.innerHTML = `
+                        <h4 style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--pure-white); margin-bottom: 0.5rem; font-weight: 600;">Salad Enhancements</h4>
+                        <p style="font-family: 'Lato', sans-serif; font-size: 0.82rem; color: var(--subtle-gold); letter-spacing: 0.3px; white-space: nowrap; width: 100%; overflow: hidden;">
+                            Chicken (8) &nbsp;•&nbsp; Beef (9) &nbsp;•&nbsp; Salmon (10) &nbsp;•&nbsp; Shrimp (9)
+                        </p>
+                    `;
+                    sectionBlock.appendChild(footDivider);
+                }
+                targetContainer.appendChild(sectionBlock);
+            }
+        }
+
+        // Footer Main Drop-Up Toggle
+        const orderTrigger = document.getElementById('mobile-order-trigger');
+        const dropupMenu = document.getElementById('mobile-dropup-menu');
+        
+        if (orderTrigger && dropupMenu) {
+            orderTrigger.addEventListener('click', (e) => { 
+                e.preventDefault(); 
+                e.stopPropagation(); 
+                dropupMenu.classList.toggle('active'); 
+            });
+            document.addEventListener('click', (e) => { 
+                if (!dropupMenu.contains(e.target) && e.target !== orderTrigger) {
+                    dropupMenu.classList.remove('active'); 
+                } 
+            });
+        }
+
+        // Footer Nested Delivery Submenu Toggle
+        const footerDeliveryToggle = document.getElementById('mobile-footer-delivery-toggle');
+        const footerDeliveryDropdown = document.getElementById('mobile-footer-delivery-dropdown');
+
+        if (footerDeliveryToggle && footerDeliveryDropdown) {
+            footerDeliveryToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = footerDeliveryDropdown.classList.contains('open');
+                footerDeliveryDropdown.classList.toggle('open');
+                
+                const icon = footerDeliveryToggle.querySelector('i');
+                if (icon) {
+                    icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                }
+            });
+        }
+    
+
 
 // --- STICKY FOOTER DRAWER TOGGLE ---
 function toggleStickyOrderPopup() {
