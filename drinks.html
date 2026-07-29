@@ -3,36 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beverage Menu | Selda Mediterranean</title>
     <link rel="stylesheet" href="style.css">
+    <title>Selda Mediterranean Kitchen & Bar | Drinks & Bar Menu</title>
+    
+    <!-- Enhanced Restaurant Schema with Typo & Variant Support -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Selda Mediterranean Kitchen & Bar",
+      "alternateName": [
+        "Selda San Antonio",
+        "Selda Mediterranean",
+        "Salda Mediterranean",
+        "Melda Mediterranean",
+        "Yelda Mediterranean",
+        "Telda Mediterranean",
+        "Nelda Mediterranean",
+        "Selda Kitchen",
+        "Selda Bar",
+        "Selda Turkish Restaurant"
+      ],
+      "description": "Authentic Turkish restaurant and bar in San Antonio offering fine wines, signature cocktails, spirits, and Mediterranean beverages.",
+      "url": "https://www.seldarestaurant.com/",
+      "logo": "https://www.seldarestaurant.com/assets/favicon.PNG",
+      "image": "https://www.seldarestaurant.com/assets/fire.jpg",
+      "priceRange": "$$",
+      "servesCuisine": ["Mediterranean", "Turkish", "Bar"],
+      "telephone": "+12102365230",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "9955 I-10 W",
+        "addressLocality": "San Antonio",
+        "addressRegion": "TX",
+        "postalCode": "78230",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 29.5357,
+        "longitude": -98.5636
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "11:00:00",
+        "closes": "23:00:00"
+      },
+      "acceptsReservations": true,
+      "hasMenu": "https://www.seldarestaurant.com/drinks.html",
+      "potentialAction": {
+        "@type": "FoodEstablishmentReservationAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.seldarestaurant.com/",
+          "inLanguage": "en-US",
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform"
+          ]
+        },
+        "result": {
+          "@type": "FoodOrder",
+          "name": "Reserve a Table"
+        }
+      }
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.seldarestaurant.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Selda Mediterranean | Drinks",
+          "item": "https://www.seldarestaurant.com/drinks.html"
+        }
+      ]
+    }
+    </script>
+
+    <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="menu-page">
 
-    <header>
+    <header id="header">
         <div class="header-content-menu">
             <a href="index.html" class="back-btn">
-                <i class="fas fa-arrow-left"></i> Back to Home
+                <i class="fas fa-chevron-left" style="margin-right: 8px;"></i> Back to Main Site
             </a>
             <a href="index.html" class="logo-link">
-                <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--primary-dark); font-weight: 600; letter-spacing: 2px;">SELDA</span>
+                <img src="assets/logo.jpg" alt="Selda Logo">
             </a>
         </div>
     </header>
 
-    <main class="menu-container">
+    <div class="menu-container">
         <div class="menu-header">
-            <h1>Beverage Menu</h1>
-            <p class="subtitle">Selda Mediterranean</p>
-            <p class="location">San Antonio</p>
+            <h1>SELDA</h1>
+            <div class="subtitle">Bar & Drink Selections</div>
+            <div class="location">San Antonio, Texas</div>
         </div>
 
-        <!-- Dynamic Drinks Target -->
-        <div id="live-drinks-target"></div>
-    </main>
+        <div class="promo-action-container">
+            <div class="gift-notice">
+                <i class="fa-solid fa-wine-glass"></i> Dine-In Bar Selections
+            </div>
+            <a href="menu.html" class="pdf-btn-small">
+                <i class="fa-solid fa-utensils" style="margin-right: 5px;"></i> View Food Menu
+            </a>
+        </div>
 
-    <!-- JavaScript Files -->
-    <script src="drinks.js"></script>
+        <!-- Target container where drink.js data gets rendered -->
+        <div id="live-drinks-target"></div>
+        
+        <div class="bottom-legend-container">
+            <hr class="menu-divider">
+            <p class="allergy-disclaimer">
+                *Please enjoy responsibly. Alcoholic beverage selections are available for dine-in consumption only and cannot be ordered for online pickup or delivery.
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer Bottom Area -->
+    <footer class="menu-footer">
+        
+        <!-- Social Media Icons -->
+        <div class="footer-socials">
+            <a href="https://instagram.com/seldasanantonio" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+            <a href="https://facebook.com/seldasanantonio" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+        </div>
+
+        <!-- Local Identity -->
+        <p class="footer-identity">Selda | San Antonio</p>
+        
+        <!-- Legal Copyright -->
+        <p class="footer-copyright">&copy; 2026 Selda Mediterranean Kitchen & Bar</p>
+        
+        <!-- Yörük Credit -->
+        <p class="footer-credit">
+            Built by <a href="https://helloyoruk.com" target="_blank" rel="noopener noreferrer">Yörük</a>
+        </p>
+    </footer>
+
+    <div class="sticky-mobile-footer">
+        <a href="menu.html" class="sticky-action-btn" style="background-color: var(--velvet-blue-surface); flex: 1;">View Food Menu</a>
+        <a href="https://www.opentable.com/r/selda-mediterranean-kitchen-reservations-san-antonio?restref=1380571&lang=en-US&ot_source=Restaurant%20website" target="_blank" rel="noopener noreferrer" class="sticky-action-btn" style="background-color: var(--subtle-gold); color: #000; flex: 1;">Reserve Table</a>
+    </div>
+
+    <!-- JavaScript Execution Order -->
+    <script src="data/drink.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
