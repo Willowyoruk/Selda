@@ -1,5 +1,5 @@
 /* ==========================================
-   MAIN SITE & MENU SCRIPT
+   MAIN SITE & MENU SCRIPT (ADA COMPLIANT)
    ========================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoplay();
     }
 
-    // --- DYNAMIC MENU RENDERING (MENU PAGE) ---
+    // --- DYNAMIC MENU RENDERING (MENU PAGE - ADA COMPLIANT) ---
     const sectionTitles = {
         salads: "salads",
         smallBites: "small bites...",
@@ -278,10 +278,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (menuData.hasOwnProperty(category)) {
                 const sectionBlock = document.createElement('section');
                 sectionBlock.className = 'menu-section';
+                
+                // Added explicit aria-label for screen readers
+                const sectionTitleText = sectionTitles[category] || category;
+                sectionBlock.setAttribute('aria-label', sectionTitleText);
 
                 const heading = document.createElement('h2');
                 heading.className = 'section-title';
-                heading.innerText = sectionTitles[category] || category;
+                heading.innerText = sectionTitleText;
                 sectionBlock.appendChild(heading);
 
                 const gridBlock = document.createElement('div');
