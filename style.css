@@ -1249,7 +1249,7 @@ body.menu-page {
 .menu-item-header {
     display: flex;
     justify-content: space-between;
-    align-baseline: baseline;
+    align-items: baseline;
     gap: 1rem;
     margin-bottom: 0.3rem;
 }
