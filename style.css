@@ -1083,3 +1083,281 @@ section.standard-padding {
         animation: none !important;
     }
 }
+
+/* ==========================================
+   12. MENU PAGE SPECIFIC STYLES
+   ========================================== */
+
+body.menu-page {
+    background-color: var(--velvet-blue);
+    color: var(--muted-white);
+    padding-bottom: 90px;
+}
+
+/* Header & Navigation Fixes for Menu Page */
+.header-content-menu {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 60px;
+}
+
+.header-content-menu .back-btn {
+    color: var(--pure-white);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease;
+}
+
+.header-content-menu .back-btn:hover,
+.header-content-menu .back-btn:focus-visible {
+    color: var(--subtle-gold);
+}
+
+.header-content-menu .logo-link img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Menu Main Container Layout */
+.menu-container {
+    max-width: 900px;
+    margin: 3rem auto 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.menu-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.menu-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--pure-white);
+    letter-spacing: 5px;
+    margin-bottom: 0.2rem;
+}
+
+.menu-header .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--pure-white);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+
+.menu-header .location {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--subtle-gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Dietary Key & Promos */
+.top-dietary-key {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 0.85rem;
+    color: var(--muted-white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+.promo-action-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.gift-notice {
+    font-size: 0.9rem;
+    color: var(--subtle-gold);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.pdf-btn-small {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.7rem 1.4rem;
+    background-color: transparent;
+    color: var(--pure-white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+}
+
+.pdf-btn-small:hover,
+.pdf-btn-small:focus-visible {
+    background-color: var(--subtle-gold);
+    color: var(--primary-dark);
+    border-color: var(--subtle-gold);
+}
+
+/* Dynamic Menu Content Styles (from menu.js) */
+#live-menu-target {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.menu-category-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: var(--pure-white);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.8rem;
+}
+
+.menu-item {
+    margin-bottom: 1.8rem;
+}
+
+.menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-baseline: baseline;
+    gap: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.menu-item-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--pure-white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.menu-item-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--subtle-gold);
+    white-space: nowrap;
+}
+
+.menu-item-desc {
+    font-size: 0.95rem;
+    color: var(--muted-white);
+    line-height: 1.6;
+}
+
+/* Bottom Legend & Footer */
+.bottom-legend-container {
+    margin-top: 4rem;
+}
+
+.menu-divider {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 2rem;
+}
+
+.bottom-legend-row {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    font-size: 0.85rem;
+    color: var(--muted-white);
+    margin-bottom: 1rem;
+}
+
+.allergy-disclaimer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted-white);
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+.menu-footer {
+    max-width: 900px;
+    margin: 4rem auto 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 2rem;
+    text-align: center;
+    color: var(--muted-white);
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.footer-socials a {
+    color: var(--pure-white);
+    transition: opacity 0.3s ease;
+}
+
+.footer-socials a:hover {
+    opacity: 0.7;
+}
+
+.footer-identity {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--pure-white);
+    letter-spacing: 1px;
+}
+
+.footer-copyright {
+    font-size: 0.75rem;
+    color: var(--muted-white);
+    margin-bottom: 0.5rem;
+}
+
+.footer-credit {
+    font-size: 0.75rem;
+    color: var(--muted-white);
+    font-family: 'Playfair Display', serif;
+}
+
+.footer-credit a {
+    color: var(--pure-white);
+    text-decoration: none;
+    transition: border-bottom 0.3s ease;
+}
+
+.footer-credit a:hover {
+    border-bottom: 1px solid var(--pure-white);
+}
