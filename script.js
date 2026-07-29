@@ -305,18 +305,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const gridBlock = document.createElement('div');
             gridBlock.className = 'menu-items-grid';
 
-            items.forEach(item => {
+                  items.forEach(item => {
                 const itemElement = document.createElement('div');
                 itemElement.className = 'menu-item';
                 
                 const itemPriceDisplay = item.price.includes('$') ? item.price : `$${item.price}`;
                 
                 itemElement.innerHTML = `
-                    <div class="menu-item-header">
-                        <span class="menu-item-title">${item.name}</span>
-                        <span class="menu-item-price">${itemPriceDisplay}</span>
+                    ${item.image ? `<div class="menu-item-image-wrap"><img src="${item.image}" alt="${item.name}" class="menu-item-img"></div>` : ''}
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">${item.name}</span>
+                            <span class="menu-item-price">${itemPriceDisplay}</span>
+                        </div>
+                        <p class="menu-item-desc">${item.description}</p>
                     </div>
-                    <p class="menu-item-desc">${item.description}</p>
                 `;
                 gridBlock.appendChild(itemElement);
             });
