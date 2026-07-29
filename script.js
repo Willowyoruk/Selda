@@ -341,13 +341,12 @@ document.addEventListener('DOMContentLoaded', () => {
             targetContainer.appendChild(sectionBlock);
         }
     }
-//drinks//
-// --- DYNAMIC DRINKS RENDERING (DRINKS PAGE - ADA COMPLIANT) ---
-document.addEventListener('DOMContentLoaded', () => {
-    const targetContainer = document.getElementById('live-drinks-target');
 
-    if (typeof drinkData !== 'undefined' && targetContainer) {
-        targetContainer.innerHTML = ""; // Clear container
+    // --- DYNAMIC DRINKS RENDERING (DRINKS PAGE - ADA COMPLIANT) ---
+    const drinksTargetContainer = document.getElementById('live-drinks-target');
+
+    if (typeof drinkData !== 'undefined' && drinksTargetContainer) {
+        drinksTargetContainer.innerHTML = ""; // Clear container
 
         for (const [categoryKey, categoryObj] of Object.entries(drinkData)) {
             const sectionBlock = document.createElement('section');
@@ -390,11 +389,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             sectionBlock.appendChild(gridBlock);
-            targetContainer.appendChild(sectionBlock);
+            drinksTargetContainer.appendChild(sectionBlock);
         }
     }
-});
-
 
     // --- MOBILE FOOTER DROP-UP MENU ---
     const orderTrigger = document.getElementById('mobile-order-trigger');
@@ -435,9 +432,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-
-
 
 // --- STICKY FOOTER DRAWER TOGGLE (Global scope for inline onclick handlers) ---
 function toggleStickyOrderPopup() {
