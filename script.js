@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const itemPriceDisplay = item.price.includes('$') ? item.price : `$${item.price}`;
                 
                 itemElement.innerHTML = `
-                    ${item.image ? `<div class="menu-item-image-wrap"><img src="${item.image}" alt="${item.name}" class="menu-item-img"></div>` : ''}
+                    ${item.image ? `<div class="menu-item-image-wrap"><img src="${item.image}" alt="" class="menu-item-img"></div>` : ''}
                     <div class="menu-item-content">
                         <div class="menu-item-header">
                             <span class="menu-item-title">${item.name}</span>
