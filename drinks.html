@@ -1,10 +1,38 @@
-<div class="menu-container">
-    <div class="menu-header">
-        <h1>Beverage Menu</h1>
-        <p class="subtitle">Selda Mediterranean</p>
-        <p class="location">San Antonio</p>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beverage Menu | Selda Mediterranean</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="menu-page">
 
-    <!-- Dynamic Drinks Target -->
-    <div id="live-drinks-target"></div>
-</div>
+    <header>
+        <div class="header-content-menu">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            <a href="index.html" class="logo-link">
+                <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--primary-dark); font-weight: 600; letter-spacing: 2px;">SELDA</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="menu-container">
+        <div class="menu-header">
+            <h1>Beverage Menu</h1>
+            <p class="subtitle">Selda Mediterranean</p>
+            <p class="location">San Antonio</p>
+        </div>
+
+        <!-- Dynamic Drinks Target -->
+        <div id="live-drinks-target"></div>
+    </main>
+
+    <!-- JavaScript Files -->
+    <script src="drinks.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
