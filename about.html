@@ -14,11 +14,6 @@
       "alternateName": [
         "Selda San Antonio",
         "Selda Mediterranean",
-        "Salda Mediterranean",
-        "Melda Mediterranean",
-        "Yelda Mediterranean",
-        "Telda Mediterranean",
-        "Nelda Mediterranean",
         "Selda Kitchen",
         "Selda Bar",
         "Selda Turkish Restaurant"
@@ -95,6 +90,7 @@
             --pure-white: #FFFFFF;
             --muted-white: #BAC4D1;  
             --subtle-gold: #D4AF37;
+            --dark-gold-accessible: #8B6914; /* WCAG 4.5:1 compliant contrast on white */
         }
         
         body { 
@@ -155,7 +151,8 @@
             letter-spacing: 2px;
             transition: color 0.3s ease;
         }
-        .back-btn:hover { color: var(--subtle-gold); }
+        /* Fixed: WCAG AA compliant contrast ratio on white background */
+        .back-btn:hover { color: var(--dark-gold-accessible); }
         
         .section-title { 
             font-family: 'Cormorant Garamond', serif; 
@@ -186,6 +183,12 @@
             text-transform: uppercase; 
             letter-spacing: 1px;
         }
+
+        .social-link {
+            color: var(--pure-white);
+            display: inline-block;
+            padding: 4px;
+        }
     </style>
 </head>
 
@@ -195,14 +198,15 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <header id="header">
-        <div class="header-content">
+        <!-- Fixed: Wrapped header elements in semantic <nav> landmark -->
+        <nav class="header-content" aria-label="Header Navigation">
             <a href="index.html" class="back-btn">
                 <i class="fas fa-chevron-left" style="margin-right: 8px;" aria-hidden="true"></i> Back to Main Site
             </a>
             <a href="index.html" style="display: flex; align-items: center; text-decoration: none;" aria-label="Selda Home Page">
                 <img src="assets/logo.jpg" alt="Selda Mediterranean Kitchen & Bar Logo" style="height: 65px; width: auto; object-fit: contain;">
             </a>
-        </div>
+        </nav>
     </header>
 
     <!-- ADA: Semantic <main> Landmark -->
@@ -234,14 +238,16 @@
     <!-- FOOTER -->
     <footer style="background: var(--velvet-blue); border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 4rem 2rem 2rem 2rem;">
         <div style="max-width: 900px; margin: 0 auto; text-align: center; color: var(--muted-white); letter-spacing: 1px;">
+            
+            <!-- Fixed: Descriptive social media aria-labels -->
             <div style="display: flex; justify-content: center; gap: 32px; font-size: 2rem; margin-bottom: 1rem;">
-                <a href="https://instagram.com/seldasanantonio" target="_blank" rel="noopener noreferrer" style="color: var(--pure-white);" aria-label="Instagram Page"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" rel="noopener noreferrer" style="color: var(--pure-white);" aria-label="TikTok Page"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
-                <a href="https://facebook.com/seldasanantonio" target="_blank" rel="noopener noreferrer" style="color: var(--pure-white);" aria-label="Facebook Page"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://instagram.com/seldasanantonio" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Visit Selda San Antonio on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Visit Selda Mediterranean on TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                <a href="https://facebook.com/seldasanantonio" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Visit Selda San Antonio on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
             </div>
+            
             <p style="font-size: 0.95rem; margin-bottom: 2rem; text-transform: uppercase; font-weight: 600; color: var(--pure-white);">Selda | San Antonio</p>
             
-            <!-- ADA: Fixed Contrast (Removed Opacity Reductions) -->
             <p style="font-size: 0.8rem; color: var(--muted-white); margin-bottom: 0.5rem;">&copy; 2026 Selda Mediterranean Kitchen & Bar</p>
             <p style="font-size: 0.8rem; color: var(--muted-white); font-family: 'Playfair Display', serif;">
                 Built by <a href="https://helloyoruk.com" target="_blank" rel="noopener noreferrer" style="color: var(--pure-white); text-decoration: underline;">Yörük</a>
