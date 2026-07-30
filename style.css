@@ -1552,3 +1552,10 @@ body.menu-page .header-content-menu .back-btn:focus-visible {
         font-size: 1.5rem !important;
     }
 }
+
+.course-list {
+  list-style: none; /* Removes the bullet dots */
+  padding-left: 0;   /* Removes default list indentation */
+}
+
+
