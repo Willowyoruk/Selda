@@ -1,5 +1,7 @@
 /* ==========================================
    MAIN SITE & MENU SCRIPT (ADA COMPLIANT)
+   Updated: 1) add id/name to drinks category select
+            2) replace static innerHTML with DOM creation
    ========================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,11 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
             setAriaExpanded(hamburger, isOpen);
         });
 
-        // Close menu when clicking navigation links (ignoring toggle buttons)
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                const isToggle = link.id === 'locations-toggle' || 
-                                 link.id === 'mobile-platforms-toggle' || 
+                const isToggle = link.id === 'locations-toggle' ||
+                                 link.id === 'mobile-platforms-toggle' ||
                                  link.id === 'mobile-delivery-toggle';
                 if (!isToggle) {
                     mobileMenu.classList.remove('active');
@@ -34,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Close menu when clicking outer overlay
         mobileMenu.addEventListener('click', (e) => {
             if (e.target === mobileMenu) {
                 mobileMenu.classList.remove('active');
@@ -73,11 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileDeliveryToggle.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            
+
             mobileDeliveryToggle.classList.toggle('active');
             const isOpen = mobileDeliveryDropdown.classList.toggle('open');
             setAriaExpanded(mobileDeliveryToggle, isOpen);
-            
+
             const icon = mobileDeliveryToggle.querySelector('i');
             if (icon) {
                 icon.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- DESKTOP NESTED DELIVERY SUBMENU: keep aria-expanded in sync ---
+    // --- DESKTOP NESTED DELIVERY SUBMENU ---
     const desktopDeliveryToggle = document.getElementById('desktop-delivery-toggle');
     const desktopNestedWrap = desktopDeliveryToggle ? desktopDeliveryToggle.closest('.nested-delivery') : null;
 
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- ESCAPE KEY HANDLER (Closes Open Menus/Dropdowns) ---
+    // --- ESCAPE KEY HANDLER ---
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             if (mobileMenu && mobileMenu.classList.contains('active')) {
@@ -170,12 +170,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-        // Manage accessibility for active vs hidden slides
         slides.forEach((slide, idx) => {
             const isActive = idx === currentIndex;
             slide.setAttribute('aria-hidden', !isActive);
-            
-            // Disable focusable elements in inactive slides
+
             const focusables = slide.querySelectorAll('a, button');
             focusables.forEach(item => {
                 if (isActive) item.removeAttribute('tabindex');
@@ -183,7 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Update Caption
         if (captionBar && slides[currentIndex]) {
             const itemName = slides[currentIndex].getAttribute('data-name');
             captionBar.style.opacity = '0';
@@ -193,7 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 150);
         }
 
-        // Update Navigation Dots
         dots.forEach((dot, idx) => {
             const isActive = idx === currentIndex;
             dot.classList.toggle('active', isActive);
@@ -228,7 +224,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Touch Support
     if (carouselContainer) {
         carouselContainer.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
@@ -253,7 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
             resetAutoplay();
         });
 
-        // ADA WCAG 2.2.2: Pause Autoplay on Hover or Keyboard Focus
         carouselContainer.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
         carouselContainer.addEventListener('mouseleave', () => startAutoplay());
         carouselContainer.addEventListener('focusin', () => clearInterval(autoplayTimer));
@@ -273,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (track && slides.length > 0) {
-        updateCarousel(0); // Initialize state
+        updateCarousel(0);
         startAutoplay();
     }
 
@@ -291,17 +285,14 @@ document.addEventListener('DOMContentLoaded', () => {
             desserts: "Desserts"
         };
 
-        // Utility: strip any HTML tags (data contains some <br>)
         function stripHTML(html = "") {
             const tmp = document.createElement('div');
             tmp.innerHTML = html;
             return tmp.textContent || tmp.innerText || "";
         }
 
-        // Utility: create a short alt text for image if none provided
         function altForItem(item) {
             if (item.alt && item.alt.trim()) return item.alt;
-            // Prefer the name without dietary markers in parentheses
             const nameOnly = item.name ? item.name.replace(/\(.+?\)/g, '').trim() : 'Menu item';
             const descShort = stripHTML(item.description || '').split('.').shift() || '';
             return descShort ? `${nameOnly} — ${descShort}` : `${nameOnly}`;
@@ -317,7 +308,6 @@ document.addEventListener('DOMContentLoaded', () => {
             heading.textContent = sectionTitleText;
             sectionBlock.appendChild(heading);
 
-            // Use a semantic list
             const list = document.createElement('ul');
             list.className = 'menu-items-grid';
             list.setAttribute('role', 'list');
@@ -326,11 +316,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const listItem = document.createElement('li');
                 listItem.className = 'menu-item';
                 listItem.setAttribute('role', 'listitem');
-
-                // Make the list item keyboard-focusable so Tab lands on it
                 listItem.tabIndex = 0;
 
-                // Optional: let Space/Enter move focus into first interactive child (if present)
                 listItem.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
@@ -339,14 +326,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
 
-                // Generate stable IDs for labelling / describing
                 const baseId = `${category.replace(/\s+/g,'-')}-item-${idx}`;
                 const titleId = `${baseId}-title`;
                 const descId = `${baseId}-desc`;
                 const priceId = `${baseId}-price`;
                 const imgCaptionId = `${baseId}-imgcap`;
 
-                // Figure + image
                 if (item.image) {
                     const figure = document.createElement('figure');
                     figure.className = 'menu-item-image-wrap';
@@ -359,7 +344,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     const figcap = document.createElement('figcaption');
                     figcap.id = imgCaptionId;
                     figcap.className = 'sr-only';
-                    // Provide a longer hidden description if available (allergens / notes)
                     figcap.textContent = stripHTML(item.description || '');
 
                     figure.appendChild(img);
@@ -367,18 +351,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     listItem.appendChild(figure);
                 }
 
-                // Content wrapper
                 const content = document.createElement('div');
                 content.className = 'menu-item-content';
 
-                // Header: title + price
                 const header = document.createElement('div');
                 header.className = 'menu-item-header';
 
                 const titleSpan = document.createElement('span');
                 titleSpan.className = 'menu-item-title';
                 titleSpan.id = titleId;
-                // Treat name as plain text to avoid injecting HTML
                 titleSpan.textContent = stripHTML(item.name || 'Menu item');
 
                 const priceSpan = document.createElement('span');
@@ -392,7 +373,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 header.appendChild(priceSpan);
                 content.appendChild(header);
 
-                // Visible description paragraph
                 if (item.description) {
                     const p = document.createElement('p');
                     p.className = 'menu-item-desc';
@@ -401,7 +381,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     content.appendChild(p);
                 }
 
-                // Associate the list item with title/desc/price for screen readers
                 const describedByIds = [];
                 if (item.description) describedByIds.push(descId);
                 if (item.image) describedByIds.push(imgCaptionId);
@@ -419,14 +398,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
             sectionBlock.appendChild(list);
 
-            // optional foot divider preserved for 'salads'
+            // Replace previous innerHTML approach with DOM creation (static content)
             if (category === 'salads') {
                 const footDivider = document.createElement('div');
                 footDivider.style.cssText = "margin-top: 35px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.12); text-align: center; width: 100%;";
-                footDivider.innerHTML = `
-                    <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--pure-white); margin-bottom: 0.5rem; font-weight: 700;">Protein Add-Ons</h3>
-                    <p style="font-family: 'Lato', sans-serif; font-size: 0.82rem; color: var(--subtle-gold); letter-spacing: 0.3px;">Chicken (8) • Beef (9) • Salmon (10) • Shrimp (9)</p>
-                `;
+
+                const h3 = document.createElement('h3');
+                h3.style.cssText = "font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--pure-white); margin-bottom: 0.5rem; font-weight: 700;";
+                h3.textContent = "Protein Add-Ons";
+
+                const p = document.createElement('p');
+                p.style.cssText = "font-family: 'Lato', sans-serif; font-size: 0.82rem; color: var(--subtle-gold); letter-spacing: 0.3px;";
+                p.textContent = "Chicken (8) • Beef (9) • Salmon (10) • Shrimp (9)";
+
+                footDivider.appendChild(h3);
+                footDivider.appendChild(p);
                 sectionBlock.appendChild(footDivider);
             }
 
@@ -438,18 +424,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const drinksTargetContainer = document.getElementById('live-drinks-target');
 
     if (typeof drinkData !== 'undefined' && drinksTargetContainer) {
-        drinksTargetContainer.innerHTML = ""; // Clear container
+        drinksTargetContainer.innerHTML = "";
 
-        // 1. Render Category Jump Dropdown at the top (ADA Compliant)
         if (drinkData.quickNav) {
             const navWrapper = document.createElement('div');
             navWrapper.style.cssText = "text-align: center; margin: 0 auto 2.5rem auto; max-width: 320px; padding: 0 1rem;";
-            
+
+            // CREATE select with id + name to satisfy browsers and Lighthouse
             const selectDropdown = document.createElement('select');
+            selectDropdown.id = 'drinks-category-jump';
+            selectDropdown.name = 'drinks-category';
             selectDropdown.setAttribute('aria-label', 'Drink Menu Categories');
             selectDropdown.style.cssText = "width: 100%; padding: 0.75rem 1rem; background-color: var(--velvet-blue-surface, #0f172a); color: var(--subtle-gold); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px;";
 
-            // Default prompt option
             const defaultOption = document.createElement('option');
             defaultOption.value = "";
             defaultOption.disabled = true;
@@ -464,18 +451,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 selectDropdown.appendChild(option);
             });
 
-            // Jump behavior on change
             selectDropdown.addEventListener('change', (e) => {
                 const targetId = e.target.value;
                 if (targetId) {
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         targetElement.scrollIntoView({ behavior: 'smooth' });
-                        // Move focus to the category heading for screen reader users
                         const heading = targetElement.querySelector('h2');
                         if (heading) heading.focus({preventScroll: true});
                     }
-                    // Reset dropdown selection back to default prompt after jumping
                     e.target.value = "";
                 }
             });
@@ -484,27 +468,23 @@ document.addEventListener('DOMContentLoaded', () => {
             drinksTargetContainer.appendChild(navWrapper);
         }
 
-        // 2. Loop through each drink category
         for (const [categoryKey, categoryObj] of Object.entries(drinkData)) {
-            if (categoryKey === 'quickNav') continue; // Skip the quickNav metadata object
+            if (categoryKey === 'quickNav') continue;
 
             const sectionBlock = document.createElement('section');
             sectionBlock.className = 'menu-category-section';
             sectionBlock.setAttribute('aria-label', categoryObj.title);
-            
-            // Assign anchor ID so the quick-jump dropdown targets smoothly
+
             if (categoryObj.anchorId) {
                 sectionBlock.id = categoryObj.anchorId;
                 sectionBlock.style.scrollMarginTop = "100px";
             }
 
-            // Category Title
             const heading = document.createElement('h2');
             heading.innerText = categoryObj.title;
-            heading.tabIndex = -1; // focusable programmatically if needed
+            heading.tabIndex = -1;
             sectionBlock.appendChild(heading);
 
-            // Optional Subtitle
             if (categoryObj.subtitle) {
                 const subHeading = document.createElement('p');
                 subHeading.style.cssText = "text-align: center; font-size: 0.85rem; color: var(--muted-white); margin-top: -1rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px;";
@@ -512,21 +492,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 sectionBlock.appendChild(subHeading);
             }
 
-            // Grid Block for Items
             const gridBlock = document.createElement('div');
             gridBlock.className = 'menu-items-grid';
 
-            categoryObj.items.forEach((item, idx) => {
+            categoryObj.items.forEach((item) => {
                 const itemElement = document.createElement('div');
                 itemElement.className = 'menu-item';
                 itemElement.setAttribute('role', 'group');
-
-                // Make drink items keyboard focusable so Tab lands on them
                 itemElement.tabIndex = 0;
 
                 const itemPriceDisplay = (item.price && String(item.price).includes('$')) ? item.price : (item.price ? `$${item.price}` : '');
 
-                // Build content safely using DOM methods
                 const contentWrap = document.createElement('div');
                 contentWrap.className = 'menu-item-content';
                 contentWrap.style.width = '100%';
@@ -554,7 +530,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     contentWrap.appendChild(descP);
                 }
 
-                // Compose an accessible label for the group (brief)
                 const ariaLabelParts = [item.name];
                 if (itemPriceDisplay) ariaLabelParts.push(itemPriceDisplay);
                 if (item.description) ariaLabelParts.push(item.description);
@@ -572,19 +547,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- MOBILE FOOTER DROP-UP MENU ---
     const orderTrigger = document.getElementById('mobile-order-trigger');
     const dropupMenu = document.getElementById('mobile-dropup-menu');
-    
+
     if (orderTrigger && dropupMenu) {
-        orderTrigger.addEventListener('click', (e) => { 
-            e.preventDefault(); 
-            e.stopPropagation(); 
-            const isOpen = dropupMenu.classList.toggle('open'); 
+        orderTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const isOpen = dropupMenu.classList.toggle('open');
             setAriaExpanded(orderTrigger, isOpen);
         });
-        document.addEventListener('click', (e) => { 
+        document.addEventListener('click', (e) => {
             if (!dropupMenu.contains(e.target) && e.target !== orderTrigger) {
-                dropupMenu.classList.remove('open'); 
+                dropupMenu.classList.remove('open');
                 setAriaExpanded(orderTrigger, false);
-            } 
+            }
         });
     }
 
@@ -600,7 +575,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footerDeliveryDropdown.classList.toggle('open');
             footerDeliveryToggle.classList.toggle('active');
             setAriaExpanded(footerDeliveryToggle, !isOpen);
-            
+
             const icon = footerDeliveryToggle.querySelector('i');
             if (icon) {
                 icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
@@ -627,7 +602,7 @@ function toggleStickyOrderPopup() {
     if (popup) {
         const isHidden = popup.style.display === 'none' || popup.style.display === '';
         popup.style.display = isHidden ? 'block' : 'none';
-        
+
         if (button) {
             button.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
         }
