@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Selda Mediterranean Kitchen & Bar | 2-Course Lunch</title>
@@ -68,7 +67,7 @@
         <span><strong>V</strong> Vegan</span>
       </div>
 
-      <!-- Two-Column Course Grid Container -->
+      <!-- Two-Column Course Grid Container (static prix-fixe examples) -->
       <div class="lunch-grid-container" style="margin-top: 2rem;">
         <section aria-label="First Course">
           <div class="course-item">
@@ -105,6 +104,15 @@
         </section>
       </div>
 
+      <!-- Divider before the full dynamic menu -->
+      <div style="margin: 3rem 0; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 2rem;">
+        <h2 class="section-title" style="margin-bottom: 0.5rem;">Full Menu</h2>
+        <p style="text-align:center; color:var(--muted-white); margin-bottom: 1.5rem;">Select items below are also available during lunch service.</p>
+      </div>
+
+      <!-- THIS IS THE DYNAMIC TARGET: script.js will populate the full menu here using data/menu.js -->
+      <div id="live-menu-target" aria-live="polite"></div>
+
       <div class="bottom-legend-container" style="margin-top: 3rem;">
         <hr class="menu-divider">
         <div class="bottom-legend-row">
@@ -136,6 +144,9 @@
     <a href="menu.html" class="sticky-action-btn" style="background-color: var(--velvet-blue-surface);">Dinner Menu</a>
   </div>
 
+  <!-- Load data and page-specific helper, then the main script -->
+  <script src="data/menu.js"></script>
+  <script src="data/lunch.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
