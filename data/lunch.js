@@ -1,120 +1,55 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Mobile Hamburger Menu Toggle
-    const hamburgerBtn = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
+// data/lunch.js — lightweight, non-duplicating lunch-page helpers
+// This file intentionally avoids adding any listeners that are already implemented
+// in script.js. It only contains page-specific, non-conflicting enhancements.
 
-    if (hamburgerBtn && mobileMenu) {
-        hamburgerBtn.addEventListener('click', () => {
-            const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
-            
-            // Toggle Accessibility Attributes
-            hamburgerBtn.setAttribute('aria-expanded', !isExpanded);
-            mobileMenu.setAttribute('aria-hidden', isExpanded);
-            
-            // Toggle Visual Class
-            hamburgerBtn.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        });
-    }
+(function () {
+  // Guard to prevent this file running more than once
+  if (window.__selda_lunch_js_loaded) return;
+  window.__selda_lunch_js_loaded = true;
 
-    // 2. Desktop Dropdown Logic (Order button)
-    const desktopDropdownBtn = document.getElementById('desktop-dropdown-btn');
-    const desktopDropdownContent = document.getElementById('desktop-dropdown-content');
+  document.addEventListener('DOMContentLoaded', () => {
+    try {
+      // 1) Make the main prix-fixe heading programmatically focusable for screen readers
+      const prixHeading = document.querySelector('.menu-header h1');
+      if (prixHeading && !prixHeading.hasAttribute('tabindex')) {
+        prixHeading.setAttribute('tabindex', '-1'); // focusable programmatically but not in tab order
+      }
 
-    if (desktopDropdownBtn && desktopDropdownContent) {
-        desktopDropdownBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isExpanded = desktopDropdownBtn.getAttribute('aria-expanded') === 'true';
-            desktopDropdownBtn.setAttribute('aria-expanded', !isExpanded);
-            
-            // Toggle display manually if CSS hover isn't handling it 
-            // (Assumes CSS is display:none by default and we use JS for click accessibility)
-            desktopDropdownContent.style.display = isExpanded ? 'none' : 'block';
-        });
-    }
+      // 2) Ensure the "Full Menu" section (if present) can be focused when linked to
+      const fullMenuHeading = Array.from(document.querySelectorAll('h2'))
+        .find(h => /full menu/i.test(h.textContent));
+      if (fullMenuHeading && !fullMenuHeading.hasAttribute('tabindex')) {
+        fullMenuHeading.setAttribute('tabindex', '-1');
+      }
 
-    // 3. Desktop Nested Delivery Dropdown
-    const desktopDeliveryToggle = document.getElementById('desktop-delivery-toggle');
-    const desktopDeliveryContent = document.getElementById('desktop-delivery-content');
-
-    if (desktopDeliveryToggle && desktopDeliveryContent) {
-        desktopDeliveryToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isExpanded = desktopDeliveryToggle.getAttribute('aria-expanded') === 'true';
-            desktopDeliveryToggle.setAttribute('aria-expanded', !isExpanded);
-            
-            // Find the icon and rotate it
-            const icon = desktopDeliveryToggle.querySelector('.fa-chevron-right');
-            if (icon) {
-                icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(90deg)';
-                icon.style.transition = 'transform 0.3s ease';
-            }
-        });
-    }
-
-    // 4. Mobile Order Dropdown Toggle
-    const mobilePlatformsToggle = document.getElementById('mobile-platforms-toggle');
-    const mobilePlatformsDropdown = document.getElementById('mobile-platforms-dropdown');
-
-    if (mobilePlatformsToggle && mobilePlatformsDropdown) {
-        mobilePlatformsToggle.addEventListener('click', () => {
-            const isExpanded = mobilePlatformsToggle.getAttribute('aria-expanded') === 'true';
-            mobilePlatformsToggle.setAttribute('aria-expanded', !isExpanded);
-            mobilePlatformsDropdown.setAttribute('aria-hidden', isExpanded);
-            
-            // Find the icon and rotate it
-            const icon = mobilePlatformsToggle.querySelector('.fa-chevron-down');
-            if (icon) {
-                icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
-                icon.style.transition = 'transform 0.3s ease';
-            }
-        });
-    }
-
-    // 5. Mobile Nested Delivery Toggle
-    const mobileDeliveryToggle = document.getElementById('mobile-delivery-toggle');
-    const mobileDeliveryDropdown = document.getElementById('mobile-delivery-dropdown');
-
-    if (mobileDeliveryToggle && mobileDeliveryDropdown) {
-        mobileDeliveryToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isExpanded = mobileDeliveryToggle.getAttribute('aria-expanded') === 'true';
-            mobileDeliveryToggle.setAttribute('aria-expanded', !isExpanded);
-            mobileDeliveryDropdown.setAttribute('aria-hidden', isExpanded);
-            
-            // Find the icon and rotate it
-            const icon = mobileDeliveryToggle.querySelector('.fa-chevron-right');
-            if (icon) {
-                icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(90deg)';
-                icon.style.transition = 'transform 0.3s ease';
-            }
-        });
-    }
-
-    // 6. ADA Compliance: Close menus when clicking outside
-    document.addEventListener('click', (e) => {
-        // Close Desktop Menu
-        if (desktopDropdownBtn && desktopDropdownContent && !desktopDropdownBtn.contains(e.target) && !desktopDropdownContent.contains(e.target)) {
-            desktopDropdownBtn.setAttribute('aria-expanded', 'false');
-            desktopDropdownContent.style.display = ''; // Revert to CSS default
+      // 3) Optional: If the page is opened with ?focus=menu, focus the Full Menu heading
+      //    Use-case: external link that should land directly on full menu content.
+      try {
+        const url = new URL(window.location.href);
+        if (url.searchParams.get('focus') === 'menu' && fullMenuHeading) {
+          fullMenuHeading.focus({ preventScroll: false });
         }
-    });
+      } catch (err) {
+        // ignore URL parsing errors in older browsers
+      }
 
-    // 7. ADA Compliance: Escape Key to close menus
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            // Close mobile menu if open
-            if (hamburgerBtn && hamburgerBtn.getAttribute('aria-expanded') === 'true') {
-                hamburgerBtn.click();
-                hamburgerBtn.focus();
-            }
-            
-            // Close desktop dropdown if open
-            if (desktopDropdownBtn && desktopDropdownBtn.getAttribute('aria-expanded') === 'true') {
-                desktopDropdownBtn.setAttribute('aria-expanded', 'false');
-                desktopDropdownContent.style.display = '';
-                desktopDropdownBtn.focus();
-            }
-        }
-    });
-});
+      // 4) Small defensive fix: if the dynamic menu target exists but is empty,
+      //    add a polite status message for screen reader users (will be replaced
+      //    when script.js renders menuData).
+      const liveTarget = document.getElementById('live-menu-target');
+      if (liveTarget && liveTarget.children.length === 0) {
+        const status = document.createElement('p');
+        status.className = 'sr-only';
+        status.setAttribute('role', 'status');
+        status.textContent = 'Menu loading';
+        liveTarget.appendChild(status);
+      }
+    } catch (e) {
+      // Do not throw; this file must be safe and non-fatal if something unexpected occurs.
+      // Log to console for debugging only.
+      if (window && window.console && typeof window.console.warn === 'function') {
+        console.warn('lunch.js: non-fatal error', e);
+      }
+    }
+  });
+})();
