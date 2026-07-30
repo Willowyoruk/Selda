@@ -6,7 +6,7 @@
   <title>Selda Mediterranean Kitchen & Bar | 2-Course Lunch</title>
   <link rel="stylesheet" href="style.css">
 
-  <!-- Restaurant JSON-LD / Breadcrumbs (preserved) -->
+  <!-- Restaurant JSON-LD / Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -53,7 +53,8 @@
   <main id="main-content" role="main">
     <div class="menu-container lunch-page-wrapper" style="padding-top: 2rem;">
       <div class="menu-header" style="margin-bottom: 2.5rem;">
-        <h1>2-COURSE LUNCH</h1>
+        <!-- Programmatically focusable for skip-to-main & scripts -->
+        <h1 tabindex="-1">2-COURSE LUNCH</h1>
         <div class="subtitle" style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--subtle-gold); font-weight:600; margin:0.5rem 0;">$19.95</div>
         <div class="location" style="text-transform:uppercase; letter-spacing:1.5px; font-size:0.85rem;">Monday – Friday • 11:00 AM – 2:00 PM</div>
         <div style="font-family:'Lato',sans-serif; font-size:0.8rem; color:var(--subtle-gold); letter-spacing:1px; text-transform:uppercase; margin-top:0.5rem; font-weight:700;">
@@ -61,147 +62,151 @@
         </div>
       </div>
 
-      <div class="top-dietary-key" aria-hidden="false">
+      <div class="top-dietary-key" aria-hidden="false" style="margin-bottom: 1rem;">
         <span><strong>GF</strong> Gluten Free</span>
         <span><strong>VEG</strong> Vegetarian</span>
         <span><strong>V</strong> Vegan</span>
       </div>
 
-      <!-- Two-Course Grid Container with Complete Menu Data -->
+      <!-- Two-Course Grid Container -->
       <div class="lunch-grid-container" style="margin-top: 2rem;">
         
         <!-- FIRST COURSE -->
         <section aria-label="First Course">
           <div style="text-align: center; margin-bottom: 1.5rem;">
-            <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1.25rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pure-white);">First Course</h2>
+            <h2 tabindex="-1" style="font-family: 'Montserrat', sans-serif; font-size: 1.25rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pure-white);">First Course</h2>
             <p style="font-style: italic; font-size: 0.85rem; color: var(--muted-white); margin-top: 0.2rem;">(choose one)</p>
           </div>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Shepherd Salad <span class="dietary-tag">(VEG, GF)</span></div>
-            <div class="course-desc">Chunks of tomato, cucumber, feta cheese; tossed with sliced onion, fresh parsley, olive oil and lime.</div>
-          </div>
+          <ul class="course-list" role="list" aria-label="First Course options">
+            <li class="course-item" role="listitem">
+              <div class="course-title">Shepherd Salad <span class="dietary-tag">(VEG, GF)</span></div>
+              <div class="course-desc">Chunks of tomato, cucumber, feta cheese; tossed with sliced onion, fresh parsley, olive oil and lime.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Beet Salad <span class="dietary-tag">(VEG, GF)</span></div>
-            <div class="course-desc">Diced red beets, watermelon, and feta cheese, tossed with fresh spinach, walnut, balsamic.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Beet Salad <span class="dietary-tag">(VEG, GF)</span></div>
+              <div class="course-desc">Diced red beets, watermelon, and feta cheese, tossed with fresh spinach, walnut, balsamic.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Arugula Quinoa Salad <span class="dietary-tag">(V, VEG, GF)</span></div>
-            <div class="course-desc">Fresh arugula mixed with quinoa, diced tomatoes, cucumbers, and onion; tossed with lemon, olive oil and vinaigrette.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Arugula Quinoa Salad <span class="dietary-tag">(V, VEG, GF)</span></div>
+              <div class="course-desc">Fresh arugula mixed with quinoa, diced tomatoes, cucumbers, and onion; tossed with lemon, olive oil and vinaigrette.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Lentil Soup <span class="dietary-tag">(VEG, GF)</span></div>
-            <div class="course-desc">Smooth and creamy lentil soup garnished with a sprinkle of spices.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Lentil Soup <span class="dietary-tag">(VEG, GF)</span></div>
+              <div class="course-desc">Smooth and creamy lentil soup garnished with a sprinkle of spices.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Hummus <span class="dietary-tag">(VEG, GF)</span></div>
-            <div class="course-desc">A classic purée of chickpeas, yogurt, sesame tahini, garlic and extra virgin olive oil.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Hummus <span class="dietary-tag">(VEG, GF)</span></div>
+              <div class="course-desc">A classic purée of chickpeas, yogurt, sesame tahini, garlic and extra virgin olive oil.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Grilled Eggplant Salad (Baba Ganoush) <span class="dietary-tag">(VEG, GF)</span></div>
-            <div class="course-desc">A smoky purée of roasted eggplant, yogurt, sesame tahini, garlic and extra virgin olive oil.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Grilled Eggplant Salad (Baba Ganoush) <span class="dietary-tag">(VEG, GF)</span></div>
+              <div class="course-desc">A smoky purée of roasted eggplant, yogurt, sesame tahini, garlic and extra virgin olive oil.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Tzatziki / Cacik <span class="dietary-tag">(VEG, GF)</span></div>
-            <div class="course-desc">Tangy Greek yogurt, olive oil, garlic, lemon, cucumber, and mint.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Tzatziki / Cacik <span class="dietary-tag">(VEG, GF)</span></div>
+              <div class="course-desc">Tangy Greek yogurt, olive oil, garlic, lemon, cucumber, and mint.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Spicy Ezme <span class="dietary-tag">(V, VEG, GF)</span></div>
-            <div class="course-desc">Blended minced tomatoes, cucumber, hot spices, peppers, onions, pomegranate molasses, garlic, olive oil and lemon juice.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Spicy Ezme <span class="dietary-tag">(V, VEG, GF)</span></div>
+              <div class="course-desc">Blended minced tomatoes, cucumber, hot spices, peppers, onions, pomegranate molasses, garlic, olive oil and lemon juice.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Cigar Borek <span class="dietary-tag">(VEG)</span></div>
-            <div class="course-desc">Deep fried, flaky cigar shaped pastries stuffed with savory cheese, served with a creamy herb dip.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Cigar Borek <span class="dietary-tag">(VEG)</span></div>
+              <div class="course-desc">Deep fried, flaky cigar shaped pastries stuffed with savory cheese, served with a creamy herb dip.</div>
+            </li>
+          </ul>
         </section>
 
         <!-- SECOND COURSE -->
         <section aria-label="Second Course">
           <div style="text-align: center; margin-bottom: 1.5rem;">
-            <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1.25rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pure-white);">Second Course</h2>
+            <h2 tabindex="-1" style="font-family: 'Montserrat', sans-serif; font-size: 1.25rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pure-white);">Second Course</h2>
             <p style="font-style: italic; font-size: 0.85rem; color: var(--muted-white); margin-top: 0.2rem;">(choose one)</p>
           </div>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Shepherd Salad with Chicken or Beef or Salmon</div>
-            <div class="course-desc">Fresh shepherd salad served with your choice of protein.</div>
-          </div>
+          <ul class="course-list" role="list" aria-label="Second Course options">
+            <li class="course-item" role="listitem">
+              <div class="course-title">Shepherd Salad with Chicken or Beef or Salmon</div>
+              <div class="course-desc">Fresh shepherd salad served with your choice of protein.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Beet Salad with Chicken or Beef or Salmon</div>
-            <div class="course-desc">Fresh beet salad served with your choice of protein.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Beet Salad with Chicken or Beef or Salmon</div>
+              <div class="course-desc">Fresh beet salad served with your choice of protein.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Arugula Quinoa Salad with Chicken or Beef or Salmon</div>
-            <div class="course-desc">Fresh arugula quinoa salad served with your choice of protein.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Arugula Quinoa Salad with Chicken or Beef or Salmon</div>
+              <div class="course-desc">Fresh arugula quinoa salad served with your choice of protein.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Chicken Shish <span class="dietary-tag">(GF)</span></div>
-            <div class="course-desc">Charcoal-grilled marinated chicken cubes served with Turkish rice and bean salad.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Chicken Shish <span class="dietary-tag">(GF)</span></div>
+              <div class="course-desc">Charcoal-grilled marinated chicken cubes served with Turkish rice and bean salad.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Chicken Adana <span class="dietary-tag">(GF)</span></div>
-            <div class="course-desc">Hand-minced chicken kebab, charcoal-grilled over an open flame and served with Turkish rice and bean salad.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Chicken Adana <span class="dietary-tag">(GF)</span></div>
+              <div class="course-desc">Hand-minced chicken kebab, charcoal-grilled over an open flame and served with Turkish rice and bean salad.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Urfa Kebab <span class="dietary-tag">(GF)</span></div>
-            <div class="course-desc">Chargrilled ground beef kebab served with Turkish rice, bean salad.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Urfa Kebab <span class="dietary-tag">(GF)</span></div>
+              <div class="course-desc">Chargrilled ground beef kebab served with Turkish rice and bean salad.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Beef Shish <span class="dietary-tag">(GF)</span></div>
-            <div class="course-desc">Hand-cut beef cubes skewered and grilled over natural charcoal, served with Turkish rice and bean salad.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Beef Shish <span class="dietary-tag">(GF)</span></div>
+              <div class="course-desc">Hand-cut beef cubes skewered and grilled over natural charcoal, served with Turkish rice and bean salad.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Grilled Butcher Meatballs <span class="dietary-tag">(GF)</span></div>
-            <div class="course-desc">Traditional hand-pressed beef patties, charcoal-grilled over an open fire topped with tomato sauce and drizzle of garlic yogurt sauce, served with Turkish rice and bean salad.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Grilled Butcher Meatballs <span class="dietary-tag">(GF)</span></div>
+              <div class="course-desc">Traditional hand-pressed beef patties, charcoal-grilled, topped with tomato sauce and a drizzle of garlic yogurt, served with Turkish rice and bean salad.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Grilled Salmon <span class="dietary-tag">(GF)</span></div>
-            <div class="course-desc">Salmon filet marinated in Turkish style, served with sauteed spinach, chickpeas, and tomato sauce.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Grilled Salmon <span class="dietary-tag">(GF)</span></div>
+              <div class="course-desc">Salmon filet marinated in Turkish style, served with sauteed spinach, chickpeas, and tomato sauce.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Falafel Combo <span class="dietary-tag">(VEG)</span></div>
-            <div class="course-desc">Seasoned fried chickpea patties served with Turkish rice, bean salad.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Falafel Combo <span class="dietary-tag">(VEG)</span></div>
+              <div class="course-desc">Seasoned fried chickpea patties served with Turkish rice and bean salad.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Turkish Doner</div>
-            <div class="course-desc">Thinly sliced beef doner (similar to gyro), slowly roasted on a vertical doner spit and served with Turkish rice and bean salad.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Turkish Döner</div>
+              <div class="course-desc">Thinly sliced beef döner, slowly roasted on a vertical doner spit and served with Turkish rice and bean salad.</div>
+            </li>
 
-          <div class="course-item" tabindex="0">
-            <div class="course-title">Iskender Doner</div>
-            <div class="course-desc">Thinly sliced beef doner (similar to gyro), slowly roasted on a vertical doner spit, served on top of pita bread with house-made tomato sauce, warm butter and plated with yogurt.</div>
-          </div>
+            <li class="course-item" role="listitem">
+              <div class="course-title">Iskender Döner</div>
+              <div class="course-desc">Thinly sliced beef döner, served on top of pita bread with house-made tomato sauce, warm butter and yogurt.</div>
+            </li>
+          </ul>
         </section>
 
       </div>
 
       <div class="bottom-legend-container" style="margin-top: 3rem;">
-        <hr class="menu-divider">
-        <div class="bottom-legend-row">
+        <hr class="menu-divider" />
+        <div class="bottom-legend-row" style="display:flex; justify-content:center; gap:2.5rem;">
           <p><strong>GF</strong> Gluten Free</p>
           <p><strong>VEG</strong> Vegetarian</p>
           <p><strong>V</strong> Vegan</p>
         </div>
         <p class="allergy-disclaimer" style="margin-top: 1rem;">
-          *For parties of 6 or above, a 20% service charge is added to the bills.
+          *For parties of 6 or above, a 20% service charge is added to the bill. Please inform your server of any food allergies or dietary restrictions prior to placing your order.
         </p>
       </div>
     </div>
@@ -224,7 +229,7 @@
     <a href="menu.html" class="sticky-action-btn" style="background-color: var(--velvet-blue-surface);">Dinner Menu</a>
   </div>
 
-  <!-- Load script files -->
+  <!-- Page-specific helper and main script -->
   <script src="data/lunch.js"></script>
   <script src="script.js"></script>
 </body>
