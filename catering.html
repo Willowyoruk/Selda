@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Selda Mediterranean Kitchen & Bar | Catering Menu</title>
+    
+    <!-- Schema for Catering Services -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Selda Mediterranean Kitchen & Bar",
+      "alternateName": [
+        "Selda San Antonio",
+        "Selda Mediterranean",
+        "Selda Catering"
+      ],
+      "description": "Authentic Mediterranean and Turkish catering in San Antonio for parties, events, and family gatherings. Serves 10 people per item.",
+      "url": "https://www.seldarestaurant.com/catering.html",
+      "logo": "https://www.seldarestaurant.com/assets/favicon.png",
+      "image": "https://www.seldarestaurant.com/assets/fire.jpg",
+      "priceRange": "$$",
+      "servesCuisine": ["Mediterranean", "Turkish", "Halal"],
+      "telephone": "+12102365230",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "9955 I-10 W",
+        "addressLocality": "San Antonio",
+        "addressRegion": "TX",
+        "postalCode": "78230",
+        "addressCountry": "US"
+      },
+      "hasMenu": "https://www.seldarestaurant.com/catering.html"
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.seldarestaurant.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Catering Menu",
+          "item": "https://www.seldarestaurant.com/catering.html"
+        }
+      ]
+    }
+    </script>
+
+    <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Screen reader & accessibility helpers matching your site pattern -->
+    <style>
+      .sr-only {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: -999px;
+        background: var(--subtle-gold, #D4AF37);
+        color: #0A111C;
+        padding: 0.5rem 1rem;
+        z-index: 9999;
+        text-decoration: none;
+        border-radius: 4px;
+      }
+      .skip-link:focus {
+        left: 1rem;
+        top: 1rem;
+      }
+
+      .serving-notice {
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--subtle-gold, #D4AF37);
+        letter-spacing: 1px;
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+      }
+
+      .catering-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        margin-top: 2rem;
+      }
+
+      @media (min-width: 768px) {
+        .catering-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+        }
+      }
+
+      .catering-section {
+        margin-bottom: 2.5rem;
+      }
+
+      .catering-section-title {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.8rem;
+        color: var(--pure-white, #ffffff);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+        padding-bottom: 0.4rem;
+        margin-bottom: 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+
+      .catering-section-price {
+        font-size: 1.1rem;
+        color: var(--subtle-gold, #D4AF37);
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+      }
+
+      .catering-item {
+        margin-bottom: 1.2rem;
+      }
+
+      .catering-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+      }
+
+      .catering-item-name {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 1.05rem;
+        color: var(--pure-white, #ffffff);
+      }
+
+      .catering-item-price {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: var(--subtle-gold, #D4AF37);
+        white-space: nowrap;
+      }
+
+      .catering-item-desc {
+        font-family: 'Lato', sans-serif;
+        font-size: 0.92rem;
+        color: var(--muted-white, #cccccc);
+        margin-top: 0.25rem;
+        font-style: italic;
+      }
+
+      .dietary-tag {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--subtle-gold, #D4AF37);
+        margin-left: 0.4rem;
+        font-style: normal;
+      }
+    </style>
+</head>
+<body class="menu-page">
+
+    <!-- Skip to main content for keyboard/screen-reader users -->
+    <a class="skip-link" href="#main-content">Skip to catering menu</a>
+
+<header id="header">
+    <div class="header-content-menu" style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 1.5rem;">
+        <!-- Left: Back Button -->
+        <a href="index.html" class="back-btn" aria-label="Back to main site" style="margin: 0;">
+            <i class="fas fa-chevron-left" style="margin-right: 8px;" aria-hidden="true"></i> Back to Main Site
+        </a>
+        
+        <!-- Right: Logo -->
+        <a href="index.html" class="logo-link" style="display: flex; align-items: center; text-decoration: none; margin: 0;" aria-label="Selda Home Page">
+            <img src="assets/logo.jpg" alt="Selda Logo" style="height: 50px; width: auto; object-fit: contain;">
+        </a>
+    </div>
+</header>
+
+    <main id="main-content" role="main">
+      <div class="menu-container" role="region" aria-labelledby="catering-heading">
+          <div class="menu-header">
+              <h1 id="catering-heading" style="font-size: 3.5rem !important; white-space: normal !important;">CATERING</h1>
+              <div class="subtitle">Selda Mediterranean Kitchen &amp; Bar</div>
+              <div class="location">San Antonio, Texas</div>
+              <div class="serving-notice" aria-label="Serving size: Serves 10 people per item">
+                  Serves 10 people per item
+              </div>
+          </div>
+
+          <div class="top-dietary-key" aria-hidden="false">
+              <span><strong>GF</strong> Gluten Free</span>
+              <span><strong>VEG</strong> Vegetarian</span>
+              <span><strong>V</strong> Vegan</span>
+          </div>
+
+          <div class="catering-grid">
+              <!-- Left Column: Salads, Cold Apps, Hot Apps -->
+              <div class="catering-column">
+                  
+                  <!-- Salads -->
+                  <section class="catering-section" aria-labelledby="salads-heading">
+                      <h2 id="salads-heading" class="catering-section-title">
+                          Salads
+                          <span class="catering-section-price">$30 each</span>
+                      </h2>
+                      <ul style="list-style: none; padding: 0; margin: 0;" role="list">
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">Shepherd Salad <span class="dietary-tag">(VEG, GF)</span></span>
+                              </div>
+                              <p class="catering-item-desc">Chunks of tomato, cucumber, feta cheese; tossed with sliced onion, fresh parsley, olive oil and lime</p>
+                          </li>
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">Beet Salad <span class="dietary-tag">(VEG, GF)</span></span>
+                              </div>
+                              <p class="catering-item-desc">Diced red beets, watermelon, and feta cheese, tossed with fresh spinach, walnut, balsamic</p>
+                          </li>
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">Arugula Quinoa Salad <span class="dietary-tag">(V, VEG, GF)</span></span>
+                              </div>
+                              <p class="catering-item-desc">Fresh arugula mixed with quinoa, diced tomatoes, cucumbers, and onion; tossed with lemon, olive oil and vinaigrette</p>
+                          </li>
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">White Bean Salad <span class="dietary-tag">(V, GF)</span></span>
+                              </div>
+                              <p class="catering-item-desc">Beans, Cilantro, Red onion</p>
+                          </li>
+                      </ul>
+                  </section>
+
+                  <!-- Cold Appetizers -->
+                  <section class="catering-section" aria-labelledby="cold-app-heading">
+                      <h2 id="cold-app-heading" class="catering-section-title">
+                          Cold Appetizers
+                          <span class="catering-section-price">$30 each</span>
+                      </h2>
+                      <ul style="list-style: none; padding: 0; margin: 0;" role="list">
+                          <li class="catering-item">
+                              <span class="catering-item-name">Hummus <span class="dietary-tag">(VEG, GF)</span></span>
+                          </li>
+                          <li class="catering-item">
+                              <span class="catering-item-name">Grilled Eggplant Salad (Baba Ganoush) <span class="dietary-tag">(VEG, GF)</span></span>
+                          </li>
+                          <li class="catering-item">
+                              <span class="catering-item-name">Tzatziki / Cacık <span class="dietary-tag">(VEG, GF)</span></span>
+                          </li>
+                          <li class="catering-item">
+                              <span class="catering-item-name">Spicy Ezme <span class="dietary-tag">(V, GF)</span></span>
+                          </li>
+                          <li class="catering-item">
+                              <span class="catering-item-name">Turkish Feta &amp; Olives <span class="dietary-tag">(VEG, GF)</span></span>
+                          </li>
+                          <li class="catering-item">
+                              <span class="catering-item-name">Dolma Stuffed Grape Leaves <span class="dietary-tag">(VEG)</span></span>
+                          </li>
+                      </ul>
+                  </section>
+
+                  <!-- Hot Appetizers -->
+                  <section class="catering-section" aria-labelledby="hot-app-heading">
+                      <h2 id="hot-app-heading" class="catering-section-title">
+                          Hot Appetizers
+                          <span class="catering-section-price">$30 each</span>
+                      </h2>
+                      <ul style="list-style: none; padding: 0; margin: 0;" role="list">
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">Cigar Borek <span class="dietary-tag">(VEG)</span></span>
+                              </div>
+                              <p class="catering-item-desc">Deep fried, flaky cigar shaped pastries stuffed with savory cheese</p>
+                          </li>
+                          <li class="catering-item">
+                              <span class="catering-item-name">Falafel <span class="dietary-tag">(VEG, GF)</span></span>
+                          </li>
+                          <li class="catering-item">
+                              <span class="catering-item-name">Fried Cauliflower <span class="dietary-tag">(VEG, GF)</span></span>
+                          </li>
+                          <li class="catering-item">
+                              <span class="catering-item-name">Shishito Peppers <span class="dietary-tag">(VEG, GF)</span></span>
+                          </li>
+                      </ul>
+                  </section>
+
+              </div>
+
+              <!-- Right Column: Chicken, Beef, Lamb, Desserts, Sides -->
+              <div class="catering-column">
+                  
+                  <!-- Chicken -->
+                  <section class="catering-section" aria-labelledby="chicken-heading">
+                      <h2 id="chicken-heading" class="catering-section-title">Chicken</h2>
+                      <ul style="list-style: none; padding: 0; margin: 0;" role="list">
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">Chicken Shish (10 skewers)</span>
+                                  <span class="catering-item-price">$65</span>
+                              </div>
+                              <p class="catering-item-desc">Charcoal-grilled marinated chicken cubes</p>
+                          </li>
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">Chicken Adana (10 skewers)</span>
+                                  <span class="catering-item-price">$65</span>
+                              </div>
+                              <p class="catering-item-desc">Hand-minced chicken kebab</p>
+                          </li>
+                      </ul>
+                  </section>
+
+                  <!-- Beef -->
+                  <section class="catering-section" aria-labelledby="beef-heading">
+                      <h2 id="beef-heading" class="catering-section-title">Beef</h2>
+                      <ul style="list-style: none; padding: 0; margin: 0;" role="list">
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">Urfa Kebab (10 skewers)</span>
+                                  <span class="catering-item-price">$80</span>
+                              </div>
+                              <p class="catering-item-desc">Chargrilled ground beef kebab</p>
+                          </li>
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">Beef Shish (10 skewers)</span>
+                                  <span class="catering-item-price">$80</span>
+                              </div>
+                              <p class="catering-item-desc">Hand-cut beef cubes skewered</p>
+                          </li>
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">Grilled Butcher Meatballs (20 pcs)</span>
+                                  <span class="catering-item-price">$70</span>
+                              </div>
+                              <p class="catering-item-desc">Traditional hand-pressed beef patties</p>
+                          </li>
+                      </ul>
+                  </section>
+
+                  <!-- Lamb -->
+                  <section class="catering-section" aria-labelledby="lamb-heading">
+                      <h2 id="lamb-heading" class="catering-section-title">Lamb</h2>
+                      <ul style="list-style: none; padding: 0; margin: 0;" role="list">
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">Lamb Chops (10 pcs)</span>
+                                  <span class="catering-item-price">$70 <span style="font-size: 0.85rem; color: var(--muted-white); font-weight: normal;">(+$7 ea)</span></span>
+                              </div>
+                          </li>
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">Lamb Shank (10 pcs)</span>
+                                  <span class="catering-item-price">$130 <span style="font-size: 0.85rem; color: var(--muted-white); font-weight: normal;">(+$13 ea)</span></span>
+                              </div>
+                          </li>
+                      </ul>
+                  </section>
+
+                  <!-- Desserts -->
+                  <section class="catering-section" aria-labelledby="desserts-heading">
+                      <h2 id="desserts-heading" class="catering-section-title">Desserts</h2>
+                      <ul style="list-style: none; padding: 0; margin: 0;" role="list">
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">Baklava Tray</span>
+                                  <span class="catering-item-price">$120</span>
+                              </div>
+                          </li>
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">Turkish Flan Tray</span>
+                                  <span class="catering-item-price">$100</span>
+                              </div>
+                          </li>
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">Chocolate Mousse Cake Tray</span>
+                                  <span class="catering-item-price">$100</span>
+                              </div>
+                          </li>
+                      </ul>
+                  </section>
+
+                  <!-- Sides -->
+                  <section class="catering-section" aria-labelledby="sides-heading">
+                      <h2 id="sides-heading" class="catering-section-title">Sides</h2>
+                      <ul style="list-style: none; padding: 0; margin: 0;" role="list">
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">Turkish Rice Tray</span>
+                                  <span class="catering-item-price">$30</span>
+                              </div>
+                          </li>
+                          <li class="catering-item">
+                              <div class="catering-item-header">
+                                  <span class="catering-item-name">Grilled Veggies Tray</span>
+                                  <span class="catering-item-price">$30</span>
+                              </div>
+                          </li>
+                      </ul>
+                  </section>
+
+              </div>
+          </div>
+
+          <div class="bottom-legend-container" style="margin-top: 3rem;">
+              <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.06); margin-bottom: 2rem;">
+              <div class="bottom-legend-row">
+                  <p><strong>GF</strong> Gluten Free</p>
+                  <p><strong>VEG</strong> Vegetarian</p>
+                  <p><strong>V</strong> Vegan</p>
+              </div>
+              <p class="allergy-disclaimer">
+                  *Please inform us of any food allergies or dietary restrictions prior to placing your catering order.
+              </p>
+          </div>
+      </div>
+    </main>
+
+    <!-- Footer Bottom Area -->
+    <footer style="max-width: 900px; margin: 4rem auto 0 auto; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 2rem; text-align: center; color: var(--muted-white); letter-spacing: 1px;">
+        
+        <!-- Social Media Icons -->
+        <div style="display: flex; justify-content: center; gap: 32px; font-size: 2rem; margin-bottom: 1rem;">
+            <a href="https://instagram.com/seldasanantonio" target="_blank" rel="noopener noreferrer" style="color: var(--pure-white); transition: opacity 0.3s;" aria-label="Selda on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.tiktok.com/@seldamediterranean" target="_blank" rel="noopener noreferrer" style="color: var(--pure-white); transition: opacity 0.3s;" aria-label="Selda on TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+            <a href="https://facebook.com/seldasanantonio" target="_blank" rel="noopener noreferrer" style="color: var(--pure-white); transition: opacity 0.3s;" aria-label="Selda on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+        </div>
+
+        <!-- Local Identity -->
+        <p style="font-size: 0.95rem; margin-bottom: 2rem; text-transform: uppercase; font-weight: 600; color: var(--pure-white);">Selda | San Antonio</p>
+        
+        <!-- Legal Copyright -->
+        <p style="font-size: 0.75rem; opacity: 0.7; margin-bottom: 0.5rem;">&copy; 2026 Selda Mediterranean Kitchen &amp; Bar</p>
+        
+        <!-- Yörük Credit -->
+        <p style="font-size: 0.75rem; opacity: 0.9; font-family: 'Playfair Display', serif;">
+            Built by <a href="https://helloyoruk.com" target="_blank" rel="noopener noreferrer" 
+            style="color: var(--pure-white); text-decoration: none; border-bottom: none; transition: 0.3s;" 
+            onmouseover="this.style.borderBottom='1px solid var(--pure-white)'" 
+            onmouseout="this.style.borderBottom='none'">Yörük</a>
+        </p>
+    </footer>
+
+    <div class="sticky-mobile-footer">
+        <a href="#" id="mobile-order-trigger" class="sticky-action-btn" role="button" aria-expanded="false" aria-controls="mobile-dropup-menu">Order Online</a>
+        <div class="mobile-dropup-content" id="mobile-dropup-menu" aria-hidden="true">
+            <a href="https://selda.cloveronline.com" class="mobile-pickup-link" target="_blank" rel="noopener noreferrer">Order Pickup</a>
+            
+            <div class="mobile-nested-wrapper">
+                <button class="mobile-nested-btn" id="mobile-footer-delivery-toggle" aria-expanded="false" aria-controls="mobile-footer-delivery-dropdown">
+                    Order Delivery <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="mobile-nested-content" id="mobile-footer-delivery-dropdown" aria-hidden="true">
+                    <a href="https://order.online/store/-30359031/" target="_blank" rel="noopener noreferrer">DoorDash</a>
+                    <a href="https://www.order.store/store/selda-mediterranean-kitchen/vRA9IbcYQw2GZyRaci0HGA" target="_blank" rel="noopener noreferrer">Uber Eats</a>
+                    <a href="https://seldasanantonio.dine.online" target="_blank" rel="noopener noreferrer">Grubhub</a>
+                    <a href="https://zingmyorder.com/restaurants/selda-mediterranean-9955-I-10-san-antonio-tx-78230-united-states" target="_blank" rel="noopener noreferrer">Zing My Order</a>
+                </div>
+            </div>
+        </div>
+        <a href="https://yelp.to/xn-escdaLD" target="_blank" rel="noopener noreferrer" aria-label="Reserve a table on OpenTable">Reserve</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
