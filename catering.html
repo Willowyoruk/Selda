@@ -106,8 +106,48 @@
         color: var(--subtle-gold, #D4AF37);
         letter-spacing: 1px;
         margin-top: 0.5rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 0.5rem;
         text-transform: uppercase;
+      }
+
+      .catering-order-banner {
+        text-align: center;
+        background-color: rgba(212, 175, 55, 0.08);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem auto 1.8rem auto;
+        max-width: 500px;
+      }
+
+      .catering-order-banner p {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.95rem;
+        color: var(--pure-white, #ffffff);
+        margin-bottom: 0.6rem;
+        letter-spacing: 0.5px;
+      }
+
+      .catering-call-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: #0A111C;
+        background-color: var(--subtle-gold, #D4AF37);
+        padding: 0.6rem 1.4rem;
+        border-radius: 4px;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: opacity 0.2s ease;
+      }
+
+      .catering-call-btn:hover,
+      .catering-call-btn:focus-visible {
+        opacity: 0.9;
       }
 
       .catering-grid {
@@ -217,6 +257,14 @@
               <div class="serving-notice" aria-label="Serving size: Serves 10 people per item">
                   Serves 10 people per item
               </div>
+
+              <!-- Top Call to Order Notice -->
+              <div class="catering-order-banner">
+                  <p>Ready to place your catering order?</p>
+                  <a href="tel:2102365230" class="catering-call-btn">
+                      <i class="fas fa-phone" aria-hidden="true"></i> Call Us: (210) 236-5230
+                  </a>
+              </div>
           </div>
 
           <div class="top-dietary-key" aria-hidden="false">
@@ -305,7 +353,7 @@
                               <p class="catering-item-desc">Deep fried, flaky cigar shaped pastries stuffed with savory cheese</p>
                           </li>
                           <li class="catering-item">
-                              <span class="catering-item-name">Falafel <span class="dietary-tag">(VEG, GF)</span></span>
+                              <span class="catering-item-name">Falafel <span class="dietary-tag">(V)</span></span>
                           </li>
                           <li class="catering-item">
                               <span class="catering-item-name">Fried Cauliflower <span class="dietary-tag">(VEG, GF)</span></span>
@@ -327,14 +375,14 @@
                       <ul style="list-style: none; padding: 0; margin: 0;" role="list">
                           <li class="catering-item">
                               <div class="catering-item-header">
-                                  <span class="catering-item-name">Chicken Shish (10 skewers)</span>
+                                  <span class="catering-item-name">Chicken Shish (10 skewers) <span class="dietary-tag">(GF)</span></span>
                                   <span class="catering-item-price">$65</span>
                               </div>
                               <p class="catering-item-desc">Charcoal-grilled marinated chicken cubes</p>
                           </li>
                           <li class="catering-item">
                               <div class="catering-item-header">
-                                  <span class="catering-item-name">Chicken Adana (10 skewers)</span>
+                                  <span class="catering-item-name">Chicken Adana (10 skewers) <span class="dietary-tag">(GF)</span></span>
                                   <span class="catering-item-price">$65</span>
                               </div>
                               <p class="catering-item-desc">Hand-minced chicken kebab</p>
@@ -348,21 +396,21 @@
                       <ul style="list-style: none; padding: 0; margin: 0;" role="list">
                           <li class="catering-item">
                               <div class="catering-item-header">
-                                  <span class="catering-item-name">Urfa Kebab (10 skewers)</span>
+                                  <span class="catering-item-name">Urfa Kebab (10 skewers) <span class="dietary-tag">(GF)</span></span>
                                   <span class="catering-item-price">$80</span>
                               </div>
                               <p class="catering-item-desc">Chargrilled ground beef kebab</p>
                           </li>
                           <li class="catering-item">
                               <div class="catering-item-header">
-                                  <span class="catering-item-name">Beef Shish (10 skewers)</span>
+                                  <span class="catering-item-name">Beef Shish (10 skewers) <span class="dietary-tag">(GF)</span></span>
                                   <span class="catering-item-price">$80</span>
                               </div>
                               <p class="catering-item-desc">Hand-cut beef cubes skewered</p>
                           </li>
                           <li class="catering-item">
                               <div class="catering-item-header">
-                                  <span class="catering-item-name">Grilled Butcher Meatballs (20 pcs)</span>
+                                  <span class="catering-item-name">Grilled Butcher Meatballs (20 pcs) <span class="dietary-tag">(GF)</span></span>
                                   <span class="catering-item-price">$70</span>
                               </div>
                               <p class="catering-item-desc">Traditional hand-pressed beef patties</p>
@@ -376,13 +424,13 @@
                       <ul style="list-style: none; padding: 0; margin: 0;" role="list">
                           <li class="catering-item">
                               <div class="catering-item-header">
-                                  <span class="catering-item-name">Lamb Chops (10 pcs)</span>
+                                  <span class="catering-item-name">Lamb Chops (10 pcs) <span class="dietary-tag">(GF)</span></span>
                                   <span class="catering-item-price">$70 <span style="font-size: 0.85rem; color: var(--muted-white); font-weight: normal;">(+$7 ea)</span></span>
                               </div>
                           </li>
                           <li class="catering-item">
                               <div class="catering-item-header">
-                                  <span class="catering-item-name">Lamb Shank (10 pcs)</span>
+                                  <span class="catering-item-name">Lamb Shank (10 pcs) <span class="dietary-tag">(GF)</span></span>
                                   <span class="catering-item-price">$130 <span style="font-size: 0.85rem; color: var(--muted-white); font-weight: normal;">(+$13 ea)</span></span>
                               </div>
                           </li>
@@ -395,19 +443,19 @@
                       <ul style="list-style: none; padding: 0; margin: 0;" role="list">
                           <li class="catering-item">
                               <div class="catering-item-header">
-                                  <span class="catering-item-name">Baklava Tray</span>
+                                  <span class="catering-item-name">Baklava Tray <span class="dietary-tag">(VEG)</span></span>
                                   <span class="catering-item-price">$120</span>
                               </div>
                           </li>
                           <li class="catering-item">
                               <div class="catering-item-header">
-                                  <span class="catering-item-name">Turkish Flan Tray</span>
+                                  <span class="catering-item-name">Turkish Flan Tray <span class="dietary-tag">(VEG, GF)</span></span>
                                   <span class="catering-item-price">$100</span>
                               </div>
                           </li>
                           <li class="catering-item">
                               <div class="catering-item-header">
-                                  <span class="catering-item-name">Chocolate Mousse Cake Tray</span>
+                                  <span class="catering-item-name">Chocolate Mousse Cake Tray <span class="dietary-tag">(VEG)</span></span>
                                   <span class="catering-item-price">$100</span>
                               </div>
                           </li>
@@ -475,7 +523,7 @@
         </p>
     </footer>
 
-    <!-- Updated Sticky Mobile Footer (Call & Directions) -->
+    <!-- Sticky Mobile Footer (Call & Directions) -->
     <div class="sticky-mobile-footer">
         <a href="tel:2102365230" aria-label="Call Selda Mediterranean"><i class="fas fa-phone" style="margin-right: 6px;" aria-hidden="true"></i> Call</a>
         <a href="https://maps.google.com/?q=9955+I-10+W,+San+Antonio,+TX+78230" target="_blank" rel="noopener noreferrer" aria-label="Get Directions to Selda"><i class="fas fa-location-dot" style="margin-right: 6px;" aria-hidden="true"></i> Directions</a>
