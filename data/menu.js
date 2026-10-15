@@ -225,14 +225,14 @@ const menuData = {
         {
             name: "Turkish Döner (GF)",
             price: "$21.00",
-            description: "Thinly sliced beef doner (similar to gyro), slowly roasted on a vertical doner spit and served with Turkish rice and bean salad.",
+            description: "Thinly sliced beef doner slowly roasted on a vertical doner spit and served with Turkish rice and bean salad.",
             image: "assets/menu/turkish-doner.jpg",
             alt: "Thinly sliced Turkish döner served with rice and salad"
         },
         {
             name: "Iskender Döner",
             price: "$23.00",
-            description: "Thinly sliced beef doner (similar to gyro), slowly roasted on a vertical doner spit, served on top of pita bread with house-made tomato sauce, warm butter and plated wit[...]",
+            description: "Thinly sliced beef doner, slowly roasted on a vertical doner spit, served on top of pita bread with house-made tomato sauce, warm butter and plated with yogurt",
             image: "assets/menu/iskender-doner.jpg",
             alt: "Iskender doner served on pita with tomato sauce, butter and yogurt"
         }
